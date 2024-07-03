@@ -14,7 +14,7 @@
       "settings": {
         "heading": "",
         "heading_size": "h1",
-        "enable_video_looping": false,
+        "enable_video_looping": true,
         "video_url": "https:\/\/www.youtube.com\/watch?v=_9VUPq3SxOc",
         "description": "",
         "full_width": true,
