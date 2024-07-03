@@ -35,13 +35,29 @@
         "announcement-bar-0": {
           "type": "announcement",
           "settings": {
-            "text": "PROBANDO POR FIN!! - COMPRE RÁPIDO ANTES DE QUE SE AGOTE",
+            "text": "TÚ EDICIÓN EN MENOS DE 24 HORAS 📣",
+            "link": ""
+          }
+        },
+        "announcement_fadFNz": {
+          "type": "announcement",
+          "settings": {
+            "text": "ANIMACIONES PROFESIONALES 🔥",
+            "link": ""
+          }
+        },
+        "announcement_kkDW8y": {
+          "type": "announcement",
+          "settings": {
+            "text": "SOMO LOS MÁS VELOCES. 📣",
             "link": ""
           }
         }
       },
       "block_order": [
-        "announcement-bar-0"
+        "announcement-bar-0",
+        "announcement_fadFNz",
+        "announcement_kkDW8y"
       ],
       "settings": {
         "color_scheme": "scheme-4",
