@@ -129,26 +129,9 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: transparent;
+    background: {{ block.settings.overlay_color }};
+    opacity: {{ block.settings.overlay_opacity | divided_by: 100 }};
     z-index: 1;
-}
-.videoBackground .overlay:before, .videoBackground .overlay:after {
-    content: '';
-    position: absolute;
-    background: rgba(0, 0, 0, 0.5); /* Ajusta la opacidad según tus necesidades */
-}
-.videoBackground .overlay:before {
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 20%; /* Ajusta la altura del borde superior */
-}
-.videoBackground .overlay:after {
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 80%; /* Ajusta la altura de los bordes laterales */
-    clip-path: inset(0 0 0 20%); /* Ajusta la anchura de los bordes laterales */
 }
 .videoBackground .videoBoxInfoBtn, .videoBackground .imageBoxInfoBtn {
     -moz-user-select: none;
@@ -197,28 +180,21 @@
         margin-top: -35px;
     }
     .videoBackground .fullscreen-video-wrap {
-        z-index: 3;
-    }
-    .videoBackground .videoBox {
-        min-height: 300px;
-        height: 100%;
-        position: relative;
-        padding: 0;
-    }
-    .videoBackground .fullscreen-video-wrap {
-        position: relative;
-        min-height: 300px;
         z-index: -2;
     }
-    .videoBackground .videoBoxInfo {
-        padding: 2px 20px;
-        width: 100%;
+    .videoBackground .videoBox, .videoBackground .imageBox {
+        padding: 70px 20px 50px;
+        min-height: 400px;
+        max-height: 800px;
+        height: calc(100vh - 135px);
     }
-    .videoBoxInfoTitle, .videoBackground .videoBoxInfoBtn {
-        display: none;
+    .videoBackground .videoBoxInfoTitle, .videoBackground .imageBoxInfoTitle {
+        font-size: 40px;
+        line-height: 30px;
     }
 }
 </style>
+
 
 {% schema %}
 {
@@ -307,6 +283,28 @@
                         "en": "Button text color"
                     },
                     "default": "#ffffff"
+                },
+                {
+                    "type": "color",
+                    "id": "overlay_color",
+                    "label": {
+                        "en": "Overlay Color"
+                    },
+                    "default": "#000000"
+                },
+                {
+                    "type": "range",
+                    "id": "overlay_opacity",
+                    "label": {
+                        "en": "Overlay Opacity"
+                    },
+                    "min": 0,
+                    "max": 100,
+                    "step": 1,
+                    "unit": {
+                        "en": "%"
+                    },
+                    "default": 80
                 }
             ]
         },
