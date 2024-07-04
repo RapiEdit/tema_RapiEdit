@@ -1,3 +1,5 @@
+<!-- video-background.liquid -->
+
 {%- if section.blocks.size > 0 -%}
 
 {%- for block in section.blocks -%}
@@ -5,21 +7,28 @@
 {%- assign img_url = block.settings.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
 
 {% if block.type == 'video' %}
-<div class="videoBox">
+<div class="videoBox" style="{%- if block.settings.video_link == blank -%}background-image: url('{{ block.settings.video_image  | img_url: 'master' }}');{%- endif -%}">
+    {%- if block.settings.video_link != blank -%}
     <div class="fullscreen-video-wrap">
-        <video class="video-js" loop autoplay preload="none" muted playsinline poster="{{ block.settings.video_image | img_url: 'master' }}">
+        <video class="video-js" loop autoplay preload="none" muted playsinline poster="https:{{ block.settings.video_image | img_url: 'master' }}">
             <source src="{{ block.settings.video_link }}" type="video/mp4">
         </video>
-        <div class="overlay"></div> <!-- Aquí se añade la superposición -->
     </div>
+    {% endif %}
+    <div class="overlay"></div>
     <div class="videoBoxInfo">
         {% if block.settings.title != blank %}
         <h1 class="videoBoxInfoTitle" style="color: {{ block.settings.color_text }}">
             {{ block.settings.title | escape }}
         </h1>
         {% endif %}
+        {%- style -%}
+        .videoBackground .imageBoxInfoDescription p {
+            color: {{ block.settings.color_text }}!important;
+        }
+        {%- endstyle -%}
         {% if block.settings.text != blank %}
-        <div class="videoBoxInfoDescription" id="{{ block.id }}" style="color: {{ block.settings.color_text }}">
+        <div class="imageBoxInfoDescription" id="{{ block.id }}" style="color: {{ block.settings.color_text }}">
             {{ block.settings.text }}
         </div>
         {% endif %}
@@ -31,14 +40,18 @@
     </div>
 </div>
 {% else %}
-<div class="imageBox" style="background-color: {{ block.settings.color_bg }}; {% if block.settings.image_bg != blank %}background-image: url('{{ block.settings.image_bg | img_url: 'master' }}');{% endif %}">
-    <div class="overlay"></div>
+<div class="imageBox" style="background-color: {{ block.settings.color_bg }}; {%- if block.settings.image_bg != blank -%}background-image: url('{{ block.settings.image_bg | img_url: 'master' }}');{%- endif -%}">
     <div class="imageBoxInfo">
         {% if block.settings.title != blank %}
         <h1 class="imageBoxInfoTitle" style="color: {{ block.settings.color_text }}">
             {{ block.settings.title | escape }}
         </h1>
         {% endif %}
+        {%- style -%}
+        .videoBackground .imageBoxInfoDescription p {
+            color: {{ block.settings.color_text }}!important;
+        }
+        {%- endstyle -%}
         {% if block.settings.text != blank %}
         <div class="imageBoxInfoDescription" id="{{ block.id }}" style="color: {{ block.settings.color_text }}">
             {{ block.settings.text }}
@@ -53,11 +66,12 @@
 </div>
 {% endif %}
 {%- endfor -%}
+
 {% else %}
 <div class="placeholderNoblocks">
     This section doesn’t currently include any content. Add content to this section using the sidebar.
 </div>
-{% endif %}
+{%- endif -%}
 
 <style>
 .main-content .videoBackground {
@@ -90,7 +104,7 @@
     min-width: 100%;
     object-fit: cover;
 }
-.videoBackground .videoBox {
+.videoBackground .videoBox, .videoBackground .imageBox {
     display: flex;
     align-items: center;
     justify-content: flex-end;
@@ -104,34 +118,37 @@
     height: calc(100vh - 165px);
     position: relative;
 }
-.videoBackground .imageBox {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    flex-direction: column;
-    padding: 100px 20px 80px;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    position: relative;
-    min-height: calc(100vh - 165px);
-    height: auto;
-}
 .videoBackground .videoBoxInfo, .videoBackground .imageBoxInfo {
     z-index: 2;
     margin: auto;
     text-align: center;
 }
 .videoBackground .overlay {
-    content: "";
     position: absolute;
     top: 0;
-    right: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    z-index: 1;
+}
+.videoBackground .overlay:before, .videoBackground .overlay:after {
+    content: '';
+    position: absolute;
+    background: rgba(0, 0, 0, 0.5); /* Ajusta la opacidad según tus necesidades */
+}
+.videoBackground .overlay:before {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 20%; /* Ajusta la altura del borde superior */
+}
+.videoBackground .overlay:after {
     bottom: 0;
     left: 0;
-    background: {{ block.settings.overlay_color }};
-    opacity: {{ block.settings.overlay_opacity | divided_by: 100 }};
-    z-index: 1;
+    width: 100%;
+    height: 80%; /* Ajusta la altura de los bordes laterales */
+    clip-path: inset(0 0 0 20%); /* Ajusta la anchura de los bordes laterales */
 }
 .videoBackground .videoBoxInfoBtn, .videoBackground .imageBoxInfoBtn {
     -moz-user-select: none;
@@ -202,7 +219,6 @@
     }
 }
 </style>
-
 
 {% schema %}
 {
@@ -291,28 +307,6 @@
                         "en": "Button text color"
                     },
                     "default": "#ffffff"
-                },
-                {
-                    "type": "color",
-                    "id": "overlay_color",
-                    "label": {
-                        "en": "Overlay Color"
-                    },
-                    "default": "#000000"
-                },
-                {
-                    "type": "range",
-                    "id": "overlay_opacity",
-                    "label": {
-                        "en": "Overlay Opacity"
-                    },
-                    "min": 0,
-                    "max": 100,
-                    "step": 1,
-                    "unit": {
-                        "en": "%"
-                    },
-                    "default": 80
                 }
             ]
         },
@@ -431,13 +425,3 @@
     ]
 }
 {% endschema %}
-
-<script>
-document.addEventListener("DOMContentLoaded", function() {
-    var video = document.querySelector(".video-js");
-    var overlay = document.createElement("div");
-    overlay.className = "overlay";
-    video.parentNode.insertBefore(overlay, video.nextSibling);
-});
-</script>
-
