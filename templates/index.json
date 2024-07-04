@@ -43,6 +43,44 @@
         "padding_bottom": 52
       }
     },
+    "collage_aDqbdB": {
+      "type": "collage",
+      "blocks": {
+        "image_eQf4Hz": {
+          "type": "image",
+          "settings": {
+          }
+        },
+        "product_injrgw": {
+          "type": "product",
+          "settings": {
+            "product": "animacion-de-logo-lujuso-y-explosivo",
+            "second_image": false
+          }
+        },
+        "collection_U9HETz": {
+          "type": "collection",
+          "settings": {
+            "collection": "animacion-de-logos"
+          }
+        }
+      },
+      "block_order": [
+        "image_eQf4Hz",
+        "product_injrgw",
+        "collection_U9HETz"
+      ],
+      "settings": {
+        "heading": "Multimedia collage",
+        "heading_size": "h1",
+        "desktop_layout": "left",
+        "mobile_layout": "column",
+        "card_styles": "product-card-wrapper",
+        "color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
     "featured_collection_Jat74e": {
       "type": "featured-collection",
       "settings": {
@@ -137,7 +175,7 @@
         "media_position": "left",
         "image_zoom": "lightbox",
         "hide_variants": false,
-        "enable_video_looping": false,
+        "enable_video_looping": true,
         "padding_top": 36,
         "padding_bottom": 36
       }
@@ -145,6 +183,7 @@
   },
   "order": [
     "newsletter_bzJ8Fh",
+    "collage_aDqbdB",
     "featured_collection_Jat74e",
     "featured_product_aBaY6Y"
   ]
