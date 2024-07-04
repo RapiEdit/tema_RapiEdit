@@ -46,7 +46,7 @@
     "featured_collection_Jat74e": {
       "type": "featured-collection",
       "settings": {
-        "title": "Animación de Logos",
+        "title": "{{ section.settings.collection.title }}",
         "heading_size": "h1",
         "description": "",
         "show_description": false,
