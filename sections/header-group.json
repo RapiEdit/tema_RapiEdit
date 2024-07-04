@@ -83,7 +83,7 @@
             "button_link": "",
             "color_btn_bg": "#ffffff",
             "color_btn_text": "#ffffff",
-            "overlay_color": "#000000",
+            "overlay_color": "#dd1d1d",
             "overlay_opacity": 100
           }
         }
