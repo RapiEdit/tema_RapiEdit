@@ -1,77 +1,73 @@
 <!-- video-background.liquid -->
 
 {%- if section.blocks.size > 0 -%}
-
-{%- for block in section.blocks -%}
-
-{%- assign img_url = block.settings.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
-
-{% if block.type == 'video' %}
-<div class="videoBox" style="{%- if block.settings.video_link == blank -%}background-image: url('{{ block.settings.video_image  | img_url: 'master' }}');{%- endif -%}">
-    {%- if block.settings.video_link != blank -%}
-    <div class="fullscreen-video-wrap">
-        <video class="video-js" loop autoplay preload="none" muted playsinline poster="https:{{ block.settings.video_image | img_url: 'master' }}">
-            <source src="{{ block.settings.video_link }}" type="video/mp4">
-        </video>
+    {%- for block in section.blocks -%}
+    {%- assign img_url = block.settings.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+    {% if block.type == 'video' %}
+    <div class="videoBox" style="{%- if block.settings.video_link == blank -%}background-image: url('{{ block.settings.video_image  | img_url: 'master' }}');{%- endif -%}">
+        {%- if block.settings.video_link != blank -%}
+        <div class="fullscreen-video-wrap">
+            <video class="video-js" loop autoplay preload="none" muted playsinline poster="https:{{ block.settings.video_image | img_url: 'master' }}">
+                <source src="{{ block.settings.video_link }}" type="video/mp4">
+            </video>
+        </div>
+        {% endif %}
+        <div class="overlay"></div>
+        <div class="videoBoxInfo">
+            {% if block.settings.title != blank %}
+            <h1 class="videoBoxInfoTitle" style="color: {{ block.settings.color_text }}">
+                {{ block.settings.title | escape }}
+            </h1>
+            {% endif %}
+            {%- style -%}
+            .videoBackground .imageBoxInfoDescription p {
+                color: {{ block.settings.color_text }}!important;
+            }
+            {%- endstyle -%}
+            {% if block.settings.text != blank %}
+            <div class="imageBoxInfoDescription" id="{{ block.id }}" style="color: {{ block.settings.color_text }}">
+                {{ block.settings.text }}
+            </div>
+            {% endif %}
+            {% if block.settings.button_link != blank and block.settings.button_label != blank %}
+            <a href="{{ block.settings.button_link }}" class="videoBoxInfoBtn" style="color: {{ block.settings.color_btn_text }}; background: {{ block.settings.color_btn_bg }}">
+                {{ block.settings.button_label | escape }}
+            </a>
+            {% endif %}
+        </div>
+    </div>
+    {% else %}
+    <div class="imageBox" style="background-color: {{ block.settings.color_bg }}; {%- if block.settings.image_bg != blank -%}background-image: url('{{ block.settings.image_bg | img_url: 'master' }}');{%- endif -%}">
+        <div class="imageBoxInfo">
+            {% if block.settings.title != blank %}
+            <h1 class="imageBoxInfoTitle" style="color: {{ block.settings.color_text }}">
+                {{ block.settings.title | escape }}
+            </h1>
+            {% endif %}
+            {%- style -%}
+            .videoBackground .imageBoxInfoDescription p {
+                color: {{ block.settings.color_text }}!important;
+            }
+            {%- endstyle -%}
+            {% if block.settings.text != blank %}
+            <div class="imageBoxInfoDescription" id="{{ block.id }}" style="color: {{ block.settings.color_text }}">
+                {{ block.settings.text }}
+            </div>
+            {% endif %}
+            {% if block.settings.button_link != blank and block.settings.button_label != blank %}
+            <a href="{{ block.settings.button_link }}" class="imageBoxInfoBtn" style="color: {{ block.settings.color_btn_text }}; background: {{ block.settings.color_btn_bg }}">
+                {{ block.settings.button_label | escape }}
+            </a>
+            {% endif %}
+        </div>
     </div>
     {% endif %}
-    <div class="overlay"></div>
-    <div class="videoBoxInfo">
-        {% if block.settings.title != blank %}
-        <h1 class="videoBoxInfoTitle" style="color: {{ block.settings.color_text }}">
-            {{ block.settings.title | escape }}
-        </h1>
-        {% endif %}
-        {%- style -%}
-        .videoBackground .imageBoxInfoDescription p {
-            color: {{ block.settings.color_text }}!important;
-        }
-        {%- endstyle -%}
-        {% if block.settings.text != blank %}
-        <div class="imageBoxInfoDescription" id="{{ block.id }}" style="color: {{ block.settings.color_text }}">
-            {{ block.settings.text }}
-        </div>
-        {% endif %}
-        {% if block.settings.button_link != blank and block.settings.button_label != blank %}
-        <a href="{{ block.settings.button_link }}" class="videoBoxInfoBtn" style="color: {{ block.settings.color_btn_text }}; background: {{ block.settings.color_btn_bg }}">
-            {{ block.settings.button_label | escape }}
-        </a>
-        {% endif %}
+    {%- endfor -%}
+    {% else %}
+    <div class="placeholderNoblocks">
+        This section doesn’t currently include any content. Add content to this section using the sidebar.
     </div>
-</div>
-{% else %}
-<div class="imageBox" style="background-color: {{ block.settings.color_bg }}; {%- if block.settings.image_bg != blank -%}background-image: url('{{ block.settings.image_bg | img_url: 'master' }}');{%- endif -%}">
-    <div class="imageBoxInfo">
-        {% if block.settings.title != blank %}
-        <h1 class="imageBoxInfoTitle" style="color: {{ block.settings.color_text }}">
-            {{ block.settings.title | escape }}
-        </h1>
-        {% endif %}
-        {%- style -%}
-        .videoBackground .imageBoxInfoDescription p {
-            color: {{ block.settings.color_text }}!important;
-        }
-        {%- endstyle -%}
-        {% if block.settings.text != blank %}
-        <div class="imageBoxInfoDescription" id="{{ block.id }}" style="color: {{ block.settings.color_text }}">
-            {{ block.settings.text }}
-        </div>
-        {% endif %}
-        {% if block.settings.button_link != blank and block.settings.button_label != blank %}
-        <a href="{{ block.settings.button_link }}" class="imageBoxInfoBtn" style="color: {{ block.settings.color_btn_text }}; background: {{ block.settings.color_btn_bg }}">
-            {{ block.settings.button_label | escape }}
-        </a>
-        {% endif %}
-    </div>
-</div>
-{% endif %}
-{%- endfor -%}
-
-{% else %}
-<div class="placeholderNoblocks">
-    This section doesn’t currently include any content. Add content to this section using the sidebar.
-</div>
-{%- endif -%}
+    {%- endif -%}
 
 <style>
 .main-content .videoBackground {
@@ -132,7 +128,7 @@
     height: 100%;
     z-index: 2 !important;
     background: rgba(0, 0, 0, 0.5); /* Ajusta la opacidad según tus necesidades */
-    clip-path: polygon(0 0, 100% 0, 100% 20%, 80% 20%, 80% 100%, 20% 100%, 20% 20%, 0 20%);
+    clip-path: polygon(0% 0%, 100% 0%, 100% 90%, 80% 90%, 80% 100%, 20% 100%, 20% 90%, 0% 90%);
     display: block;
 }
 .videoBackground .videoBoxInfoBtn, .videoBackground .imageBoxInfoBtn {
