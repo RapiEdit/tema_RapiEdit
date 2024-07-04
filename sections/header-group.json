@@ -69,19 +69,33 @@
         "enable_language_selector": false
       }
     },
-    "custom_liquid_ciBaHW": {
-      "type": "custom-liquid",
+    "videodefondo_FAm8YY": {
+      "type": "videodefondo",
+      "blocks": {
+        "video_3NMcqg": {
+          "type": "video",
+          "settings": {
+            "video_link": "https:\/\/cdn.shopify.com\/videos\/c\/o\/v\/0aa7106e4588482a91260f64511204c1.mp4",
+            "title": "Video slide",
+            "text": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.<\/p>",
+            "color_text": "#ffffff",
+            "button_label": "",
+            "button_link": "",
+            "color_btn_bg": "#ffffff",
+            "color_btn_text": "#ffffff"
+          }
+        }
+      },
+      "block_order": [
+        "video_3NMcqg"
+      ],
       "settings": {
-        "custom_liquid": "<!-- video-background.liquid -->\n\n<div class=\"video-background\">\n  <video autoplay muted loop id=\"bgVideo\">\n    <source src=\"https:\/\/cdn.shopify.com\/videos\/c\/o\/v\/0aa7106e4588482a91260f64511204c1.mp4\" type=\"video\/mp4\">\n    Tu navegador no soporta el video.\n  <\/video>\n  <div class=\"overlay\"><\/div>\n  <div class=\"content\">\n    <!-- Aquí puedes añadir el contenido que deseas mostrar sobre el video -->\n    <h1>Tu Título Aquí<\/h1>\n    <p>Descripción o cualquier otro contenido<\/p>\n  <\/div>\n<\/div>\n\n<style>\n\/* Video de fondo *\/\n.video-background {\n  position: relative;\n  height: 100vh; \/* Ajusta la altura según tus necesidades *\/\n  overflow: hidden;\n}\n\n#bgVideo {\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  width: 100%;\n  height: 100%;\n  object-fit: cover;\n  transform: translate(-50%, -50%);\n  z-index: 1;\n}\n\n\/* Overlay en forma de \"U\" *\/\n.overlay {\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  background: transparent;\n  z-index: 2;\n}\n\n.overlay:before, .overlay:after {\n  content: '';\n  position: absolute;\n  background: rgba(0, 0, 0, 0.5); \/* Ajusta la opacidad según tus necesidades *\/\n}\n\n.overlay:before {\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 20%; \/* Ajusta la altura del borde superior *\/\n}\n\n.overlay:after {\n  bottom: 0;\n  left: 0;\n  width: 100%;\n  height: 80%; \/* Ajusta la altura de los bordes laterales *\/\n  clip-path: inset(0 0 0 20%); \/* Ajusta la anchura de los bordes laterales *\/\n}\n\n\/* Contenido *\/\n.content {\n  position: relative;\n  z-index: 3;\n  color: white; \/* Ajusta el color del texto según tus necesidades *\/\n  text-align: center;\n  padding: 20px;\n}\n<\/style>",
-        "color_scheme": "",
-        "padding_top": 40,
-        "padding_bottom": 52
       }
     }
   },
   "order": [
     "header",
     "announcement-bar",
-    "custom_liquid_ciBaHW"
+    "videodefondo_FAm8YY"
   ]
 }
