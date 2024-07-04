@@ -3505,3 +3505,16 @@ details-disclosure > details {
     --border-offset: 0px; /* Prevent the border from growing on buttons when this effect is on. */
   }
 }
+
+@media screen and (max-width: 767px) {
+    .videoBackground .videoBox {
+        padding: 100px 20px 80px !important;
+    }
+    .videoBackground .fullscreen-video-wrap {
+        position: absolute !important;
+        z-index: 1 !important;
+    }
+    .videoBackground .videoBoxInfo {
+        padding: 10px !important;
+    }
+}
