@@ -84,7 +84,7 @@
             "color_btn_bg": "#ffffff",
             "color_btn_text": "#ffffff",
             "overlay_color": "#000000",
-            "overlay_opacity": 80
+            "overlay_opacity": 100
           }
         }
       },
