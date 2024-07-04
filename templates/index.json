@@ -9,21 +9,6 @@
 */
 {
   "sections": {
-    "video_GtFWwE": {
-      "type": "video",
-      "settings": {
-        "heading": "",
-        "heading_size": "h1",
-        "enable_video_looping": true,
-        "video": "shopify:\/\/files\/videos\/Multilogos Portada.mp4",
-        "video_url": "https:\/\/www.youtube.com\/watch?v=_9VUPq3SxOc",
-        "description": "",
-        "full_width": true,
-        "color_scheme": "",
-        "padding_top": 0,
-        "padding_bottom": 0
-      }
-    },
     "newsletter_bzJ8Fh": {
       "type": "newsletter",
       "blocks": {
@@ -60,7 +45,6 @@
     }
   },
   "order": [
-    "video_GtFWwE",
     "newsletter_bzJ8Fh"
   ]
 }
