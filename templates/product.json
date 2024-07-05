@@ -109,67 +109,6 @@
         "padding_bottom": 60
       }
     },
-    "collapsible_content_ag8Y6m": {
-      "type": "collapsible-content",
-      "blocks": {
-        "collapsible_row_dmzPmA": {
-          "type": "collapsible_row",
-          "settings": {
-            "heading": "Collapsible row",
-            "icon": "check_mark",
-            "row_content": "",
-            "page": ""
-          }
-        },
-        "collapsible_row_NrA6RB": {
-          "type": "collapsible_row",
-          "settings": {
-            "heading": "Collapsible row",
-            "icon": "banana",
-            "row_content": "",
-            "page": ""
-          }
-        },
-        "collapsible_row_9qz4fU": {
-          "type": "collapsible_row",
-          "settings": {
-            "heading": "Collapsible row",
-            "icon": "apple",
-            "row_content": "",
-            "page": ""
-          }
-        },
-        "collapsible_row_cwLinY": {
-          "type": "collapsible_row",
-          "settings": {
-            "heading": "Collapsible row",
-            "icon": "carrot",
-            "row_content": "",
-            "page": ""
-          }
-        }
-      },
-      "block_order": [
-        "collapsible_row_dmzPmA",
-        "collapsible_row_NrA6RB",
-        "collapsible_row_9qz4fU",
-        "collapsible_row_cwLinY"
-      ],
-      "settings": {
-        "caption": "",
-        "heading": "",
-        "heading_size": "h1",
-        "heading_alignment": "center",
-        "layout": "section",
-        "color_scheme": "",
-        "container_color_scheme": "",
-        "open_first_collapsible_row": true,
-        "image_ratio": "adapt",
-        "desktop_layout": "image_second",
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
-    },
     "related-products": {
       "type": "related-products",
       "settings": {
@@ -197,7 +136,6 @@
   },
   "order": [
     "main",
-    "collapsible_content_ag8Y6m",
     "related-products",
     "17070426981b2e4552"
   ]
