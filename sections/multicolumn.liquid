@@ -72,7 +72,8 @@
             {{ block.shopify_attributes }}
             {% if settings.animations_reveal_on_scroll %}
               data-cascade
-              style="--animation-order: {{ forloop.index }};"
+              style="--animation-order: {{ forloop.index }}; margin-top: -80px;
+    z-index: 1;"
             {% endif %}
           >
             <div class="multicolumn-card content-container">
