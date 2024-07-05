@@ -80,6 +80,7 @@
   left: -2px;
   right: -2px;
   bottom: -2px;
+  border-radius: var(--text-boxes-radius);
   background-image: linear-gradient(
     to right,
     #5a0dff -5%,
