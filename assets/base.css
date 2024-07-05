@@ -3524,9 +3524,12 @@ details-disclosure > details {
   box-shadow: 5px 2px 10px 0px rgba(45, 23, 70, 0.2) inset, -5px -3px 8px 0px rgba(71, 23, 11, 0.2) inset !important;
   background-size: 200% 100%;
   transition: all 0.4s ease-in-out;
+  display: inline-block; /* Asegura que el botón se escale correctamente */
 }
 
 .botonpro:hover {
   background-image: linear-gradient(to left, #5a0dff -5%, #ff29b8 31%, #ff581c, #ff29b8, #5a0dff);
-  box-shadow: 25px rgba(45, 23, 70, 0.2) inset, -5px -3px 8px 0px rgba(255, 87, 0, 0.5) inset !important;
+  box-shadow: 10px 4px 20px 0px rgba(45, 23, 70, 0.4) inset, -10px -6px 16px 0px rgba(255, 87, 0, 0.7) inset !important;
+  transform: scale(1.05); /* Escala el botón y el texto */
 }
+
