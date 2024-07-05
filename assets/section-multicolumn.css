@@ -136,14 +136,6 @@
 .multicolumn-list__item .media--adapt .multicolumn-card__image {
   width: auto;
 }
-.multicolumn-card__image {
-  transition: transform 0.3s ease; /* Añade una transición suave */
-}
-
-.multicolumn-card__image:hover {
-  transform: scale(1.05) !important; /* Escala el botón y el texto */
-  transform-origin: center center; /* Asegura que la escala se haga desde el centro */
-}
 
 .multicolumn-list__item.center .media--adapt img {
   left: 50%;
