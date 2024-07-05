@@ -3528,6 +3528,6 @@ details-disclosure > details {
 
 .botonpro:hover {
   background-image: linear-gradient(to left, #5a0dff -5%, #ff29b8 31%, #ff581c, #ff29b8, #5a0dff);
-   box-shadow: 15px 10px 30px 5px rgba(45, 23, 70, 0.4) inset, -15px -10px 30px 5px rgba(255, 87, 0, 0.7) inset !important;
+   box-shadow: 10px 4px 20px 0px rgba(45, 23, 70, 0.4) inset, -10px -6px 16px 0px rgba(255, 87, 0, 0.7) inset !important;
   transform: scale(1.05); /* Escala el botón y el texto */
 }
