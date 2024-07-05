@@ -71,34 +71,10 @@
         "enable_country_selector": false,
         "enable_language_selector": false
       }
-    },
-    "videodefondo_FAm8YY": {
-      "type": "videodefondo",
-      "blocks": {
-        "video_3NMcqg": {
-          "type": "video",
-          "settings": {
-            "video_link": "https:\/\/cdn.shopify.com\/videos\/c\/o\/v\/0aa7106e4588482a91260f64511204c1.mp4",
-            "title": "",
-            "text": "",
-            "color_text": "#00ff8b",
-            "button_label": "",
-            "button_link": "",
-            "color_btn_bg": "#ffffff",
-            "color_btn_text": "#ffffff"
-          }
-        }
-      },
-      "block_order": [
-        "video_3NMcqg"
-      ],
-      "settings": {
-      }
     }
   },
   "order": [
     "header",
-    "announcement-bar",
-    "videodefondo_FAm8YY"
+    "announcement-bar"
   ]
 }
