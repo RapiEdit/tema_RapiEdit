@@ -1,6 +1,6 @@
 <!-- video-background.liquid -->
 
-{%- if section.blocks.size > 0 -%}
+{%- if section.blocks.size > 0 and template == 'index' -%}
     {%- for block in section.blocks -%}
     {%- assign img_url = block.settings.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
     {% if block.type == 'video' %}
