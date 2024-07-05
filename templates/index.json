@@ -88,7 +88,7 @@
         "column_9Kf8XX"
       ],
       "custom_css": [
-        ".isolate{background-color: red !important; border-radius: 30px;}"
+        ".isolate {background-color: black !important; border-radius: 30px;}"
       ],
       "settings": {
         "title": "TÚ ANIMACIÓN EN MENOS DE 24 HORAS 🎬",
