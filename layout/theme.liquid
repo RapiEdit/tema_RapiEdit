@@ -252,13 +252,21 @@
     {% endstyle %}
 
     {{ 'base.css' | asset_url | stylesheet_tag }}
-  {% if template == 'product' %}
+
+    {% if template == 'index' %}
       {% style %}
-       #shopify-section-sections--16477474357308__videodefondo_FAm8YY {
-          display:none;
+        #shopify-section-sections--16477474357308__videodefondo_FAm8YY {
+          display: block; /* o la propiedad que desees */
         }
       {% endstyle %}
-{% endif %}
+    {% else %}
+      {% style %}
+        #shopify-section-sections--16477474357308__videodefondo_FAm8YY {
+          display: none;
+        }
+      {% endstyle %}
+    {% endif %}
+    
 
     {%- unless settings.type_body_font.system? -%}
       <link rel="preload" as="font" href="{{ settings.type_body_font | font_url }}" type="font/woff2" crossorigin>
