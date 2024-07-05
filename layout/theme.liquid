@@ -252,6 +252,13 @@
     {% endstyle %}
 
     {{ 'base.css' | asset_url | stylesheet_tag }}
+  {% if template == 'product' %}
+      {% style %}
+        #shopify-section-header,#shopify-section-footer {
+          display:none;
+        }
+      {% endstyle %}
+{% endif %}
 
     {%- unless settings.type_body_font.system? -%}
       <link rel="preload" as="font" href="{{ settings.type_body_font | font_url }}" type="font/woff2" crossorigin>
