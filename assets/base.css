@@ -3570,3 +3570,58 @@ details-disclosure > details {
     -webkit-backdrop-filter: blur(10px);
     background-color: rgb(0 0 0 / 70%);
 }
+
+.isolatepro {
+  position: relative;
+  background-color: black !important;
+  border-radius: 30px;
+  margin-top: -80px;
+  z-index: 1;
+  padding: 10px; /* Añade un padding interno para que no se cubra el contenido */
+  box-sizing: border-box; /* Asegúrate de que el padding no altere el tamaño total */
+}
+
+.isolatepro::before {
+  content: "";
+  position: absolute;
+  top: -2px; /* Ajusta según el grosor del borde */
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  border-radius: 32px; /* Ajusta según el radio del borde */
+  background-image: linear-gradient(
+    to right,
+    #5a0dff -5%,
+    #ff29b8 31%,
+    #ff581c,
+    #ff29b8,
+    #5a0dff
+  );
+  background-size: 200% 100%;
+  animation: gradientAnimation 4s linear infinite;
+  z-index: -1;
+}
+
+.isolatepro::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 30px;
+  background-color: black;
+  z-index: -1;
+}
+
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 0;
+  }
+  50% {
+    background-position: 100% 0;
+  }
+  100% {
+    background-position: 0% 0;
+  }
+}
