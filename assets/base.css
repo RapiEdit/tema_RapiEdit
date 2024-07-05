@@ -2365,9 +2365,9 @@ product-info .loading__spinner:not(.hidden) ~ *,
   display: block;
   position: relative;
   background-color: rgb(var(--color-background));
-        backdrop-filter: blur(30px);
-    -webkit-backdrop-filter: blur(10px);
-    background-color: rgb(0 0 0 / 70%);
+        backdrop-filter: blur(30px) !important;
+    -webkit-backdrop-filter: blur(10px)!important;
+    background-color: rgb(0 0 0 / 70%) !important;
 }
 
 .header-wrapper--border-bottom {
