@@ -72,6 +72,9 @@
   background: rgb(var(--color-background))
     linear-gradient(rgba(var(--color-foreground), 0.04), rgba(var(--color-foreground), 0.04));
 }
+.multicolumn.background-primary .multicolumn-card:hover {
+ transform: scale(1.05)!important; /* Escala el botón y el texto */
+}
 
 .multicolumn-card::before {
   content: "";
