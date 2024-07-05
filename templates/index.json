@@ -60,7 +60,7 @@
         "column_9Kf8XX"
       ],
       "custom_css": [
-        ".isolate {background-color: black !important; border-radius: 30px;}"
+        ".isolate {background-color: black !important; border-radius: 30px; margin-top: -80px; z-index: 1;}"
       ],
       "settings": {
         "title": "TÚ ANIMACIÓN EN MENOS DE 24 HORAS 🎬",
