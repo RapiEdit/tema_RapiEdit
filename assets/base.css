@@ -3625,3 +3625,48 @@ details-disclosure > details {
     background-position: 0% 0;
   }
 }
+
+.cardpro {
+  position: relative;
+
+  overflow: hidden; /* Asegura que el contenido interno no se salga del borde */
+}
+
+.cardpro::before {
+  content: "";
+  position: absolute;
+  top: -2px; /* Ajusta según el grosor del borde */
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  border-radius: 32px; /* Ajusta según el radio del borde */
+  background-image: linear-gradient(
+    to right,
+    #5a0dff -5%,
+    #ff29b8 31%,
+    #ff581c,
+    #ff29b8,
+    #5a0dff
+  );
+  background-size: 200% 100%;
+  z-index: -1;
+  opacity: 0; /* Inicialmente invisible */
+  transition: opacity 0.3s ease; /* Transición suave para el efecto */
+}
+
+.cardpro:hover::before {
+  opacity: 1; /* Muestra el borde degradado al hacer hover */
+  animation: gradientAnimation 4s linear infinite; /* Inicia la animación */
+}
+
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 0;
+  }
+  50% {
+    background-position: 100% 0;
+  }
+  100% {
+    background-position: 0% 0;
+  }
+}
