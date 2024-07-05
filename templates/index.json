@@ -87,6 +87,9 @@
         "column_hyeEgz",
         "column_9Kf8XX"
       ],
+      "custom_css": [
+        ".section-template--16477474816060 {background-color: black; border-radius: 30px;}"
+      ],
       "settings": {
         "title": "TÚ ANIMACIÓN EN MENOS DE 24 HORAS 🎬",
         "heading_size": "h1",
