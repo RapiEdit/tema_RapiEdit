@@ -21,9 +21,9 @@
     padding: 10px 15px;
     cursor: pointer;
     border: 1px solid #ccc;
-    border-radius: 30px; /* Borde redondeado */
-    transition: border-color 0.3s ease; /* Transición suave para el cambio de borde */
+    border-radius: 20px; /* Borde redondeado */
     background-color: #efefef; /* Color de fondo normal */
+    transition: border-color 0.3s ease; /* Transición suave para el cambio de borde */
   }
   
   .custom--tabs .tab__list .custom-tab:hover {
@@ -39,6 +39,15 @@
   
     .custom--tabs .tab__list {
       margin: 10px 0; /* Espacio entre cada tab en móvil */
+    }
+  
+    .custom--tabs .tab__list .custom-tab {
+      border-radius: 20px; /* Borde redondeado */
+      margin: 0;
+      width: 100%;
+      padding: 10px 15px;
+      border: 1px solid #ccc;
+      transition: border-color 0.3s ease; /* Transición suave para el cambio de borde */
     }
   }
   {% endstylesheet %}
