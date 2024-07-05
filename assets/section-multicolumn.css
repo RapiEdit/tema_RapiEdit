@@ -9,7 +9,7 @@
 
 .multicolumn .title-wrapper-with-link {
   margin-top: 0;
-  text-align: center;
+  text-align: cente !important;
 }
 
 @media screen and (max-width: 749px) {
