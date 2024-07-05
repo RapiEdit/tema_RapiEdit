@@ -60,8 +60,7 @@
         "announcement_kkDW8y"
       ],
       "custom_css": [
-        ".gradient {background-image: linear-gradient( to right, #5a0dff -5%, #ff29b8 31%, #ff581c, #ff29b8, #5a0dff ); background-size: 200% 100%; transition: all 0.2s ease-in-out;}",
-        ".gradient:hover {background-position: 90% 0 !important; transition: all 0.4s ease-in-out !important; box-shadow: 0px 0px 20px rgba(255, 53, 144, 0.5) !important; transform: scale(1.05) !important; \/* Escala el botón y el texto *\/ font-weight: bold;}"
+
       ],
       "settings": {
         "color_scheme": "scheme-4",

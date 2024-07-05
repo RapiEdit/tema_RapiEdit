@@ -3533,3 +3533,30 @@ details-disclosure > details {
   transform: scale(1.05)!important; /* Escala el botón y el texto */
   font-weight: bold;
 }
+
+/* Definición de la clase con la animación de fondo */
+.gradientpro {
+  background-image: linear-gradient(
+    to right,
+    #5a0dff -5%,
+    #ff29b8 31%,
+    #ff581c,
+    #ff29b8,
+    #5a0dff
+  );
+  background-size: 200% 100%;
+  animation: gradientAnimation 4s linear infinite;
+}
+
+/* Definición de la animación con keyframes */
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 0;
+  }
+  50% {
+    background-position: 100% 0;
+  }
+  100% {
+    background-position: 0% 0;
+  }
+}
