@@ -1,1 +1,204 @@
-{"sections":{"main":{"type":"main-product","blocks":{"title":{"type":"title","settings":{}},"rating":{"type":"rating","settings":{}},"price":{"type":"price","settings":{}},"vendor":{"type":"text","settings":{"text":"⏰ ¡alta demanda! - Últimas unidades ⏰","text_style":"uppercase"}},"variant_picker":{"type":"variant_picker","settings":{"picker_type":"button","swatch_shape":"circle"}},"quantity_selector":{"type":"quantity_selector","settings":{}},"buy_buttons":{"type":"buy_buttons","settings":{"show_dynamic_checkout":false,"show_gift_card_recipient":false}},"description":{"type":"description","settings":{}},"collapsible_tab_khV676":{"type":"collapsible_tab","settings":{"heading":"Envío","icon":"truck","content":"<p>Nos dedicamos de lleno al seguimiento y la gestión de su pedido, para que pueda confiar plenamente en nosotros una vez realizada su compra. Si surgiera alguna pregunta o inquietud, nuestro equipo de atención al cliente está a su disposición para brindarle la asistencia que necesite.<\/p>","page":""}},"collapsible_tab_rRaTjd":{"type":"collapsible_tab","settings":{"heading":"Devoluciones","icon":"return","content":"<p>Extendemos nuestro período de devolución a <strong>30 días a partir de la recepción del producto<\/strong>, brindándole mayor flexibilidad y tranquilidad en su experiencia de compra.<\/p>","page":""}},"collapsible_tab_bmny4F":{"type":"collapsible_tab","settings":{"heading":"Control de Calidad","icon":"star","content":"<p><strong>Garantizamos la calidad al 100%<\/strong> de nuestros productos. Cada artículo se somete a exhaustivas pruebas y revisiones para garantizar su durabilidad y rendimiento óptimo.<\/p>","page":""}}},"block_order":["title","rating","price","vendor","variant_picker","quantity_selector","buy_buttons","description","collapsible_tab_khV676","collapsible_tab_rRaTjd","collapsible_tab_bmny4F"],"settings":{"enable_sticky_info":true,"color_scheme":"scheme-1","media_size":"small","constrain_to_viewport":true,"media_fit":"contain","gallery_layout":"thumbnail_slider","media_position":"left","image_zoom":"none","mobile_thumbnails":"hide","hide_variants":true,"enable_video_looping":false,"padding_top":60,"padding_bottom":60}},"related-products":{"type":"related-products","settings":{"heading":"You may also like","heading_size":"h2","products_to_show":4,"columns_desktop":4,"color_scheme":"scheme-1","image_ratio":"portrait","image_shape":"default","show_secondary_image":true,"show_vendor":false,"show_rating":false,"columns_mobile":"2","padding_top":0,"padding_bottom":60}},"17070426981b2e4552":{"type":"apps","settings":{"include_margins":true}}},"order":["main","related-products","17070426981b2e4552"]}
+/*
+* ------------------------------------------------------------
+* IMPORTANT: The contents of this file are auto-generated.
+*
+* This file may be updated by the Shopify admin theme editor
+* or related systems. Please exercise caution as any changes
+* made to this file may be overwritten.
+* ------------------------------------------------------------
+*/
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "title": {
+          "type": "title",
+          "settings": {
+          }
+        },
+        "rating": {
+          "type": "rating",
+          "settings": {
+          }
+        },
+        "price": {
+          "type": "price",
+          "settings": {
+          }
+        },
+        "vendor": {
+          "type": "text",
+          "settings": {
+            "text": "⏰ ¡alta demanda! - Últimas unidades ⏰",
+            "text_style": "uppercase"
+          }
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button",
+            "swatch_shape": "circle"
+          }
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": false,
+            "show_gift_card_recipient": false
+          }
+        },
+        "description": {
+          "type": "description",
+          "settings": {
+          }
+        },
+        "collapsible_tab_khV676": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Envío",
+            "icon": "truck",
+            "content": "<p>Nos dedicamos de lleno al seguimiento y la gestión de su pedido, para que pueda confiar plenamente en nosotros una vez realizada su compra. Si surgiera alguna pregunta o inquietud, nuestro equipo de atención al cliente está a su disposición para brindarle la asistencia que necesite.<\/p>",
+            "page": ""
+          }
+        },
+        "collapsible_tab_rRaTjd": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Devoluciones",
+            "icon": "return",
+            "content": "<p>Extendemos nuestro período de devolución a <strong>30 días a partir de la recepción del producto<\/strong>, brindándole mayor flexibilidad y tranquilidad en su experiencia de compra.<\/p>",
+            "page": ""
+          }
+        },
+        "collapsible_tab_bmny4F": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Control de Calidad",
+            "icon": "star",
+            "content": "<p><strong>Garantizamos la calidad al 100%<\/strong> de nuestros productos. Cada artículo se somete a exhaustivas pruebas y revisiones para garantizar su durabilidad y rendimiento óptimo.<\/p>",
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "title",
+        "rating",
+        "price",
+        "vendor",
+        "variant_picker",
+        "buy_buttons",
+        "description",
+        "collapsible_tab_khV676",
+        "collapsible_tab_rRaTjd",
+        "collapsible_tab_bmny4F"
+      ],
+      "settings": {
+        "enable_sticky_info": true,
+        "color_scheme": "scheme-1",
+        "media_size": "small",
+        "constrain_to_viewport": true,
+        "media_fit": "contain",
+        "gallery_layout": "thumbnail_slider",
+        "media_position": "left",
+        "image_zoom": "none",
+        "mobile_thumbnails": "hide",
+        "hide_variants": true,
+        "enable_video_looping": false,
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
+    "collapsible_content_ag8Y6m": {
+      "type": "collapsible-content",
+      "blocks": {
+        "collapsible_row_dmzPmA": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Collapsible row",
+            "icon": "check_mark",
+            "row_content": "",
+            "page": ""
+          }
+        },
+        "collapsible_row_NrA6RB": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Collapsible row",
+            "icon": "banana",
+            "row_content": "",
+            "page": ""
+          }
+        },
+        "collapsible_row_9qz4fU": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Collapsible row",
+            "icon": "apple",
+            "row_content": "",
+            "page": ""
+          }
+        },
+        "collapsible_row_cwLinY": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Collapsible row",
+            "icon": "carrot",
+            "row_content": "",
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "collapsible_row_dmzPmA",
+        "collapsible_row_NrA6RB",
+        "collapsible_row_9qz4fU",
+        "collapsible_row_cwLinY"
+      ],
+      "settings": {
+        "caption": "",
+        "heading": "",
+        "heading_size": "h1",
+        "heading_alignment": "center",
+        "layout": "section",
+        "color_scheme": "",
+        "container_color_scheme": "",
+        "open_first_collapsible_row": true,
+        "image_ratio": "adapt",
+        "desktop_layout": "image_second",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "related-products": {
+      "type": "related-products",
+      "settings": {
+        "heading": "You may also like",
+        "heading_size": "h2",
+        "products_to_show": 4,
+        "columns_desktop": 4,
+        "color_scheme": "scheme-1",
+        "image_ratio": "portrait",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "columns_mobile": "2",
+        "padding_top": 0,
+        "padding_bottom": 60
+      }
+    },
+    "17070426981b2e4552": {
+      "type": "apps",
+      "settings": {
+        "include_margins": true
+      }
+    }
+  },
+  "order": [
+    "main",
+    "collapsible_content_ag8Y6m",
+    "related-products",
+    "17070426981b2e4552"
+  ]
+}
