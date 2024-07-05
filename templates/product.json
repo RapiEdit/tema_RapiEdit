@@ -109,6 +109,39 @@
         "padding_bottom": 60
       }
     },
+    "custom_tabs_zRthfn": {
+      "type": "custom-tabs",
+      "blocks": {
+        "tab_g6MaaE": {
+          "type": "tab",
+          "settings": {
+            "heading": "INFORMACIÓN",
+            "tab_content": "<p>probando ando<\/p>"
+          }
+        },
+        "tab_M7wCpr": {
+          "type": "tab",
+          "settings": {
+            "heading": "POLITICAS",
+            "tab_content": "<p>AQUI ANDO PRO<\/p>"
+          }
+        },
+        "tab_KhgXFq": {
+          "type": "tab",
+          "settings": {
+            "heading": "RESEÑAS",
+            "tab_content": "<p>AQUI HAY MÁS<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "tab_g6MaaE",
+        "tab_M7wCpr",
+        "tab_KhgXFq"
+      ],
+      "settings": {
+      }
+    },
     "related-products": {
       "type": "related-products",
       "settings": {
@@ -136,6 +169,7 @@
   },
   "order": [
     "main",
+    "custom_tabs_zRthfn",
     "related-products",
     "17070426981b2e4552"
   ]
