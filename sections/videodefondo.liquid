@@ -12,7 +12,10 @@
             </video>
         </div>
         {% endif %}
-        <div class="overlay"></div>
+        {% comment %}
+<div class="overlay"></div>
+{% endcomment %}
+
         <div class="videoBoxInfo">
             {% if block.settings.title != blank %}
             <h1 class="videoBoxInfoTitle" style="color: {{ block.settings.color_text }}">
