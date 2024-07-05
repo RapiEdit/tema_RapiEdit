@@ -60,7 +60,6 @@
         "column_9Kf8XX"
       ],
       "custom_css": [
-        ".isolate {background-color: black !important; border-radius: 30px; margin-top: -80px; z-index: 1;}",
         ".title-wrapper-with-link {justify-content: center !important;}"
       ],
       "settings": {
@@ -77,7 +76,9 @@
         "columns_mobile": "1",
         "swipe_on_mobile": true,
         "padding_top": 36,
-        "padding_bottom": 36
+        "padding_bottom": 36,
+        "padding_left": 36,
+        "padding_right": 36
       }
     },
     "featured_collection_Jat74e": {
