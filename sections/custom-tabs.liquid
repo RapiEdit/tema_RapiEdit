@@ -28,7 +28,7 @@
       {
           display:block;
       }
-      .tab__list h6.custom-tab
+      .tab__list button.custom-tab
       {
           display:inline-block !important;
           padding:10px 15px !important;
@@ -41,7 +41,7 @@
       .tab__list:first-child{
   background-color: #dfdfdf;
       }
-      .tab__list h6.custom-tab.active
+      .tab__list button.custom-tab.active
       {
           color:grey !important;
           border-bottom:1px solid red !important;
@@ -60,7 +60,7 @@
           padding: 10px 15px !important;
           border-bottom: none !important;
         }
-        .tab__list h6.custom-tab
+        .tab__list button.custom-tab
       {
        padding: 0px !important;
         margin: 10px 0px !important;
@@ -77,12 +77,12 @@
   {% for block in section.blocks %}
     {% if block.type == 'tab' %}
       <li class="tab__list {% if forloop.first %}active{% endif %}">
-        <h6
+        <button
           class="custom-tab"
           data-content-id="content--{{ block.id }}--{{ section.id }}"
         >
           {{ block.settings.heading }}
-        </h6>
+        </button>
       </li>
     {% endif %}
   {% endfor %}
