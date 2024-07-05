@@ -76,15 +76,13 @@
           "type": "video",
           "settings": {
             "video_link": "https:\/\/cdn.shopify.com\/videos\/c\/o\/v\/0aa7106e4588482a91260f64511204c1.mp4",
-            "title": "Video slide",
-            "text": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.<\/p>",
+            "title": "",
+            "text": "",
             "color_text": "#00ff8b",
             "button_label": "",
             "button_link": "",
             "color_btn_bg": "#ffffff",
-            "color_btn_text": "#ffffff",
-            "overlay_color": "#000000",
-            "overlay_opacity": 100
+            "color_btn_text": "#ffffff"
           }
         }
       },
