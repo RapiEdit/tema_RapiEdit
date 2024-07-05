@@ -36,9 +36,77 @@
         "padding_top": 0,
         "padding_bottom": 0
       }
+    },
+    "multicolumn_mqDRcx": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_UppVzx": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Video.svg",
+            "title": "PASO 1",
+            "text": "<p>Selecciona el diseño que más te guste.<\/p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_yt8cBD": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Like.svg",
+            "title": "PASO 2",
+            "text": "<p>Sube tu logo en formato PNG<\/p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_hyeEgz": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Pago.svg",
+            "title": "PASO 3",
+            "text": "<p>Completa la información de pago.<\/p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_9Kf8XX": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Descarga.svg",
+            "title": "PASO 4",
+            "text": "<p>En menos de 24 Horas, enviaremos tú animación al correo.<\/p>",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_UppVzx",
+        "column_yt8cBD",
+        "column_hyeEgz",
+        "column_9Kf8XX"
+      ],
+      "settings": {
+        "title": "TÚ ANIMACIÓN EN MENOS DE 24 HORAS 🎬",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "columns_desktop": 4,
+        "column_alignment": "center",
+        "background_style": "primary",
+        "button_label": "Button label",
+        "button_link": "",
+        "color_scheme": "",
+        "columns_mobile": "1",
+        "swipe_on_mobile": true,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
     }
   },
   "order": [
-    "featured_collection_Jat74e"
+    "featured_collection_Jat74e",
+    "multicolumn_mqDRcx"
   ]
 }
