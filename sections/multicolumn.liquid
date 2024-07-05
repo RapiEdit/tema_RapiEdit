@@ -35,11 +35,7 @@
         <h2 style="text-align: center;" class="title inline-richtext {{ section.settings.heading_size }}">
           {{ section.settings.title }}
         </h2>
-        {%- if section.settings.button_label != blank and show_mobile_slider -%}
-          <a href="{{ section.settings.button_link }}" class="button botonpro large-up-hide">
-            {{- section.settings.button_label | escape -}}
-          </a>
-        {%- endif -%}
+        
       </div>
     {%- endunless -%}
     <slider-component class="slider-mobile-gutter">
@@ -171,7 +167,7 @@
         </div>
       {%- endif -%}
     </slider-component>
-    <div class="center{% if show_mobile_slider %} small-hide medium-hide{% endif %}">
+    <div class="center{% if show_mobile_slider %} {% endif %}">
       {%- if section.settings.button_label != blank -%}
         <a
           class="button botonpro"
