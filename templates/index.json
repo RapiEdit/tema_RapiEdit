@@ -9,78 +9,6 @@
 */
 {
   "sections": {
-    "newsletter_bzJ8Fh": {
-      "type": "newsletter",
-      "blocks": {
-        "heading_gXxAyc": {
-          "type": "heading",
-          "settings": {
-            "heading": "¡NO TE PIERDAS NUESTRAS OFERTAS EXCLUSIVAS! REGISTRA TU CORREO ELECTRÓNICO Y RECIBE OFERTAS ESPECIALES.",
-            "heading_size": "h2"
-          }
-        },
-        "paragraph_bnqQDT": {
-          "type": "paragraph",
-          "settings": {
-            "text": ""
-          }
-        },
-        "email_form_y9D6bj": {
-          "type": "email_form",
-          "settings": {
-          }
-        }
-      },
-      "block_order": [
-        "heading_gXxAyc",
-        "paragraph_bnqQDT",
-        "email_form_y9D6bj"
-      ],
-      "settings": {
-        "color_scheme": "",
-        "full_width": true,
-        "padding_top": 40,
-        "padding_bottom": 52
-      }
-    },
-    "collage_aDqbdB": {
-      "type": "collage",
-      "blocks": {
-        "image_eQf4Hz": {
-          "type": "image",
-          "settings": {
-          }
-        },
-        "product_injrgw": {
-          "type": "product",
-          "settings": {
-            "product": "animacion-de-logo-lujuso-y-explosivo",
-            "second_image": false
-          }
-        },
-        "collection_U9HETz": {
-          "type": "collection",
-          "settings": {
-            "collection": "animacion-de-logos"
-          }
-        }
-      },
-      "block_order": [
-        "image_eQf4Hz",
-        "product_injrgw",
-        "collection_U9HETz"
-      ],
-      "settings": {
-        "heading": "Multimedia collage",
-        "heading_size": "h1",
-        "desktop_layout": "left",
-        "mobile_layout": "column",
-        "card_styles": "product-card-wrapper",
-        "color_scheme": "",
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
-    },
     "featured_collection_Jat74e": {
       "type": "featured-collection",
       "settings": {
@@ -108,83 +36,9 @@
         "padding_top": 0,
         "padding_bottom": 0
       }
-    },
-    "featured_product_aBaY6Y": {
-      "type": "featured-product",
-      "blocks": {
-        "text_hXU8Px": {
-          "type": "text",
-          "settings": {
-            "text": "{{ section.settings.product.vendor }}",
-            "text_style": "uppercase"
-          }
-        },
-        "title_pnjYzJ": {
-          "type": "title",
-          "settings": {
-            "heading_size": "h1"
-          }
-        },
-        "price_chDqmX": {
-          "type": "price",
-          "settings": {
-          }
-        },
-        "variant_picker_aMr6cP": {
-          "type": "variant_picker",
-          "settings": {
-            "picker_type": "button",
-            "swatch_shape": "circle"
-          }
-        },
-        "quantity_selector_cqYVYU": {
-          "type": "quantity_selector",
-          "settings": {
-          }
-        },
-        "buy_buttons_QTFPmF": {
-          "type": "buy_buttons",
-          "settings": {
-            "show_dynamic_checkout": true,
-            "show_gift_card_recipient": true
-          }
-        },
-        "share_yAgrAF": {
-          "type": "share",
-          "settings": {
-            "share_label": "Share"
-          }
-        }
-      },
-      "block_order": [
-        "text_hXU8Px",
-        "title_pnjYzJ",
-        "price_chDqmX",
-        "variant_picker_aMr6cP",
-        "quantity_selector_cqYVYU",
-        "buy_buttons_QTFPmF",
-        "share_yAgrAF"
-      ],
-      "settings": {
-        "product": "animacion-de-logo-lujuso-y-explosivo",
-        "color_scheme": "",
-        "secondary_background": false,
-        "media_size": "medium",
-        "constrain_to_viewport": true,
-        "media_fit": "contain",
-        "media_position": "left",
-        "image_zoom": "lightbox",
-        "hide_variants": false,
-        "enable_video_looping": true,
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
     }
   },
   "order": [
-    "newsletter_bzJ8Fh",
-    "collage_aDqbdB",
-    "featured_collection_Jat74e",
-    "featured_product_aBaY6Y"
+    "featured_collection_Jat74e"
   ]
 }
