@@ -3530,5 +3530,5 @@ details-disclosure > details {
  background-position: 90% 0 !important;
     transition: all 0.4s ease-in-out !important;
     box-shadow: 0px 0px 20px rgba(255, 53, 144, 0.5) !important;
-  transform: scale(1.05 !important; /* Escala el botón y el texto */
+  transform: scale(1.05)!important; /* Escala el botón y el texto */
 }
