@@ -243,7 +243,7 @@
 }
 
 .multicolumn-card:hover {
-  transform: scale(1.1); /* Escala las columnas al pasar el cursor */
+  transform: scale(1.1); /* Escala las columnas al pasar el cursor*/
 }
 
 .multicolumn-card > .multicolumn-card__image-wrapper--full-width:not(.multicolumn-card-spacing) {
