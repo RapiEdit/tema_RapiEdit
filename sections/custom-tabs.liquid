@@ -46,15 +46,24 @@
 
 .tab__list .custom-tab.active::before,
 .tab__list .custom-tab:hover::before {
-    content: '';
-    position: absolute;
-    top: -2px;
-    right: -2px;
-    bottom: -2px;
-    left: -2px;
-    z-index: -1; /* Asegura que esté detrás del botón */
-    border-radius: 30px;
-    background: linear-gradient(to right, #5a0dff -5%, #ff29b8 31%, #ff581c, #ff29b8, #5a0dff);
+  content: "";
+  position: absolute;
+  top: -2px; /* Ajusta según el grosor del borde */
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  border-radius: 3opx; /* Ajusta según el radio del borde */
+  background-image: linear-gradient(
+    to right,
+    #5a0dff -5%,
+    #ff29b8 31%,
+    #ff581c,
+    #ff29b8,
+    #5a0dff
+  );
+  background-size: 200% 100%;
+  animation: gradientAnimation 4s linear infinite;
+  z-index: -1;
  
 }
 
