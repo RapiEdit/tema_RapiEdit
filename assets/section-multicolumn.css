@@ -205,7 +205,7 @@
 .multicolumn-card:hover {
   transform: scale(1.1); /* Escala las columnas al pasar el cursor*/
 }
-.multicolumn-card .content-container::before {
+.multicolumn-card:before {
   content: "";
   position: absolute;
   top: -2px; /* Ajusta según el grosor del borde */
@@ -227,7 +227,7 @@
   transition: opacity 0.3s ease; /* Transición suave para el efecto */
 }
 
-.multicolumn-card .content-container:hover::before {
+.multicolumn-card:hover::before {
   opacity: 1; /* Muestra el borde degradado al hacer hover */
   animation: gradientAnimation 4s linear infinite; /* Inicia la animación */ 
 }
