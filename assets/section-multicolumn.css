@@ -94,13 +94,11 @@
   opacity: 0; /* Inicialmente invisible */
   transition: opacity 0.3s ease; /* Transición suave para el efecto */
 }
-.multicolumn-card:hover,
+
 .multicolumn-card:hover::before {
   opacity: 1; /* Muestra el borde degradado al hacer hover */
-  animation: gradientAnimation 4s linear infinite; /* Inicia la animación */
-
+  animation: gradientAnimation 4s linear infinite; /* Inicia la animación */  
 }
-
 
 @keyframes gradientAnimation {
   0% {
