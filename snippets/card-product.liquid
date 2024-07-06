@@ -379,19 +379,20 @@
 
 
   <script>
-document.addEventListener('DOMContentLoaded', function() {
-    var productVideo = document.querySelector('.card__media video'); // Selector específico del video
+  document.addEventListener('DOMContentLoaded', function() {
+      var productCard = document.querySelector('.card-wrapper.product-card-wrapper');
+      var productVideo = productCard.querySelector('.card__media video');
 
-    if (productVideo) {
-        productVideo.addEventListener('mouseenter', function() {
-            productVideo.play();
-        });
+      if (productVideo) {
+          productCard.addEventListener('mouseenter', function() {
+              productVideo.play();
+          });
 
-        productVideo.addEventListener('mouseleave', function() {
-            productVideo.pause();
-        });
-    }
-});
-</script>
+          productCard.addEventListener('mouseleave', function() {
+              productVideo.pause();
+          });
+      }
+  });
+  </script>
 
 {%- endif -%}
