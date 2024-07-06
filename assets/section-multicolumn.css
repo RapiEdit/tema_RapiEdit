@@ -223,7 +223,7 @@
     #5a0dff
   );
   background-size: 200% 100%;
-  z-index: -1;
+  z-index: -1 !important;
   opacity: 0; /* Inicialmente invisible */
   transition: opacity 0.3s ease; /* Transición suave para el efecto */
 }
