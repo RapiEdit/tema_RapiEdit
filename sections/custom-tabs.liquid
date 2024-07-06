@@ -50,11 +50,11 @@
   .tab__list .custom-tab:hover::before {
       content: "";
       position: absolute;
-      top: -2px; /* Ajusta según el grosor del borde */
+      top: -2px;
       left: -2px;
       right: -2px;
       bottom: -2px;
-      border-radius: 30px; /* Ajusta según el radio del borde */
+      border-radius: 30px;
       background-image: linear-gradient(
           to right,
           #5a0dff -5%,
@@ -65,7 +65,7 @@
       );
       background-size: 200% 100%;
       animation: gradientAnimation 4s linear infinite;
-      z-index: 0; /* Asegúrate de que esté detrás del botón */
+      z-index: -1; /* Asegúrate de que esté detrás del botón */
   }
   
   .tab__list::after {
@@ -102,6 +102,7 @@
       }
   }
   {% endstylesheet %}
+  
   
   <ul class="custom--tabs page-width">
     {% for block in section.blocks %}
