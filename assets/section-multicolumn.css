@@ -93,12 +93,13 @@
   z-index: -1;
   opacity: 0; /* Inicialmente invisible */
   transition: opacity 0.3s ease; /* Transición suave para el efecto */
-  transform: scale(1.1); /* Escala las columnas al pasar el cursor*/
+  
 }
 
 .multicolumn-card:hover::before {
   opacity: 1; /* Muestra el borde degradado al hacer hover */
-  animation: gradientAnimation 4s linear infinite; /* Inicia la animación */  
+  animation: gradientAnimation 4s linear infinite; /* Inicia la animación */ 
+  transform: scale(1.1); /* Escala las columnas al pasar el cursor*/ 
 }
 
 @keyframes gradientAnimation {
