@@ -71,7 +71,7 @@
         "column_alignment": "center",
         "background_style": "primary",
         "button_label": "EMPEZAR",
-        "button_link": "#empezar",
+        "button_link": "\/#empezar",
         "color_scheme": "",
         "columns_mobile": "1",
         "swipe_on_mobile": true,
