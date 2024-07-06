@@ -225,6 +225,7 @@
   z-index: -1;
   opacity: 0; /* Inicialmente invisible */
   transition: opacity 0.3s ease; /* Transición suave para el efecto */
+  transform: scale(1.1); /* Escala las columnas al pasar el cursor*/
 }
 
 .multicolumn-card:hover::before {
