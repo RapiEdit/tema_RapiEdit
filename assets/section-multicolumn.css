@@ -101,7 +101,9 @@
   transform: scale(1.05) !important;
 }
 
-
+.multicolumn-card:hover {
+  transform: scale(1.05) !important;
+}
 
 @keyframes gradientAnimation {
   0% {
