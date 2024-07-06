@@ -1,110 +1,106 @@
 {% stylesheet %}
- ul.custom--tabs {
-    list-style-type: none;
-    width: 100%;
-    max-width: 1200px;
-    display: flex !important;
-    flex-wrap: nowrap !important;
-    border-radius: 50px;
-    background: #333;
-    padding: 10px;
-    justify-content: center;
-    margin: 20px auto;
-}
-
-.custom--tabs .tab__list {
-    margin: 0;
-    position: relative;
-}
-
-.custom__tab-content {
-    display: none;
-    color: #fff;
-}
-
-.custom__tab-content.active {
-    display: block;
-}
-
-.tab__list .custom-tab {
-    display: inline-block !important;
-    cursor: pointer !important;
-    margin: 0 50px !important;
-    padding: 15px 20px;
-    border: 1px solid #555;
-    color: #fff;
-    border-radius: 30px;
-    font-size: 16px;
-    font-weight: 500;
-    transition: border-color 0.3s ease, transform 0.3s ease, color 0.3s ease;
-    background: linear-gradient(122deg, #4f4f4f -65.81%, #282323 117.04%);
-    position: relative;
-    z-index: 1;
-}
-
-
-
-.tab__list .custom-tab.active::before,
-.tab__list .custom-tab:hover::before {
-  content: "";
-  position: absolute;
-  top: -2px; /* Ajusta según el grosor del borde */
-  left: -2px;
-  right: -2px;
-  bottom: -2px;
-  border-radius: 30px; /* Ajusta según el radio del borde */
-  background-image: linear-gradient(
-    to right,
-    #5a0dff -5%,
-    #ff29b8 31%,
-    #ff581c,
-    #ff29b8,
-    #5a0dff
-  );
-  background-size: 200% 100%;
-  animation: gradientAnimation 4s linear infinite;
-  z-index: -1;
- 
-}
-
-.tab__list .custom-tab:hover {
-    transform: scale(1.05) !important;
-}
-
-.tab__list::after {
-    content: '-';
-    color: #999;
-    position: absolute;
-    right: -25px;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 24px;
-}
-
-.tab__list:last-child::after {
-    content: '';
-}
-
-@media only screen and (max-width: 576px) {
-    ul.custom--tabs {
-        flex-wrap: nowrap !important;
-        overflow-x: auto;
-    }
-
-    .custom--tabs .tab__list .custom-tab {
-        margin: 0 5px !important;
-        padding: 10px 15px !important;
-    }
-
-    .custom__tab-content.active {
-        padding: 0 15px;
-    }
-
-    .tab__list::after {
-        display: none;
-    }
-}
-
+  ul.custom--tabs {
+      list-style-type: none;
+      width: 100%;
+      max-width: 1200px;
+      display: flex !important;
+      flex-wrap: nowrap !important;
+      border-radius: 50px;
+      background: #333;
+      padding: 10px;
+      justify-content: center;
+      margin: 20px auto;
+  }
+  
+  .custom--tabs .tab__list {
+      margin: 0;
+      position: relative;
+  }
+  
+  .custom__tab-content {
+      display: none;
+      color: #fff;
+  }
+  
+  .custom__tab-content.active {
+      display: block;
+  }
+  
+  .tab__list .custom-tab {
+      display: inline-block !important;
+      cursor: pointer !important;
+      margin: 0 50px !important;
+      padding: 15px 20px;
+      border: 1px solid #555;
+      color: #fff;
+      border-radius: 30px;
+      font-size: 16px;
+      font-weight: 500;
+      transition: border-color 0.3s ease, transform 0.3s ease, color 0.3s ease;
+      background: linear-gradient(122deg, #4f4f4f -65.81%, #282323 117.04%);
+      position: relative;
+      z-index: 1;
+  }
+  
+  .tab__list .custom-tab:hover {
+      transform: scale(1.05) !important;
+  }
+  
+  .tab__list .custom-tab.active::before,
+  .tab__list .custom-tab:hover::before {
+      content: "";
+      position: absolute;
+      top: -2px; /* Ajusta según el grosor del borde */
+      left: -2px;
+      right: -2px;
+      bottom: -2px;
+      border-radius: 30px; /* Ajusta según el radio del borde */
+      background-image: linear-gradient(
+          to right,
+          #5a0dff -5%,
+          #ff29b8 31%,
+          #ff581c,
+          #ff29b8,
+          #5a0dff
+      );
+      background-size: 200% 100%;
+      animation: gradientAnimation 4s linear infinite;
+      z-index: 0; /* Asegúrate de que esté detrás del botón */
+  }
+  
+  .tab__list::after {
+      content: '-';
+      color: #999;
+      position: absolute;
+      right: -25px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 24px;
+  }
+  
+  .tab__list:last-child::after {
+      content: '';
+  }
+  
+  @media only screen and (max-width: 576px) {
+      ul.custom--tabs {
+          flex-wrap: nowrap !important;
+          overflow-x: auto;
+      }
+  
+      .custom--tabs .tab__list .custom-tab {
+          margin: 0 5px !important;
+          padding: 10px 15px !important;
+      }
+  
+      .custom__tab-content.active {
+          padding: 0 15px;
+      }
+  
+      .tab__list::after {
+          display: none;
+      }
+  }
   {% endstylesheet %}
   
   <ul class="custom--tabs page-width">
