@@ -239,9 +239,10 @@
 .multicolumn-card {
   position: relative;
   box-sizing: border-box;
+  z-index: 1;
 }
 
-.content-container:hover {
+.multicolumn-card:hover {
   transform: scale(1.1); /* Escala las columnas al pasar el cursor */
 }
 
