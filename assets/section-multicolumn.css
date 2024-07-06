@@ -99,7 +99,6 @@
 .multicolumn-card:hover::before {
   opacity: 1; /* Muestra el borde degradado al hacer hover */
   animation: gradientAnimation 4s linear infinite; /* Inicia la animación */ 
-  transform: scale(1.1); /* Escala las columnas al pasar el cursor*/ 
 }
 
 @keyframes gradientAnimation {
@@ -241,6 +240,10 @@
 .multicolumn-card {
   position: relative;
   box-sizing: border-box;
+}
+
+.multicolumn-card:hover {
+  transform: scale(1.1); /* Escala las columnas al pasar el cursor*/
 }
 
 
