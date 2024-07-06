@@ -1278,24 +1278,3 @@ class ProductRecommendations extends HTMLElement {
 }
 
 customElements.define('product-recommendations', ProductRecommendations);
-
-document.addEventListener("DOMContentLoaded", function() {
-  var cardMediaElements = document.querySelectorAll('.card__media');
-
-  cardMediaElements.forEach(function(cardMediaElement) {
-    cardMediaElement.addEventListener('mouseenter', function() {
-      var video = this.querySelector('video');
-      if (video) {
-        video.play();
-      }
-    });
-
-    cardMediaElement.addEventListener('mouseleave', function() {
-      var video = this.querySelector('video');
-      if (video) {
-        video.pause();
-        video.currentTime = 0; // Reiniciar el video al salir
-      }
-    });
-  });
-});
