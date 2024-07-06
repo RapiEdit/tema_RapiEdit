@@ -55,35 +55,62 @@
       {%- if card_product.featured_media -%}
       <div class="card__media{% if image_shape and image_shape != 'default' %} shape--{{ image_shape }} color-{{ settings.card_color_scheme }} gradient{% endif %}">
         <div class="media media--transparent media--hover-effect">
-          <div class="play-button">
-            <button aria-label="Reproducir video">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                <path d="M8 5v14l11-7z"/>
-              </svg>
-            </button>
-          </div>
-          <a href="{{ card_product.url }}" class="product__media-toggle">
+          {%- if card_product.featured_media.media_type == 'video' or card_product.featured_media.media_type == 'external_video' -%}
+            <span class="product__media-icon motion-reduce quick-add-hidden">{% render 'icon-play' %}</span>
+            <div class="product__media media">
+              {{ card_product.featured_media.preview_image | image_url: width: 1946 | image_tag:
+                loading: lazy,
+                sizes: sizes,
+                widths: '246, 493, 600, 713, 823, 990, 1100, 1206, 1346, 1426, 1646, 1946'
+              }}
+            </div>
+            <a href="{% if card_product.featured_media.media_type == 'video' %}{{ card_product.featured_media.sources[1].url }}{% else %}{{ card_product.featured_media | external_video_url }}{% endif %}" class="product__media-toggle">
+              <span class="visually-hidden">{{ 'products.product.video_exit_message' | t: title: product.title | escape }}</span>
+            </a>
+          {%- else -%}
+            <a href="{{ card_product.url }}" class="product__media-toggle">
+              <img
+                srcset="
+                  {%- if card_product.featured_media.width >= 165 -%}{{ card_product.featured_media | image_url: width: 165 }} 165w,{%- endif -%}
+                  {%- if card_product.featured_media.width >= 360 -%}{{ card_product.featured_media | image_url: width: 360 }} 360w,{%- endif -%}
+                  {%- if card_product.featured_media.width >= 533 -%}{{ card_product.featured_media | image_url: width: 533 }} 533w,{%- endif -%}
+                  {%- if card_product.featured_media.width >= 720 -%}{{ card_product.featured_media | image_url: width: 720 }} 720w,{%- endif -%}
+                  {%- if card_product.featured_media.width >= 940 -%}{{ card_product.featured_media | image_url: width: 940 }} 940w,{%- endif -%}
+                  {%- if card_product.featured_media.width >= 1066 -%}{{ card_product.featured_media | image_url: width: 1066 }} 1066w,{%- endif -%}
+                  {{ card_product.featured_media | image_url }} {{ card_product.featured_media.width }}w
+                "
+                src="{{ card_product.featured_media | image_url: width: 533 }}"
+                sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 130 | divided_by: 4 }}px, (min-width: 990px) calc((100vw - 130px) / 4), (min-width: 750px) calc((100vw - 120px) / 3), calc((100vw - 35px) / 2)"
+                alt="{{ card_product.featured_media.alt | escape }}"
+                class="motion-reduce"
+                {% unless lazy_load == false %}
+                  loading="lazy"
+                {% endunless %}
+                width="{{ card_product.featured_media.width }}"
+                height="{{ card_product.featured_media.height }}"
+              >
+            </a>
+          {%- endif -%}
+          {%- if card_product.media[1] != null and show_secondary_image -%}
             <img
               srcset="
-                {%- if card_product.featured_media.width >= 165 -%}{{ card_product.featured_media | image_url: width: 165 }} 165w,{%- endif -%}
-                {%- if card_product.featured_media.width >= 360 -%}{{ card_product.featured_media | image_url: width: 360 }} 360w,{%- endif -%}
-                {%- if card_product.featured_media.width >= 533 -%}{{ card_product.featured_media | image_url: width: 533 }} 533w,{%- endif -%}
-                {%- if card_product.featured_media.width >= 720 -%}{{ card_product.featured_media | image_url: width: 720 }} 720w,{%- endif -%}
-                {%- if card_product.featured_media.width >= 940 -%}{{ card_product.featured_media | image_url: width: 940 }} 940w,{%- endif -%}
-                {%- if card_product.featured_media.width >= 1066 -%}{{ card_product.featured_media | image_url: width: 1066 }} 1066w,{%- endif -%}
-                {{ card_product.featured_media | image_url }} {{ card_product.featured_media.width }}w
+                {%- if card_product.media[1].width >= 165 -%}{{ card_product.media[1] | image_url: width: 165 }} 165w,{%- endif -%}
+                {%- if card_product.media[1].width >= 360 -%}{{ card_product.media[1] | image_url: width: 360 }} 360w,{%- endif -%}
+                {%- if card_product.media[1].width >= 533 -%}{{ card_product.media[1] | image_url: width: 533 }} 533w,{%- endif -%}
+                {%- if card_product.media[1].width >= 720 -%}{{ card_product.media[1] | image_url: width: 720 }} 720w,{%- endif -%}
+                {%- if card_product.media[1].width >= 940 -%}{{ card_product.media[1] | image_url: width: 940 }} 940w,{%- endif -%}
+                {%- if card_product.media[1].width >= 1066 -%}{{ card_product.media[1] | image_url: width: 1066 }} 1066w,{%- endif -%}
+                {{ card_product.media[1] | image_url }} {{ card_product.media[1].width }}w
               "
-              src="{{ card_product.featured_media | image_url: width: 533 }}"
+              src="{{ card_product.media[1] | image_url: width: 533 }}"
               sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 130 | divided_by: 4 }}px, (min-width: 990px) calc((100vw - 130px) / 4), (min-width: 750px) calc((100vw - 120px) / 3), calc((100vw - 35px) / 2)"
-              alt="{{ card_product.featured_media.alt | escape }}"
+              alt=""
               class="motion-reduce"
-              {% unless lazy_load == false %}
-                loading="lazy"
-              {% endunless %}
-              width="{{ card_product.featured_media.width }}"
-              height="{{ card_product.featured_media.height }}"
+              loading="lazy"
+              width="{{ card_product.media[1].width }}"
+              height="{{ card_product.media[1].height }}"
             >
-          </a>
+          {%- endif -%}
         </div>
       </div>
     {%- endif -%}
