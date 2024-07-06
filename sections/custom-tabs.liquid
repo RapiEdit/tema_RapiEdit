@@ -44,24 +44,24 @@
   
   
   .tab__list .custom-tab:before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      border-radius: 30px;
-      background-image: linear-gradient(
-          to right,
-          #5a0dff -5%,
-          #ff29b8 31%,
-          #ff581c,
-          #ff29b8,
-          #5a0dff
-      );
-      background-size: 200% 100%;
-      animation: gradientAnimation 4s linear infinite;
-      z-index: -1; /* Asegúrate de que esté detrás del botón */
+    content: "";
+  position: absolute;
+  top: -2px; /* Ajusta según el grosor del borde */
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  border-radius: 32px; /* Ajusta según el radio del borde */
+  background-image: linear-gradient(
+    to right,
+    #5a0dff -5%,
+    #ff29b8 31%,
+    #ff581c,
+    #ff29b8,
+    #5a0dff
+  );
+  background-size: 200% 100%;
+  animation: gradientAnimation 4s linear infinite;
+  z-index: -1;
   }
   
   .tab__list::after {
