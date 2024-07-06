@@ -377,39 +377,4 @@
     </div>
   </div>
 
-  <script>
-  // Espera a que el DOM esté completamente cargado
-  document.addEventListener("DOMContentLoaded", function() {
-    // Selecciona todos los elementos con la clase 'card__media'
-    var cardMediaElements = document.querySelectorAll('.card__media');
-
-    // Recorre cada elemento card__media
-    cardMediaElements.forEach(function(cardMediaElement) {
-      // Agrega un event listener para el evento 'mouseenter'
-      cardMediaElement.addEventListener('mouseenter', function() {
-        // Encuentra el elemento de video dentro de card__media
-        var video = this.querySelector('video');
-
-        // Verifica si se encontró un video y si no está reproduciéndose
-        if (video && video.paused) {
-          // Reproduce el video
-          video.play();
-        }
-      });
-
-      // Agrega un event listener para el evento 'mouseleave'
-      cardMediaElement.addEventListener('mouseleave', function() {
-        // Encuentra el elemento de video dentro de card__media
-        var video = this.querySelector('video');
-
-        // Verifica si se encontró un video y si está reproduciéndose
-        if (video && !video.paused) {
-          // Pausa el video
-          video.pause();
-        }
-      });
-    });
-  });
-</script>
-
 {%- endif -%}

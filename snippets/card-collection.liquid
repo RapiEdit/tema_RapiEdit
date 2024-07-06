@@ -47,7 +47,20 @@
       class="card__inner {% if card_style == 'standard' %}color-{{ card_color_scheme }} gradient{% endif %}{% if card_collection.featured_image or card_style == 'standard' %} ratio{% endif %}"
       style="--ratio-percent: {{ 1 | divided_by: ratio | times: 100 }}%;"
     >
-      {%- if card_collection.featured_image -%}
+      {%- if card_collection.featured_video_url -%}
+        <div class="card__media">
+          <div class="media media--transparent media--hover-effect">
+            <video
+              src="{{ card_collection.featured_video_url }}"
+              class="motion-reduce"
+              loop
+              muted
+              playsinline
+              preload="metadata"
+            ></video>
+          </div>
+        </div>
+      {%- elsif card_collection.featured_image -%}
         <div class="card__media">
           <div class="media media--transparent media--hover-effect">
             <img
@@ -157,3 +170,4 @@
     {%- endif -%}
   </div>
 </div>
+
