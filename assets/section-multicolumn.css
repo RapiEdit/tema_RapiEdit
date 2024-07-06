@@ -98,7 +98,7 @@
 .multicolumn-card:hover::before {
   opacity: 1; /* Muestra el borde degradado al hacer hover */
   animation: gradientAnimation 4s linear infinite; /* Inicia la animación */
-  transform: scale(1.05) !important;  
+
 }
 
 
