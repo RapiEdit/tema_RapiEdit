@@ -241,7 +241,7 @@
   box-sizing: border-box;
 }
 
-.multicolumn-list:hover {
+.content-container:hover {
   transform: scale(1.1); /* Escala las columnas al pasar el cursor */
 }
 
