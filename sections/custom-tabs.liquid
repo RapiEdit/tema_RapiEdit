@@ -27,6 +27,7 @@
   }
   
   .tab__list .custom-tab {
+    position: relative;
       display: inline-block !important;
       cursor: pointer !important;
       margin: 0 50px !important;
@@ -38,8 +39,8 @@
       font-weight: 500;
       transition: border-color 0.3s ease, transform 0.3s ease, color 0.3s ease;
       background: transparent;
-      position: relative;
-      z-index: 1; /* Asegúrate de que esté encima del ::before */
+      
+   
   }
   
 
@@ -61,7 +62,6 @@
       );
       background-size: 200% 100%;
       animation: gradientAnimation 4s linear infinite;
-      z-index: -1; /* Asegúrate de que esté detrás del botón */
       padding: 2px;
       box-sizing: border-box;
   }
