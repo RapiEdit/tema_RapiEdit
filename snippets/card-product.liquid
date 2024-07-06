@@ -55,8 +55,6 @@
       {%- if card_product.featured_media -%}
       <div class="card__media{% if image_shape and image_shape != 'default' %} shape--{{ image_shape }} color-{{ settings.card_color_scheme }} gradient{% endif %}">
         <div class="media media--transparent media--hover-effect">
-          {% comment %} Descomenta esta línea para deshabilitar la carga perezosa de imágenes
-          {% comment %}theme-check-disable ImgLazyLoading{% endcomment %}
           <img
             srcset="
               {%- if card_product.featured_media.width >= 165 -%}{{ card_product.featured_media | image_url: width: 165 }} 165w,{%- endif -%}
@@ -77,8 +75,6 @@
             width="{{ card_product.featured_media.width }}"
             height="{{ card_product.featured_media.height }}"
           >
-          {% comment %}theme-check-enable ImgLazyLoading{% endcomment %}
-          
           {%- if card_product.media[1] != null and show_secondary_image -%}
             <img
               srcset="
@@ -99,14 +95,19 @@
               height="{{ card_product.media[1].height }}"
             >
           {%- endif -%}
-          
+    
+          {# Aquí se inserta el botón de reproducción #}
           <div class="play-button">
-            <!-- Aquí puedes añadir tu ícono de reproducción -->
-            {% render 'icon-play' %}
+            <button aria-label="Play video">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                <path d="M8 5v14l11-7z"/>
+              </svg>
+            </button>
           </div>
         </div>
       </div>
     {%- endif -%}
+    
     
         <div class="card__content">
           <div class="card__information">
