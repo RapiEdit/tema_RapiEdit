@@ -389,31 +389,33 @@
 <style>
   /* Estilos para el botón de reproducción */
   .play-button {
-    position: absolute;
+    position: relative; /* Cambiado a relative para que el position absolute del botón interno funcione */
+    width: 100%; /* Ajustado al ancho del contenedor */
+    height: 100%; /* Ajustado al alto del contenedor */
+  }
+
+  .play-button button {
+    position: absolute; /* Posicionado absolutamente dentro de .play-button */
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     background-color: black;
-    width: 40px;
-    height: 40px;
+    width: 40px; /* Ancho del botón */
+    height: 40px; /* Alto del botón */
+    border: none;
     border-radius: 50%;
+    cursor: pointer;
     display: flex;
     justify-content: center;
     align-items: center;
-    cursor: pointer;
+    padding: 0;
     overflow: hidden;
-  }
-
-  .play-button button {
-    background: none;
-    border: none;
-    cursor: pointer;
   }
 
   .play-button svg {
     fill: white;
-    width: 70%;
-    height: 70%;
+    width: 60%; /* Tamaño del icono SVG ajustado */
+    height: 60%; /* Tamaño del icono SVG ajustado */
   }
 
   .play-button::before {
