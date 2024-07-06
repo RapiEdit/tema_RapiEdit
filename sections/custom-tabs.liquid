@@ -27,7 +27,7 @@
 }
 
 .tab__list .custom-tab {
-    display: inline-block;
+    display: inline-block !important;
     cursor: pointer !important;
     margin: 0 50px !important;
     padding: 15px 20px;
@@ -44,7 +44,8 @@
 
 
 
-.tab__list .custom-tab.active::before {
+.tab__list .custom-tab.active::before,
+.tab__list .custom-tab:hover::before {
   content: "";
   position: absolute;
   top: -2px; /* Ajusta según el grosor del borde */
