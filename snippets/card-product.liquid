@@ -376,4 +376,22 @@
       </div>
     </div>
   </div>
+
+
+  <script>
+document.addEventListener('DOMContentLoaded', function() {
+    var productVideo = document.querySelector('.card__media video'); // Selector específico del video
+
+    if (productVideo) {
+        productVideo.addEventListener('mouseenter', function() {
+            productVideo.play();
+        });
+
+        productVideo.addEventListener('mouseleave', function() {
+            productVideo.pause();
+        });
+    }
+});
+</script>
+
 {%- endif -%}
