@@ -29,49 +29,6 @@
         "padding_bottom": 20
       }
     },
-    "announcement-bar": {
-      "type": "announcement-bar",
-      "blocks": {
-        "announcement-bar-0": {
-          "type": "announcement",
-          "settings": {
-            "text": "TÚ EDICIÓN EN MENOS DE 24 HORAS 📣",
-            "link": ""
-          }
-        },
-        "announcement_fadFNz": {
-          "type": "announcement",
-          "settings": {
-            "text": "ANIMACIONES PROFESIONALES 🔥",
-            "link": ""
-          }
-        },
-        "announcement_kkDW8y": {
-          "type": "announcement",
-          "settings": {
-            "text": "SOMO LOS MÁS VELOCES. 📣",
-            "link": ""
-          }
-        }
-      },
-      "block_order": [
-        "announcement-bar-0",
-        "announcement_fadFNz",
-        "announcement_kkDW8y"
-      ],
-      "custom_css": [
-
-      ],
-      "settings": {
-        "color_scheme": "scheme-4",
-        "show_line_separator": true,
-        "show_social": false,
-        "auto_rotate": true,
-        "change_slides_speed": 3,
-        "enable_country_selector": false,
-        "enable_language_selector": false
-      }
-    },
     "videodefondo_FAm8YY": {
       "type": "videodefondo",
       "blocks": {
@@ -98,7 +55,6 @@
   },
   "order": [
     "header",
-    "announcement-bar",
     "videodefondo_FAm8YY"
   ]
 }
