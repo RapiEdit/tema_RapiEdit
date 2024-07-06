@@ -208,8 +208,8 @@
 }
 
 .multicolumn-list__item:hover {
- 
-  transition: transform 0.3s ease; /* Transición suave para la escala */
+  transform: scale(1.1); /* Escala las columnas al pasar el cursor*/
+  
 }
 .multicolumn-card:before {
   content: "";
