@@ -6,7 +6,7 @@
         display: flex !important;
         flex-wrap: wrap !important;
 
-        border-radius: 300px;
+     border-radius: 300px;
     background: linear-gradient(122deg, #4F4F4F -65.81%, #282323 117.04%);
     border: 0;
     padding: 35px;
@@ -54,13 +54,14 @@
         display: block !important;
       }
       .tab__list:first-child{
-  background-color: #dfdfdf;
+        border-image: linear-gradient(to right, #5a0dff -5%, #ff29b8 31%, #ff581c, #ff29b8, #5a0dff);
+        border-image-slice: 1; /* Para asegurar que el degradado se muestre completamente */
       }
       .tab__list button.custom-tab.active
       {
           color:grey !important;
           border-bottom:1px solid red !important;
-          background-color: #dfdfdf;
+          
       }
 
     @media only screen and (max-width: 576px)
