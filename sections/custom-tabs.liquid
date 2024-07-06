@@ -1,24 +1,25 @@
 {% stylesheet %}
-  ul.custom--tabs {
+ ul.custom--tabs {
     list-style-type: none;
-    width: 100%; /* Ajustado para que se adapte al 100% del contenedor */
-    max-width: 1200px; /* Limita el ancho máximo */
+    width: 100%;
+    max-width: 1200px;
     display: flex !important;
-    flex-wrap: wrap !important;
-    border-radius: 50px; /* Ajustado para un borde más suave */
-    background: #333; /* Fondo oscuro */
-    padding: 10px; /* Reducido el padding para ajustarse mejor */
-    justify-content: center; /* Centrar elementos */
-    margin: 20px auto; /* Centrar el ul en la página */
+    flex-wrap: nowrap !important; /* No envuelve los elementos en móvil */
+    border-radius: 50px;
+    background: #333;
+    padding: 10px;
+    justify-content: center;
+    margin: 20px auto;
+    gap: 10px; /* Añadir espacio entre los botones */
 }
 
 .custom--tabs .tab__list {
-    margin: 0 10px; /* Espacio entre pestañas */
+    margin: 0; /* Elimina el margen lateral entre pestañas */
 }
 
 .custom__tab-content {
     display: none;
-    color: #fff; /* Texto blanco para el contenido */
+    color: #fff;
 }
 
 .custom__tab-content.active {
@@ -30,36 +31,40 @@
     cursor: pointer !important;
     margin: 0 !important;
     padding: 15px 20px;
-    border: 1px solid #555; /* Borde más oscuro */
-    color: #999; /* Color de texto más claro */
-    border-radius: 30px; /* Ajustado para un borde más suave */
+    border: 1px solid #555;
+    color: #999;
+    border-radius: 30px;
     font-size: 16px;
     font-weight: 500;
     transition: border-color 0.3s ease, transform 0.3s ease, color 0.3s ease;
-    background: transparent; /* Fondo transparente */
+    background: transparent;
 }
 
 .tab__list .custom-tab:hover {
-    border: 1px solid #fff; /* Borde blanco al pasar el cursor */
-    color: #fff; /* Texto blanco al pasar el cursor */
+    border: 1px solid transparent; /* Borde transparente */
+    border-image: linear-gradient(to right, #5a0dff -5%, #ff29b8 31%, #ff581c, #ff29b8, #5a0dff);
+    border-image-slice: 1;
+    color: white !important;
     transform: scale(1.05) !important;
 }
 
 .tab__list .custom-tab.active {
-    color: #fff; /* Texto blanco para la pestaña activa */
-    border: 1px solid #ff29b8; /* Borde de gradiente para la pestaña activa */
+    color: white !important;
+    border: 1px solid transparent; /* Borde transparente */
+    border-image: linear-gradient(to right, #5a0dff -5%, #ff29b8 31%, #ff581c, #ff29b8, #5a0dff);
+    border-image-slice: 1;
     border-radius: 30px;
-    background: linear-gradient(122deg, #4f4f4f -65.81%, #282323 117.04%); /* Fondo de gradiente */
+    background: linear-gradient(122deg, #4f4f4f -65.81%, #282323 117.04%);
 }
 
 @media only screen and (max-width: 576px) {
     ul.custom--tabs {
-        flex-direction: column !important;
+        flex-wrap: nowrap !important; /* Mantiene los botones en una sola fila */
+        overflow-x: auto; /* Permite el desplazamiento horizontal */
     }
 
     .custom--tabs .tab__list .custom-tab {
-        margin: 10px 0 !important;
-        width: 100%;
+        margin: 0 5px !important; /* Añadir espacio entre los botones en móvil */
         padding: 10px 15px !important;
     }
 
