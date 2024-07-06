@@ -377,22 +377,4 @@
     </div>
   </div>
 
-
-  <script>
-  document.addEventListener('DOMContentLoaded', function() {
-      var productCard = document.querySelector('.card-wrapper.product-card-wrapper');
-      var productVideo = productCard.querySelector('.card__media video');
-
-      if (productVideo) {
-          productCard.addEventListener('mouseenter', function() {
-              productVideo.play();
-          });
-
-          productCard.addEventListener('mouseleave', function() {
-              productVideo.pause();
-          });
-      }
-  });
-  </script>
-
 {%- endif -%}
