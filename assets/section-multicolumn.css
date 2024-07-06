@@ -93,6 +93,7 @@
   z-index: -1;
   opacity: 0; /* Inicialmente invisible */
   transition: opacity 0.3s ease; /* Transición suave para el efecto */
+  transform: scale(1.1); /* Escala las columnas al pasar el cursor*/
 }
 
 .multicolumn-card:hover::before {
@@ -239,12 +240,8 @@
 .multicolumn-card {
   position: relative;
   box-sizing: border-box;
-  z-index: 1;
 }
 
-.multicolumn-card:hover {
-  transform: scale(1.1); /* Escala las columnas al pasar el cursor*/
-}
 
 .multicolumn-card > .multicolumn-card__image-wrapper--full-width:not(.multicolumn-card-spacing) {
   border-top-left-radius: calc(var(--text-boxes-radius) - var(--text-boxes-border-width));
