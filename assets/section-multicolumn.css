@@ -203,14 +203,10 @@
   transition: transform 0.3s ease; /* Transición suave para la escala */
 }
 .multicolumn-list__item:hover {
-
-  transition: transform 0.3s ease; /* Transición suave para la escala */
+  transition: transform 0.6s cubic-bezier(0.25, 0.1, 0.25, 1); /* Transición más larga y suave */
+  transform: scale(1.1) !important; /* Escala las columnas al pasar el cursor */
 }
 
-.multicolumn-list__item:hover {
-  transform: scale(1.1); /* Escala las columnas al pasar el cursor*/
-  
-}
 .multicolumn-card:before {
   content: "";
   position: absolute;
