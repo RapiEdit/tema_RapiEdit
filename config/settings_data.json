@@ -150,6 +150,15 @@
         "settings": {
           "enable": true
         }
+      },
+      "bannerdeslizante": {
+        "type": "bannerdeslizante",
+        "settings": {
+          "text": "TÚ EDICIÓN EN MENOS DE 24 HORAS 📣    |   SOMOS LOS MÁS VELOCES. ⚡",
+          "colorBackground": "#000",
+          "colorText": "#fff",
+          "link": ""
+        }
       }
     },
     "content_for_index": [
