@@ -70,29 +70,7 @@
       transform: scale(1.05) !important;
   }
   
-  .tab__list .custom-tab.active::before,
-  .tab__list .custom-tab:hover::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      border-radius: 30px;
-      background-image: linear-gradient(
-          to right,
-          #5a0dff -5%,
-          #ff29b8 31%,
-          #ff581c,
-          #ff29b8,
-          #5a0dff
-      );
-      background-size: 200% 100%;
-      animation: gradientAnimation 4s linear infinite;
-      z-index: -1; /* Asegúrate de que esté detrás del botón */
-      padding: 2px;
-      box-sizing: border-box;
-  }
+  
   
   .tab__list::after {
       content: '-';
