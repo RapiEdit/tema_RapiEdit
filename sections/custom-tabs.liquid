@@ -32,7 +32,7 @@
     margin: 0 50px !important;
     padding: 15px 20px;
     border: 1px solid #555;
-    color: #999;
+    color: #fff;
     border-radius: 30px;
     font-size: 16px;
     font-weight: 500;
@@ -42,25 +42,33 @@
     z-index: 0; /* Cambiado a 0 */
 }
 
-.tab__list .custom-tab:hover {
-    color: white !important;
-    transform: scale(1.05) !important;
-}
 
-.tab__list:first-child{
-  background-color: #dfdfdf;
-      }
+
 .tab__list .custom-tab.active::before,
 .tab__list .custom-tab:hover::before {
-    content: '';
-    position: absolute;
-    top: -2px;
-    right: -2px;
-    bottom: -2px;
-    left: -2px;
-    z-index: -1; /* Asegura que esté detrás del botón */
-    border-radius: 30px;
-    background: linear-gradient(to right, #5a0dff -5%, #ff29b8 31%, #ff581c, #ff29b8, #5a0dff);
+     content: "";
+  position: absolute;
+  top: -2px; /* Ajusta según el grosor del borde */
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  border-radius: 32px; /* Ajusta según el radio del borde */
+  background-image: linear-gradient(
+    to right,
+    #5a0dff -5%,
+    #ff29b8 31%,
+    #ff581c,
+    #ff29b8,
+    #5a0dff
+  );
+  background-size: 200% 100%;
+  animation: gradientAnimation 4s linear infinite;
+  z-index: -1;
+ 
+}
+
+.tab__list .custom-tab:hover {
+    transform: scale(1.05) !important;
 }
 
 .tab__list::after {
