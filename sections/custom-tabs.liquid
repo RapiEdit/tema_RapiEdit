@@ -1,16 +1,15 @@
 {% stylesheet %}
   ul.custom--tabs {
     list-style-type: none;
-    width: 100%; /* Ajustado para ocupar todo el ancho */
+    width: 50%;
     max-width: 1200px;
     display: flex !important;
     flex-wrap: nowrap !important;
     border-radius: 50px;
     background: #1f1f1f;
-    padding: 20px 0px; /* Ajuste del padding */
+    padding: 20px 0px 20px 0px;
     justify-content: center;
     margin: 20px auto;
-    overflow: hidden; /* Evita que los tabs se desborden en pantallas pequeñas */
   }
   
   .custom--tabs .tab__list {
@@ -22,7 +21,6 @@
   .custom__tab-content {
       display: none;
       color: #fff;
-      text-align: center; /* Centrar el contenido */
   }
   
   .custom__tab-content.active {
@@ -30,33 +28,23 @@
   }
   
   .tab__list .custom-tab {
-      position: relative;
+    position: relative;
       display: inline-block !important;
       cursor: pointer !important;
-      margin: 0 10px; /* Reducido el margen para mayor cercanía */
+      margin: 0 50px !important;
       padding: 15px 20px;
-      border: 2px solid transparent; /* Cambiado para evitar el salto de tamaño */
+      border: 2px solid #5151515c;
       color: #cec8c8;
       border-radius: 30px;
       font-size: 16px;
       font-weight: 500;
-      transition: border-color 0.3s ease, transform 0.3s ease, color 0.3s ease, background-color 0.3s ease; /* Añadida la transición del color de fondo */
+      transition: border-color 0.3s ease, transform 0.3s ease, color 0.3s ease;
       background: #252525;
   }
   
-  .tab__list .custom-tab:hover {
-      border-color: #5151515c; /* Añadida la transición para el borde */
-      transform: translateY(-3px); /* Efecto de levantamiento */
-      background-color: #353535; /* Cambio de color de fondo en hover */
-  }
-  
-  .tab__list .custom-tab.active {
-      background-color: #353535; /* Color de fondo activo */
-      color: #fff; /* Color de texto activo */
-  }
-  
+
   .tab__list .custom-tab.active::before,
-  .tab__list .custom-tab:hover::before {
+.tab__list .custom-tab:hover::before {
       content: "";
       position: absolute;
       top: -3px;
@@ -78,18 +66,48 @@
       box-sizing: border-box;
       z-index: -1;
   }
+
+
+  
+  
+  
+  .tab__list::after {
+      content: '-';
+      color: #999;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 24px;
+  }
+  
+  .tab__list:last-child::after {
+      content: '';
+  }
   
   @media only screen and (max-width: 576px) {
+
+
+  
       ul.custom--tabs {
           flex-wrap: nowrap !important;
           overflow-x: auto;
+          width: 100%;
+          
+      }
+      .tab__list .custom-tab {
+        font-size: 14px;
       }
       .custom--tabs .tab__list .custom-tab {
-          font-size: 14px;
+          margin: 0 5px !important;
           padding: 10px 12px !important;
       }
+  
       .custom__tab-content.active {
           padding: 0 15px;
+      }
+  
+      .tab__list::after {
+          display: none;
       }
   }
   
@@ -104,54 +122,54 @@
           background-position: 0% 50%;
       }
   }
-{% endstylesheet %}
-
-<ul class="custom--tabs">
+  {% endstylesheet %}
+  
+  
+  <ul class="custom--tabs page-width">
+    {% for block in section.blocks %}
+      {% if block.type == 'tab' %}
+        <li class="tab__list {% if forloop.first %}active{% endif %}">
+          <button
+            class="custom-tab {% if forloop.first %}active{% endif %}"
+            data-content-id="content--{{ block.id }}--{{ section.id }}"
+          >
+            {{ block.settings.heading }}
+          </button>
+        </li>
+      {% endif %}
+    {% endfor %}
+  </ul>
+  
   {% for block in section.blocks %}
     {% if block.type == 'tab' %}
-      <li class="tab__list {% if forloop.first %}active{% endif %}">
-        <button
-          class="custom-tab {% if forloop.first %}active{% endif %}"
-          data-content-id="content--{{ block.id }}--{{ section.id }}"
-        >
-          {{ block.settings.heading }}
-        </button>
-      </li>
+      <div
+        id="content--{{ block.id }}--{{ section.id }}"
+        class="custom__tab-content page-width {% if forloop.first %}active{% endif %}"
+      >
+        {{ block.settings.tab_content }}
+      </div>
     {% endif %}
   {% endfor %}
-</ul>
-
-{% for block in section.blocks %}
-  {% if block.type == 'tab' %}
-    <div
-      id="content--{{ block.id }}--{{ section.id }}"
-      class="custom__tab-content {% if forloop.first %}active{% endif %}"
-    >
-      {{ block.settings.tab_content }}
-    </div>
-  {% endif %}
-{% endfor %}
-
-{% javascript %}
-document.querySelectorAll('.custom-tab').forEach(function(tab) {
-  tab.addEventListener('click', function() {
-    var contentId = this.dataset.contentId;
-    var content = document.getElementById(contentId);
-
-    document.querySelectorAll('.custom__tab-content').forEach(function(tabContent) {
-      tabContent.classList.remove('active');
+  
+  {% javascript %}
+  document.querySelectorAll('.custom-tab').forEach(function(tab) {
+    tab.addEventListener('click', function() {
+      var contentId = this.dataset.contentId;
+      var content = document.getElementById(contentId);
+  
+      document.querySelectorAll('.custom__tab-content').forEach(function(tabContent) {
+        tabContent.classList.remove('active');
+      });
+  
+      document.querySelectorAll('.custom-tab').forEach(function(tab) {
+        tab.classList.remove('active');
+      });
+  
+      this.classList.add('active');
+      content.classList.add('active');
     });
-
-    document.querySelectorAll('.custom-tab').forEach(function(tab) {
-      tab.classList.remove('active');
-    });
-
-    this.classList.add('active');
-    content.classList.add('active');
   });
-});
-{% endjavascript %}
-
+  {% endjavascript %}
   
   {% schema %}
   {
