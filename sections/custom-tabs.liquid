@@ -29,7 +29,7 @@
 .tab__list .custom-tab {
     display: inline-block !important;
     cursor: pointer !important;
-    margin: 0px 50px !important;
+    margin: 0 50px !important;
     padding: 15px 20px;
     border: 1px solid #555;
     color: #999;
@@ -51,15 +51,13 @@
 .tab__list .custom-tab:hover::before {
     content: '';
     position: absolute;
-    top: -1px;
-    right: -1px;
-    bottom: -1px;
-    left: -1px;
+    top: -2px;
+    right: -2px;
+    bottom: -2px;
+    left: -2px;
     z-index: -1;
-    border-radius: inherit;
-    border: 2px solid transparent;
-    border-image: linear-gradient(to right, #5a0dff -5%, #ff29b8 31%, #ff581c, #ff29b8, #5a0dff);
-    border-image-slice: 1;
+    border-radius: 30px;
+    background: linear-gradient(to right, #5a0dff -5%, #ff29b8 31%, #ff581c, #ff29b8, #5a0dff);
 }
 
 .tab__list .custom-tab.active {
@@ -71,7 +69,7 @@
     content: '-';
     color: #999;
     position: absolute;
-    right: -15px;
+    right: -25px;
     top: 50%;
     transform: translateY(-50%);
     font-size: 24px;
@@ -94,6 +92,10 @@
 
     .custom__tab-content.active {
         padding: 0 15px;
+    }
+
+    .tab__list::after {
+        display: none;
     }
 }
 
