@@ -17,6 +17,7 @@
   .custom--tabs .tab__list {
     border: 0;
     padding: 0;
+    position: relative;
   }
   
   .custom__tab-content {
@@ -35,44 +36,45 @@
     padding: 0;
     height: 48px;
     padding: 0 25px;
-    border: 1px solid #999999;
     color: #999999;
-    border-radius: 40px;
     font-size: 18px;
     font-weight: 500;
     display: flex;
     align-items: center;
     justify-content: center;
     background: transparent;
-    transition: border-color 0.3s ease, transform 0.3s ease, color 0.3s ease;
+    border-radius: 40px;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .tab__list .custom-tab::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 40px;
+    border: 1px solid #999999;
+    transition: all 0.3s ease;
+    z-index: -1;
+  }
+  
+  .tab__list .custom-tab:hover::before,
+  .tab__list .custom-tab.active::before {
+    border-image: linear-gradient(to right, #5a0dff, #ff29b8, #ff581c, #ff29b8, #5a0dff);
+    border-image-slice: 1;
   }
   
   .tab__list .custom-tab:hover {
-    border: 1px solid transparent;
-    border-image: linear-gradient(to right, #5a0dff -5%, #ff29b8 31%, #ff581c, #ff29b8, #5a0dff);
-    border-image-slice: 1;
     color: white !important;
     transform: scale(1.05) !important;
     font-weight: bold;
-    border-radius: 40px; /* Asegura que el radio de los bordes se mantenga */
   }
   
   .active-always {
     display: block !important;
-  }
-  
-  .tab__list:first-child .custom-tab {
-    border-image: linear-gradient(to right, #5a0dff -5%, #ff29b8 31%, #ff581c, #ff29b8, #5a0dff);
-    border-image-slice: 1;
-    border-radius: 40px;
-  }
-  
-  .tab__list .custom-tab.active {
-    color: white !important;
-    border: 1px solid transparent;
-    border-image: linear-gradient(to right, #5a0dff -5%, #ff29b8 31%, #ff581c, #ff29b8, #5a0dff);
-    border-image-slice: 1;
-    border-radius: 40px;
   }
   
   @media only screen and (max-width: 576px) {
@@ -85,7 +87,6 @@
       width: 100%;
       padding: 10px 15px !important;
       border-bottom: none !important;
-      border-radius: 40px; /* Mantiene el radio de los bordes en móvil */
     }
   
     .custom__tab-content.active {
@@ -174,5 +175,6 @@
     ]
   }
   {% endschema %}
+  
   
   
