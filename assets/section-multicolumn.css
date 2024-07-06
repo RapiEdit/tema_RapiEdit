@@ -201,6 +201,7 @@
   position: relative;
   box-sizing: border-box;
   transition: transform 0.3s ease; /* Transición suave para la escala */
+   z-index: 1; /* Asegura que la tarjeta tenga un z-index mayor al del pseudo-elemento */
 }
 .multicolumn-card:hover {
   transform: scale(1.1); /* Escala las columnas al pasar el cursor*/
