@@ -437,16 +437,13 @@
 
   @keyframes ripple {
     0% {
-      transform: scale(0);
-      opacity: 0.5;
-    }
-    50% {
-      opacity: 0.2;
-    }
-    100% {
-      transform: scale(2); /* Escalado final para expandirse */
-      opacity: 0;
-    }
-  }
+    box-shadow: 0 0 0 0 #fff5, 0 0 0 0 #fff6;
+}
+80% {
+    box-shadow: 0 0 0 20px #fff0, 0 0 0 40px #fff0;
+}
+100% {
+    box-shadow: 0 0 0 0 #fff0, 0 0 0 0 #fff0;
+}
 </style>
 
