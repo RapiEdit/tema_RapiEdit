@@ -39,7 +39,9 @@
     transition: border-color 0.3s ease, transform 0.3s ease, color 0.3s ease;
     background: linear-gradient(122deg, #4f4f4f -65.81%, #282323 117.04%);
     position: relative;
-    z-index: 0; /* Cambiado a 0 */
+    z-index: 1;
+  padding: 10px; /* Añade un padding interno para que no se cubra el contenido */
+  box-sizing: border-box; /* Asegúrate de que el padding no altere el tamaño total */
 }
 
 
