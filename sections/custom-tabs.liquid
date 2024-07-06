@@ -1,118 +1,98 @@
 {% stylesheet %}
   ul.custom--tabs {
-      list-style-type: none;
-      width: 100%;
-      max-width: 1200px;
-      display: flex !important;
-      flex-wrap: nowrap !important;
-      border-radius: 50px;
-      background: #333;
-      padding: 10px;
-      justify-content: center;
-      margin: 20px auto;
+    list-style-type: none;
+    width: 1200px;
+    max-width: 60%;
+    display: flex !important;
+    flex-wrap: wrap !important;
+    border-radius: 300px;
+    background: linear-gradient(122deg, #4f4f4f -65.81%, #282323 117.04%);
+    border: 0;
+    padding: 35px;
+    align-items: center;
+    justify-content: center;
+    margin-top: -60px;
   }
   
   .custom--tabs .tab__list {
-      margin: 0;
-      position: relative;
+    border: 0;
+    padding: 0;
   }
   
   .custom__tab-content {
-      display: none;
-      color: #fff;
+    display: none;
   }
   
   .custom__tab-content.active {
-      display: block;
+    display: block;
   }
   
   .tab__list .custom-tab {
-      display: inline-block !important;
-      cursor: pointer !important;
-      margin: 0 50px !important;
-      padding: 15px 20px;
-      border: solid;
-      color: #fff;
-      border-radius: 30px;
-      font-size: 16px;
-      font-weight: 500;
-      transition: border-color 0.3s ease, transform 0.3s ease, color 0.3s ease;
-      background: linear-gradient(122deg, #4f4f4f -65.81%, #282323 117.04%);
-      position: relative;
-      z-index: 1; /* Asegúrate de que esté encima del ::before */
+    display: inline-block !important;
+    cursor: pointer !important;
+    margin: 0px !important;
+    border: 0;
+    padding: 0;
+    height: 48px;
+    padding: 0 25px;
+    border: 1px solid #999999;
+    color: #999999;
+    border-radius: 40px;
+    font-size: 18px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    transition: border-color 0.3s ease, transform 0.3s ease, color 0.3s ease;
   }
   
-  
-  .tab__list .custom-tab:before {
-    content: "";
-  position: absolute;
-  top: -2px; /* Ajusta según el grosor del borde */
-  left: -2px;
-  right: -2px;
-  bottom: -2px;
-  border-radius: 32px; /* Ajusta según el radio del borde */
-  background-image: linear-gradient(
-    to right,
-    #5a0dff -5%,
-    #ff29b8 31%,
-    #ff581c,
-    #ff29b8,
-    #5a0dff
-  );
-  background-size: 200% 100%;
-  animation: gradientAnimation 4s linear infinite;
-  z-index: -1;
+  .tab__list .custom-tab:hover {
+    border: 1px solid transparent;
+    border-image: linear-gradient(to right, #5a0dff -5%, #ff29b8 31%, #ff581c, #ff29b8, #5a0dff);
+    border-image-slice: 1;
+    color: white !important;
+    transform: scale(1.05) !important;
+    font-weight: bold;
+    border-radius: 40px; /* Asegura que el radio de los bordes se mantenga */
   }
   
-  .tab__list::after {
-      content: '-';
-      color: #999;
-      position: absolute;
-      right: -25px;
-      top: 50%;
-      transform: translateY(-50%);
-      font-size: 24px;
+  .active-always {
+    display: block !important;
   }
   
-  .tab__list:last-child::after {
-      content: '';
+  .tab__list:first-child .custom-tab {
+    border-image: linear-gradient(to right, #5a0dff -5%, #ff29b8 31%, #ff581c, #ff29b8, #5a0dff);
+    border-image-slice: 1;
+    border-radius: 40px;
+  }
+  
+  .tab__list .custom-tab.active {
+    color: white !important;
+    border: 1px solid transparent;
+    border-image: linear-gradient(to right, #5a0dff -5%, #ff29b8 31%, #ff581c, #ff29b8, #5a0dff);
+    border-image-slice: 1;
+    border-radius: 40px;
   }
   
   @media only screen and (max-width: 576px) {
-      ul.custom--tabs {
-          flex-wrap: nowrap !important;
-          overflow-x: auto;
-      }
+    ul.custom--tabs {
+      flex-direction: column !important;
+    }
   
-      .custom--tabs .tab__list .custom-tab {
-          margin: 0 5px !important;
-          padding: 10px 15px !important;
-      }
+    .custom--tabs .tab__list .custom-tab {
+      margin: 10px 0 !important;
+      width: 100%;
+      padding: 10px 15px !important;
+      border-bottom: none !important;
+      border-radius: 40px; /* Mantiene el radio de los bordes en móvil */
+    }
   
-      .custom__tab-content.active {
-          padding: 0 15px;
-      }
-  
-      .tab__list::after {
-          display: none;
-      }
-  }
-  
-  @keyframes gradientAnimation {
-      0% {
-          background-position: 0% 50%;
-      }
-      50% {
-          background-position: 100% 50%;
-      }
-      100% {
-          background-position: 0% 50%;
-      }
+    .custom__tab-content.active {
+      padding: 0 15px;
+    }
   }
   {% endstylesheet %}
-  
-  
-  
   
   <ul class="custom--tabs page-width">
     {% for block in section.blocks %}
