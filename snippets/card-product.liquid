@@ -98,7 +98,7 @@
     
           
           <div class="play-button">
-            <button aria-label="Play video">
+            <button class="riplepro" aria-label="Play video">
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                 <path d="M8 5v14l11-7z"/>
               </svg>
@@ -418,37 +418,28 @@
     height: 60%; /* Tamaño del icono SVG ajustado */
   }
 
-  .play-button::before {
-    content: '';
-    position: absolute;
-    background-color: rgba(255, 255, 255, 0.3);
-    width: 100%; /* Ancho del efecto Ripple */
-    height: 100%; /* Alto del efecto Ripple */
-    top: 0;
-    left: 0;
-    border-radius: 50%;
+  .riplepro {
     animation-name: ripple;
-    animation-duration: 3s;
+    animation-duration: 1.5s;
+    animation-timing-function: ease-out;
     animation-iteration-count: infinite;
-    transform: scale(0); /* Escalado inicial para empezar desde un punto pequeño */
-    opacity: 0; /* Opacidad inicial */
     pointer-events: none; /* Para que no interfiera con eventos de click */
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.5), 0 0 0 0 rgba(255, 255, 255, 0.6);
   }
 
   @keyframes ripple {
     0% {
-      transform: scale(0);
-      opacity: 0.5;
+      box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.5), 0 0 0 0 rgba(255, 255, 255, 0.6);
     }
-    50% {
-      opacity: 0.2;
+    80% {
+      box-shadow: 0 0 0 20px rgba(255, 255, 255, 0), 0 0 0 40px rgba(255, 255, 255, 0);
     }
     100% {
-      transform: scale(2); /* Escalado final para expandirse */
-      opacity: 0;
+      box-shadow: 0 0 0 0 rgba(255, 255, 255, 0), 0 0 0 0 rgba(255, 255, 255, 0);
     }
   }
 </style>
+
 
 
 
