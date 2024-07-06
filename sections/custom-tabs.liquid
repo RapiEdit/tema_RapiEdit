@@ -42,10 +42,6 @@
       z-index: 1; /* Asegúrate de que esté encima del ::before */
   }
   
-  .tab__list .custom-tab:hover {
-      transform: scale(1.05) !important;
-  }
-  
   
   .tab__list .custom-tab:before {
       content: "";
@@ -66,8 +62,6 @@
       background-size: 200% 100%;
       animation: gradientAnimation 4s linear infinite;
       z-index: -1; /* Asegúrate de que esté detrás del botón */
-      padding: 2px;
-      box-sizing: border-box;
   }
   
   .tab__list::after {
