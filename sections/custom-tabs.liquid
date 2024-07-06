@@ -48,10 +48,10 @@
   .tab__list .custom-tab:before {
       content: "";
       position: absolute;
-      top: 2px;
-      left: 2px;
-      right: 2px;
-      bottom: 2px;
+      top: -2px;
+      left: -2px;
+      right: -2px;
+      bottom: -2px;
       border-radius: 30px;
       background-image: linear-gradient(
           to right,
@@ -65,6 +65,7 @@
       animation: gradientAnimation 4s linear infinite;
       padding: 2px;
       box-sizing: border-box;
+      z-index: -1;
   }
 
 
