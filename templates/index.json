@@ -71,7 +71,7 @@
         "column_alignment": "center",
         "background_style": "primary",
         "button_label": "EMPEZAR",
-        "button_link": "#",
+        "button_link": "#empezar",
         "color_scheme": "",
         "columns_mobile": "1",
         "swipe_on_mobile": true,
@@ -79,6 +79,15 @@
         "padding_bottom": 36,
         "padding_left": 36,
         "padding_right": 36
+      }
+    },
+    "custom_liquid_wyj9DR": {
+      "type": "custom-liquid",
+      "settings": {
+        "custom_liquid": "<h2 id=\"empezar\"><\/h2>",
+        "color_scheme": "",
+        "padding_top": 40,
+        "padding_bottom": 52
       }
     },
     "featured_collection_Jat74e": {
@@ -112,6 +121,7 @@
   },
   "order": [
     "multicolumn_mqDRcx",
+    "custom_liquid_wyj9DR",
     "featured_collection_Jat74e"
   ]
 }
