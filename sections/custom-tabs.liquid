@@ -31,44 +31,36 @@
     cursor: pointer !important;
     margin: 0 50px !important;
     padding: 15px 20px;
-    color: #fff;
+    border: 1px solid #555;
+    color: #999;
     border-radius: 30px;
     font-size: 16px;
     font-weight: 500;
     transition: border-color 0.3s ease, transform 0.3s ease, color 0.3s ease;
-    background-image: linear-gradient(
-    to right,
-    #5a0dff -5%,
-    #ff29b8 31%,
-    #ff581c,
-    #ff29b8,
-    #5a0dff
-  );
-  background-size: 200% 100%;
-  animation: gradientAnimation 4s linear infinite;
-   
+    background: linear-gradient(122deg, #4f4f4f -65.81%, #282323 117.04%);
     position: relative;
- 
-}
-
-
-
-.tab__list .custom-tab:before {
-     content: "";
-  position: absolute;
-  top: -2px; /* Ajusta según el grosor del borde */
-  left: -2px;
-  right: -2px;
-  bottom: -2px;
-  border-radius: 32px; /* Ajusta según el radio del borde */
-  background: linear-gradient(122deg, #4f4f4f -65.81%, #282323 117.04%);
-
- 
+    z-index: 1;
 }
 
 .tab__list .custom-tab:hover {
+    color: white !important;
     transform: scale(1.05) !important;
 }
+
+.tab__list .custom-tab.active::before,
+.tab__list .custom-tab:hover::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    right: -2px;
+    bottom: -2px;
+    left: -2px;
+    z-index: -1;
+    border-radius: 30px;
+    background: linear-gradient(to right, #5a0dff -5%, #ff29b8 31%, #ff581c, #ff29b8, #5a0dff);
+    
+}
+
 
 .tab__list::after {
     content: '-';
