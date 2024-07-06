@@ -29,7 +29,7 @@
 .tab__list .custom-tab {
     display: inline-block !important;
     cursor: pointer !important;
-    margin: 0px 50px !important;
+    margin: 0 50px !important;
     padding: 15px 20px;
     border: 1px solid #555;
     color: #999;
@@ -37,9 +37,9 @@
     font-size: 16px;
     font-weight: 500;
     transition: border-color 0.3s ease, transform 0.3s ease, color 0.3s ease;
-    background: transparent;
+    background: linear-gradient(122deg, #4f4f4f -65.81%, #282323 117.04%);
     position: relative;
-    z-index: 1;
+    z-index: 0; /* Cambiado a 0 */
 }
 
 .tab__list .custom-tab:hover {
@@ -47,31 +47,27 @@
     transform: scale(1.05) !important;
 }
 
+.tab__list:first-child{
+  background-color: #dfdfdf;
+      }
 .tab__list .custom-tab.active::before,
 .tab__list .custom-tab:hover::before {
     content: '';
     position: absolute;
-    top: -1px;
-    right: -1px;
-    bottom: -1px;
-    left: -1px;
-    z-index: -1;
-    border-radius: inherit;
-    border: 2px solid transparent;
-    border-image: linear-gradient(to right, #5a0dff -5%, #ff29b8 31%, #ff581c, #ff29b8, #5a0dff);
-    border-image-slice: 1;
-}
-
-.tab__list .custom-tab.active {
-    color: white !important;
-    background: linear-gradient(122deg, #4f4f4f -65.81%, #282323 117.04%);
+    top: -2px;
+    right: -2px;
+    bottom: -2px;
+    left: -2px;
+    z-index: -1; /* Asegura que esté detrás del botón */
+    border-radius: 30px;
+    background: linear-gradient(to right, #5a0dff -5%, #ff29b8 31%, #ff581c, #ff29b8, #5a0dff);
 }
 
 .tab__list::after {
     content: '-';
     color: #999;
     position: absolute;
-    right: -15px;
+    right: -25px;
     top: 50%;
     transform: translateY(-50%);
     font-size: 24px;
@@ -94,6 +90,10 @@
 
     .custom__tab-content.active {
         padding: 0 15px;
+    }
+
+    .tab__list::after {
+        display: none;
     }
 }
 
