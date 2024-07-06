@@ -96,10 +96,7 @@
   width: auto;
 }
 
-.multicolumn-list__item.center .media--adapt,
-.multicolumn-list__item .media--adapt .multicolumn-card__image:hover {
-  transform: scale(1.1); /* Escala las columnas al pasar el cursor*/
-}
+
 
 .multicolumn-list__item.center .media--adapt img {
   left: 50%;
