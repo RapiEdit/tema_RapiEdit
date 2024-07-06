@@ -422,26 +422,31 @@
     content: '';
     position: absolute;
     background-color: rgba(255, 255, 255, 0.3);
-    width: 100%;
-    height: 100%;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    width: 100%; /* Ancho del efecto Ripple */
+    height: 100%; /* Alto del efecto Ripple */
+    top: 0;
+    left: 0;
     border-radius: 50%;
     animation-name: ripple;
     animation-duration: 3s;
     animation-iteration-count: infinite;
+    transform: scale(0); /* Escalado inicial para empezar desde un punto pequeño */
+    opacity: 0; /* Opacidad inicial */
+    pointer-events: none; /* Para que no interfiera con eventos de click */
   }
 
   @keyframes ripple {
     0% {
-    box-shadow: 0 0 0 0 #fff5, 0 0 0 0 #fff6;
-}
-80% {
-    box-shadow: 0 0 0 20px #fff0, 0 0 0 40px #fff0;
-}
-100% {
-    box-shadow: 0 0 0 0 #fff0, 0 0 0 0 #fff0;
-}
+      transform: scale(0);
+      opacity: 0.5;
+    }
+    50% {
+      opacity: 0.2;
+    }
+    100% {
+      transform: scale(2); /* Escalado final para expandirse */
+      opacity: 0;
+    }
   }
 </style>
+
