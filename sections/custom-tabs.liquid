@@ -44,7 +44,7 @@
     align-items: center;
     justify-content: center;
     background: transparent;
-    transition: border-color 0.3s ease, transform 0.3s ease, color 0.3s ease; /* Añade una transición suave */
+    transition: border-color 0.3s ease, transform 0.3s ease, color 0.3s ease;
   }
   
   .tab__list .custom-tab:hover {
@@ -64,10 +64,12 @@
   .tab__list:first-child .custom-tab {
     border-image: linear-gradient(to right, #5a0dff -5%, #ff29b8 31%, #ff581c, #ff29b8, #5a0dff);
     border-image-slice: 1;
+    border-radius: 40px;
   }
   
   .tab__list .custom-tab.active {
     color: white !important;
+    border: 1px solid transparent;
     border-image: linear-gradient(to right, #5a0dff -5%, #ff29b8 31%, #ff581c, #ff29b8, #5a0dff);
     border-image-slice: 1;
     border-radius: 40px;
@@ -172,4 +174,5 @@
     ]
   }
   {% endschema %}
+  
   
