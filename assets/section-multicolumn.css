@@ -241,6 +241,10 @@
   box-sizing: border-box;
 }
 
+.multicolumn-card:hover {
+  transform: scale(1.1); /* Escala las columnas al pasar el cursor */
+}
+
 .multicolumn-card > .multicolumn-card__image-wrapper--full-width:not(.multicolumn-card-spacing) {
   border-top-left-radius: calc(var(--text-boxes-radius) - var(--text-boxes-border-width));
   border-top-right-radius: calc(var(--text-boxes-radius) - var(--text-boxes-border-width));
