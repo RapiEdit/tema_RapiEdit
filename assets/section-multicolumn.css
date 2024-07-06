@@ -200,10 +200,10 @@
 .multicolumn-card {
   position: relative;
   box-sizing: border-box;
-  transition: transform 0.5s ease; /* Transición suave para la escala */
+  transition: transform 0.3s ease; /* Transición suave para la escala */
 }
 .multicolumn-list__item:hover {
-  transition: transform 0.6s cubic-bezier(0.25, 0.1, 0.25, 1); /* Transición más larga y suave */
+  transition: transform 0.3s ease;
   transform: scale(1.1) !important; /* Escala las columnas al pasar el cursor */
 }
 
@@ -226,7 +226,7 @@
   background-size: 200% 100%;
   z-index: -1 !important;
   opacity: 0; /* Inicialmente invisible */
-  transition: opacity 0.5s ease; /* Transición suave para el efecto */
+  transition: opacity 0.3s ease; /* Transición suave para el efecto */
 }
 
 .multicolumn-card:hover::before {
