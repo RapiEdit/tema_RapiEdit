@@ -9,8 +9,9 @@
 */
 {
   "current": {
-    "logo": "shopify:\/\/shop_images\/logosPOLANk-removebg-preview.png",
-    "logo_width": 170,
+    "logo": "shopify:\/\/shop_images\/LOGO-RAPIEDIT-WEB.png",
+    "logo_width": 150,
+    "favicon": "shopify:\/\/shop_images\/FAVION-RAPIEDIT.png",
     "type_header_font": "archivo_n7",
     "heading_scale": 110,
     "type_body_font": "questrial_n4",
@@ -155,8 +156,8 @@
         "type": "bannerdeslizante",
         "settings": {
           "text": "TÚ EDICIÓN EN MENOS DE 24 HORAS 📣    |   SOMOS LOS MÁS VELOCES. ⚡",
-          "colorBackground": "#000",
-          "colorText": "#fff",
+          "colorBackground": "#000000",
+          "colorText": "#ffffff",
           "link": ""
         }
       }
