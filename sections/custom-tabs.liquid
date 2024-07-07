@@ -177,9 +177,9 @@
 <ul class="custom--tabs page-width">
   {% for block in section.blocks %}
     {% if block.type == 'tab' or block.type == 'product_attribute' or block.type == 'html_content' %}
-      <li class="tab__list {% if forloop.index0 == section.settings.default_active_tab %}active{% endif %}">
+      <li class="tab__list {% if block.settings.default_active %}active{% endif %}">
         <button
-          class="custom-tab {% if forloop.index0 == section.settings.default_active_tab %}active{% endif %}"
+          class="custom-tab {% if block.settings.default_active %}active{% endif %}"
           data-content-id="content--{{ block.id }}--{{ section.id }}"
         >
           {{ block.settings.heading }}
@@ -193,7 +193,7 @@
   {% if block.type == 'tab' %}
     <div
       id="content--{{ block.id }}--{{ section.id }}"
-      class="custom__tab-content page-width {% if forloop.index0 == section.settings.default_active_tab %}active{% endif %}"
+      class="custom__tab-content page-width {% if block.settings.default_active %}active{% endif %}"
     >
       {{ block.settings.tab_content }}
     </div>
@@ -201,7 +201,7 @@
   {% if block.type == 'product_attribute' %}
     <div
       id="content--{{ block.id }}--{{ section.id }}"
-      class="custom__tab-content page-width {% if forloop.index0 == section.settings.default_active_tab %}active{% endif %}"
+      class="custom__tab-content page-width {% if block.settings.default_active %}active{% endif %}"
     >
       {% case block.settings.attribute %}
         {% when 'description' %}
@@ -222,12 +222,13 @@
   {% if block.type == 'html_content' %}
     <div
       id="content--{{ block.id }}--{{ section.id }}"
-      class="custom__tab-content page-width {% if forloop.index0 == section.settings.default_active_tab %}active{% endif %}"
+      class="custom__tab-content page-width {% if block.settings.default_active %}active{% endif %}"
     >
       {{ block.settings.html_code }}
     </div>
   {% endif %}
 {% endfor %}
+
 
   
 {% javascript %}
@@ -253,15 +254,6 @@
 {% schema %}
 {
   "name": "Tabs",
-  "settings": [
-    {
-      "type": "number",
-      "id": "default_active_tab",
-      "label": "Default Active Tab",
-      "min": 0,
-      "default": 0
-    }
-  ],
   "blocks": [
     {
       "type": "tab",
@@ -277,6 +269,11 @@
           "type": "html",
           "id": "tab_content",
           "label": "Content"
+        },
+        {
+          "type": "checkbox",
+          "id": "default_active",
+          "label": "Activate by default"
         }
       ]
     },
@@ -301,6 +298,11 @@
             { "value": "type", "label": "Type" },
             { "value": "tags", "label": "Tags" }
           ]
+        },
+        {
+          "type": "checkbox",
+          "id": "default_active",
+          "label": "Activate by default"
         }
       ]
     },
@@ -318,6 +320,11 @@
           "type": "html",
           "id": "html_code",
           "label": "HTML Code"
+        },
+        {
+          "type": "checkbox",
+          "id": "default_active",
+          "label": "Activate by default"
         }
       ]
     }
@@ -325,9 +332,6 @@
   "presets": [
     {
       "name": "Tabs",
-      "settings": {
-        "default_active_tab": 0
-      },
       "blocks": [
         {
           "type": "tab"
@@ -343,5 +347,6 @@
   ]
 }
 {% endschema %}
+
 
 
