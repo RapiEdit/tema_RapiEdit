@@ -81,6 +81,7 @@
       content: '';
   }
   
+  /* Estilos para pantallas de tamaño móvil (hasta 576px) */
   @media only screen and (max-width: 576px) {
       ul.custom--tabs {
           flex-wrap: nowrap !important;
@@ -104,6 +105,24 @@
       }
   }
   
+  
+
+/* Estilos para pantallas de tamaño tablet (entre 577px y 992px) */
+@media only screen and (min-width: 577px) and (max-width: 992px) {
+    ul.custom--tabs {
+        flex-wrap: wrap !important;
+        width: 80%;
+    }
+}
+
+/* Estilos para pantallas de tamaño laptop (más de 992px) */
+@media only screen and (min-width: 993px) {
+    ul.custom--tabs {
+        flex-wrap: wrap !important;
+        width: 60%;
+    }
+}
+
   @keyframes gradientAnimation {
       0% {
           background-position: 0% 50%;
