@@ -399,7 +399,7 @@ a.product__text {
 }
 
 @media only screen and (max-width: 768px) {
-  .product__title >{
+  .product__title {
     text-align: center !important;
   }
 }
