@@ -177,9 +177,9 @@
 <ul class="custom--tabs page-width">
   {% for block in section.blocks %}
     {% if block.type == 'tab' or block.type == 'product_attribute' or block.type == 'html_content' %}
-      <li class="tab__list {% if forloop.first %}active{% endif %}">
+      <li class="tab__list {% if forloop.index0 == section.settings.default_active_tab %}active{% endif %}">
         <button
-          class="custom-tab {% if forloop.first %}active{% endif %}"
+          class="custom-tab {% if forloop.index0 == section.settings.default_active_tab %}active{% endif %}"
           data-content-id="content--{{ block.id }}--{{ section.id }}"
         >
           {{ block.settings.heading }}
@@ -188,12 +188,12 @@
     {% endif %}
   {% endfor %}
 </ul>
-  
+
 {% for block in section.blocks %}
   {% if block.type == 'tab' %}
     <div
       id="content--{{ block.id }}--{{ section.id }}"
-      class="custom__tab-content page-width {% if forloop.first %}active{% endif %}"
+      class="custom__tab-content page-width {% if forloop.index0 == section.settings.default_active_tab %}active{% endif %}"
     >
       {{ block.settings.tab_content }}
     </div>
@@ -201,7 +201,7 @@
   {% if block.type == 'product_attribute' %}
     <div
       id="content--{{ block.id }}--{{ section.id }}"
-      class="custom__tab-content page-width {% if forloop.first %}active{% endif %}"
+      class="custom__tab-content page-width {% if forloop.index0 == section.settings.default_active_tab %}active{% endif %}"
     >
       {% case block.settings.attribute %}
         {% when 'description' %}
@@ -222,36 +222,47 @@
   {% if block.type == 'html_content' %}
     <div
       id="content--{{ block.id }}--{{ section.id }}"
-      class="custom__tab-content page-width {% if forloop.first %}active{% endif %}"
+      class="custom__tab-content page-width {% if forloop.index0 == section.settings.default_active_tab %}active{% endif %}"
     >
       {{ block.settings.html_code }}
     </div>
   {% endif %}
 {% endfor %}
+
   
 {% javascript %}
   document.querySelectorAll('.custom-tab').forEach(function(tab) {
     tab.addEventListener('click', function() {
       var contentId = this.dataset.contentId;
       var content = document.getElementById(contentId);
-  
+
       document.querySelectorAll('.custom__tab-content').forEach(function(tabContent) {
         tabContent.classList.remove('active');
       });
-  
+
       document.querySelectorAll('.custom-tab').forEach(function(tab) {
         tab.classList.remove('active');
       });
-  
+
       this.classList.add('active');
       content.classList.add('active');
     });
   });
 {% endjavascript %}
+
   
 {% schema %}
 {
   "name": "Tabs",
+  "settings": [
+    {
+      "type": "number",
+      "id": "default_active_tab",
+      "label": "Default Active Tab",
+      "min": 0,
+      "default": 0
+    }
+  ],
   "blocks": [
     {
       "type": "tab",
@@ -330,3 +341,4 @@
   ]
 }
 {% endschema %}
+
