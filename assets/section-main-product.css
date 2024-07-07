@@ -186,6 +186,7 @@
 
 .product-form__submit {
   margin-bottom: 1rem;
+  text-transform: uppercase;
 }
 
 .no-js .product-form__submit.button--secondary {
