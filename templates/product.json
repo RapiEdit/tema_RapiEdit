@@ -96,7 +96,7 @@
           "settings": {
             "heading": "INFORMACIÓN",
             "attribute": "description",
-            "default_active": false
+            "default_active": true
           }
         },
         "html_content_DfRnWT": {
@@ -104,7 +104,7 @@
           "settings": {
             "heading": "RESEÑAS",
             "html_code": "<iframe width=\"560\" height=\"315\" src=\"https:\/\/www.youtube.com\/embed\/j_vfqabSFMQ?si=OD_DOElJMEP__EiU\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen=\"\"><\/iframe>",
-            "default_active": true
+            "default_active": false
           }
         },
         "html_content_U6XiC9": {
