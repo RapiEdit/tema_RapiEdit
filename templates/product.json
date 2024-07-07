@@ -104,11 +104,11 @@
             "attribute": "description"
           }
         },
-        "tab_M7wCpr": {
-          "type": "tab",
+        "html_content_DfRnWT": {
+          "type": "html_content",
           "settings": {
             "heading": "POLITICAS",
-            "tab_content": "<p>AQUI ANDO PRO<\/p>"
+            "html_code": "<iframe width=\"560\" height=\"315\" src=\"https:\/\/www.youtube.com\/embed\/j_vfqabSFMQ?si=OD_DOElJMEP__EiU\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen=\"\"><\/iframe>"
           }
         },
         "tab_KhgXFq": {
@@ -121,7 +121,7 @@
       },
       "block_order": [
         "product_attribute_QzgkdN",
-        "tab_M7wCpr",
+        "html_content_DfRnWT",
         "tab_KhgXFq"
       ],
       "settings": {
