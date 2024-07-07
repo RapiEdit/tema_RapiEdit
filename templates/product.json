@@ -101,14 +101,14 @@
         "html_content_DfRnWT": {
           "type": "html_content",
           "settings": {
-            "heading": "POLITICAS",
+            "heading": "RESEÑAS",
             "html_code": "<iframe width=\"560\" height=\"315\" src=\"https:\/\/www.youtube.com\/embed\/j_vfqabSFMQ?si=OD_DOElJMEP__EiU\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen=\"\"><\/iframe>"
           }
         },
         "tab_KhgXFq": {
           "type": "tab",
           "settings": {
-            "heading": "RESEÑAS",
+            "heading": "AVISO LEGAL",
             "tab_content": "<p>AQUI HAY MÁS<\/p>"
           }
         }
