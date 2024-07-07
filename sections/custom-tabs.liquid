@@ -115,11 +115,19 @@
     }
 }
 
-/* Estilos para pantallas de tamaño laptop (más de 992px) */
-@media only screen and (min-width: 993px) {
+/* Estilos para pantallas de tamaño laptop (entre 993px y 1200px) */
+@media only screen and (min-width: 993px) and (max-width: 1200px) {
     ul.custom--tabs {
         flex-wrap: wrap !important;
-        width: 70%;
+        width: 60%;
+    }
+}
+
+/* Estilos para pantallas de tamaño PC (más de 1200px) */
+@media only screen and (min-width: 1201px) {
+    ul.custom--tabs {
+        flex-wrap: wrap !important;
+        width: 50%;
     }
 }
 
