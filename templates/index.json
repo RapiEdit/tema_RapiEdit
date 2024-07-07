@@ -46,7 +46,7 @@
           "type": "column",
           "settings": {
             "image": "shopify:\/\/shop_images\/Descarga.svg",
-            "title": "PASO 4",
+            "title": "¡LISTO!",
             "text": "<p>En menos de 24 Horas, enviaremos tú animación al correo.<\/p>",
             "link_label": "",
             "link": ""
@@ -63,7 +63,7 @@
         ".title-wrapper-with-link {justify-content: center !important;}"
       ],
       "settings": {
-        "title": "TÚ ANIMACIÓN EN MENOS DE 24 HORAS 🎬",
+        "title": "🤩 ANIMA TU LOGO EN 3 PASOS 🎬",
         "heading_size": "h1",
         "image_width": "third",
         "image_ratio": "adapt",
