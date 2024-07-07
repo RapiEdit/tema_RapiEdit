@@ -66,11 +66,6 @@
             "show_dynamic_checkout": false,
             "show_gift_card_recipient": false
           }
-        },
-        "description": {
-          "type": "description",
-          "settings": {
-          }
         }
       },
       "block_order": [
@@ -81,8 +76,7 @@
         "text_dyd7Cd",
         "icon_with_text_WYRX4L",
         "text_J9JgzE",
-        "buy_buttons",
-        "description"
+        "buy_buttons"
       ],
       "settings": {
         "enable_sticky_info": true,
@@ -103,11 +97,11 @@
     "custom_tabs_zRthfn": {
       "type": "custom-tabs",
       "blocks": {
-        "tab_g6MaaE": {
-          "type": "tab",
+        "product_attribute_QzgkdN": {
+          "type": "product_attribute",
           "settings": {
             "heading": "INFORMACIÓN",
-            "tab_content": "<p>probando ando<\/p>"
+            "attribute": "description"
           }
         },
         "tab_M7wCpr": {
@@ -126,7 +120,7 @@
         }
       },
       "block_order": [
-        "tab_g6MaaE",
+        "product_attribute_QzgkdN",
         "tab_M7wCpr",
         "tab_KhgXFq"
       ],
