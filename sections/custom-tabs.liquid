@@ -25,11 +25,32 @@
       background: #1f1f1f;
       border-radius: 50px;
       padding: 20px 0;
+
      
   }
   
-  .custom__tab-content.active {
+  .custom__tab-content.active::before {
       display: block;
+      content: "";
+      position: absolute;
+      top: -3px;
+      left: -3px;
+      right: -3px;
+      bottom: -3px;
+      border-radius: 30px;
+      background-image: linear-gradient(
+          to right,
+          #5a0dff -5%,
+          #ff29b8 31%,
+          #ff581c,
+          #ff29b8,
+          #5a0dff
+      );
+      background-size: 200% 100%;
+      animation: gradientAnimation 4s linear infinite;
+      padding: 2px;
+      box-sizing: border-box;
+      z-index: -1;
   }
   
   .tab__list .custom-tab {
