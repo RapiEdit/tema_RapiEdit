@@ -44,7 +44,6 @@
       background: #252525;
   }
   
-
   .tab__list .custom-tab.active::before,
 .tab__list .custom-tab:hover::before {
       content: "";
@@ -68,10 +67,6 @@
       box-sizing: border-box;
       z-index: -1;
   }
-
-
-  
-  
   
   .tab__list::after {
       content: '-';
@@ -87,14 +82,10 @@
   }
   
   @media only screen and (max-width: 576px) {
-
-
-  
       ul.custom--tabs {
           flex-wrap: nowrap !important;
           overflow-x: auto;
           width: 100%;
-          
       }
       .tab__list .custom-tab {
         font-size: 14px;
@@ -124,36 +115,56 @@
           background-position: 0% 50%;
       }
   }
-  {% endstylesheet %}
+{% endstylesheet %}
   
-  
-  <ul class="custom--tabs page-width">
-    {% for block in section.blocks %}
-      {% if block.type == 'tab' %}
-        <li class="tab__list {% if forloop.first %}active{% endif %}">
-          <button
-            class="custom-tab {% if forloop.first %}active{% endif %}"
-            data-content-id="content--{{ block.id }}--{{ section.id }}"
-          >
-            {{ block.settings.heading }}
-          </button>
-        </li>
-      {% endif %}
-    {% endfor %}
-  </ul>
-  
+<ul class="custom--tabs page-width">
   {% for block in section.blocks %}
     {% if block.type == 'tab' %}
-      <div
-        id="content--{{ block.id }}--{{ section.id }}"
-        class="custom__tab-content page-width {% if forloop.first %}active{% endif %}"
-      >
-        {{ block.settings.tab_content }}
-      </div>
+      <li class="tab__list {% if forloop.first %}active{% endif %}">
+        <button
+          class="custom-tab {% if forloop.first %}active{% endif %}"
+          data-content-id="content--{{ block.id }}--{{ section.id }}"
+        >
+          {{ block.settings.heading }}
+        </button>
+      </li>
     {% endif %}
   {% endfor %}
+</ul>
   
-  {% javascript %}
+{% for block in section.blocks %}
+  {% if block.type == 'tab' %}
+    <div
+      id="content--{{ block.id }}--{{ section.id }}"
+      class="custom__tab-content page-width {% if forloop.first %}active{% endif %}"
+    >
+      {{ block.settings.tab_content }}
+    </div>
+  {% endif %}
+  {% if block.type == 'product_attribute' %}
+    <div
+      id="content--{{ block.id }}--{{ section.id }}"
+      class="custom__tab-content page-width {% if forloop.first %}active{% endif %}"
+    >
+      {% case block.settings.attribute %}
+        {% when 'description' %}
+          {{ product.description }}
+        {% when 'price' %}
+          {{ product.price | money }}
+        {% when 'vendor' %}
+          {{ product.vendor }}
+        {% when 'type' %}
+          {{ product.type }}
+        {% when 'tags' %}
+          {{ product.tags | join: ', ' }}
+        {% else %}
+          Attribute not found.
+      {% endcase %}
+    </div>
+  {% endif %}
+{% endfor %}
+  
+{% javascript %}
   document.querySelectorAll('.custom-tab').forEach(function(tab) {
     tab.addEventListener('click', function() {
       var contentId = this.dataset.contentId;
@@ -171,41 +182,63 @@
       content.classList.add('active');
     });
   });
-  {% endjavascript %}
+{% endjavascript %}
   
-  {% schema %}
-  {
-    "name": "Tabs",
-    "blocks": [
-      {
-        "type": "tab",
-        "name": "Tabs",
-        "settings": [
-          {
-            "type": "text",
-            "id": "heading",
-            "label": "Heading",
-            "info": "Include a heading that explains the tab."
-          },
-          {
-            "type": "richtext",
-            "id": "tab_content",
-            "label": "Content"
-          }
-        ]
-      }
-    ],
-    "presets": [
-      {
-        "name": "Tabs",
-        "blocks": [
-          {
-            "type": "tab"
-          }
-        ]
-      }
-    ]
-  }
-  {% endschema %}
+{% schema %}
+{
+  "name": "Tabs",
+  "blocks": [
+    {
+      "type": "tab",
+      "name": "Tab",
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading",
+          "info": "Include a heading that explains the tab."
+        },
+        {
+          "type": "richtext",
+          "id": "tab_content",
+          "label": "Content"
+        }
+      ]
+    },
+    {
+      "type": "product_attribute",
+      "name": "Product Attribute",
+      "settings": [
+        {
+          "type": "select",
+          "id": "attribute",
+          "label": "Attribute",
+          "options": [
+            { "value": "description", "label": "Description" },
+            { "value": "price", "label": "Price" },
+            { "value": "vendor", "label": "Vendor" },
+            { "value": "type", "label": "Type" },
+            { "value": "tags", "label": "Tags" }
+          ]
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Tabs",
+      "blocks": [
+        {
+          "type": "tab"
+        },
+        {
+          "type": "product_attribute"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
   
   
