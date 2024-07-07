@@ -1,1 +1,23 @@
-{"parent":"product.json","context":{"market":"chile"},"sections":{"main":{"settings":{},"blocks":{"collapsible_tab_khV676":{"settings":{"heading":"Despacho","content":"<p>Nos enfocamos activamente en todo lo que sucede después de realizar su pedido, para que no tenga que preocuparse por su envío.<\/p><p> Si tiene alguna pregunta, nuestro servicio de atención al cliente está siempre dispuesto a ayudarle.<\/p>"}},"collapsible_tab_rRaTjd":{"settings":{"heading":"Devoluciones","content":"<p>Ofrecemos la posibilidad de devolver el producto dentro de los <strong>14 días siguientes a su recepción.<\/strong><\/p>"}},"collapsible_tab_bmny4F":{"settings":{"heading":"Control de calidad","content":"<p>Respaldamos <strong>nuestros productos al 100%<\/strong>. Todos los productos se revisan y prueban minuciosamente en cuanto a calidad y durabilidad.<\/p>"}}}}}}
+/*
+* ------------------------------------------------------------
+* IMPORTANT: The contents of this file are auto-generated.
+*
+* This file may be updated by the Shopify admin theme editor
+* or related systems. Please exercise caution as any changes
+* made to this file may be overwritten.
+* ------------------------------------------------------------
+*/
+{
+  "parent": "product.json",
+  "context": {
+    "market": "chile"
+  },
+  "sections": {
+    "main": {
+      "settings": {
+      },
+      "blocks": {
+      }
+    }
+  }
+}

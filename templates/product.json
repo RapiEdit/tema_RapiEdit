@@ -12,6 +12,13 @@
     "main": {
       "type": "main-product",
       "blocks": {
+        "vendor": {
+          "type": "text",
+          "settings": {
+            "text": "<strong>PASO 1 <\/strong>| Excelente elección 🤩👇",
+            "text_style": "subtitle"
+          }
+        },
         "title": {
           "type": "title",
           "settings": {
@@ -27,18 +34,30 @@
           "settings": {
           }
         },
-        "vendor": {
+        "text_dyd7Cd": {
           "type": "text",
           "settings": {
-            "text": "⏰ ¡alta demanda! - Últimas unidades ⏰",
-            "text_style": "uppercase"
+            "text": "<strong>PASO 2 <\/strong>| Sube tu logo (Png \/ Vector) 😁👇",
+            "text_style": "subtitle"
           }
         },
-        "variant_picker": {
-          "type": "variant_picker",
+        "icon_with_text_WYRX4L": {
+          "type": "icon-with-text",
           "settings": {
-            "picker_type": "button",
-            "swatch_shape": "circle"
+            "layout": "horizontal",
+            "icon_1": "stopwatch",
+            "heading_1": "Aqui irá el boton de subir archivo",
+            "icon_2": "none",
+            "heading_2": "",
+            "icon_3": "none",
+            "heading_3": ""
+          }
+        },
+        "text_J9JgzE": {
+          "type": "text",
+          "settings": {
+            "text": "<strong>PASO 3 <\/strong>| Agrega al carrito para finalizar😁👇",
+            "text_style": "subtitle"
           }
         },
         "buy_buttons": {
@@ -52,46 +71,18 @@
           "type": "description",
           "settings": {
           }
-        },
-        "collapsible_tab_khV676": {
-          "type": "collapsible_tab",
-          "settings": {
-            "heading": "Envío",
-            "icon": "truck",
-            "content": "<p>Nos dedicamos de lleno al seguimiento y la gestión de su pedido, para que pueda confiar plenamente en nosotros una vez realizada su compra. Si surgiera alguna pregunta o inquietud, nuestro equipo de atención al cliente está a su disposición para brindarle la asistencia que necesite.<\/p>",
-            "page": ""
-          }
-        },
-        "collapsible_tab_rRaTjd": {
-          "type": "collapsible_tab",
-          "settings": {
-            "heading": "Devoluciones",
-            "icon": "return",
-            "content": "<p>Extendemos nuestro período de devolución a <strong>30 días a partir de la recepción del producto<\/strong>, brindándole mayor flexibilidad y tranquilidad en su experiencia de compra.<\/p>",
-            "page": ""
-          }
-        },
-        "collapsible_tab_bmny4F": {
-          "type": "collapsible_tab",
-          "settings": {
-            "heading": "Control de Calidad",
-            "icon": "star",
-            "content": "<p><strong>Garantizamos la calidad al 100%<\/strong> de nuestros productos. Cada artículo se somete a exhaustivas pruebas y revisiones para garantizar su durabilidad y rendimiento óptimo.<\/p>",
-            "page": ""
-          }
         }
       },
       "block_order": [
+        "vendor",
         "title",
         "rating",
         "price",
-        "vendor",
-        "variant_picker",
+        "text_dyd7Cd",
+        "icon_with_text_WYRX4L",
+        "text_J9JgzE",
         "buy_buttons",
-        "description",
-        "collapsible_tab_khV676",
-        "collapsible_tab_rRaTjd",
-        "collapsible_tab_bmny4F"
+        "description"
       ],
       "settings": {
         "enable_sticky_info": true,
