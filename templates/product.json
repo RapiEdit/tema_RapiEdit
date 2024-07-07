@@ -105,18 +105,18 @@
             "html_code": "<iframe width=\"560\" height=\"315\" src=\"https:\/\/www.youtube.com\/embed\/j_vfqabSFMQ?si=OD_DOElJMEP__EiU\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen=\"\"><\/iframe>"
           }
         },
-        "tab_KhgXFq": {
-          "type": "tab",
+        "html_content_U6XiC9": {
+          "type": "html_content",
           "settings": {
             "heading": "AVISO LEGAL",
-            "tab_content": "<p>AQUI HAY MÁS<\/p>"
+            "html_code": "<style>\n    .legal-section {\n      display: grid;\n      grid-template-columns: 1fr 1fr;\n      gap: 20px;\n      border: 1px solid #1f1f1f;\n      padding: 20px;\n      margin-bottom: 20px;\n    }\n\n    @media only screen and (max-width: 768px) {\n      .legal-section {\n        grid-template-columns: 1fr;\n      }\n    }\n  <\/style>\n  \n<div class=\"legal-section\">\n    <div>\n      <h3>Servicio de Edición<\/h3>\n      <p>No vendemos ni revendemos las plantillas que utilizamos. Nuestro servicio consiste en personalizar una plantilla preexistente con tu logo y entregarte el producto final en formato de video.<\/p>\n    <\/div>\n    <div>\n      <h3>Derechos de Uso<\/h3>\n      <p>Las plantillas que utilizamos están debidamente licenciadas y autorizadas para su uso en proyectos de edición. Estas licencias nos permiten utilizar las plantillas para crear contenido personalizado para nuestros clientes.<\/p>\n    <\/div>\n    <div>\n      <h3>Producto Final<\/h3>\n      <p>El producto final que recibirás es un video animado de tu logo, no la plantilla en sí. No se te proporcionarán los archivos editables de la plantilla.<\/p>\n    <\/div>\n    <div>\n      <h3>Propiedad Intelectual<\/h3>\n      <p>El diseño original de las plantillas sigue siendo propiedad del creador de la plantilla y del marketplace donde fue adquirida. Nosotros solo actuamos como intermediarios para personalizar dichas plantillas.<\/p>\n    <\/div>\n    <div>\n      <h3>Uso Permitido<\/h3>\n      <p>Puedes utilizar el video animado en todas tus plataformas digitales, presentaciones, y materiales promocionales sin restricciones. Sin embargo, no puedes revender el video animado ni presentarlo como una obra propia de animación sin reconocimiento a nuestra empresa.<\/p>\n    <\/div>\n  <\/div>\n  <div style=\"text-align: center;\">\n    <p><strong>Al contratar nuestros servicios, aceptas estos términos y entiendes la naturaleza de nuestro trabajo y la legalidad del uso de las plantillas licenciadas.<\/strong><\/p>\n  <\/div>"
           }
         }
       },
       "block_order": [
         "product_attribute_QzgkdN",
         "html_content_DfRnWT",
-        "tab_KhgXFq"
+        "html_content_U6XiC9"
       ],
       "settings": {
       }
