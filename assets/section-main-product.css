@@ -29,6 +29,10 @@
 
   .product__info-wrapper {
     padding: 0 0 0 5rem;
+   
+  }
+
+  .product__info-container > * + * {
     text-align: center;
   }
 
