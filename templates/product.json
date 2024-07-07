@@ -41,16 +41,10 @@
             "text_style": "subtitle"
           }
         },
-        "icon_with_text_WYRX4L": {
-          "type": "icon-with-text",
+        "file_uploads_by_uploadkit_app_block_jAqWrf": {
+          "type": "shopify:\/\/apps\/file-uploads-by-uploadkit\/blocks\/app-block\/d7b05810-6170-4288-808a-df45248c4d28",
           "settings": {
-            "layout": "horizontal",
-            "icon_1": "stopwatch",
-            "heading_1": "Aqui irá el boton de subir archivo",
-            "icon_2": "none",
-            "heading_2": "",
-            "icon_3": "none",
-            "heading_3": ""
+            "product": "{{ product }}"
           }
         },
         "text_J9JgzE": {
@@ -74,7 +68,7 @@
         "rating",
         "price",
         "text_dyd7Cd",
-        "icon_with_text_WYRX4L",
+        "file_uploads_by_uploadkit_app_block_jAqWrf",
         "text_J9JgzE",
         "buy_buttons"
       ],
