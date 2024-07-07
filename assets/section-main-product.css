@@ -29,6 +29,7 @@
 
   .product__info-wrapper {
     padding: 0 0 0 5rem;
+    text-align: center;
   }
 
   .product__info-wrapper--extra-padding {
