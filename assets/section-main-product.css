@@ -243,12 +243,7 @@
     border-image-slice: 1;
 }
 
-.bordepro {
-  border-left: 1px solid;
-  border-image: linear-gradient(to right, #5a0dff -5%, #ff29b8 31%, #ff581c, #ff29b8, #5a0dff);
-  border-image-slice: 1;
-  padding-left: 20px;
-}
+
 
 a.product__text {
   display: block;
