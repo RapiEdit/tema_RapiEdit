@@ -3626,7 +3626,7 @@ details-disclosure > details {
   }
 }
 
-.chat-toggle button {
+.chat-app button {
 
   border: 3px solid transparent;
     background-image: linear-gradient(rgb(16, 16, 16), rgb(16, 16, 16)),
