@@ -399,35 +399,39 @@
    <!-- Agrega el script justo antes de la etiqueta de cierre </body> -->
    <script>
 document.addEventListener('DOMContentLoaded', function() {
-  // Función para aplicar estilos al botón de chat
   function applyStyles() {
-    var chatToggleButton = document.querySelector('button.chat-toggle.chat-toggle--text-button');
-    if (chatToggleButton) {
-      chatToggleButton.style.border = '3px solid transparent';
-      chatToggleButton.style.backgroundImage = 'linear-gradient(rgb(16, 16, 16), rgb(16, 16, 16)), linear-gradient(to right, #5a0dff -5%, #ff29b8 31%, #ff581c, #ff29b8, #5a0dff)';
-      chatToggleButton.style.backgroundOrigin = 'border-box';
-      chatToggleButton.style.backgroundClip = 'padding-box, border-box';
-      chatToggleButton.style.backgroundSize = '200% 100%';
-      chatToggleButton.style.animation = 'gradientAnimation 4s linear infinite';
+    try {
+      var chatToggleButton = document.querySelector('button.chat-toggle.chat-toggle--text-button');
+      if (chatToggleButton) {
+        chatToggleButton.style.border = '3px solid transparent';
+        chatToggleButton.style.backgroundImage = 'linear-gradient(rgb(16, 16, 16), rgb(16, 16, 16)), linear-gradient(to right, #5a0dff -5%, #ff29b8 31%, #ff581c, #ff29b8, #5a0dff)';
+        chatToggleButton.style.backgroundOrigin = 'border-box';
+        chatToggleButton.style.backgroundClip = 'padding-box, border-box';
+        chatToggleButton.style.backgroundSize = '200% 100%';
+        chatToggleButton.style.animation = 'gradientAnimation 4s linear infinite';
+      }
+    } catch (error) {
+      console.error("Error applying styles: ", error);
     }
   }
 
-  // Crear un observador de mutaciones
   var observer = new MutationObserver(function(mutations) {
-    mutations.forEach(function(mutation) {
-      if (mutation.addedNodes.length) {
-        applyStyles();
-      }
-    });
+    try {
+      mutations.forEach(function(mutation) {
+        if (mutation.addedNodes.length) {
+          applyStyles();
+        }
+      });
+    } catch (error) {
+      console.error("Error in MutationObserver: ", error);
+    }
   });
 
-  // Configuración del observador para observar cambios en el cuerpo del documento
   observer.observe(document.body, {
     childList: true,
     subtree: true
   });
 
-  // Definir la animación dentro de una etiqueta <style>
   var styleElement = document.createElement('style');
   styleElement.innerHTML = `
     @keyframes gradientAnimation {
