@@ -31,7 +31,7 @@
         "newsletter_enable": true,
         "newsletter_heading": "RECIBE PRODUCTOS GRATIS + OFERTAS EN TU CORREO ELECTRÓNICO.",
         "enable_follow_on_shop": false,
-        "show_social": false,
+        "show_social": true,
         "enable_country_selector": false,
         "enable_language_selector": false,
         "payment_enable": true,
