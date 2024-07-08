@@ -1,1 +1,48 @@
-{"name":"t:sections.footer.name","type":"footer","sections":{"footer":{"type":"footer","blocks":{"link_list_mGbe3Q":{"type":"link_list","settings":{"heading":"Enlaces rápidos","menu":"main-menu"}}},"block_order":["link_list_mGbe3Q"],"settings":{"color_scheme":"scheme-3","newsletter_enable":false,"newsletter_heading":"RECIBE PRODUCTOS GRATIS + OFERTAS EN TU CORREO ELECTRÓNICO","enable_follow_on_shop":false,"show_social":false,"enable_country_selector":false,"enable_language_selector":false,"payment_enable":true,"show_policy":true,"margin_top":0,"padding_top":44,"padding_bottom":60}}},"order":["footer"]}
+/*
+* ------------------------------------------------------------
+* IMPORTANT: The contents of this file are auto-generated.
+*
+* This file may be updated by the Shopify admin theme editor
+* or related systems. Please exercise caution as any changes
+* made to this file may be overwritten.
+* ------------------------------------------------------------
+*/
+{
+  "name": "t:sections.footer.name",
+  "type": "footer",
+  "sections": {
+    "footer": {
+      "type": "footer",
+      "blocks": {
+        "image_kLCbyb": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/LOGO-FOOTER---RAPI-EDIT.png",
+            "image_width": 550,
+            "alignment": "center"
+          }
+        }
+      },
+      "block_order": [
+        "image_kLCbyb"
+      ],
+      "settings": {
+        "color_scheme": "scheme-3",
+        "newsletter_enable": true,
+        "newsletter_heading": "RECIBE PRODUCTOS GRATIS + OFERTAS EN TU CORREO ELECTRÓNICO.",
+        "enable_follow_on_shop": false,
+        "show_social": false,
+        "enable_country_selector": false,
+        "enable_language_selector": false,
+        "payment_enable": true,
+        "show_policy": true,
+        "margin_top": 0,
+        "padding_top": 12,
+        "padding_bottom": 16
+      }
+    }
+  },
+  "order": [
+    "footer"
+  ]
+}
