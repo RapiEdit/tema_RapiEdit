@@ -219,7 +219,6 @@
 {% endfor %}
 
 {% javascript %}
-document.addEventListener('DOMContentLoaded', function() {
   document.querySelectorAll('.custom-tab').forEach(function(tab) {
     tab.addEventListener('click', function() {
       var contentId = this.dataset.contentId;
@@ -234,14 +233,9 @@ document.addEventListener('DOMContentLoaded', function() {
       });
 
       this.classList.add('active');
-      if (content) {
-        content.classList.add('active');
-      }
+      content.classList.add('active');
     });
   });
-
-  
-
 {% endjavascript %}
 
 {% schema %}
