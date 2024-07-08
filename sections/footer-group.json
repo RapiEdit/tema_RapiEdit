@@ -11,6 +11,18 @@
   "name": "t:sections.footer.name",
   "type": "footer",
   "sections": {
+    "custom_liquid_DY7PYz": {
+      "type": "custom-liquid",
+      "custom_css": [
+
+      ],
+      "settings": {
+        "custom_liquid": "<div class=\"bordepro\">.<\/div>",
+        "color_scheme": "",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
     "footer": {
       "type": "footer",
       "blocks": {
@@ -43,6 +55,7 @@
     }
   },
   "order": [
+    "custom_liquid_DY7PYz",
     "footer"
   ]
 }
