@@ -224,7 +224,6 @@ document.addEventListener('DOMContentLoaded', function() {
     var reviewsTabButton = document.querySelector('button[data-content-id^="content--judge_me_reviews--"]');
     var reviewsTabContent = document.getElementById('reviews-tab-content');
 
-    // Remover la clase 'active' de todas las pestañas y botone
     document.querySelectorAll('.custom__tab-content').forEach(function(tabContent) {
       tabContent.classList.remove('active');
     });
@@ -233,32 +232,24 @@ document.addEventListener('DOMContentLoaded', function() {
       tab.classList.remove('active');
     });
 
-    // Activar la pestaña de reseñas si existe
     if (reviewsTabButton) {
       reviewsTabButton.classList.add('active');
     }
 
-    // Mostrar el contenido de la pestaña de reseñas si existe
     if (reviewsTabContent) {
       reviewsTabContent.classList.add('active');
     }
   }
 
-  // Evento para abrir la pestaña de reseñas al hacer clic en el widget
-  var reviewsWidget = document.querySelector('.jdgm-widget.jdgm-preview-badge');
-  if (reviewsWidget) {
-    reviewsWidget.addEventListener('click', function() {
-      openReviewsTab();
-    });
-  }
+  document.querySelector('.jdgm-widget.jdgm-preview-badge').addEventListener('click', function() {
+    openReviewsTab();
+  });
 
-  // Evento para cambiar de pestaña al hacer clic en cualquier custom-tab
   document.querySelectorAll('.custom-tab').forEach(function(tab) {
     tab.addEventListener('click', function() {
       var contentId = this.dataset.contentId;
       var content = document.getElementById(contentId);
 
-      // Remover la clase 'active' de todas las pestañas y botones
       document.querySelectorAll('.custom__tab-content').forEach(function(tabContent) {
         tabContent.classList.remove('active');
       });
@@ -267,13 +258,20 @@ document.addEventListener('DOMContentLoaded', function() {
         tab.classList.remove('active');
       });
 
-      // Activar la pestaña clickeada
       this.classList.add('active');
       if (content) {
         content.classList.add('active');
       }
     });
   });
+
+  // Función para manejar el clic en el elemento HTML que llama a openReviewsTab()
+  var reviewsWidget = document.querySelector('.jdgm-widget.jdgm-preview-badge');
+  if (reviewsWidget) {
+    reviewsWidget.onclick = function() {
+      openReviewsTab();
+    };
+  }
 });
 
 {% endjavascript %}
