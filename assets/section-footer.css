@@ -195,7 +195,7 @@
 
   .footer-block__newsletter:not(:only-child) .footer__newsletter {
     justify-content: flex-start;
-    margin: 0;
+
   }
 
   .footer-block__newsletter:not(:only-child) .newsletter-form__message--success {
