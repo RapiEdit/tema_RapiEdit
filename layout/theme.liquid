@@ -371,32 +371,35 @@
       // Crear un nuevo estilo CSS
 // Esperar a que el documento esté completamente cargado
 document.addEventListener('DOMContentLoaded', function() {
-  // Seleccionar el botón de Shopify Imbox usando un selector específico
-  const imboxButton = document.querySelector('.button.chat-toggle.chat-toggle--text-button');
+  // Escuchar el evento de carga del script de Shopify Imbox
+  document.querySelector('#shopify-block-15683396631634586217').addEventListener('load', function() {
+    // Obtener el botón de Shopify Imbox después de que se haya cargado
+    const imboxButton = document.querySelector('.imbox-button');
 
-  // Verificar si se encontró el botón
-  if (imboxButton) {
-    // Aplicar estilos dinámicos
-    imboxButton.style.backgroundImage = 'linear-gradient(rgb(16, 16, 16), rgb(16, 16, 16)), linear-gradient(to right, #5a0dff -5%, #ff29b8 31%, #ff581c, #ff29b8, #5a0dff)';
-    imboxButton.style.backgroundOrigin = 'border-box';
-    imboxButton.style.backgroundClip = 'padding-box, border-box';
-    imboxButton.style.backgroundSize = '200% 100%';
-    imboxButton.style.animation = 'gradientAnimation 4s linear infinite';
+    // Verificar si se encontró el botón
+    if (imboxButton) {
+      // Aplicar estilos dinámicos
+      imboxButton.style.backgroundImage = 'linear-gradient(rgb(16, 16, 16), rgb(16, 16, 16)), linear-gradient(to right, #5a0dff -5%, #ff29b8 31%, #ff581c, #ff29b8, #5a0dff)';
+      imboxButton.style.backgroundOrigin = 'border-box';
+      imboxButton.style.backgroundClip = 'padding-box, border-box';
+      imboxButton.style.backgroundSize = '200% 100%';
+      imboxButton.style.animation = 'gradientAnimation 4s linear infinite';
 
-    // Definir la animación de keyframes
-    const style = document.createElement('style');
-    style.textContent = `
-      @keyframes gradientAnimation {
-        0% {
-          background-position: -100% 0;
+      // Definir la animación de keyframes
+      const style = document.createElement('style');
+      style.textContent = `
+        @keyframes gradientAnimation {
+          0% {
+            background-position: -100% 0;
+          }
+          100% {
+            background-position: 100% 0;
+          }
         }
-        100% {
-          background-position: 100% 0;
-        }
-      }
-    `;
-    document.head.appendChild(style);
-  }
+      `;
+      document.head.appendChild(style);
+    }
+  });
 });
 
 
