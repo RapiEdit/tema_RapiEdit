@@ -396,57 +396,7 @@
       <script src="{{ 'predictive-search.js' | asset_url }}" defer="defer"></script>
     {%- endif -%}
 
-   <!-- Agrega el script justo antes de la etiqueta de cierre </body> -->
-   <script>
-document.addEventListener('DOMContentLoaded', function() {
-  function applyStyles() {
-    try {
-      var chatToggleButton = document.querySelector('button.chat-toggle.chat-toggle--text-button');
-      if (chatToggleButton) {
-        chatToggleButton.style.border = '3px solid transparent';
-        chatToggleButton.style.backgroundImage = 'linear-gradient(rgb(16, 16, 16), rgb(16, 16, 16)), linear-gradient(to right, #5a0dff -5%, #ff29b8 31%, #ff581c, #ff29b8, #5a0dff)';
-        chatToggleButton.style.backgroundOrigin = 'border-box';
-        chatToggleButton.style.backgroundClip = 'padding-box, border-box';
-        chatToggleButton.style.backgroundSize = '200% 100%';
-        chatToggleButton.style.animation = 'gradientAnimation 4s linear infinite';
-      }
-    } catch (error) {
-      console.error("Error applying styles: ", error);
-    }
-  }
-
-  var observer = new MutationObserver(function(mutations) {
-    try {
-      mutations.forEach(function(mutation) {
-        if (mutation.addedNodes.length) {
-          applyStyles();
-        }
-      });
-    } catch (error) {
-      console.error("Error in MutationObserver: ", error);
-    }
-  });
-
-  observer.observe(document.body, {
-    childList: true,
-    subtree: true
-  });
-
-  var styleElement = document.createElement('style');
-  styleElement.innerHTML = `
-    @keyframes gradientAnimation {
-      0% {
-        background-position: -100% 0;
-      }
-      100% {
-        background-position: 100% 0;
-      }
-    }
-  `;
-  document.head.appendChild(styleElement);
-});
-</script>
-
+  
     
   </body>
 </html>
