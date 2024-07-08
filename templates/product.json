@@ -64,7 +64,7 @@
         "custom_liquid_QPNWi7": {
           "type": "custom_liquid",
           "settings": {
-            "custom_liquid": ""
+            "custom_liquid": "<div class=\"jdgm-widget jdgm-review-widget jdgm-outside-widget\" data-id=\"{{ product_id }}\" data-product-title=\"{{ product_title }}\"><\/div>"
           }
         }
       },
@@ -110,7 +110,7 @@
           "type": "html_content",
           "settings": {
             "heading": "RESEÑAS",
-            "html_code": "<iframe width=\"560\" height=\"315\" src=\"https:\/\/www.youtube.com\/embed\/j_vfqabSFMQ?si=OD_DOElJMEP__EiU\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen=\"\"><\/iframe>",
+            "html_code": "",
             "default_active": false
           }
         },
@@ -148,28 +148,11 @@
         "padding_top": 0,
         "padding_bottom": 60
       }
-    },
-    "17204639980c24d111": {
-      "type": "apps",
-      "blocks": {
-        "judge_me_reviews_review_widget_4VXB4D": {
-          "type": "shopify:\/\/apps\/judge-me-reviews\/blocks\/review_widget\/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
-          "settings": {
-          }
-        }
-      },
-      "block_order": [
-        "judge_me_reviews_review_widget_4VXB4D"
-      ],
-      "settings": {
-        "include_margins": true
-      }
     }
   },
   "order": [
     "main",
     "custom_tabs_zRthfn",
-    "related-products",
-    "17204639980c24d111"
+    "related-products"
   ]
 }
