@@ -177,15 +177,35 @@
 
   <ul class="custom--tabs page-width">
     {% for block in section.blocks %}
-      <li class="tab__list {% if block.settings.default_active %}active{% endif %}">
-        <button
-          class="custom-tab {% if block.settings.default_active %}active{% endif %}"
-          data-content-id="content--{{ block.id }}--{{ section.id }}"
-        >
-          {{ block.settings.heading }}
-        </button>
-      </li>
+      <div
+        id="content--{{ block.id }}--{{ section.id }}"
+        class="custom__tab-content page-width {% if block.settings.default_active %}active{% endif %}"
+      >
+        {% if block.type == 'tab' %}
+          {{ block.settings.tab_content }}
+        {% elsif block.type == 'product_attribute' %}
+          {% case block.settings.attribute %}
+            {% when 'description' %}
+              {{ product.description }}
+            {% when 'price' %}
+              {{ product.price | money }}
+            {% when 'vendor' %}
+              {{ product.vendor }}
+            {% when 'type' %}
+              {{ product.type }}
+            {% when 'tags' %}
+              {{ product.tags | join: ', ' }}
+            {% else %}
+              Attribute not found.
+          {% endcase %}
+        {% elsif block.type == 'html_content' %}
+          {{ block.settings.html_code }}
+        {% elsif block.type == 'judge_me_reviews' %}
+          <div id="reviews-tab-content" class="jdgm-widget jdgm-review-widget jdgm-outside-widget" data-id="{{ product.id }}" data-product-title="{{ product.title }}"></div>
+        {% endif %}
+      </div>
     {% endfor %}
+    
   </ul>
   
   {% for block in section.blocks %}
@@ -219,10 +239,10 @@
   {% endfor %}
   
   {% javascript %}
-  document.querySelectorAll('.custom-tab').forEach(function(tab) {
-    tab.addEventListener('click', function() {
-      var contentId = this.dataset.contentId;
-      var content = document.getElementById(contentId);
+    function openReviewsTab() {
+      // Encuentra y activa la pestaña de reseñas
+      var reviewsTabButton = document.querySelector('button[data-content-id="content--{{ section.blocks | where: "type", "judge_me_reviews" | first.id }}--{{ section.id }}"]');
+      var reviewsTabContent = document.getElementById('reviews-tab-content');
   
       document.querySelectorAll('.custom__tab-content').forEach(function(tabContent) {
         tabContent.classList.remove('active');
@@ -232,12 +252,35 @@
         tab.classList.remove('active');
       });
   
-      this.classList.add('active');
-      content.classList.add('active');
+      if (reviewsTabButton) {
+        reviewsTabButton.classList.add('active');
+      }
+  
+      if (reviewsTabContent) {
+        reviewsTabContent.classList.add('active');
+      }
+    }
+  
+    document.querySelectorAll('.custom-tab').forEach(function(tab) {
+      tab.addEventListener('click', function() {
+        var contentId = this.dataset.contentId;
+        var content = document.getElementById(contentId);
+  
+        document.querySelectorAll('.custom__tab-content').forEach(function(tabContent) {
+          tabContent.classList.remove('active');
+        });
+  
+        document.querySelectorAll('.custom-tab').forEach(function(tab) {
+          tab.classList.remove('active');
+        });
+  
+        this.classList.add('active');
+        content.classList.add('active');
+      });
     });
-  });
   {% endjavascript %}
   
+
   {% schema %}
   {
     "name": "Tabs",
