@@ -106,12 +106,11 @@
             "default_active": true
           }
         },
-        "html_content_DfRnWT": {
-          "type": "html_content",
+        "judge_me_reviews_4TAWBc": {
+          "type": "judge_me_reviews",
           "settings": {
             "heading": "RESEÑAS",
-            "html_code": "",
-            "default_active": false
+            "default_active": true
           }
         },
         "html_content_U6XiC9": {
@@ -125,7 +124,7 @@
       },
       "block_order": [
         "product_attribute_QzgkdN",
-        "html_content_DfRnWT",
+        "judge_me_reviews_4TAWBc",
         "html_content_U6XiC9"
       ],
       "settings": {
