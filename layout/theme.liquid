@@ -367,24 +367,25 @@
       <script src="{{ 'predictive-search.js' | asset_url }}" defer="defer"></script>
     {%- endif -%}
 
-    <script>
+<script>
+// Función para abrir el tab de reseñas cuando se hace clic en el div jdgm-widget jdgm-preview-badge
 function openReviewsTab() {
-  // Obtener el elemento del tab de reviews por su ID
-  var reviewsTabContent = document.getElementById('reviews-tab-content');
+    var reviewsTabContent = document.getElementById('reviews-tab-content');
 
-  // Activar la clase 'active' en el tab de reviews
-  reviewsTabContent.classList.add('active');
+    // Remover la clase 'active' de todos los tabs y contenidos
+    document.querySelectorAll('.custom__tab-content').forEach(function(tabContent) {
+        tabContent.classList.remove('active');
+    });
 
-  // Desactivar todos los demás tabs
-  var tabs = document.querySelectorAll('.custom__tab-content');
-  tabs.forEach(function(tab) {
-    if (tab.id !== 'reviews-tab-content') {
-      tab.classList.remove('active');
-    }
-  });
+    document.querySelectorAll('.custom-tab').forEach(function(tab) {
+        tab.classList.remove('active');
+    });
 
-  // Si es necesario, hacer scroll hasta el tab de reviews
-  reviewsTabContent.scrollIntoView({ behavior: 'smooth' });
+    // Activar específicamente el tab de reseñas
+    reviewsTabContent.classList.add('active');
+
+    // Si es necesario, hacer scroll hasta el tab de reseñas
+    reviewsTabContent.scrollIntoView({ behavior: 'smooth' });
 }
 </script>
   </body>
