@@ -218,27 +218,6 @@
   </div>
 {% endfor %}
 
-{% javascript %}
-  document.querySelectorAll('.custom-tab').forEach(function(tab) {
-    tab.addEventListener('click', function() {
-      var contentId = this.dataset.contentId;
-      var content = document.getElementById(contentId);
-
-      document.querySelectorAll('.custom__tab-content').forEach(function(tabContent) {
-        tabContent.classList.remove('active');
-      });
-
-      document.querySelectorAll('.custom-tab').forEach(function(tab) {
-        tab.classList.remove('active');
-      });
-
-      this.classList.add('active');
-      content.classList.add('active');
-    });
-  });
-
-  
-{% endjavascript %}
 
 {% schema %}
 {
