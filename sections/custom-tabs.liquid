@@ -213,16 +213,16 @@
       {% elsif block.type == 'html_content' %}
         {{ block.settings.html_code }}
       {% elsif block.type == 'judge_me_reviews' %}
-        <div class="jdgm-widget jdgm-review-widget jdgm-outside-widget" data-id="{{ product.id }}" data-product-title="{{ product.title }}"></div>
+        <div id="reviews-tab-content" class="jdgm-widget jdgm-review-widget jdgm-outside-widget" data-id="{{ product.id }}" data-product-title="{{ product.title }}"></div>
       {% endif %}
     </div>
   {% endfor %}
   
   {% javascript %}
-  document.querySelectorAll('.custom-tab').forEach(function(tab) {
-    tab.addEventListener('click', function() {
-      var contentId = this.dataset.contentId;
-      var content = document.getElementById(contentId);
+    function openReviewsTab() {
+      // Encuentra y activa la pestaña de reseñas
+      var reviewsTabButton = document.querySelector('button[data-content-id="content--{{ section.blocks | where: "type", "judge_me_reviews" | first.id }}--{{ section.id }}"]');
+      var reviewsTabContent = document.getElementById('reviews-tab-content');
   
       document.querySelectorAll('.custom__tab-content').forEach(function(tabContent) {
         tabContent.classList.remove('active');
@@ -232,11 +232,34 @@
         tab.classList.remove('active');
       });
   
-      this.classList.add('active');
-      content.classList.add('active');
+      if (reviewsTabButton) {
+        reviewsTabButton.classList.add('active');
+      }
+  
+      if (reviewsTabContent) {
+        reviewsTabContent.classList.add('active');
+      }
+    }
+  
+    document.querySelectorAll('.custom-tab').forEach(function(tab) {
+      tab.addEventListener('click', function() {
+        var contentId = this.dataset.contentId;
+        var content = document.getElementById(contentId);
+  
+        document.querySelectorAll('.custom__tab-content').forEach(function(tabContent) {
+          tabContent.classList.remove('active');
+        });
+  
+        document.querySelectorAll('.custom-tab').forEach(function(tab) {
+          tab.classList.remove('active');
+        });
+  
+        this.classList.add('active');
+        content.classList.add('active');
+      });
     });
-  });
   {% endjavascript %}
+  
   
   {% schema %}
   {
