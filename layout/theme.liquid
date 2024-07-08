@@ -369,35 +369,36 @@
 
     <script>
       // Crear un nuevo estilo CSS
-const style = document.createElement('style');
-style.textContent = `
-  .chat-toggle {
-    background-image: linear-gradient(rgb(16, 16, 16), rgb(16, 16, 16)),
-      linear-gradient(to right, #5a0dff -5%, #ff29b8 31%, #ff581c, #ff29b8, #5a0dff);
-    background-origin: border-box;
-    background-clip: padding-box, border-box;
-    background-size: 200% 100%;
-    animation: gradientAnimation 4s linear infinite;
+// Esperar a que el documento esté completamente cargado
+document.addEventListener('DOMContentLoaded', function() {
+  // Seleccionar el botón de Shopify Imbox usando un selector específico
+  const imboxButton = document.querySelector('.imbox-button');
+
+  // Verificar si se encontró el botón
+  if (imboxButton) {
+    // Aplicar estilos dinámicos
+    imboxButton.style.backgroundImage = 'linear-gradient(rgb(16, 16, 16), rgb(16, 16, 16)), linear-gradient(to right, #5a0dff -5%, #ff29b8 31%, #ff581c, #ff29b8, #5a0dff)';
+    imboxButton.style.backgroundOrigin = 'border-box';
+    imboxButton.style.backgroundClip = 'padding-box, border-box';
+    imboxButton.style.backgroundSize = '200% 100%';
+    imboxButton.style.animation = 'gradientAnimation 4s linear infinite';
+
+    // Definir la animación de keyframes
+    const style = document.createElement('style');
+    style.textContent = `
+      @keyframes gradientAnimation {
+        0% {
+          background-position: -100% 0;
+        }
+        100% {
+          background-position: 100% 0;
+        }
+      }
+    `;
+    document.head.appendChild(style);
   }
+});
 
-  @keyframes gradientAnimation {
-    0% {
-      background-position: -100% 0;
-    }
-    100% {
-      background-position: 100% 0;
-    }
-  }
-`;
-
-// Obtener el div donde se encuentra el botón
-const chatAppDiv = document.querySelector('.chat-app');
-
-// Agregar el estilo al head del documento
-document.head.appendChild(style);
-
-// Agregar una clase al botón para aplicar los estilos
-chatAppDiv.querySelector('.chat-toggle').classList.add('chat-toggle');
 
     </script>
   </body>
