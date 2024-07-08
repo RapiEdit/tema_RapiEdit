@@ -368,6 +368,26 @@
     {%- endif -%}
 
 <script>
+document.querySelectorAll('.custom-tab').forEach(function(tab) {
+    tab.addEventListener('click', function() {
+        var contentId = this.dataset.contentId;
+        var content = document.getElementById(contentId);
+
+        // Remover la clase 'active' de todos los tabs y contenidos
+        document.querySelectorAll('.custom__tab-content').forEach(function(tabContent) {
+            tabContent.classList.remove('active');
+        });
+
+        document.querySelectorAll('.custom-tab').forEach(function(tab) {
+            tab.classList.remove('active');
+        });
+
+        // Activar el tab y contenido clickeado
+        this.classList.add('active');
+        content.classList.add('active');
+    });
+});
+
 // Función para abrir el tab de reseñas cuando se hace clic en el div jdgm-widget jdgm-preview-badge
 function openReviewsTab() {
     var reviewsTabContent = document.getElementById('reviews-tab-content');
@@ -387,6 +407,7 @@ function openReviewsTab() {
     // Si es necesario, hacer scroll hasta el tab de reseñas
     reviewsTabContent.scrollIntoView({ behavior: 'smooth' });
 }
+
 </script>
   </body>
 </html>
