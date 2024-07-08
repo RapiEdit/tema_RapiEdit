@@ -3637,7 +3637,7 @@ button.chat-toggle.chat-toggle--text-button {
         #ff581c,
         #ff29b8,
         #5a0dff
-      );
+      ) !important;
     background-origin: border-box;
     background-clip: padding-box, border-box;
     background-size: 200% 100%;
