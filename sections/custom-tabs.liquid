@@ -222,9 +222,10 @@
 document.addEventListener('DOMContentLoaded', function() {
   function openReviewsTab() {
     // Encuentra y activa la pestaña de reseñas
-    var reviewsTabButton = document.querySelector('button[data-content-id="content--{{ section.blocks | where: "type", "judge_me_reviews" | first.id }}--{{ section.id }}"]');
+    var reviewsTabButton = document.querySelector('button[data-content-id^="content--judge_me_reviews--"]');
     var reviewsTabContent = document.getElementById('reviews-tab-content');
 
+    // Remueve la clase 'active' de todos los contenidos de pestañas y botones
     document.querySelectorAll('.custom__tab-content').forEach(function(tabContent) {
       tabContent.classList.remove('active');
     });
@@ -233,15 +234,23 @@ document.addEventListener('DOMContentLoaded', function() {
       tab.classList.remove('active');
     });
 
+    // Agrega la clase 'active' al botón de la pestaña de reseñas si existe
     if (reviewsTabButton) {
       reviewsTabButton.classList.add('active');
     }
 
+    // Agrega la clase 'active' al contenido de la pestaña de reseñas si existe
     if (reviewsTabContent) {
       reviewsTabContent.classList.add('active');
     }
   }
 
+  // Evento para abrir la pestaña de reseñas al hacer clic en el widget
+  document.querySelector('.jdgm-widget.jdgm-preview-badge').addEventListener('click', function() {
+    openReviewsTab();
+  });
+
+  // Evento para cambiar de pestaña al hacer clic en cualquier custom-tab
   document.querySelectorAll('.custom-tab').forEach(function(tab) {
     tab.addEventListener('click', function() {
       var contentId = this.dataset.contentId;
@@ -256,15 +265,13 @@ document.addEventListener('DOMContentLoaded', function() {
       });
 
       this.classList.add('active');
-      content.classList.add('active');
+      if (content) {
+        content.classList.add('active');
+      }
     });
   });
-
-  // Evento para abrir la pestaña de reseñas al hacer clic en el widget
-  document.querySelector('.jdgm-widget.jdgm-preview-badge').addEventListener('click', function() {
-    openReviewsTab();
-  });
 });
+
 {% endjavascript %}
 
 {% schema %}
