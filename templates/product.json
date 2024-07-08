@@ -12,11 +12,6 @@
     "main": {
       "type": "main-product",
       "blocks": {
-        "vitals_reviews_stars_U6w9WT": {
-          "type": "shopify:\/\/apps\/vitals\/blocks\/reviews-stars\/aeb48102-2a5a-4f39-bdbd-d8d49f4e20b8",
-          "settings": {
-          }
-        },
         "vendor": {
           "type": "text",
           "settings": {
@@ -68,7 +63,6 @@
         }
       },
       "block_order": [
-        "vitals_reviews_stars_U6w9WT",
         "vendor",
         "title",
         "judge_me_reviews_preview_badge_HN48iG",
