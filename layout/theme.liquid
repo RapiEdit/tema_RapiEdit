@@ -7,35 +7,6 @@
     <meta name="theme-color" content="">
     <link rel="canonical" href="{{ canonical_url }}">
    
-      
-    <style>
-      .chat-toggle.chat-toggle--text-button {
-        border: 3px solid transparent !important;
-        background-image: linear-gradient(rgb(16, 16, 16), rgb(16, 16, 16)),
-          linear-gradient(
-            to right,
-            #5a0dff -5%,
-            #ff29b8 31%,
-            #ff581c,
-            #ff29b8,
-            #5a0dff
-          ) !important;
-        background-origin: border-box !important;
-        background-clip: padding-box, border-box !important;
-        background-size: 200% 100% !important;
-        animation: gradientAnimation 4s linear infinite !important;
-      }
-  
-      @keyframes gradientAnimation {
-        0% {
-          background-position: -100% 0;
-        }
-        100% {
-          background-position: 100% 0;
-        }
-      }
-    </style>
-
     {%- if settings.favicon != blank -%}
       <link rel="icon" type="image/png" href="{{ settings.favicon | image_url: width: 32, height: 32 }}">
     {%- endif -%}
@@ -395,34 +366,6 @@
     {%- if settings.predictive_search_enabled -%}
       <script src="{{ 'predictive-search.js' | asset_url }}" defer="defer"></script>
     {%- endif -%}
-
-  
-    <script>
-document.addEventListener('DOMContentLoaded', function() {
-  var chatToggleButton = document.querySelector('button.chat-toggle.chat-toggle--text-button');
-  if (chatToggleButton) {
-    chatToggleButton.style.border = '3px solid transparent';
-    chatToggleButton.style.backgroundImage = 'linear-gradient(rgb(16, 16, 16), rgb(16, 16, 16)), linear-gradient(to right, #5a0dff -5%, #ff29b8 31%, #ff581c, #ff29b8, #5a0dff)';
-    chatToggleButton.style.backgroundOrigin = 'border-box';
-    chatToggleButton.style.backgroundClip = 'padding-box, border-box';
-    chatToggleButton.style.backgroundSize = '200% 100%';
-    chatToggleButton.style.animation = 'gradientAnimation 4s linear infinite';
-  }
-
-  var styleElement = document.createElement('style');
-  styleElement.innerHTML = `
-    @keyframes gradientAnimation {
-      0% {
-        background-position: -100% 0;
-      }
-      100% {
-        background-position: 100% 0;
-      }
-    }
-  `;
-  document.head.appendChild(styleElement);
-});
-</script>
 
   </body>
 </html>
