@@ -449,11 +449,11 @@
     "custom_css": [
       ".customer button {background-image: linear-gradient( to right, #5a0dff -5%, #ff29b8 31%, #ff581c, #ff29b8, #5a0dff ); box-shadow: 5px 2px 10px 0px rgba(45, 23, 70, 0.2) inset, -5px -3px 8px 0px rgba(71, 23, 11, 0.2) inset !important; background-size: 200% 100%; transition: all 0.2s ease;}",
       ".customer button:hover {background-position: 90% 0 !important; transition: all 0.4s ease-in-out !important; box-shadow: 0px 0px 20px rgba(255, 53, 144, 0.5) !important; transform: scale(1.05) !important; \/* Escala el botón y el texto *\/ font-weight: bold;}",
-      ".customer field {transition: all 0.4s ease;}",
-      ".customer .field input {transition: all 0.4s ease;}",
+      ".customer .field {transition: all 0.4s ease;}",
+      ".customer .field .input {transition: all 0.4s ease;}",
       ".customer .field:hover {transform: scale(1.02) !important;}",
       ".customer .field input:hover,.customer .field input:focus {outline: none; box-shadow: none !important; border: 3px solid transparent; background-image: linear-gradient(rgb(16, 16, 16), rgb(16, 16, 16)), linear-gradient( to right, #5a0dff -5%, #ff29b8 31%, #ff581c, #ff29b8, #5a0dff ); background-origin: border-box; background-clip: padding-box, border-box; background-size: 200% 100%; animation: gradientAnimation 4s linear infinite;}",
-      "@keyframes gradientAnimation {0% {background-position: 100% 0; } 50% {background-position: 0% 0; } 100% {background-position: 100% 0; }}"
+      "@keyframes gradientAnimation {0% {background-position: -100% 0; } 100% {background-position: 100% 0; }}"
     ]
   }
 }
