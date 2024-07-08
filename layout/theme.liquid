@@ -367,53 +367,6 @@
       <script src="{{ 'predictive-search.js' | asset_url }}" defer="defer"></script>
     {%- endif -%}
 
-    <script>
-document.addEventListener('DOMContentLoaded', function() {
-  function applyStyles() {
-    var chatToggleButton = document.querySelector('button.chat-toggle.chat-toggle--text-button');
-    if (chatToggleButton) {
-      chatToggleButton.style.setProperty('border', '3px solid transparent', 'important');
-      chatToggleButton.style.setProperty('background-image', 'linear-gradient(rgb(16, 16, 16), rgb(16, 16, 16)), linear-gradient(to right, #5a0dff -5%, #ff29b8 31%, #ff581c, #ff29b8, #5a0dff)', 'important');
-      chatToggleButton.style.setProperty('background-origin', 'border-box', 'important');
-      chatToggleButton.style.setProperty('background-clip', 'padding-box, border-box', 'important');
-      chatToggleButton.style.setProperty('background-size', '200% 100%', 'important');
-      chatToggleButton.style.setProperty('animation', 'gradientAnimation 4s linear infinite', 'important');
-    }
-  }
-
-  // Crear un observador de mutaciones
-  var observer = new MutationObserver(function(mutations) {
-    mutations.forEach(function(mutation) {
-      if (mutation.addedNodes.length) {
-        applyStyles();
-      }
-    });
-  });
-
-  // Configuración del observador para observar cambios en el cuerpo del documento
-  observer.observe(document.body, {
-    childList: true,
-    subtree: true
-  });
-
-  // Definir la animación dentro de una etiqueta <style>
-  var styleElement = document.createElement('style');
-  styleElement.innerHTML = `
-    @keyframes gradientAnimation {
-      0% {
-        background-position: -100% 0;
-      }
-      100% {
-        background-position: 100% 0;
-      }
-    }
-  `;
-  document.head.appendChild(styleElement);
-
-  // Aplicar estilos inmediatamente en caso de que el botón ya esté presente
-  applyStyles();
-});
-</script>
-
+    
   </body>
 </html>
