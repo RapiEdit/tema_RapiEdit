@@ -448,8 +448,8 @@
   "platform_customizations": {
     "custom_css": [
       "button {background-image: linear-gradient( to right, #5a0dff -5%, #ff29b8 31%, #ff581c, #ff29b8, #5a0dff ); box-shadow: 5px 2px 10px 0px rgba(45, 23, 70, 0.2) inset, -5px -3px 8px 0px rgba(71, 23, 11, 0.2) inset !important; background-size: 200% 100%; transition: all 0.2s ease;}",
-      "button:hover {background-position: 90% 0 !important; transition: all 0.4s ease-in-out !important; box-shadow: 0px 0px 20px rgba(255, 53, 144, 0.5) !important; transform: scale(1.05) !important; \/* Escala el botón y el texto *\/ font-weight: bold;}",
-      ".field:hover,.field:focus {padding: 10px; border-radius: 30px; background-image: linear-gradient( to right, #5a0dff -5%, #ff29b8 31%, #ff581c, #ff29b8, #5a0dff ); background-size: 200% 100%; animation: gradientAnimation 4s linear infinite; display: inline-block;}",
+      "button:active,button:hover,button:focus {background-position: 90% 0 !important; transition: all 0.4s ease-in-out !important; box-shadow: 0px 0px 20px rgba(255, 53, 144, 0.5) !important; transform: scale(1.05) !important; \/* Escala el botón y el texto *\/ font-weight: bold;}",
+      ".field:active,.field:hover,.field:focus {padding: 1px; border-radius: 30px; background-image: linear-gradient( to right, #5a0dff -5%, #ff29b8 31%, #ff581c, #ff29b8, #5a0dff ) !important; background-size: 200% 100%; animation: gradientAnimation 4s linear infinite; display: inline-block;}",
       "@keyframes gradientAnimation {0% {background-position: 0% 0; } 50% {background-position: 100% 0; } 100% {background-position: 0% 0; }}"
     ]
   }
