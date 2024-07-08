@@ -104,7 +104,7 @@
           "type": "judge_me_reviews",
           "settings": {
             "heading": "RESEÑAS",
-            "default_active": true
+            "default_active": false
           }
         },
         "html_content_U6XiC9": {
