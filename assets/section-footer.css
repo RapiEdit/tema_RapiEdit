@@ -14,7 +14,7 @@
 @media screen and (max-width: 749px) {
   .footer .grid {
     display: block;
-    MARGIN-BOTTOM: -50PX;
+    MARGIN: 0px -10PX -50px -10px;
   }
 
   .footer-block.grid__item {
