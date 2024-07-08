@@ -189,8 +189,8 @@
 @media screen and (min-width: 750px) {
   /* Pushes other components to the right of the flexbox */
   .footer-block__newsletter:not(:only-child) {
-    text-align: left;
-    margin-right: auto;
+    text-align: center;
+    margin-right: 0;
   }
 
   .footer-block__newsletter:not(:only-child) .footer__newsletter {
