@@ -220,31 +220,6 @@
 
 {% javascript %}
 document.addEventListener('DOMContentLoaded', function() {
-  function openReviewsTab() {
-    var reviewsTabButton = document.querySelector('button[data-content-id^="content--judge_me_reviews--"]');
-    var reviewsTabContent = document.getElementById('reviews-tab-content');
-
-    document.querySelectorAll('.custom__tab-content').forEach(function(tabContent) {
-      tabContent.classList.remove('active');
-    });
-
-    document.querySelectorAll('.custom-tab').forEach(function(tab) {
-      tab.classList.remove('active');
-    });
-
-    if (reviewsTabButton) {
-      reviewsTabButton.classList.add('active');
-    }
-
-    if (reviewsTabContent) {
-      reviewsTabContent.classList.add('active');
-    }
-  }
-
-  document.querySelector('.jdgm-widget.jdgm-preview-badge').addEventListener('click', function() {
-    openReviewsTab();
-  });
-
   document.querySelectorAll('.custom-tab').forEach(function(tab) {
     tab.addEventListener('click', function() {
       var contentId = this.dataset.contentId;
@@ -265,14 +240,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 
-  // Función para manejar el clic en el elemento HTML que llama a openReviewsTab()
-  var reviewsWidget = document.querySelector('.jdgm-widget.jdgm-preview-badge');
-  if (reviewsWidget) {
-    reviewsWidget.onclick = function() {
-      openReviewsTab();
-    };
-  }
-});
+  
 
 {% endjavascript %}
 
