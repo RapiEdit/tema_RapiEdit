@@ -27,7 +27,7 @@
         "custom_liquid_fLWnDC": {
           "type": "custom_liquid",
           "settings": {
-            "custom_liquid": "<div class=\"jdgm-widget jdgm-preview-badge\" data-id=\"{{ product_id }}\"><\/div>"
+            "custom_liquid": "<div class=\"jdgm-widget jdgm-preview-badge\" data-id=\"{{ product_id }}\" onclick=\"openReviewsTab()\"><\/div>"
           }
         },
         "price": {
