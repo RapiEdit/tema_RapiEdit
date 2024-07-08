@@ -8,7 +8,7 @@
     <link rel="canonical" href="{{ canonical_url }}">
 
     <style>
-      button.chat-toggle.chat-toggle--text-button {
+      .chat-toggle.chat-toggle--text-button {
         border: 3px solid transparent !important;
         background-image: linear-gradient(rgb(16, 16, 16), rgb(16, 16, 16)),
           linear-gradient(
@@ -34,7 +34,7 @@
         }
       }
     </style>
-    
+
     {%- if settings.favicon != blank -%}
       <link rel="icon" type="image/png" href="{{ settings.favicon | image_url: width: 32, height: 32 }}">
     {%- endif -%}
