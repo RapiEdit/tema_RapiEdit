@@ -367,6 +367,18 @@
       <script src="{{ 'predictive-search.js' | asset_url }}" defer="defer"></script>
     {%- endif -%}
 
-  
+ 
+    <script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Selecciona el botón dentro del componente de sombra
+    var button = document.querySelector('#shopify-chat inbox-online-store-chat::part(button)');
+
+    if (button) {
+      // Modifica el color de fondo del botón
+      button.style.backgroundColor = '#336699'; // Cambia el color de fondo aquí
+    }
+  });
+</script>
+
   </body>
 </html>
