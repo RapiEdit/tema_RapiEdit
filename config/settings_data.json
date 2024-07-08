@@ -468,7 +468,7 @@
       ".customer .field:hover {transform: scale(1.02) !important;}",
       ".customer .field input:hover,.customer .field input:focus {outline: none; box-shadow: none !important; border: 3px solid transparent; background-image: linear-gradient(rgb(16, 16, 16), rgb(16, 16, 16)), linear-gradient( to right, #5a0dff -5%, #ff29b8 31%, #ff581c, #ff29b8, #5a0dff ); background-origin: border-box; background-clip: padding-box, border-box; background-size: 200% 100%; animation: gradientAnimation 4s linear infinite;}",
       "@keyframes gradientAnimation {0% {background-position: -100% 0; } 100% {background-position: 100% 0; }}",
-      ".bordepro{margin: -12px 0px -12px 0px; background-image: linear-gradient(to right, #5a0dff -5%, #ff29b8 31%, #ff581c, #ff29b8, #5a0dff); background-size: 200% 100%; animation: gradientAnimation 4s linear infinite;}"
+      ".bordepro {margin: 0px 0px -12px 0px; background-image: linear-gradient( to right, #5a0dff -5%, #ff29b8 31%, #ff581c, #ff29b8, #5a0dff ); background-size: 200% 100%; animation: gradientAnimation 4s linear infinite;}"
     ]
   }
 }
