@@ -236,6 +236,25 @@
       content.classList.add('active');
     });
   });
+
+  function openReviewsTab() {
+  // Obtener el elemento del tab de reviews por su ID
+  var reviewsTabContent = document.getElementById('reviews-tab-content');
+
+  // Activar la clase 'active' en el tab de reviews
+  reviewsTabContent.classList.add('active');
+
+  // Desactivar todos los demás tabs
+  var tabs = document.querySelectorAll('.custom__tab-content');
+  tabs.forEach(function(tab) {
+    if (tab.id !== 'reviews-tab-content') {
+      tab.classList.remove('active');
+    }
+  });
+
+  // Si es necesario, hacer scroll hasta el tab de reviews
+  reviewsTabContent.scrollIntoView({ behavior: 'smooth' });
+}
 {% endjavascript %}
 
 {% schema %}
