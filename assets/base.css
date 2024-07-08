@@ -3627,7 +3627,7 @@ details-disclosure > details {
 }
 
 /* Aumentar la especificidad y usar !important */
-button.chat-toggle.chat-toggle--text-button {
+button.chat-toggle {
   border: 3px solid transparent !important;
   background-image: linear-gradient(rgb(16, 16, 16), rgb(16, 16, 16)),
     linear-gradient(
