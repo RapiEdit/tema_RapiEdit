@@ -369,7 +369,6 @@
 
 <script>
 
-  // Función para abrir el tab de reseñas cuando se hace clic en el div jdgm-widget jdgm-preview-badge
 function openReviewsTab() {
     var reviewsTabContent = document.getElementById('content--judge_me_reviews_4TAWBc--template--16477474848828__custom_tabs_zRthfn');
 
@@ -382,12 +381,19 @@ function openReviewsTab() {
         tab.classList.remove('active');
     });
 
-    this.classList.add('active');
-      content.classList.add('active');
+    // Activar específicamente el tab de reseñas
+    reviewsTabContent.classList.add('active');
+
+    // Obtener el botón .custom-tab correspondiente y agregarle la clase 'active'
+    var tabButton = document.querySelector('button[data-content-id="' + reviewsTabContent.id + '"]');
+    if (tabButton) {
+        tabButton.classList.add('active');
+    }
 
     // Si es necesario, hacer scroll hasta el tab de reseñas
     reviewsTabContent.scrollIntoView({ behavior: 'smooth' });
 }
+
 </script>
   </body>
 </html>
