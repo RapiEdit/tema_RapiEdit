@@ -3625,3 +3625,106 @@ details-disclosure > details {
     background-position: 0% 0;
   }
 }
+
+
+/* Definir clases reutilizables para gradientes y sombras */
+.gradient-bg {
+  background-image: linear-gradient(
+    to right,
+    #5a0dff -5%,
+    #ff29b8 31%,
+    #ff581c,
+    #ff29b8,
+    #5a0dff
+  );
+  background-size: 200% 100%;
+  animation: gradientAnimation 4s linear infinite;
+}
+
+.gradient-border {
+  border: 3px solid transparent;
+  background-image: linear-gradient(rgb(16, 16, 16), rgb(16, 16, 16)),
+    linear-gradient(
+      to right,
+      #5a0dff -5%,
+      #ff29b8 31%,
+      #ff581c,
+      #ff29b8,
+      #5a0dff
+    );
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+  background-size: 200% 100%;
+}
+
+.box-shadow {
+  box-shadow: 5px 2px 10px 0px rgba(45, 23, 70, 0.2) inset,
+    -5px -3px 8px 0px rgba(71, 23, 11, 0.2) inset !important;
+}
+
+.box-shadow-hover {
+  box-shadow: 0px 0px 20px rgba(255, 53, 144, 0.5) !important;
+}
+
+.scale-transform:hover {
+  transform: scale(1.05) !important; /* Escala el botón y el texto */
+}
+
+.field-hover:hover {
+  transform: scale(1.02) !important;
+}
+
+.transition-ease {
+  transition: all 0.4s ease;
+}
+
+.transition-fast {
+  transition: all 0.2s ease;
+}
+
+/* Aplicar clases reutilizables */
+.customer button {
+  text-transform: uppercase;
+  @extend .gradient-bg, .box-shadow, .transition-fast;
+}
+
+.customer button:hover {
+  background-position: 90% 0 !important;
+  @extend .transition-ease, .box-shadow-hover, .scale-transform;
+  font-weight: bold;
+}
+
+.customer .field,
+.customer .field .input {
+  @extend .transition-ease;
+}
+
+.customer .field:hover {
+  @extend .field-hover;
+}
+
+.customer .field input:hover,
+.customer .field input:focus {
+  outline: none;
+  box-shadow: none !important;
+  @extend .gradient-border, .gradient-bg;
+}
+
+.bordepro {
+  margin: 0px 0px -25px 0px;
+  @extend .gradient-bg;
+}
+
+button.chat-toggle.chat-toggle--text-button {
+  @extend .gradient-border, .gradient-bg;
+}
+
+/* Animación del gradiente */
+@keyframes gradientAnimation {
+  0% {
+    background-position: -100% 0;
+  }
+  100% {
+    background-position: 100% 0;
+  }
+}
