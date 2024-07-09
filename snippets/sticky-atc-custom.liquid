@@ -212,6 +212,20 @@
     
         // The function to update the variant prices is found in the global.js renderProductInfo function
         // The function to update the variant image is found in the global.js updateMedia function
+
+         // Escuchar cambios en el input de Uploadkit (ajusta según el ID del input)
+    var uploadInput = document.getElementById('uploadkit-input'); // Ajusta el ID según corresponda
+
+uploadInput.addEventListener('change', function() {
+    // Verificar si se ha seleccionado un archivo
+    if (uploadInput.value) {
+        // Habilitar el botón de agregar al carrito si se ha seleccionado un archivo
+        addToCartButton.disabled = false;
+    } else {
+        // Deshabilitar el botón de agregar al carrito si no se ha seleccionado un archivo
+        addToCartButton.disabled = true;
+    }
+});
     });
 
 </script>
