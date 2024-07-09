@@ -155,7 +155,7 @@
             }
             return top;
         }
-
+    
         window.addEventListener("scroll", function() {
             var targetTopPosition = getAbsoluteTop(targetElement);
             var targetBottomPosition = targetTopPosition + targetElement.clientHeight;
@@ -182,7 +182,7 @@
                 optionDisplay.textContent = optionName + ': ' + optionValue;
             }
         }
-
+    
         function handleVariantChange(event) {
             var target = event.target;
             if (target.tagName === 'INPUT' || target.tagName === 'SELECT') {
@@ -191,10 +191,9 @@
                 updateStickyATCOption(optionName, optionValue);
             }
         }
-
+    
         document.body.addEventListener('change', handleVariantChange);
     
-
         var vexOverlay = null;
         var vexDialog = null;
         var uploadButton = null;
@@ -217,33 +216,6 @@
                 vexOverlay.style.display = 'block';
                 vexDialog.style.display = 'block';
                 event.preventDefault();
-            vexOverlay = document.querySelector('.vex-overlay');
-            vexDialog = document.querySelector('.vex-theme-plain');
-            uploadButton = document.querySelector('.uploadkit-button');
-            changeButton = document.querySelector('.uploadkit-button-uploaded');
-
-            console.log('vexOverlay:', vexOverlay);
-            console.log('vexDialog:', vexDialog);
-            console.log('uploadButton:', uploadButton);
-            console.log('changeButton:', changeButton);
-
-            var submitButton = document.querySelector('#StickyProductSubmitButton-{{ section_id }}');
-            if (submitButton) {
-                submitButton.addEventListener('click', function(event) {
-                    if (uploadButton && uploadButton.style.display === 'inline-block') {
-                        vexOverlay.style.display = 'block';
-                        vexDialog.style.display = 'block';
-                        event.preventDefault();
-                    }
-                });
-            }
-
-            var okButton = document.querySelector('.uploadkit-ok-button');
-            if (okButton && vexOverlay && vexDialog) {
-                okButton.addEventListener('click', function() {
-                    vexOverlay.style.display = 'none';
-                    vexDialog.style.display = 'none';
-                });
             }
         }
     
@@ -261,6 +233,7 @@
         setInterval(updateElements, 5000); // Verificar cambios cada 5 segundos
     });
 </script>
+
 
 
             
