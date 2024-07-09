@@ -166,7 +166,9 @@ body:has(.section-header .drawer-menu) .announcement-bar-section .page-width {
 .section + .section {
   margin-top: var(--spacing-sections-mobile);
 }
-
+.starcenter {
+  text-align: center;
+}
 @media screen and (min-width: 750px) {
   .section + .section {
     margin-top: var(--spacing-sections-desktop);
