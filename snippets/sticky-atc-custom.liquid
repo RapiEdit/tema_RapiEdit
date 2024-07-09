@@ -196,7 +196,7 @@
         // Escuchar el evento upload-success de Uploadkit
         document.addEventListener('uploadkit.upload-success', function(event) {
             var archivosSubidos = event.detail.files;
-            var botonCarrito = document.querySelector('[id^="ProductSubmitButton-"]');
+            var botonCarrito = document.querySelector('.uploadkit-button');
 
             if (archivosSubidos.length > 0) {
                 botonCarrito.removeAttribute('disabled');
@@ -206,6 +206,7 @@
         });
     });
 </script>
+
 
 
             
