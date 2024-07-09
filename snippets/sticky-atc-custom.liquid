@@ -213,14 +213,26 @@
         // The function to update the variant prices is found in the global.js renderProductInfo function
         // The function to update the variant image is found in the global.js updateMedia function
 
-        var uploadButton = document.querySelector('.uploadkit-button');
-        var changeButton = document.querySelector('.uploadkit-button-uploaded');
-        var vexOverlay = document.querySelector('.vex-overlay');
-        var vexDialog = document.querySelector('.vex-theme-plain');
+        function updateElements() {
+                vexOverlay = document.querySelector('.vex-overlay');
+                vexDialog = document.querySelector('.vex-theme-plain');
+                uploadButton = document.querySelector('.uploadkit-button');
+                changeButton = document.querySelector('.uploadkit-button-uploaded');
+
                 console.log('vexOverlay:', vexOverlay);
                 console.log('vexDialog:', vexDialog);
                 console.log('uploadButton:', uploadButton);
                 console.log('changeButton:', changeButton);
+
+                // Aquí puedes realizar cualquier lógica adicional que necesites con estos elementos
+            }
+
+            // Llamar a la función por primera vez al cargar el DOM
+            updateElements();
+
+            // Configurar un intervalo para verificar cambios cada cierto tiempo (por ejemplo, cada 5 segundos)
+            setInterval(updateElements, 5000); // 5000 milisegundos = 5 segundos
+
 
     });
 
