@@ -71,7 +71,7 @@
                               </div>
                           {% endfor %}
                       </div>
-                      <div class="price-container">
+                      <div class="price-container desktop-price">
                           <span class="compared-price" style="{% unless product.selected_or_first_available_variant.compare_at_price > product.selected_or_first_available_variant.price %}display:none;{% endunless %}">{{ product.selected_or_first_available_variant.compare_at_price | money }}</span>
                           <span class="selection-price">{{ product.selected_or_first_available_variant.price | money }}</span>
                           {%- assign difference = product.selected_or_first_available_variant.compare_at_price | minus: product.selected_or_first_available_variant.price -%}
@@ -237,7 +237,9 @@
     .desktop-title {
         display: none;
     }
-      
+    .desktop-price {
+        display: none;
+    }
     @media (min-width: 750px) {
         .mobile-title {
             display: none;
