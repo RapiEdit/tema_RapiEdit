@@ -173,6 +173,10 @@ body:has(.section-header .drawer-menu) .announcement-bar-section .page-width {
   .section + .section {
     margin-top: var(--spacing-sections-desktop);
   }
+
+  .starcenter {
+    text-align: left;
+  }
 }
 
 .element-margin-top {
