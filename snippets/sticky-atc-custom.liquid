@@ -220,10 +220,10 @@ uploadInput.addEventListener('change', function() {
     // Verificar si se ha seleccionado un archivo
     if (uploadInput.value) {
         // Habilitar el botón de agregar al carrito si se ha seleccionado un archivo
-        addToCartButton.disabled = false;
+        targetElement.disabled = false;
     } else {
         // Deshabilitar el botón de agregar al carrito si no se ha seleccionado un archivo
-        addToCartButton.disabled = true;
+        targetElement.disabled = true;
     }
 });
     });
