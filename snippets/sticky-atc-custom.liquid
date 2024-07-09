@@ -217,7 +217,7 @@
             var vexDialog = null;
             var uploadButton = null;
             var changeButton = null;
-            
+
         function updateElements() {
                 vexOverlay = document.querySelector('.vex-overlay');
                 vexDialog = document.querySelector('.vex-theme-plain');
@@ -229,7 +229,25 @@
                 console.log('uploadButton:', uploadButton);
                 console.log('changeButton:', changeButton);
 
-                // Aquí puedes realizar cualquier lógica adicional que necesites con estos elementos
+                 // Evento cuando se intenta agregar al carrito sin seleccionar archivo
+                document.querySelector('#StickyProductSubmitButton-{{ section_id }}').addEventListener('click', function(event) {
+                    // Verificar si no se ha seleccionado archivo
+                    if (uploadButton && uploadButton.style.display === 'inline-block') {
+                        // Mostrar ventana emergente de advertencia
+                        vexOverlay.style.display = 'block';
+                        vexDialog.style.display = 'block';
+
+                        // Prevenir la acción por defecto (agregar al carrito)
+                        event.preventDefault();
+                    }
+                });
+
+                // Evento para cerrar la ventana emergente
+                document.querySelector('.uploadkit-ok-button').addEventListener('click', function() {
+                    vexOverlay.style.display = 'none';
+                    vexDialog.style.display = 'none';
+                });
+            }
             }
 
             // Llamar a la función por primera vez al cargar el DOM
