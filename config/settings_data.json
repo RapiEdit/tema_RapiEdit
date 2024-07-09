@@ -178,12 +178,6 @@
         "settings": {
         }
       },
-      "5134484470793087125": {
-        "type": "shopify:\/\/apps\/vitals\/blocks\/app-embed\/aeb48102-2a5a-4f39-bdbd-d8d49f4e20b8",
-        "disabled": false,
-        "settings": {
-        }
-      },
       "15683396631634586217": {
         "type": "shopify:\/\/apps\/inbox\/blocks\/chat\/841fc607-4181-4ad1-842d-e24d7f8bad6b",
         "disabled": false,
@@ -196,6 +190,12 @@
           "button_horizontal_position": "bottom_right",
           "button_vertical_position": "highest",
           "greeting_message": ""
+        }
+      },
+      "5134484470793087125": {
+        "type": "shopify:\/\/apps\/vitals\/blocks\/app-embed\/aeb48102-2a5a-4f39-bdbd-d8d49f4e20b8",
+        "disabled": true,
+        "settings": {
         }
       }
     },
