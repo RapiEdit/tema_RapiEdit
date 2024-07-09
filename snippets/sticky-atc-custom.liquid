@@ -216,7 +216,46 @@
 
 </script>
 
-            
+           
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // Obtener elementos relevantes
+        var uploadButton = document.querySelector('.uploadkit-button');
+        var changeButton = document.querySelector('.uploadkit-button-uploaded');
+        var vexOverlay = document.querySelector('.vex-overlay');
+        var vexDialog = document.querySelector('.vex-theme-plain');
+
+        // Inicializar estado inicial
+        changeButton.style.display = 'none'; // Ocultar botón de cambiar archivo
+
+        // Evento cuando se sube un archivo
+        uploadButton.addEventListener('click', function() {
+            // Aquí podrías añadir lógica adicional si lo necesitas
+            uploadButton.style.display = 'none'; // Ocultar botón de subir archivo
+            changeButton.style.display = 'inline-block'; // Mostrar botón de cambiar archivo
+        });
+
+        // Evento cuando se intenta agregar al carrito sin seleccionar archivo
+        document.querySelector('#StickyProductSubmitButton-{{ section_id }}').addEventListener('click', function(event) {
+            // Verificar si no se ha seleccionado archivo
+            if (uploadButton.style.display === 'inline-block') {
+                // Mostrar ventana emergente de advertencia
+                vexOverlay.style.display = 'block';
+                vexDialog.style.display = 'block';
+
+                // Prevenir la acción por defecto (agregar al carrito)
+                event.preventDefault();
+            }
+        });
+
+        // Evento para cerrar la ventana emergente
+        document.querySelector('.uploadkit-ok-button').addEventListener('click', function() {
+            vexOverlay.style.display = 'none';
+            vexDialog.style.display = 'none';
+        });
+    });
+</script>
+
 <style>
 
 	.options-container.hide-variant-options {
