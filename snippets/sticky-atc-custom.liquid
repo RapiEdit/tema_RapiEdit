@@ -160,6 +160,10 @@
             var targetTopPosition = getAbsoluteTop(targetElement);
             var isTargetElementOutOfView = targetTopPosition < window.scrollY;
 
+            console.log("Current Scroll Position:", window.scrollY);
+            console.log("Target Element Top Position:", targetTopPosition);
+            console.log("Is Target Element Out of View:", isTargetElementOutOfView);
+
             if (isTargetElementOutOfView) {
                 atcElement.classList.add('show');
             } else {
@@ -187,6 +191,7 @@
             if (target.tagName === 'INPUT' || target.tagName === 'SELECT') {
                 var optionName = target.name;
                 var optionValue = target.tagName === 'INPUT' ? target.value : target.options[target.selectedIndex].textContent;
+                console.log("Updating variant:", optionName, "with value:", optionValue);
                 updateStickyATCOption(optionName, optionValue);
             }
         }
@@ -198,7 +203,9 @@
             var archivosSubidos = event.detail.files;
             var botonCarrito = document.querySelector('.uploadkit-button');
 
-            if (archivosSubidos.length > 0) {
+            console.log("Archivos subidos:", archivosSubidos);
+
+            if (archivosSubidos && archivosSubidos.length > 0) {
                 botonCarrito.removeAttribute('disabled');
             } else {
                 botonCarrito.setAttribute('disabled', 'disabled');
@@ -206,6 +213,7 @@
         });
     });
 </script>
+
 
 
 
