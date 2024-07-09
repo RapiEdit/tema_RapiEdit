@@ -146,7 +146,7 @@
     document.addEventListener("DOMContentLoaded", function() {
         var atcElement = document.querySelector(".sticky-atc");
         var targetElement = document.querySelector('[id^="ProductSubmitButton-"]');
-
+    
         function getAbsoluteTop(element) {
             var top = 0;
             while (element) {
@@ -159,24 +159,24 @@
         window.addEventListener("scroll", function() {
             var targetTopPosition = getAbsoluteTop(targetElement);
             var targetBottomPosition = targetTopPosition + targetElement.clientHeight;
-
+    
             var isTargetElementOutOfView = targetTopPosition < window.scrollY;
-
+    
             if (isTargetElementOutOfView) {
                 atcElement.classList.add('show');
             } else {
                 atcElement.classList.remove('show');
             }
         });
-
+    
         var stickyAtcVariantInput = document.querySelector('.sticky-atc .product-variant-id');
-
+    
         function updateStickyATCOption(optionName, optionValue) {
             var matches = optionName.match(/options\\[(.+)\\]/);
             if (matches && matches[1]) {
                 optionName = matches[1];
             }
-
+    
             var optionDisplay = document.querySelector('.selected-variant-option[data-option-name="' + optionName + '"]');
             if (optionDisplay) {
                 optionDisplay.textContent = optionName + ': ' + optionValue;
@@ -193,13 +193,30 @@
         }
 
         document.body.addEventListener('change', handleVariantChange);
+    
 
         var vexOverlay = null;
         var vexDialog = null;
         var uploadButton = null;
         var changeButton = null;
-
+    
         function updateElements() {
+            vexOverlay = document.querySelector('.vex-overlay');
+            vexDialog = document.querySelector('.vex-theme-plain');
+            uploadButton = document.querySelector('.uploadkit-button');
+            changeButton = document.querySelector('.uploadkit-button-uploaded');
+    
+            console.log('vexOverlay:', vexOverlay);
+            console.log('vexDialog:', vexDialog);
+            console.log('uploadButton:', uploadButton);
+            console.log('changeButton:', changeButton);
+        }
+    
+        function handleAddToCartClick(event) {
+            if (uploadButton && uploadButton.style.display === 'inline-block') {
+                vexOverlay.style.display = 'block';
+                vexDialog.style.display = 'block';
+                event.preventDefault();
             vexOverlay = document.querySelector('.vex-overlay');
             vexDialog = document.querySelector('.vex-theme-plain');
             uploadButton = document.querySelector('.uploadkit-button');
@@ -229,8 +246,18 @@
                 });
             }
         }
-
+    
+        // Delegación de eventos para manejar clic en el botón de agregar al carrito
+        document.addEventListener('click', function(event) {
+            if (event.target.matches('#StickyProductSubmitButton-{{ section_id }}')) {
+                handleAddToCartClick(event);
+            }
+        });
+    
+        // Llamar a la función por primera vez al cargar el DOM
         updateElements();
+    
+        // Configurar un intervalo para verificar cambios cada cierto tiempo (por ejemplo, cada 5 segundos)
         setInterval(updateElements, 5000); // Verificar cambios cada 5 segundos
     });
 </script>
