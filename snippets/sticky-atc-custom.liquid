@@ -47,6 +47,18 @@
                       <img src="{{ product.images.first.src | img_url }}" alt="Product Image" id="selectedVariantImage">
                     {% endif %}
                   </div>
+
+                  <div class="price-container mobile-price">
+                          <span class="compared-price" style="{% unless product.selected_or_first_available_variant.compare_at_price > product.selected_or_first_available_variant.price %}display:none;{% endunless %}">{{ product.selected_or_first_available_variant.compare_at_price | money }}</span>
+                          <span class="selection-price">{{ product.selected_or_first_available_variant.price | money }}</span>
+                          {%- assign difference = product.selected_or_first_available_variant.compare_at_price | minus: product.selected_or_first_available_variant.price -%}
+                          {%- assign float_difference = difference | times: 1.0 -%}
+                          {%- assign discount_fraction = float_difference | divided_by: product.selected_or_first_available_variant.compare_at_price -%}
+                          {%- assign discount_percentage = discount_fraction | times: 100 | round -%}
+                          &nbsp;
+                          <span class="selection-price discount-percentage" style="{% unless product.selected_or_first_available_variant.compare_at_price > product.selected_or_first_available_variant.price %}display:none;{% endunless %}">(Save {{ discount_percentage }}%)</span>
+                      </div>
+
                   <div class="selected-variant-title desktop-title">{{ product.title }}</div> 
               </div>
               <div class="product-info-container">              
@@ -214,6 +226,12 @@
         display: flex;
         font-size: 13px;
     }
+
+    .mobile-price {
+        display: flex;
+        margin-top: -50px;
+    }
+
     .desktop-title {
         display: none;
     }
@@ -222,10 +240,16 @@
         .mobile-title {
             display: none;
         }
+
+        .mobile-price {
+        display: none;
+    }
         .desktop-title {
             display: flex;
             font-size: 15px;
         } 
+
+
     }
     
     
