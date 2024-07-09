@@ -143,12 +143,10 @@
 
             
 <script>
-
     document.addEventListener("DOMContentLoaded", function() {
         var atcElement = document.querySelector(".sticky-atc");
         var targetElement = document.querySelector('[id^="ProductSubmitButton-"]');
-        
-    
+
         function getAbsoluteTop(element) {
             var top = 0;
             while (element) {
@@ -157,48 +155,34 @@
             }
             return top;
         }
-    
+
         window.addEventListener("scroll", function() {
             var targetTopPosition = getAbsoluteTop(targetElement);
             var targetBottomPosition = targetTopPosition + targetElement.clientHeight;
-    
-            // console.log("Current Scroll Position:", window.scrollY);
-            // console.log("Target Element Bottom Position:", targetBottomPosition);
-    
-            var isTargetElementOutOfView = targetTopPosition < window.scrollY; // Using top position because of sticky menubar
-            //var isTargetElementOutOfView = targetBottomPosition < window.scrollY; //Element is completely out of window
-    
-            // console.log("Is Target Element Out of View:", isTargetElementOutOfView);
-    
+
+            var isTargetElementOutOfView = targetTopPosition < window.scrollY;
+
             if (isTargetElementOutOfView) {
-                atcElement.classList.add('show'); // This will make it slide up
+                atcElement.classList.add('show');
             } else {
-                atcElement.classList.remove('show'); // This will make it slide down
+                atcElement.classList.remove('show');
             }
         });
-    
-        // Reference to the variant input in the sticky ATC form
+
         var stickyAtcVariantInput = document.querySelector('.sticky-atc .product-variant-id');
-    
-    
-        // Function to handle variant change and update the sticky ATC form
+
         function updateStickyATCOption(optionName, optionValue) {
-            // Extract option name if it's in the format options[OptionName]
             var matches = optionName.match(/options\\[(.+)\\]/);
             if (matches && matches[1]) {
                 optionName = matches[1];
             }
-            // console.log("Updating option:", optionName, "with value:", optionValue);  // Debug statement
-          
+
             var optionDisplay = document.querySelector('.selected-variant-option[data-option-name="' + optionName + '"]');
             if (optionDisplay) {
                 optionDisplay.textContent = optionName + ': ' + optionValue;
             }
-          
-    
-          
         }
-    
+
         function handleVariantChange(event) {
             var target = event.target;
             if (target.tagName === 'INPUT' || target.tagName === 'SELECT') {
@@ -207,59 +191,50 @@
                 updateStickyATCOption(optionName, optionValue);
             }
         }
-    
+
         document.body.addEventListener('change', handleVariantChange);
-    
-        // The function to update the variant prices is found in the global.js renderProductInfo function
-        // The function to update the variant image is found in the global.js updateMedia function
 
         var vexOverlay = null;
-            var vexDialog = null;
-            var uploadButton = null;
-            var changeButton = null;
+        var vexDialog = null;
+        var uploadButton = null;
+        var changeButton = null;
 
         function updateElements() {
-                vexOverlay = document.querySelector('.vex-overlay');
-                vexDialog = document.querySelector('.vex-theme-plain');
-                uploadButton = document.querySelector('.uploadkit-button');
-                changeButton = document.querySelector('.uploadkit-button-uploaded');
+            vexOverlay = document.querySelector('.vex-overlay');
+            vexDialog = document.querySelector('.vex-theme-plain');
+            uploadButton = document.querySelector('.uploadkit-button');
+            changeButton = document.querySelector('.uploadkit-button-uploaded');
 
-                console.log('vexOverlay:', vexOverlay);
-                console.log('vexDialog:', vexDialog);
-                console.log('uploadButton:', uploadButton);
-                console.log('changeButton:', changeButton);
+            console.log('vexOverlay:', vexOverlay);
+            console.log('vexDialog:', vexDialog);
+            console.log('uploadButton:', uploadButton);
+            console.log('changeButton:', changeButton);
 
-                 // Evento cuando se intenta agregar al carrito sin seleccionar archivo
-                document.querySelector('#StickyProductSubmitButton-{{ section_id }}').addEventListener('click', function(event) {
-                    // Verificar si no se ha seleccionado archivo
+            var submitButton = document.querySelector('#StickyProductSubmitButton-{{ section_id }}');
+            if (submitButton) {
+                submitButton.addEventListener('click', function(event) {
                     if (uploadButton && uploadButton.style.display === 'inline-block') {
-                        // Mostrar ventana emergente de advertencia
                         vexOverlay.style.display = 'block';
                         vexDialog.style.display = 'block';
-
-                        // Prevenir la acción por defecto (agregar al carrito)
                         event.preventDefault();
                     }
                 });
+            }
 
-                // Evento para cerrar la ventana emergente
-                document.querySelector('.uploadkit-ok-button').addEventListener('click', function() {
+            var okButton = document.querySelector('.uploadkit-ok-button');
+            if (okButton && vexOverlay && vexDialog) {
+                okButton.addEventListener('click', function() {
                     vexOverlay.style.display = 'none';
                     vexDialog.style.display = 'none';
                 });
             }
-            
+        }
 
-            // Llamar a la función por primera vez al cargar el DOM
-            updateElements();
-
-            // Configurar un intervalo para verificar cambios cada cierto tiempo (por ejemplo, cada 5 segundos)
-            setInterval(updateElements, 5000); // 5000 milisegundos = 5 segundos
-
-
+        updateElements();
+        setInterval(updateElements, 5000); // Verificar cambios cada 5 segundos
     });
-
 </script>
+
 
             
 <style>
