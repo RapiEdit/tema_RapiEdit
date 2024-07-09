@@ -148,6 +148,9 @@
     document.addEventListener("DOMContentLoaded", function() {
         var atcElement = document.querySelector(".sticky-atc");
         var targetElement = document.querySelector('[id^="ProductSubmitButton-"]');
+         // Inicializa Uploadkit aquí
+  const buttons = document.querySelectorAll('[data-uploadkit-validation-added="true"]');
+  buttons.forEach(button => {
     
         function getAbsoluteTop(element) {
             var top = 0;
