@@ -252,9 +252,6 @@
         display: flex;
         justify-content: space-between; /* Spread children horizontally */
         align-items: center; /* Center children vertically */
-        bottom: -100%;
-        z-index: 1000;
-  transition: bottom 0.3s ease;
     }
     
     /* The product info and button container will take up the remaining space */
@@ -397,7 +394,7 @@
     
         .sticky-atc {
             bottom: auto; /* Reset the bottom property for desktop */
-            top: -200px; /* Start off-screen */
+            bottom: -200px; /* Start off-screen */
             transition: top 0.3s ease-out; /* Transition for desktop */
             padding-top: 5px;
             padding-bottom: 5px;
