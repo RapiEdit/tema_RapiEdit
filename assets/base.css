@@ -3658,3 +3658,97 @@ button.chat-toggle.chat-toggle--text-button {
     background-position: 100% 0;
   }
 }
+
+/* Colores de Reseñas judge */
+
+.jdgm-write-rev-link.jdgm-write-rev-link {
+  border-radius: 30px !important;
+  box-sizing: border-box !important;
+      border: 3px solid transparent !important;
+      background-image: linear-gradient(rgb(16, 16, 16), rgb(16, 16, 16)), linear-gradient(to right, #5a0dff -5%, #ff29b8 31%, #ff581c, #ff29b8, #5a0dff) !important;
+      background-origin: border-box !important;
+      background-clip: padding-box, border-box !important;
+      background-size: 200% 100% !important;
+      animation: gradientAnimation 4s ease-in-out infinite !important;
+   transition: all 0.2s ease-in-out;
+  
+  }
+  
+  .jdgm-write-rev-link.jdgm-write-rev-link:hover {
+  transform: scale(1.05)!important; /* Escala el botón y el texto */
+  
+  }
+  
+  
+  .jdgm-btn--border {
+  border-radius: 30px !important;
+  box-sizing: border-box !important;
+      border: 3px solid transparent !important;
+      background-image: linear-gradient(rgb(16, 16, 16), rgb(16, 16, 16)), linear-gradient(to right, #5a0dff -5%, #ff29b8 31%, #ff581c, #ff29b8, #5a0dff) !important;
+      background-origin: border-box !important;
+      background-clip: padding-box, border-box !important;
+      background-size: 200% 100% !important;
+      animation: gradientAnimation 4s ease-in-out infinite !important;
+   transition: all 0.2s ease-in-out;
+  }
+  
+  .jdgm-btn--solid, input[type=submit].jdgm-btn--solid {
+  background-image: linear-gradient(to right, #5a0dff -5%, #ff29b8 31%, #ff581c, #ff29b8, #5a0dff);
+    box-shadow: 5px 2px 10px 0px rgba(45, 23, 70, 0.2) inset, -5px -3px 8px 0px rgba(71, 23, 11, 0.2) inset !important;
+    background-size: 200% 100%;
+    transition: all 0.2s ease-in-out;
+  }
+  
+  .jdgm-btn--solid, input[type=submit].jdgm-btn--solid:hover {
+  background-position: 90% 0 !important;
+      transition: all 0.4s ease-in-out !important;
+      box-shadow: 0px 0px 20px rgba(255, 53, 144, 0.5) !important;
+    transform: scale(1.05)!important; /* Escala el botón y el texto */
+    font-weight: bold;
+  }
+  
+  
+  .jdgm-form__fieldset a {
+      color: #ff29b8 !important; /* Color rosado */
+  }
+  
+  .jdgm-form__fieldset a:hover {
+      color:  #ff29b8 !important; /* Color naranja al pasar el mouse */
+  }
+  
+  .jdgm-form input[type="text"], .jdgm-form input[type="email"], .jdgm-form input[type="url"], .jdgm-form textarea {
+      padding: 8px 16px;
+      width: 100%;
+      border: 2px solid #ff0000;
+      border-radius: 30px;
+  }
+  
+  
+  .dgm-form .field {
+    transition: all 0.4s ease;
+  }
+  .jdgm-form .field .input {
+    transition: all 0.4s ease;
+  }
+  .jdgm-form .field:hover {
+    transform: scale(1.02) !important;
+  }
+  .jdgm-form .field input:hover,
+  .jdgm-form .field input:focus {
+    outline: none;
+    box-shadow: none !important;
+    border: 3px solid transparent;
+    background-image: linear-gradient(rgb(16, 16, 16), rgb(16, 16, 16)),
+      linear-gradient(
+        to right,
+        #5a0dff -5%,
+        #ff29b8 31%,
+        #ff581c,
+        #ff29b8,
+        #5a0dff
+      );
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+    background-size: 200% 100%;
+    animation: gradientAnimation 4s linear infinite;
+  }
