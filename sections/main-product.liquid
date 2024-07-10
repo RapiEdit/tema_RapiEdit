@@ -618,6 +618,20 @@
     });
   </script>
 
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+      // Espera a que el DOM esté completamente cargado
+  
+      // Encuentra el widget y el tab destino
+      var widget = document.querySelector('#shopify-block-judge_me_reviews_all_reviews_text_MgNErJ');
+      var tabDestino = document.querySelector('#resenapro');
+  
+      if (widget && tabDestino) {
+          // Mueve el widget al tab destino
+          tabDestino.appendChild(widget);
+      }
+  });
+
   {%- liquid
     if product.selected_or_first_available_variant.featured_media
       assign seo_media = product.selected_or_first_available_variant.featured_media
