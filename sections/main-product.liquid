@@ -643,8 +643,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-    // Agregar evento de clic al elemento de reseñas
-    var reviewsPreviewBadge = document.getElementById('shopify-block-judge_me_reviews_preview_badge_bJBtEA');
+    // Agregar evento de clic al div con la clase específica
+    var reviewsPreviewBadge = document.querySelector('.jdgm-widget.jdgm-preview-badge.jdgm-preview-badge--with-link.jdgm--done-setup');
     if (reviewsPreviewBadge) {
         reviewsPreviewBadge.addEventListener('click', function() {
             openReviewsTab();
@@ -652,7 +652,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function openReviewsTab() {
-        var reviewsTabContent = document.getElementById('shopify-block-judge_me_reviews_preview_badge_bJBtEA');
+        var reviewsTabContent = document.querySelector('.custom__tab-content#shopify-block-judge_me_reviews_preview_badge_bJBtEA');
 
         // Remover la clase 'active' de todos los tabs y contenidos
         document.querySelectorAll('.custom__tab-content').forEach(function(tabContent) {
@@ -677,6 +677,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 </script>
+
 
 
   {%- liquid
