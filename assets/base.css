@@ -3679,7 +3679,7 @@ button.chat-toggle.chat-toggle--text-button {
   
   }
   
-  .jdgm-btn--border a{
+  .jdgm-btn--border, .jdgm-cancel-rev a{
     color: #FFF !important;
   }
 
