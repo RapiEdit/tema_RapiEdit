@@ -106,11 +106,10 @@
             "default_active": true
           }
         },
-        "html_content_9P4A4e": {
-          "type": "html_content",
+        "judge_me_reviews_BPbc7b": {
+          "type": "judge_me_reviews",
           "settings": {
             "heading": "RESEÑAS",
-            "html_code": "<div class=\"jdgm-widget jdgm-all-reviews-text jdgm-all-reviews-text--style-branded\">\n<\/div>",
             "default_active": false
           }
         },
@@ -125,7 +124,7 @@
       },
       "block_order": [
         "product_attribute_QzgkdN",
-        "html_content_9P4A4e",
+        "judge_me_reviews_BPbc7b",
         "html_content_U6XiC9"
       ],
       "settings": {
