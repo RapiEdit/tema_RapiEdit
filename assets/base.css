@@ -3745,7 +3745,7 @@ button.chat-toggle.chat-toggle--text-button {
     transition: all 0.4s ease !important;
   }
 
-  .jdgm-form input[type="text"], .jdgm-form input[type="email"], .jdgm-form input[type="url"], .jdgm-form textarea:hover {
+  .jdgm-form .jdgm-form__fieldset input:hover, .jdgm-form textarea:hover {
     transform: scale(1.02) !important;
   }
   
