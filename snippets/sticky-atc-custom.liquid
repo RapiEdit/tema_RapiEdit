@@ -121,6 +121,7 @@
                             id="StickyProductSubmitButton-{{ section_id }}"
                             type="submit"
                             name="add"
+                            data-uploadkit-validation-added="true"
                             class="botonpro product-form__submit button button--full-width button--primary sticky-atc-button"
                             {% if product.selected_or_first_available_variant.available == false or quantity_rule_soldout %}
                               disabled
