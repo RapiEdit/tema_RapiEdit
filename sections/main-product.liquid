@@ -618,17 +618,25 @@
     });
   </script>
   
-  <script>
+
+<script>
 document.addEventListener("DOMContentLoaded", function() {
     // Espera a que el DOM esté completamente cargado
 
-    // Encuentra el widget y el tab destino
-    var widget = document.querySelector('#judgeme_product_reviews', '#shopify-block-judge_me_reviews_all_reviews_text_MgNErJ');
+    // Lista de IDs de los widgets a mover
+    var widgetIDs = ['shopify-block-judge_me_reviews_all_reviews_text_MgNErJ', 'judgeme_product_reviews '];
+
+    // Encuentra el tab destino
     var tabDestino = document.querySelector('#reviews-tab-content');
 
-    if (widget && tabDestino) {
-        // Mueve el widget al tab destino
-        tabDestino.appendChild(widget);
+    if (tabDestino) {
+        widgetIDs.forEach(function(id) {
+            var widget = document.getElementById(id);
+            if (widget) {
+                // Mueve el widget al tab destino
+                tabDestino.appendChild(widget);
+            }
+        });
     }
 });
 </script>
