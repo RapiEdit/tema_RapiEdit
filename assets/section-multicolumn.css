@@ -226,6 +226,13 @@
   transition: opacity 0.3s ease; /* Transición suave para el efecto */
 }
 
+/* Desactivar efecto en versión móvil */
+@media (max-width: 767px) {
+  .multicolumn-card:before {
+    display: none; /* Opción 1: Ocultar el pseudo-elemento */
+    /* opacity: 0; Opción 2: Mantener el pseudo-elemento pero hacerlo invisible */
+  }
+}
 .multicolumn-card:hover::before {
   opacity: 1; /* Muestra el borde degradado al hacer hover */
   animation: gradientAnimation 4s linear infinite; /* Inicia la animación */ 
