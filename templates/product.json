@@ -106,10 +106,11 @@
             "default_active": true
           }
         },
-        "judge_me_reviews_4TAWBc": {
-          "type": "judge_me_reviews",
+        "html_content_9P4A4e": {
+          "type": "html_content",
           "settings": {
             "heading": "RESEÑAS",
+            "html_code": "<div id=\"shopify-block-judge_me_reviews_all_reviews_text_MgNErJ\" class=\"shopify-block shopify-app-block\">\n<div class=\"jdgm-widget jdgm-all-reviews-text jdgm-all-reviews-text--style-branded\">\n<\/div>\n<\/div>",
             "default_active": false
           }
         },
@@ -124,7 +125,7 @@
       },
       "block_order": [
         "product_attribute_QzgkdN",
-        "judge_me_reviews_4TAWBc",
+        "html_content_9P4A4e",
         "html_content_U6XiC9"
       ],
       "settings": {
