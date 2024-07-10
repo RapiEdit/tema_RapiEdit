@@ -3723,17 +3723,12 @@ button.chat-toggle.chat-toggle--text-button {
     }
   
 
-  .jdgm-form .input {
-    transition: all 0.4s ease;
-  }
-  .jdgm-form .input:hover {
-    transform: scale(1.02) !important;
-  }
-  .jdgm-form input:hover,
-  .jdgm-form input:focus {
-    outline: none;
+
+  .jdgm-form input{
+    outline: none !important;
     box-shadow: none !important;
-    border: 3px solid transparent;
+    border: 3px solid transparent !important;
+    border-radius: 30px !important;
     background-image: linear-gradient(rgb(16, 16, 16), rgb(16, 16, 16)),
       linear-gradient(
         to right,
@@ -3742,9 +3737,15 @@ button.chat-toggle.chat-toggle--text-button {
         #ff581c,
         #ff29b8,
         #5a0dff
-      );
-    background-origin: border-box;
-    background-clip: padding-box, border-box;
-    background-size: 200% 100%;
-    animation: gradientAnimation 4s linear infinite;
+      ) !important;
+    background-origin: border-box !important;
+    background-clip: padding-box, border-box !important;
+    background-size: 200% 100% !important;
+    animation: gradientAnimation 4s linear infinite !important;
+    transition: all 0.4s ease !important;
   }
+
+  .jdgm-form .input:hover {
+    transform: scale(1.02) !important;
+  }
+  
