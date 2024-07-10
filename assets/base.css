@@ -3690,9 +3690,12 @@ button.chat-toggle.chat-toggle--text-button {
       background-size: 200% 100% !important;
       animation: gradientAnimation 4s ease-in-out infinite !important;
    transition: all 0.2s ease-in-out;
+   color: #FFF !important;
   }
   
   .jdgm-btn--solid, input[type=submit].jdgm-btn--solid {
+    border-radius: 30px !important;
+    border: 3px solid transparent !important;
   background-image: linear-gradient(to right, #5a0dff -5%, #ff29b8 31%, #ff581c, #ff29b8, #5a0dff);
     box-shadow: 5px 2px 10px 0px rgba(45, 23, 70, 0.2) inset, -5px -3px 8px 0px rgba(71, 23, 11, 0.2) inset !important;
     background-size: 200% 100%;
@@ -3713,7 +3716,7 @@ button.chat-toggle.chat-toggle--text-button {
   }
   
   .jdgm-form__fieldset a:hover {
-      color:  #ff29b8 !important; /* Color naranja al pasar el mouse */
+      color:  #ff581c !important; /* Color naranja al pasar el mouse */
   }
   
 
@@ -3725,6 +3728,7 @@ button.chat-toggle.chat-toggle--text-button {
 
 
     .jdgm-form .jdgm-form__fieldset input, .jdgm-form textarea {
+      border-radius: 30px !important;
     outline: none !important;
     box-shadow: none !important;
     border: 2px solid #717171 !important;
