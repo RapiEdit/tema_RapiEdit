@@ -110,7 +110,7 @@
           "type": "html_content",
           "settings": {
             "heading": "RESEÑAS",
-            "html_code": "<div id=\"shopify-block-judge_me_reviews_all_reviews_text_MgNErJ\" class=\"shopify-block shopify-app-block\">\n<div class=\"jdgm-widget jdgm-all-reviews-text jdgm-all-reviews-text--style-branded\">\n<\/div>\n<\/div>",
+            "html_code": "<div class=\"jdgm-widget jdgm-all-reviews-text jdgm-all-reviews-text--style-branded\">\n<\/div>",
             "default_active": false
           }
         },
