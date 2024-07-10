@@ -84,7 +84,12 @@
                   </div>
             
             
-                  <div class="atc-button-container">      
+                  <div class="atc-button-container"> 
+                    <product-form
+                    class="product-form"
+                    data-hide-errors="{{ gift_card_recipient_feature_active }}"
+                    data-section-id="{{ section.id }}"
+                  >     
                       {%- form 'product',
                         product,
                         id: product_form_id,
