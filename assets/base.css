@@ -3760,3 +3760,8 @@ button.chat-toggle.chat-toggle--text-button {
   .jdgm-form .jdgm-form__fieldset input:hover, .jdgm-form textarea:hover {
     transform: scale(1.02) !important;
   }
+
+  .jdgm-sort-dropdown-wrapper .jdgm-sort-dropdown, .jdgm-sort-dropdown-wrapper .jdgm-sort-dropdown-arrow {
+    color: #ff29b8 !important;
+
+}
