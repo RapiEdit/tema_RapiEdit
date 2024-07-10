@@ -3716,25 +3716,21 @@ button.chat-toggle.chat-toggle--text-button {
       color:  #ff29b8 !important; /* Color naranja al pasar el mouse */
   }
   
-  .jdgm-form input[type="text"], .jdgm-form input[type="email"], .jdgm-form input[type="url"], .jdgm-form textarea {
-      padding: 8px 16px;
-      width: 100%;
-      border: 2px solid #ff0000;
-      border-radius: 30px;
-  }
+
+  .jdgm-rev-widg .jdgm-star {
+    color: #f1ae00 !important;
+    
+    }
   
-  
-  .dgm-form .field {
+
+  .jdgm-form .input {
     transition: all 0.4s ease;
   }
-  .jdgm-form .field .input {
-    transition: all 0.4s ease;
-  }
-  .jdgm-form .field:hover {
+  .jdgm-form .input:hover {
     transform: scale(1.02) !important;
   }
-  .jdgm-form .field input:hover,
-  .jdgm-form .field input:focus {
+  .jdgm-form input:hover,
+  .jdgm-form input:focus {
     outline: none;
     box-shadow: none !important;
     border: 3px solid transparent;
