@@ -3724,12 +3724,12 @@ button.chat-toggle.chat-toggle--text-button {
   
 
 
-    .jdgm-form input[type="text"], .jdgm-form input[type="email"], .jdgm-form input[type="url"], .jdgm-form textarea {
+    .jdgm-form input, .jdgm-form textarea {
     outline: none !important;
     box-shadow: none !important;
     border: 3px solid transparent !important;
     border-radius: 30px !important;
-    background-image: linear-gradient(rgb(16, 16, 16), rgb(16, 16, 16)),
+    background-image: linear-gradient(rgba(255, 255, 255, 0.646), rgb(255, 255, 255)),
       linear-gradient(
         to right,
         #5a0dff -5%,
