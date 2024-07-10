@@ -3723,7 +3723,7 @@ button.chat-toggle.chat-toggle--text-button {
       color:  #ff581c !important; /* Color naranja al pasar el mouse */
   }
   
-
+  .jdgm-rev-widg .jdgm-star:hover,
   .jdgm-rev-widg .jdgm-star, .jdgm--off, .jdgm--on {
     color: #f1ae00 !important;
     
