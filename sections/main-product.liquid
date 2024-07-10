@@ -647,45 +647,65 @@ document.addEventListener("DOMContentLoaded", function() {
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
+    console.log('DOM fully loaded and parsed');
+    
     // Agregar evento de clic al div con la clase específica
     var reviewsPreviewBadge = document.querySelector('.jdgm-widget.jdgm-preview-badge.jdgm-preview-badge--with-link.jdgm--done-setup');
+    console.log('reviewsPreviewBadge:', reviewsPreviewBadge);
+    
     if (reviewsPreviewBadge) {
         reviewsPreviewBadge.addEventListener('click', function() {
+            console.log('reviewsPreviewBadge clicked');
             openReviewsTab();
         });
     }
 
     function openReviewsTab() {
-      // Seleccionar el contenido del tab de reseñas
-      var reviewsTabContent = document.querySelector('.custom__tab-content[data-content-id="content--reviews-tab-content"]');
+        console.log('openReviewsTab function called');
+        
+        // Seleccionar el contenido del tab de reseñas
+        var reviewsTabContent = document.querySelector('.custom__tab-content[data-content-id="content--reviews-tab-content"]');
+        console.log('reviewsTabContent:', reviewsTabContent);
 
-      // Remover la clase 'active' de todos los tabs y contenidos
-      document.querySelectorAll('.custom__tab-content').forEach(function(tabContent) {
-        tabContent.classList.remove('active');
-      });
+        // Remover la clase 'active' de todos los tabs y contenidos
+        document.querySelectorAll('.custom__tab-content').forEach(function(tabContent) {
+            console.log('Removing active class from tabContent:', tabContent);
+            tabContent.classList.remove('active');
+        });
 
-      document.querySelectorAll('.custom-tab').forEach(function(tab) {
-        tab.classList.remove('active');
-      });
+        document.querySelectorAll('.custom-tab').forEach(function(tab) {
+            console.log('Removing active class from tab:', tab);
+            tab.classList.remove('active');
+        });
 
-      // Activar específicamente el contenido del tab de reseñas
-      if (reviewsTabContent) {
-          reviewsTabContent.classList.add('active');
-      }
+        // Activar específicamente el contenido del tab de reseñas
+        if (reviewsTabContent) {
+            console.log('Adding active class to reviewsTabContent');
+            reviewsTabContent.classList.add('active');
+        } else {
+            console.log('reviewsTabContent not found');
+        }
 
-      // Obtener el botón .custom-tab correspondiente y agregarle la clase 'active'
-      var tabButton = document.querySelector('.custom-tab[data-content-id="content--reviews-tab-content"]');
-      if (tabButton) {
-          tabButton.classList.add('active');
-      }
+        // Obtener el botón .custom-tab correspondiente y agregarle la clase 'active'
+        var tabButton = document.querySelector('.custom-tab[data-content-id="content--reviews-tab-content"]');
+        console.log('tabButton:', tabButton);
+        
+        if (tabButton) {
+            console.log('Adding active class to tabButton');
+            tabButton.classList.add('active');
+        } else {
+            console.log('tabButton not found');
+        }
 
-      // Si es necesario, hacer scroll hasta el tab de reseñas
-      if (reviewsTabContent) {
-          reviewsTabContent.scrollIntoView({ behavior: 'smooth' });
-      }
+        // Si es necesario, hacer scroll hasta el tab de reseñas
+        if (reviewsTabContent) {
+            console.log('Scrolling into view');
+            reviewsTabContent.scrollIntoView({ behavior: 'smooth' });
+        }
     }
 });
 </script>
+
 
 
 
