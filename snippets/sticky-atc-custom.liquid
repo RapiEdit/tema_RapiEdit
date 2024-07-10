@@ -89,17 +89,16 @@
                         product,
                         id: product_form_id,
                         class: 'form',
-                        class: 'form uploadkit-form uploadkit-invalid',
                         novalidate: 'novalidate',
-                        data-type: 'add-to-cart-form',
-                        data-form-trigger-interval: 'true',
-                        data-uploadkit-validation-added: 'true'
+                        data-type: 'add-to-cart-form'
                       -%}
                         <input
                           type="hidden"
                           name="id"
                           value="{{ product.selected_or_first_available_variant.id }}"
-                          disabled
+          {% if product.selected_or_first_available_variant.available == false or quantity_rule_soldout %}
+            disabled
+          {% endif %}
                           class="product-variant-id"
                         >
                 
@@ -121,7 +120,6 @@
                             id="StickyProductSubmitButton-{{ section_id }}"
                             type="submit"
                             name="add"
-                            data-uploadkit-validation-added="true"
                             class="botonpro product-form__submit button button--full-width button--primary sticky-atc-button"
                             {% if product.selected_or_first_available_variant.available == false or quantity_rule_soldout %}
                               disabled
