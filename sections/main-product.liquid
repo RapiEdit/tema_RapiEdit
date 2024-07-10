@@ -653,7 +653,6 @@ document.addEventListener('DOMContentLoaded', function() {
     
     if (reviewsPreviewBadge) {
         reviewsPreviewBadge.addEventListener('click', function(event) {
-            console.log('reviewsPreviewBadge clicked');
             event.stopImmediatePropagation(); // Evita otros listeners de clic en el mismo elemento
             event.preventDefault(); // Previene el comportamiento predeterminado
             openReviewsTab();
