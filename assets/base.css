@@ -3729,7 +3729,7 @@ button.chat-toggle.chat-toggle--text-button {
     box-shadow: none !important;
     border: 3px solid transparent !important;
     border-radius: 30px !important;
-    background-image: linear-gradient(rgba(255, 255, 255, 0.646), rgb(255, 255, 255)),
+    background-image: linear-gradient(rgb(255, 255, 255), rgb(255, 255, 255)),
       linear-gradient(
         to right,
         #5a0dff -5%,
