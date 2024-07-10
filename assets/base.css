@@ -3715,11 +3715,11 @@ button.chat-toggle.chat-toggle--text-button {
   }
   
   
-  .jdgm-form__fieldset a {
+  .jdgm-form__fieldset p a {
       color: #ff29b8 !important; /* Color rosado */
   }
   
-  .jdgm-form__fieldset a:hover {
+  .jdgm-form__fieldset p a:hover {
       color:  #ff581c !important; /* Color naranja al pasar el mouse */
   }
   
