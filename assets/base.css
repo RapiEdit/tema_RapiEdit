@@ -3727,6 +3727,12 @@ button.chat-toggle.chat-toggle--text-button {
     .jdgm-form .jdgm-form__fieldset input, .jdgm-form textarea {
     outline: none !important;
     box-shadow: none !important;
+    border: 2px solid #717171 !important;
+    transition: all 0.4s ease !important;
+  }
+
+
+  .jdgm-form .jdgm-form__fieldset input:focus, .jdgm-form textarea:focus {
     border: 3px solid transparent !important;
     border-radius: 30px !important;
     background-image: linear-gradient(rgb(255, 255, 255), rgb(255, 255, 255)),
@@ -3742,10 +3748,8 @@ button.chat-toggle.chat-toggle--text-button {
     background-clip: padding-box, border-box !important;
     background-size: 200% 100% !important;
     animation: gradientAnimation 4s linear infinite !important;
-    transition: all 0.4s ease !important;
   }
 
   .jdgm-form .jdgm-form__fieldset input:hover, .jdgm-form textarea:hover {
     transform: scale(1.02) !important;
   }
-  
