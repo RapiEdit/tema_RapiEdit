@@ -694,7 +694,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     if (reviewsPreviewBadge) {
         reviewsPreviewBadge.addEventListener('click', function(event) {
-            console.log('reviewsPreviewBadge clicked');
+
             event.stopImmediatePropagation(); // Evita otros listeners de clic en el mismo elemento
             event.preventDefault(); // Previene el comportamiento predeterminado
             openReviewsTab();
@@ -702,26 +702,21 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function openReviewsTab() {
-        console.log('openReviewsTab function called');
         
         // Seleccionar el contenido del tab de reseñas
         var reviewsTabContent = document.querySelector('.custom__tab-content[data-content-id="content--judge_me_reviews_BPbc7b--template--16477474848828__custom_tabs_zRthfn"]');
-        console.log('reviewsTabContent:', reviewsTabContent);
 
         // Remover la clase 'active' de todos los tabs y contenidos
-        document.querySelectorAll('.custom__tab-content').forEach(function(tabContent) {
-            console.log('Removing active class from tabContent:', tabContent);
+        document.querySelectorAll('.custom__tab-content').forEach(function(tabContent) {          
             tabContent.classList.remove('active');
         });
 
         document.querySelectorAll('.custom-tab').forEach(function(tab) {
-            console.log('Removing active class from tab:', tab);
             tab.classList.remove('active');
         });
 
         // Activar específicamente el contenido del tab de reseñas
         if (reviewsTabContent) {
-            console.log('Adding active class to reviewsTabContent');
             reviewsTabContent.classList.add('active');
         } else {
             console.log('reviewsTabContent not found');
@@ -729,10 +724,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Obtener el botón .custom-tab correspondiente y agregarle la clase 'active'
         var tabButton = document.querySelector('.custom-tab[data-content-id="content--reviews-tab-content"]');
-        console.log('tabButton:', tabButton);
+       
         
         if (tabButton) {
-            console.log('Adding active class to tabButton');
             tabButton.classList.add('active');
         } else {
             console.log('tabButton not found');
@@ -740,7 +734,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Si es necesario, hacer scroll hasta el tab de reseñas
         if (reviewsTabContent) {
-            console.log('Scrolling into view');
             reviewsTabContent.scrollIntoView({ behavior: 'smooth' });
         }
     }
