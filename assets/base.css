@@ -3765,3 +3765,11 @@ button.chat-toggle.chat-toggle--text-button {
     color: #ff29b8 !important;
 
 }
+
+.jdgm-form div.jdgm-input-error {
+  border-radius: 30px !important;
+}
+
+.jdgm-notification {
+  color:  #ffffff !important;
+}
