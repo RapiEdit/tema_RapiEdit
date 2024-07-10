@@ -3724,7 +3724,7 @@ button.chat-toggle.chat-toggle--text-button {
   }
   
 
-  .jdgm-star .jdgm--off .jdgm--on {
+  .jdgm-rev-widg .jdgm-star, .jdgm--off, .jdgm--on {
     color: #f1ae00 !important;
     
     }
