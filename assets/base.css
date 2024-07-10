@@ -3778,5 +3778,5 @@ button.chat-toggle.chat-toggle--text-button {
   background-image: linear-gradient(to right, #5a0dff -5%, #ff29b8 31%, #ff581c, #ff29b8, #5a0dff) !important;
 }
 
-.jdgm-all-reviews-text .jdgm-all-reviews-rating,.jdgm-all-reviews-text .jdgm-all-reviews-rating .jdgm-star,.jdgm-all-reviews-text .jdgm-all-reviews-text__text { 
+.jdgm-all-reviews-rating__score, .jdgm-all-reviews-text__text { 
   color: #fff !important; }
