@@ -3585,7 +3585,6 @@ details-disclosure > details {
   z-index: 1;
   padding: 10px; /* Añade un padding interno para que no se cubra el contenido */
   box-sizing: border-box; /* Asegúrate de que el padding no altere el tamaño total */
-  overflow: hidden;
   width: 95%;
 }
 
