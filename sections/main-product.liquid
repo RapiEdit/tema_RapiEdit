@@ -653,34 +653,29 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function openReviewsTab() {
-        // Seleccionar el contenido del tab de reseñas
-        var reviewsTabContent = document.querySelector('.custom__tab-content[data-content-id="reviews-tab-content"]');
+    var reviewsTabContent = document.getElementById('reviews-tab-content');
 
-        // Remover la clase 'active' de todos los tabs y contenidos
-        document.querySelectorAll('.custom__tab-content').forEach(function(tabContent) {
-            tabContent.classList.remove('active');
-        });
+    // Remover la clase 'active' de todos los tabs y contenidos
+    document.querySelectorAll('.custom__tab-content').forEach(function(tabContent) {
+        tabContent.classList.remove('active');
+    });
 
-        document.querySelectorAll('.custom-tab').forEach(function(tab) {
-            tab.classList.remove('active');
-        });
+    document.querySelectorAll('.custom-tab').forEach(function(tab) {
+        tab.classList.remove('active');
+    });
 
-        // Activar específicamente el contenido del tab de reseñas
-        if (reviewsTabContent) {
-            reviewsTabContent.classList.add('active');
-        }
+    // Activar específicamente el tab de reseñas
+    reviewsTabContent.classList.add('active');
 
-        // Obtener el botón .custom-tab correspondiente y agregarle la clase 'active'
-        var tabButton = document.querySelector('.custom-tab[data-content-id="shopify-block-judge_me_reviews_preview_badge_bJBtEA"]');
-        if (tabButton) {
-            tabButton.classList.add('active');
-        }
-
-        // Si es necesario, hacer scroll hasta el tab de reseñas
-        if (reviewsTabContent) {
-            reviewsTabContent.scrollIntoView({ behavior: 'smooth' });
-        }
+    // Obtener el botón .custom-tab correspondiente y agregarle la clase 'active'
+    var tabButton = document.querySelector('button[data-content-id="' + reviewsTabContent.id + '"]');
+    if (tabButton) {
+        tabButton.classList.add('active');
     }
+
+    // Si es necesario, hacer scroll hasta el tab de reseñas
+    reviewsTabContent.scrollIntoView({ behavior: 'smooth' });
+}
 });
 </script>
 
