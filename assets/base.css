@@ -3780,3 +3780,9 @@ button.chat-toggle.chat-toggle--text-button {
 
 .jdgm-all-reviews-rating__score, .jdgm-all-reviews-text__text { 
   color: #fff !important; }
+
+  @media (max-width: 767px) {
+    .jdgm-prev-badge {
+        text-align: center !important;
+    }
+}
