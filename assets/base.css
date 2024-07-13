@@ -3790,7 +3790,7 @@ button.chat-toggle.chat-toggle--text-button {
 }
 
 
-  .jdgm-rev__buyer-badge:before {
+.jdgm-rev__icon.jdgm-rev__icon:after, .jdgm-rev__buyer-badge:before {
 
     color: white;
     background-image: linear-gradient(to right, #5a0dff -5%, #ff29b8 31%, #ff581c, #ff29b8, #5a0dff) !important;
