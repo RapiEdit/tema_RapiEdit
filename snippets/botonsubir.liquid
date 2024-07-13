@@ -67,6 +67,9 @@
         const filePreview = document.getElementById('filePreview');
         const removeButton = document.getElementById('removeButton');
         const fileExtensions = "{{ section.settings.file_extensions }}";
+       const maxFileSizeMB = {{ section.settings.max_file_size }}; // Tamaño máximo en megabytes desde tu configuración
+       const maxFileSizeBytes = maxFileSizeMB * 1024 * 1024; // Convertir a bytes
+
 
         uploadButton.addEventListener('click', () => {
             fileInput.click();
