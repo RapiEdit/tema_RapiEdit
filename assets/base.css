@@ -3795,6 +3795,7 @@ button.chat-toggle.chat-toggle--text-button {
     color: white;
     background-image: linear-gradient(to right, #5a0dff -5%, #ff29b8 31%, #ff581c, #ff29b8, #5a0dff) !important;
     font-weight: bold;
+    border-radius: 30px !important;
 
 }
 
@@ -3808,4 +3809,8 @@ button.chat-toggle.chat-toggle--text-button {
 
 .jdgm-rev__buyer-badge.jdgm-rev__buyer-badge {
   background-color: TRANSPARENT !important;
+}
+
+.jdgm-rev__icon {
+  border-radius: 30px !important;
 }
