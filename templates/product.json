@@ -60,12 +60,6 @@
             "show_dynamic_checkout": false,
             "show_gift_card_recipient": false
           }
-        },
-        "custom_liquid_bHTUgd": {
-          "type": "custom_liquid",
-          "settings": {
-            "custom_liquid": "<style>\n    .Boton-Subir {\n        background-image: linear-gradient(to right, #5a0dff -5%, #ff29b8 31%, #ff581c, #ff29b8, #5a0dff);\n        box-shadow: 5px 2px 10px 0px rgba(45, 23, 70, 0.2) inset, -5px -3px 8px 0px rgba(71, 23, 11, 0.2) inset !important;\n        background-size: 200% 100%;\n        transition: all 0.2s ease-in-out;\n        color: white;\n        padding: 10px 20px;\n        border: none;\n        cursor: pointer;\n        border-radius: 5px;\n    }\n\n    .Boton-Subir:hover {\n        background-position: 90% 0 !important;\n        transition: all 0.4s ease-in-out !important;\n        box-shadow: 0px 0px 20px rgba(255, 53, 144, 0.5) !important;\n        transform: scale(1.05) !important; \/* Escala el botón y el texto *\/\n        font-weight: bold;\n    } \n\n    .botonsubir-thumbnails {\n        border-radius: 30px;\n        width: 100px;\n        height: 100px;\n        object-fit: cover;\n    }\n\n    #previewContainer {\n        display: flex;\n        align-items: center;\n        gap: 10px;\n        margin-top: 10px;\n    }\n\n    #removeButton {\n        background: none;\n        border: none;\n        color: #ff29b8;\n        cursor: pointer;\n        display: flex;\n        align-items: center;\n        font-weight: bold;\n    }\n<\/style>\n\n<div class=\"pd-form__input\">\n    <label class=\"pd-form__label\">Subir Archivo<\/label>\n    <input type=\"file\" id=\"fileUpload\" name=\"properties[File Upload]\" accept=\"{{ section.settings.file_extensions }}\" required style=\"display: none;\">\n    <button type=\"button\" id=\"BotonSubir\" class=\"Boton-Subir\">\n        {{ section.settings.file_button_text }}\n        <img src=\"https:\/\/cdn.shopify.com\/s\/files\/1\/0622\/2161\/5164\/files\/FolderUpIcon.svg?v=1720358303\" alt=\"FolderUpIcon\" style=\"filter: invert(1); width: 30px; height: 30px; vertical-align: middle; margin-left: 5px;\">\n    <\/button>\n    <div id=\"previewContainer\" style=\"display: none;\">\n        <img id=\"filePreview\" class=\"botonsubir-thumbnails\" src=\"\" alt=\"File Preview\" \/>\n        <button type=\"button\" id=\"removeButton\">\n            <img src=\"https:\/\/cdn.shopify.com\/s\/files\/1\/0622\/2161\/5164\/files\/RefreshIcon.svg?v=1720358522\" alt=\"RefreshIcon\" style=\"filter: invert(1); width: 30px; height: 30px; vertical-align: middle; margin-right: 5px;\">\n            {{ section.settings.change_button_text }}\n        <\/button>\n    <\/div>\n<\/div>"
-          }
         }
       },
       "block_order": [
@@ -76,8 +70,7 @@
         "text_dyd7Cd",
         "file_uploads_by_uploadkit_app_block_jAqWrf",
         "text_J9JgzE",
-        "buy_buttons",
-        "custom_liquid_bHTUgd"
+        "buy_buttons"
       ],
       "settings": {
         "enable_sticky_info": true,
