@@ -88,11 +88,6 @@
         "padding_bottom": 60
       }
     },
-    "subida_archivos": {
-      "type": "subida-archivos",
-      "settings": {}
-    }
-  },
     "custom_tabs_zRthfn": {
       "type": "custom-tabs",
       "blocks": {
@@ -234,7 +229,6 @@
   },
   "order": [
     "main",
-    "subida_archivos",
     "custom_tabs_zRthfn",
     "related-products",
     "17206376310fcfbd46",
