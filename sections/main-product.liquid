@@ -739,6 +739,8 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 </script>
+
+
 <script>
     document.addEventListener("DOMContentLoaded", () => {
         const fileInput = document.getElementById('fileUpload');
@@ -749,6 +751,14 @@ document.addEventListener('DOMContentLoaded', function() {
         const fileExtensions = "{{ section.settings.file_extensions }}";
         const maxFileSize = {{ section.settings.max_file_size }} * 1024 * 1024; // Convertir a bytes
 
+        console.log("Archivo de entrada:", fileInput);
+        console.log("Botón de subir:", uploadButton);
+        console.log("Contenedor de vista previa:", previewContainer);
+        console.log("Vista previa de archivo:", filePreview);
+        console.log("Botón de eliminar:", removeButton);
+        console.log("Extensiones de archivo permitidas:", fileExtensions);
+        console.log("Tamaño máximo de archivo permitido (bytes):", maxFileSize);
+
         uploadButton.addEventListener('click', () => {
             fileInput.click();
         });
@@ -757,17 +767,24 @@ document.addEventListener('DOMContentLoaded', function() {
 
         fileInput.addEventListener('change', (event) => {
             const file = event.target.files[0];
+            console.log("Archivo seleccionado:", file);
+            
             if (file) {
+                console.log("Tamaño del archivo seleccionado:", file.size);
+
                 if (file.size > maxFileSize) {
                     alert('El archivo es demasiado grande. El tamaño máximo es ' + {{ section.settings.max_file_size }} + 'MB.');
                     fileInput.value = '';
+                    console.log("Archivo demasiado grande. Tamaño máximo permitido:", {{ section.settings.max_file_size }} + 'MB');
                     return;
                 }
+
                 const reader = new FileReader();
                 reader.onload = (e) => {
                     filePreview.src = e.target.result;
                     previewContainer.style.display = 'flex';
                     uploadButton.style.display = 'none';
+                    console.log("Archivo cargado exitosamente. Vista previa actualizada.");
                 };
                 reader.readAsDataURL(file);
             }
@@ -778,9 +795,11 @@ document.addEventListener('DOMContentLoaded', function() {
             filePreview.src = '';
             previewContainer.style.display = 'none';
             uploadButton.style.display = 'block';
+            console.log("Archivo eliminado. Vista previa y campos de carga reseteados.");
         });
     });
 </script>
+
 
 <script>
     document.addEventListener("DOMContentLoaded", () => {
