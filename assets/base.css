@@ -3788,3 +3788,13 @@ button.chat-toggle.chat-toggle--text-button {
         text-align: center !important;
     }
 }
+
+
+  .jdgm-rev__buyer-badge:before {
+
+    color: white;
+    background-image: linear-gradient(to right, #5a0dff -5%, #ff29b8 31%, #ff581c, #ff29b8, #5a0dff) !important;
+    border-radius: 30px;
+    font-weight: bold;
+    padding: 5px;
+}
