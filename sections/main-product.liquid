@@ -740,7 +740,62 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const fileInput = document.getElementById('fileUpload');
+        const uploadButton = document.getElementById('BotonSubir');
+        const previewContainer = document.getElementById('previewContainer');
+        const filePreview = document.getElementById('filePreview');
+        const removeButton = document.getElementById('removeButton');
+        const fileExtensions = "{{ section.settings.file_extensions }}";
+        const maxFileSize = {{ section.settings.max_file_size }} * 1024 * 1024; // Convertir a bytes
 
+        uploadButton.addEventListener('click', () => {
+            fileInput.click();
+        });
+
+        fileInput.setAttribute('accept', fileExtensions);
+
+        fileInput.addEventListener('change', (event) => {
+            const file = event.target.files[0];
+            if (file) {
+                if (file.size > maxFileSize) {
+                    alert('El archivo es demasiado grande. El tamaño máximo es ' + {{ section.settings.max_file_size }} + 'MB.');
+                    fileInput.value = '';
+                    return;
+                }
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    filePreview.src = e.target.result;
+                    previewContainer.style.display = 'flex';
+                    uploadButton.style.display = 'none';
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+
+        removeButton.addEventListener('click', () => {
+            fileInput.value = '';
+            filePreview.src = '';
+            previewContainer.style.display = 'none';
+            uploadButton.style.display = 'block';
+        });
+    });
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const form = document.querySelector("form[novalidate]");
+        form && form.removeAttribute("novalidate");
+
+        form.addEventListener('submit', (event) => {
+            if (!fileInput.value) {
+                alert('Por favor, sube un archivo antes de continuar.');
+                event.preventDefault();
+            }
+        });
+    });
+</script>
   {%- liquid
     if product.selected_or_first_available_variant.featured_media
       assign seo_media = product.selected_or_first_available_variant.featured_media
