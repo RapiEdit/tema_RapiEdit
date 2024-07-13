@@ -1,0 +1,52 @@
+{% schema %}
+    {
+      "name": "Subida de Archivos",
+      "settings": [
+        {
+          "type": "text",
+          "id": "file_button_text",
+          "label": "Texto del Botón de Subida",
+          "default": "SUBIR ARCHIVO"
+        },
+        {
+          "type": "text",
+          "id": "change_button_text",
+          "label": "Texto del Botón de Cambio",
+          "default": "CAMBIAR ARCHIVO"
+        },
+        {
+          "type": "select",
+          "id": "file_extensions",
+          "label": "Extensiones de Archivo Permitidas",
+          "options": [
+            {
+              "value": "image/png",
+              "label": "PNG"
+            },
+            {
+              "value": "image/jpeg",
+              "label": "JPEG"
+            },
+            {
+              "value": "image/gif",
+              "label": "GIF"
+            }
+          ],
+          "default": "image/png"
+        },
+        {
+          "type": "number",
+          "id": "max_file_size",
+          "label": "Tamaño Máximo de Archivo (MB)",
+          "default": 5,
+          "min": 1,
+          "max": 50
+        }
+      ]
+    }
+    {% endschema %}
+    
+    <div>
+      {% render 'botonsubir' %}
+    </div>
+    
