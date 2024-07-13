@@ -5,21 +5,117 @@
 
 {% schema %}
   {
-    "name": "Subida de Archivos",
-    "settings": [
+    "name": "PRUEBA",
+    "blocks": [
       {
-        "type": "text",
-        "id": "file_button_text",
-        "label": "Texto del Botón de Subida",
-        "default": "SUBIR ARCHIVO"
+        "type": "tab",
+        "name": "Tab",
+        "settings": [
+          {
+            "type": "text",
+            "id": "heading",
+            "label": "Heading",
+            "info": "Include a heading that explains the tab."
+          },
+          {
+            "type": "html",
+            "id": "tab_content",
+            "label": "Content"
+          },
+          {
+            "type": "checkbox",
+            "id": "default_active",
+            "label": "Activate by default"
+          }
+        ]
       },
       {
-        "type": "text",
-        "id": "change_button_text",
-        "label": "Texto del Botón de Cambio",
-        "default": "CAMBIAR ARCHIVO"
+        "type": "product_attribute",
+        "name": "Product Attribute",
+        "settings": [
+          {
+            "type": "text",
+            "id": "heading",
+            "label": "Heading",
+            "info": "Include a heading for the product attribute tab."
+          },
+          {
+            "type": "select",
+            "id": "attribute",
+            "label": "Attribute",
+            "options": [
+              { "value": "description", "label": "Description" },
+              { "value": "price", "label": "Price" },
+              { "value": "vendor", "label": "Vendor" },
+              { "value": "type", "label": "Type" },
+              { "value": "tags", "label": "Tags" }
+            ]
+          },
+          {
+            "type": "checkbox",
+            "id": "default_active",
+            "label": "Activate by default"
+          }
+        ]
+      },
+      {
+        "type": "html_content",
+        "name": "HTML Content",
+        "settings": [
+          {
+            "type": "text",
+            "id": "heading",
+            "label": "Heading",
+            "info": "Include a heading for the HTML content tab."
+          },
+          {
+            "type": "html",
+            "id": "html_code",
+            "label": "HTML Code"
+          },
+          {
+            "type": "checkbox",
+            "id": "default_active",
+            "label": "Activate by default"
+          }
+        ]
+      },
+      {
+        "type": "judge_me_reviews",
+        "name": "Judge.me Reviews",
+        "settings": [
+          {
+            "type": "text",
+            "id": "heading",
+            "label": "Heading",
+            "info": "Include a heading for the Judge.me reviews tab."
+          },
+          {
+            "type": "checkbox",
+            "id": "default_active",
+            "label": "Activate by default"
+          }
+        ]
       }
-      
+    ],
+    "presets": [
+      {
+        "name": "Tabs",
+        "blocks": [
+          {
+            "type": "tab"
+          },
+          {
+            "type": "product_attribute"
+          },
+          {
+            "type": "html_content"
+          },
+          {
+            "type": "judge_me_reviews"
+          }
+        ]
+      }
     ]
   }
   {% endschema %}
