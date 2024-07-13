@@ -216,6 +216,15 @@
       "settings": {
         "include_margins": true
       }
+    },
+    "custom_liquid_U3EU4n": {
+      "type": "custom-liquid",
+      "settings": {
+        "custom_liquid": "<style>\n.anuncio {\n    text-align: center !important;\n    padding: 10px;\n    border: 2px solid #fff;\n    border-radius: 30px;\n    font-size: 16px;\n    width: 60%;\n    margin: 0 auto; \/* Para centrar el anuncio horizontalmente *\/\n}\n\n@media (max-width: 767px) {\n    .anuncio {\n        font-size: 12px;\n        width: 80% !important;\n    }\n}\n<\/style>\n\n<p class=\"anuncio\">⚠️ Solo los clientes que han comprado este producto pueden dejar una reseña.<\/p>",
+        "color_scheme": "",
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
     }
   },
   "order": [
@@ -227,6 +236,7 @@
     "1720638277eba2502d",
     "1720638298f5ed3a10",
     "17206383178fa72e96",
-    "1720638327688ab57c"
+    "1720638327688ab57c",
+    "custom_liquid_U3EU4n"
   ]
 }
