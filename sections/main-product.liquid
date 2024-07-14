@@ -820,7 +820,7 @@ console.log('Botón sticky encontrado:', stickyButton);
             console.log('Archivo removido y previsualización ocultada.');
         });
 
-        addToCartButton && stickyButton.addEventListener('click', (event) => {
+        addToCartButton.addEventListener('click', (event) => {
             if (!fileInput.value) {
              event.preventDefault();
                 overlay.style.display = 'flex';
