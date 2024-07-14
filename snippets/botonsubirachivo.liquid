@@ -210,15 +210,15 @@ display: none;
         });
 
         addToCartButtons.forEach(button => {
-    button.addEventListener('click', function() {
+    button.addEventListener('click', function(event) { // Añade 'event' como parámetro aquí
         // Lógica para añadir al carrito aquí
         if (!fileInput.value) {
-              event.preventDefault();
-              overlayMessage.textContent = "Ups! Has olvidado cargar tu archivo.";
-                overlay.style.display = 'flex';
-                document.body.style.overflow = 'hidden';
-                console.log('Intento de añadir al carrito sin archivo, overlay mostrado.');
-            }
+            event.preventDefault();
+            overlayMessage.textContent = "¡Ups! Has olvidado cargar tu archivo.";
+            overlay.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+            console.log('Intento de añadir al carrito sin archivo, overlay mostrado.');
+        }
     });
 });
        
