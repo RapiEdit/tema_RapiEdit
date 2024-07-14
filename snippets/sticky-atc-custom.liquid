@@ -152,11 +152,6 @@
     document.addEventListener("DOMContentLoaded", function() {
         var atcElement = document.querySelector(".sticky-atc");
         var targetElement = document.querySelector('[id^="ProductSubmitButton-"]');
-        const fileInput = document.getElementById('fileInput');
-        console.log('Input Stiky encontrado:', fileInput);
-
-        const addToCartButton = document.querySelector(".sticky-atc-button");
-        console.log('Botón Stiky de añadir al carrito encontrado:', addToCartButton);
     
         function getAbsoluteTop(element) {
             var top = 0;
@@ -189,41 +184,6 @@
 
         // Reference to the variant input in the sticky ATC form
         var stickyAtcVariantInput = document.querySelector('.sticky-atc .product-variant-id');
-    
-    
-        addToCartButton.addEventListener('click', (event) => {
-        if (!fileInput.value) {
-            event.preventDefault();
-            overlayMessage.textContent = "Ups! Has olvidado cargar tu archivo.";
-            overlay.style.display = 'flex';
-            document.body.style.overflow = 'hidden';
-            console.log('Intento de añadir al carrito sin archivo, overlay mostrado.');
-        } else {
-            // Asegúrate de que el formulario de Shopify esté disponible
-            var productForm = document.querySelector('form[data-type="add-to-cart-form"]');
-            if (productForm) {
-                // Agrega dinámicamente el archivo adjunto al formulario de Shopify
-                var formData = new FormData(productForm);
-                formData.append('files[fileInput]', fileInput.files[0]);
-                
-                // Envía el formulario de Shopify con el archivo adjunto
-                fetch(productForm.action, {
-                    method: 'POST',
-                    body: formData
-                })
-                .then(response => {
-                    // Maneja la respuesta según sea necesario
-                    console.log('Producto añadido al carrito con éxito desde Stiky');
-                    // Aquí puedes redirigir al usuario a la página del carrito u otro comportamiento deseado
-                })
-                .catch(error => {
-                    console.error('Error al añadir producto al carrito desde Stiky:', error);
-                    // Maneja el error según sea necesario
-                });
-            }
-        }
-    });
-
         
         // Function to handle variant change and update the sticky ATC form
         function updateStickyATCOption(optionName, optionValue) {
