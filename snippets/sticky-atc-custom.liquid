@@ -10,11 +10,7 @@
   {% render 'sticky-atc-custom', block: block, product: product, product_form_id: product_form_id, section_id: section.id %}
 {% endcomment %}
 
-{% assign has_variants = true %}
-{% if product.options.size == 1 and product.options.first == 'Title' %}
-  {% assign has_variants = false %}
-{% endif %}
-    
+
 
     {% render 'subirachivo'%} 
     
@@ -22,79 +18,7 @@
     {% render 'buy-buttons'%} 
    
 
-<script>
 
-    document.addEventListener("DOMContentLoaded", function() {
-        var atcElement = document.querySelector(".sticky-atc");
-        var targetElement = document.querySelector('[id^="ProductSubmitButton-"]');
-    
-        function getAbsoluteTop(element) {
-            var top = 0;
-            while (element) {
-                top += element.offsetTop || 0;
-                element = element.offsetParent;
-            }
-            return top;
-        }
-    
-        window.addEventListener("scroll", function() {
-            var targetTopPosition = getAbsoluteTop(targetElement);
-            var targetBottomPosition = targetTopPosition + targetElement.clientHeight;
-    
-            // console.log("Current Scroll Position:", window.scrollY);
-            // console.log("Target Element Bottom Position:", targetBottomPosition);
-    
-            var isTargetElementOutOfView = targetTopPosition < window.scrollY; // Using top position because of sticky menubar
-            //var isTargetElementOutOfView = targetBottomPosition < window.scrollY; //Element is completely out of window
-    
-            // console.log("Is Target Element Out of View:", isTargetElementOutOfView);
-    
-            if (isTargetElementOutOfView) {
-                atcElement.classList.add('show'); // This will make it slide up
-            } else {
-                atcElement.classList.remove('show'); // This will make it slide down
-            }
-        });
-
-
-        // Reference to the variant input in the sticky ATC form
-        var stickyAtcVariantInput = document.querySelector('.sticky-atc .product-variant-id');
-    
-    
-        // Function to handle variant change and update the sticky ATC form
-        function updateStickyATCOption(optionName, optionValue) {
-            // Extract option name if it's in the format options[OptionName]
-            var matches = optionName.match(/options\\[(.+)\\]/);
-            if (matches && matches[1]) {
-                optionName = matches[1];
-            }
-            // console.log("Updating option:", optionName, "with value:", optionValue);  // Debug statement
-          
-            var optionDisplay = document.querySelector('.selected-variant-option[data-option-name="' + optionName + '"]');
-            if (optionDisplay) {
-                optionDisplay.textContent = optionName + ': ' + optionValue;
-            }
-          
-    
-         
-        }
-    
-        function handleVariantChange(event) {
-            var target = event.target;
-            if (target.tagName === 'INPUT' || target.tagName === 'SELECT') {
-                var optionName = target.name;
-                var optionValue = target.tagName === 'INPUT' ? target.value : target.options[target.selectedIndex].textContent;
-                updateStickyATCOption(optionName, optionValue);
-            }
-        }
-    
-        document.body.addEventListener('change', handleVariantChange);
-    
-        // The function to update the variant prices is found in the global.js renderProductInfo function
-        // The function to update the variant image is found in the global.js updateMedia function
-    });
-
-</script>
 
 
 
