@@ -68,7 +68,7 @@
   {% assign variant_images = product.images | where: 'attached_to_variant?', true | map: 'src' %}
   <div id="overlay" class="overlay" style="display: none;">
     <div class="avisoarchivo">
-        <p> Ups! Has olvidado cargar tu archivo.</p>
+        <p id="overlayMessage"> Ups! Has olvidado cargar tu archivo.</p>
         <button class="botonaviso" id="closeOverlay">OK</button>
     </div>
 </div>
@@ -781,6 +781,9 @@ document.addEventListener('DOMContentLoaded', function() {
         const closeOverlay = document.getElementById('closeOverlay');
         console.log('Botón de cerrar overlay encontrado:', closeOverlay);
 
+        const overlayMessage = document.getElementById('overlayMessage');
+        console.log('Mensaje de overlay encontrado:', overlayMessage);
+
         const addToCartButton = document.querySelector(".product-form__submit");
         console.log('Botón de añadir al carrito encontrado:', addToCartButton);
 
@@ -793,10 +796,6 @@ document.addEventListener('DOMContentLoaded', function() {
             const file = event.target.files[0];
             console.log('Archivo seleccionado:', file);
 
-// Remover el atributo 'required'
-        fileInput.removeAttribute('required');
-        console.log("Atributo 'required' removido del input de archivo. 2");
-
             if (file && file.type === 'image/png') {
                 const reader = new FileReader();
                 reader.onload = function(e) {
@@ -808,7 +807,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 console.log('Archivo PNG cargado y previsualizado.');
             } else {
                 fileInput.value = "";
-              
+            overlayMessage.textContent = "Formato no permitido, por favor suba su logo en formato .PNG";
+            overlay.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
                 console.error('Archivo seleccionado no es PNG.');
             }
         });
@@ -823,9 +824,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
         addToCartButton.addEventListener('click', (event) => {
             if (!fileInput.value) {
- // Remover el atributo 'required'
-        fileInput.removeAttribute('required');
-        console.log("Atributo 'required' removido del input de archivo. final");               event.preventDefault();
+              event.preventDefault();
+              overlayMessage.textContent = "Ups! Has olvidado cargar tu archivo.";
                 overlay.style.display = 'flex';
                 document.body.style.overflow = 'hidden';
                 console.log('Intento de añadir al carrito sin archivo, overlay mostrado.');
