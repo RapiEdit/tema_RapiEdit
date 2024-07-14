@@ -41,6 +41,12 @@
             "text_style": "subtitle"
           }
         },
+        "file_uploads_by_uploadkit_app_block_mtm7gw": {
+          "type": "shopify:\/\/apps\/file-uploads-by-uploadkit\/blocks\/app-block\/d7b05810-6170-4288-808a-df45248c4d28",
+          "settings": {
+            "product": "{{product}}"
+          }
+        },
         "custom_liquid_mVtiBy": {
           "type": "custom_liquid",
           "settings": {
@@ -68,6 +74,7 @@
         "judge_me_reviews_preview_badge_bJBtEA",
         "price",
         "text_dyd7Cd",
+        "file_uploads_by_uploadkit_app_block_mtm7gw",
         "custom_liquid_mVtiBy",
         "text_J9JgzE",
         "buy_buttons"
