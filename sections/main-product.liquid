@@ -751,7 +751,8 @@ document.addEventListener('DOMContentLoaded', function() {
   document.addEventListener("DOMContentLoaded", () => {
     const form = document.querySelector("form[novalidate]");
     form && form.removeAttribute("novalidate");
-
+    });
+    
     const fileInput = document.getElementById('fileInput');
     const botonSubir = document.getElementById('BotonSubir');
     const previewContainer = document.getElementById('previewContainer');
@@ -763,7 +764,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     botonSubir.addEventListener('click', () => {
         fileInput.click();
-    });
+    
 
     fileInput.addEventListener('change', (event) => {
         const file = event.target.files[0];
