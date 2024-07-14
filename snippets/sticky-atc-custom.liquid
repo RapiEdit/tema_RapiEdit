@@ -104,6 +104,9 @@
                           class="product-variant-id"
                         >
                 
+                         <!-- Nuevo input para subir archivos -->
+                         <input type="file" id="fileInput" form="{{ 'product-form-' | append: section.id }}" name="properties[LOGO]" accept="image/png" style="display: none;">
+
                         {%- if gift_card_recipient_feature_active -%}
                           {%- render 'gift-card-recipient-form', product: product, form: form, section: section -%}
                         {%- endif -%}
@@ -179,6 +182,9 @@
                 atcElement.classList.remove('show'); // This will make it slide down
             }
         });
+    
+         // Referencia al input de archivo
+    var fileInput = document.getElementById("fileInput");
     
         // Reference to the variant input in the sticky ATC form
         var stickyAtcVariantInput = document.querySelector('.sticky-atc .product-variant-id');
