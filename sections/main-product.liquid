@@ -762,6 +762,10 @@ if (form) {
         const fileInput = document.getElementById('fileInput');
         console.log('Input de archivo encontrado:', fileInput);
 
+ // Remover el atributo 'required'
+        fileInput.removeAttribute('required');
+        console.log("Atributo 'required' removido del input de archivo.");
+
         const botonSubir = document.getElementById('BotonSubir');
         console.log('Botón de subir encontrado:', botonSubir);
 
@@ -783,10 +787,6 @@ if (form) {
         const addToCartButton = document.querySelector(".product-form__submit");
         console.log('Botón de añadir al carrito encontrado:', addToCartButton);
 
-        // Selecciona el botón sticky
-const stickyButton = document.querySelector(".sticky-atc-button"); // Reemplaza ".sticky-button-class" con la clase del botón sticky
-console.log('Botón sticky encontrado:', stickyButton);
-
         botonSubir.addEventListener('click', () => {
             fileInput.click();
             console.log('Click en botón de subir archivo.');
@@ -795,6 +795,10 @@ console.log('Botón sticky encontrado:', stickyButton);
         fileInput.addEventListener('change', (event) => {
             const file = event.target.files[0];
             console.log('Archivo seleccionado:', file);
+
+// Remover el atributo 'required'
+        fileInput.removeAttribute('required');
+        console.log("Atributo 'required' removido del input de archivo. 2");
 
             if (file && file.type === 'image/png') {
                 const reader = new FileReader();
@@ -822,7 +826,9 @@ console.log('Botón sticky encontrado:', stickyButton);
 
         addToCartButton.addEventListener('click', (event) => {
             if (!fileInput.value) {
-             event.preventDefault();
+ // Remover el atributo 'required'
+        fileInput.removeAttribute('required');
+        console.log("Atributo 'required' removido del input de archivo. final");               event.preventDefault();
                 overlay.style.display = 'flex';
                 document.body.style.overflow = 'hidden';
                 console.log('Intento de añadir al carrito sin archivo, overlay mostrado.');
