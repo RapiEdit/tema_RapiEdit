@@ -750,7 +750,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <script>
   //Script para boton de subir archivos
   document.addEventListener("DOMContentLoaded", () => {
-    const form = document.querySelector("form[novalidate]");
+    const form = document.querySelector("product-form-template--16477474848828__main");
     if (form) {
         form.removeAttribute("novalidate");
     }
@@ -765,7 +765,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const addToCartButton = document.querySelector(".product-form__submit");
  // Remover el atributo 'required'
     fileInput.removeAttribute('required');
-    
+
     botonSubir.addEventListener('click', () => {
         fileInput.click();
        
