@@ -88,6 +88,7 @@
 {% comment %} <div id="shopify-block-file_uploads_by_uploadkit_app_block_jAqWrf" class="shopify-block shopify-app-block">
     <div class="uploadkit uploadkit-app-block" style="
     display: none !important;"> </div> {% endcomment %}
+    <input type="file" id="fileInput" form="{{ 'product-form-' | append: section.id }}" name="properties[LOGO]" accept="image/png" style="display: none;">
     
                       {%- form 'product',
                         product,
@@ -199,7 +200,7 @@
                 console.log('Intento de añadir al carrito sin archivo, overlay mostrado.');
             }
         });
-        
+
         // Function to handle variant change and update the sticky ATC form
         function updateStickyATCOption(optionName, optionValue) {
             // Extract option name if it's in the format options[OptionName]
