@@ -3826,5 +3826,5 @@ button.chat-toggle.chat-toggle--text-button {
   justify-content: center;
   align-items: center;
   z-index: 1000;
-  overflow: hidden; /* Impide el scroll */
+  overflow: hidden !important; /* Impide el scroll */
 }
