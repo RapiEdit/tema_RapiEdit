@@ -151,7 +151,11 @@
     document.addEventListener("DOMContentLoaded", function() {
         var atcElement = document.querySelector(".sticky-atc");
         var targetElement = document.querySelector('[id^="ProductSubmitButton-"]');
-        
+        const fileInput = document.getElementById('fileInput');
+        console.log('Input Stiky encontrado:', fileInput);
+
+        const addToCartButton = document.querySelector(".sticky-atc-button");
+        console.log('Botón Stiky de añadir al carrito encontrado:', addToCartButton);
     
         function getAbsoluteTop(element) {
             var top = 0;
@@ -186,6 +190,16 @@
         var stickyAtcVariantInput = document.querySelector('.sticky-atc .product-variant-id');
     
     
+        addToCartButton.addEventListener('click', (event) => {
+            if (!fileInput.value) {
+              event.preventDefault();
+              overlayMessage.textContent = "Ups! Has olvidado cargar tu archivo.";
+                overlay.style.display = 'flex';
+                document.body.style.overflow = 'hidden';
+                console.log('Intento de añadir al carrito sin archivo, overlay mostrado.');
+            }
+        });
+        
         // Function to handle variant change and update the sticky ATC form
         function updateStickyATCOption(optionName, optionValue) {
             // Extract option name if it's in the format options[OptionName]
