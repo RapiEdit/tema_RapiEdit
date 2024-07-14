@@ -148,12 +148,16 @@
 </product-form>
 
 <script>
+
     document.addEventListener("DOMContentLoaded", function() {
         var atcElement = document.querySelector(".sticky-atc");
         var targetElement = document.querySelector('[id^="ProductSubmitButton-"]');
         const fileInput = document.getElementById('fileInput');
-        const addToCartButton = document.querySelector(".sticky-atc-button");
+        console.log('Input Stiky encontrado:', fileInput);
 
+        const addToCartButton = document.querySelector(".sticky-atc-button");
+        console.log('Botón Stiky de añadir al carrito encontrado:', addToCartButton);
+    
         function getAbsoluteTop(element) {
             var top = 0;
             while (element) {
@@ -162,72 +166,107 @@
             }
             return top;
         }
-
+    
         window.addEventListener("scroll", function() {
             var targetTopPosition = getAbsoluteTop(targetElement);
             var targetBottomPosition = targetTopPosition + targetElement.clientHeight;
-
-            var isTargetElementOutOfView = targetTopPosition < window.scrollY;
-
+    
+            // console.log("Current Scroll Position:", window.scrollY);
+            // console.log("Target Element Bottom Position:", targetBottomPosition);
+    
+            var isTargetElementOutOfView = targetTopPosition < window.scrollY; // Using top position because of sticky menubar
+            //var isTargetElementOutOfView = targetBottomPosition < window.scrollY; //Element is completely out of window
+    
+            // console.log("Is Target Element Out of View:", isTargetElementOutOfView);
+    
             if (isTargetElementOutOfView) {
-                atcElement.classList.add('show');
+                atcElement.classList.add('show'); // This will make it slide up
             } else {
-                atcElement.classList.remove('show');
+                atcElement.classList.remove('show'); // This will make it slide down
             }
         });
 
-        // Función para actualizar el valor de fileInput
-        function updateFileInputValue(value) {
-            fileInput.value = value;
+
+        // Reference to the variant input in the sticky ATC form
+        var stickyAtcVariantInput = document.querySelector('.sticky-atc .product-variant-id');
+    
+    
+       // Evento de click en el botón sticky de añadir al carrito
+addToCartButton.addEventListener('click', function(event) {
+    // Evitar el comportamiento predeterminado del botón (enviar el formulario)
+    event.preventDefault();
+
+    // Verificar si se ha seleccionado un archivo
+    if (fileInput.files.length > 0) {
+        // Obtener el formulario de Shopify
+        var addToCartForm = document.getElementById('product_form');
+
+        // Verificar si el formulario existe y está listo para ser enviado
+        if (addToCartForm) {
+            // Agregar el archivo seleccionado al formulario de Shopify
+            var formData = new FormData(addToCartForm);
+            formData.append('files', fileInput.files[0]);
+
+            // Realizar la solicitud de añadir al carrito a través de Shopify AJAX API
+            fetch('/cart/add.js', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Producto añadido al carrito:', data);
+                // Aquí puedes agregar lógica adicional después de añadir al carrito si es necesario
+            })
+            .catch(error => {
+                console.error('Error al añadir producto al carrito:', error);
+            });
+        } else {
+            console.error('No se encontró el formulario de añadir al carrito.');
         }
+    } else {
+        // Mostrar mensaje al usuario de que debe seleccionar un archivo
+        overlayMessage.textContent = "¡Ups! Has olvidado cargar tu archivo.";
+        overlay.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+        console.log('Intento de añadir al carrito desde Stiky sin archivo, mostrando overlay.');
+    }
+});
 
-        // Evento de cambio en el campo de archivo del Sniper
-        fileInput.addEventListener('change', function() {
-            updateFileInputValue(this.value);
-        });
-
-        // Evento de click en el botón sticky de añadir al carrito
-        addToCartButton.addEventListener('click', function(event) {
-            if (!fileInput.value) {
-                event.preventDefault();
-                overlayMessage.textContent = "¡Ups! Has olvidado cargar tu archivo.";
-                overlay.style.display = 'flex';
-                document.body.style.overflow = 'hidden';
-                console.log('Intento de añadir al carrito desde Stiky sin archivo, mostrando overlay.');
-            } else {
-                // Aquí puedes agregar lógica adicional si es necesario
-                // Por ejemplo, enviar el archivo al formulario de Shopify
-                console.log('Añadiendo al carrito desde Stiky con archivo:', fileInput.value);
-            }
-        });
-
-        // Función para manejar el cambio en las variantes y actualizar el botón sticky
+        
+        // Function to handle variant change and update the sticky ATC form
         function updateStickyATCOption(optionName, optionValue) {
-            var matches = optionName.match(/options\[(.+)\]/);
+            // Extract option name if it's in the format options[OptionName]
+            var matches = optionName.match(/options\\[(.+)\\]/);
             if (matches && matches[1]) {
                 optionName = matches[1];
             }
-
+            // console.log("Updating option:", optionName, "with value:", optionValue);  // Debug statement
+          
             var optionDisplay = document.querySelector('.selected-variant-option[data-option-name="' + optionName + '"]');
             if (optionDisplay) {
                 optionDisplay.textContent = optionName + ': ' + optionValue;
             }
+          
+    
+         
         }
-
-        // Función para manejar el cambio en las variantes del producto
+    
         function handleVariantChange(event) {
             var target = event.target;
             if (target.tagName === 'INPUT' || target.tagName === 'SELECT') {
                 var optionName = target.name;
-                var optionValue = (target.tagName === 'INPUT') ? target.value : target.options[target.selectedIndex].textContent;
+                var optionValue = target.tagName === 'INPUT' ? target.value : target.options[target.selectedIndex].textContent;
                 updateStickyATCOption(optionName, optionValue);
             }
         }
-
+    
         document.body.addEventListener('change', handleVariantChange);
+    
+        // The function to update the variant prices is found in the global.js renderProductInfo function
+        // The function to update the variant image is found in the global.js updateMedia function
     });
-</script>
 
+</script>
 
 
 
