@@ -16,6 +16,7 @@
 {% endif %}
     
 <product-form
+id="product-form-template--16477474848828__main"
   class="product-form sticky-atc"
   data-hide-errors="{{ gift_card_recipient_feature_active }}"
   data-section-id="{{ section.id }}"
@@ -88,11 +89,7 @@
 <div id="shopify-block-file_uploads_by_uploadkit_app_block_jAqWrf" class="shopify-block shopify-app-block">
   <div
     class="uploadkit uploadkit-app-block" style="
-    display: none !important;">     </div>
-
-
-<div style="display:none;" class="pd-form__input">
-    <input type="file" id="fileInput" form="{{ 'product-form-' | append: section.id }}" name="properties[File Upload]" accept="image/png" required style="display: none;"> </div>
+    display: none !important;">     </div>  
                       {%- form 'product',
                         product,
                         id: product_form_id,
