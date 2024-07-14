@@ -208,11 +208,10 @@ display: none;
             console.log('Archivo removido y previsualización ocultada.');
         });
 
-        const addToCartButton = document.querySelectorAll('.subidaarchivos');
-        console.log('Botones de añadir al carrito encontrados:', addToCartButton);
+        const addToCartButtons = document.querySelectorAll('.subidaarchivos'); // Asegúrate de que 'subidaarchivos' sea la clase correcta
 
-        addToCartButtons.forEach(button => {
-    button.addEventListener('click', function(event) { // Añade 'event' como parámetro aquí
+addToCartButtons.forEach(button => {
+    button.addEventListener('click', function(event) {
         // Lógica para añadir al carrito aquí
         if (!fileInput.value) {
             event.preventDefault();
