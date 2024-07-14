@@ -44,7 +44,7 @@
         "custom_liquid_iXK8VQ": {
           "type": "custom_liquid",
           "settings": {
-            "custom_liquid": "botonsubirachivo"
+            "custom_liquid": "{% render 'botonsubirachivo' %}"
           }
         },
         "file_uploads_by_uploadkit_app_block_mtm7gw": {
