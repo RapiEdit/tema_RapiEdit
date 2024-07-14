@@ -120,10 +120,10 @@
                             endif
                           -%}
                           <button
-                            id="ProductSubmitButton-{{ section_id }}"
+                            id="StickyProductSubmitButton-{{ section_id }}"
                             type="submit"
                             name="add"
-                            class="botonpro product-form__submit button button--full-width button--primary sticky-atc-button"
+                            class="subidaarchivos botonpro product-form__submit button button--full-width button--primary sticky-atc-button"
                             {% if product.selected_or_first_available_variant.available == false or quantity_rule_soldout %}
                               disabled
                             {% endif %}
@@ -327,7 +327,7 @@
         width: auto;       Auto width to maintain aspect ratio */
     }
     
-    #ProductSubmitButton-{{ section_id }} {
+    #StickyProductSubmitButton-{{ section_id }} {
         margin-bottom: 0px;  
     }
       

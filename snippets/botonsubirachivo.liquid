@@ -171,8 +171,8 @@ display: none;
         const overlayMessage = document.getElementById('overlayMessage');
         console.log('Mensaje de overlay encontrado:', overlayMessage);
 
-        const addToCartButton = document.getElementById('ProductSubmitButton-template--16477474848828__main');
-        console.log('Botón de añadir al carrito encontrado:', addToCartButton);
+        const addToCartButton = document.querySelectorAll('.subidaarchivos');
+        console.log('Botones de añadir al carrito encontrados:', addToCartButton);
 
         botonSubir.addEventListener('click', () => {
             fileInput.click();
@@ -209,15 +209,19 @@ display: none;
             console.log('Archivo removido y previsualización ocultada.');
         });
 
-        addToCartButton.addEventListener('click', (event) => {
-            if (!fileInput.value) {
+        addToCartButtons.forEach(button => {
+    button.addEventListener('click', function() {
+        // Lógica para añadir al carrito aquí
+        if (!fileInput.value) {
               event.preventDefault();
               overlayMessage.textContent = "Ups! Has olvidado cargar tu archivo.";
                 overlay.style.display = 'flex';
                 document.body.style.overflow = 'hidden';
                 console.log('Intento de añadir al carrito sin archivo, overlay mostrado.');
             }
-        });
+    });
+});
+       
 
         closeOverlay.addEventListener('click', () => {
             overlay.style.display = 'none';
