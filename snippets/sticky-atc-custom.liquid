@@ -151,15 +151,7 @@
     document.addEventListener("DOMContentLoaded", function() {
         var atcElement = document.querySelector(".sticky-atc");
         var targetElement = document.querySelector('[id^="ProductSubmitButton-"]');
-        const botonSubir = document.getElementById('BotonSubir');
-    const botonSticky = document.getElementById('StickyProductSubmitButton-template--16477474848828__main'); // Reemplaza 'ID_DEL_BOTON_STICKY' con el ID real de tu botón sticky
-
-    // Agregar evento de clic al botón sticky
-    if (botonSticky) {
-        botonSticky.addEventListener('click', () => {
-            botonSubir.click(); // Simula el clic en el botón de subir archivo
-        });
-    }
+        
     
         function getAbsoluteTop(element) {
             var top = 0;
