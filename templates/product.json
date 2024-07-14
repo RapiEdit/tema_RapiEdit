@@ -225,6 +225,11 @@
         "padding_top": 40,
         "padding_bottom": 52
       }
+    },
+    "subir_archivo_YT63KB": {
+      "type": "subir-archivo",
+      "settings": {
+      }
     }
   },
   "order": [
@@ -237,6 +242,7 @@
     "1720638298f5ed3a10",
     "17206383178fa72e96",
     "1720638327688ab57c",
-    "custom_liquid_U3EU4n"
+    "custom_liquid_U3EU4n",
+    "subir_archivo_YT63KB"
   ]
 }
