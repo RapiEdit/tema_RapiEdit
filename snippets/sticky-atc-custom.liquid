@@ -103,10 +103,7 @@
                           disabled
                           class="product-variant-id"
                         >
-                
-                         <!-- Nuevo input para subir archivos -->
-                         <input type="file" id="fileInput" form="{{ 'product-form-' | append: section.id }}" name="properties[LOGO]" accept="image/png" style="display: none;">
-
+                                       
                         {%- if gift_card_recipient_feature_active -%}
                           {%- render 'gift-card-recipient-form', product: product, form: form, section: section -%}
                         {%- endif -%}
