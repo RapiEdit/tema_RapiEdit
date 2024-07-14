@@ -3815,6 +3815,11 @@ button.chat-toggle.chat-toggle--text-button {
   border-radius: 30px !important;
 }
 
+#overlayMessage {
+  text-align: center;
+      padding: 0 20px;
+  }
+  
 .overlay {
   position: fixed;
   top: 0;
