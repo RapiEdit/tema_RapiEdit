@@ -191,7 +191,7 @@
         var stickyAtcVariantInput = document.querySelector('.sticky-atc .product-variant-id');
     
     
-       // Evento de click en el botón sticky de añadir al carrito
+      // Evento de click en el botón sticky de añadir al carrito
 addToCartButton.addEventListener('click', function(event) {
     // Evitar el comportamiento predeterminado del botón (enviar el formulario)
     event.preventDefault();
@@ -203,9 +203,9 @@ addToCartButton.addEventListener('click', function(event) {
 
         // Verificar si el formulario existe y está listo para ser enviado
         if (addToCartForm) {
-            // Agregar el archivo seleccionado al formulario de Shopify
-            var formData = new FormData(addToCartForm);
-            formData.append('files', fileInput.files[0]);
+            // Crear FormData y agregar el archivo seleccionado
+            var formData = new FormData();
+            formData.append('files[]', fileInput.files[0]);
 
             // Realizar la solicitud de añadir al carrito a través de Shopify AJAX API
             fetch('/cart/add', {
@@ -231,6 +231,7 @@ addToCartButton.addEventListener('click', function(event) {
         console.log('Intento de añadir al carrito desde Stiky sin archivo, mostrando overlay.');
     }
 });
+
 
         
         // Function to handle variant change and update the sticky ATC form
