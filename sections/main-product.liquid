@@ -759,7 +759,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const fileInput = document.getElementById('fileInput');
         console.log('Input de archivo encontrado:', fileInput);
 
- // Remover el atributo 'required'
+        // Remover el atributo 'required'
         fileInput.removeAttribute('required');
         console.log("Atributo 'required' removido del input de archivo.");
 
@@ -784,8 +784,8 @@ document.addEventListener('DOMContentLoaded', function() {
         const addToCartButton = document.querySelector(".product-form__submit");
         console.log('Botón de añadir al carrito encontrado:', addToCartButton);
 
-const StikyaddToCartButton = document.querySelector(".sticky-atc-button");
-        console.log('Botón de Stiky encontrado:', StikyaddToCartButton);
+        const stickyAddToCartButton = document.querySelector(".sticky-atc-button");
+        console.log('Botón de Stiky encontrado:', stickyAddToCartButton);
 
         botonSubir.addEventListener('click', () => {
             fileInput.click();
@@ -795,10 +795,6 @@ const StikyaddToCartButton = document.querySelector(".sticky-atc-button");
         fileInput.addEventListener('change', (event) => {
             const file = event.target.files[0];
             console.log('Archivo seleccionado:', file);
-
-// Remover el atributo 'required'
-        fileInput.removeAttribute('required');
-        console.log("Atributo 'required' removido del input de archivo. 2");
 
             if (file && file.type === 'image/png') {
                 const reader = new FileReader();
@@ -811,7 +807,6 @@ const StikyaddToCartButton = document.querySelector(".sticky-atc-button");
                 console.log('Archivo PNG cargado y previsualizado.');
             } else {
                 fileInput.value = "";
-              
                 console.error('Archivo seleccionado no es PNG.');
             }
         });
@@ -824,28 +819,20 @@ const StikyaddToCartButton = document.querySelector(".sticky-atc-button");
             console.log('Archivo removido y previsualización ocultada.');
         });
 
-        addToCartButton.addEventListener('click', (event) => {
+        const handleAddToCartClick = (event) => {
             if (!fileInput.value) {
- // Remover el atributo 'required'
-        fileInput.removeAttribute('required');
-        console.log("Atributo 'required' removido del input de archivo. final");               event.preventDefault();
+                event.preventDefault();
                 overlay.style.display = 'flex';
                 document.body.style.overflow = 'hidden';
                 console.log('Intento de añadir al carrito sin archivo, overlay mostrado.');
+            } else {
+                form.submit();
+                console.log('Formulario enviado con archivo.');
             }
-        });
+        };
 
-
-StikyaddToCartButton.addEventListener('click', (event) => {
-            if (!fileInput.value) {
- // Remover el atributo 'required'
-        fileInput.removeAttribute('required');
-        console.log("Atributo 'required' removido del input de archivo. final");               event.preventDefault();
-                overlay.style.display = 'flex';
-                document.body.style.overflow = 'hidden';
-                console.log('Intento de añadir al carrito sin archivo, overlay mostrado.');
-            }
-        });
+        addToCartButton.addEventListener('click', handleAddToCartClick);
+        stickyAddToCartButton.addEventListener('click', handleAddToCartClick);
 
         closeOverlay.addEventListener('click', () => {
             overlay.style.display = 'none';
@@ -854,6 +841,7 @@ StikyaddToCartButton.addEventListener('click', (event) => {
         });
     });
 </script>
+
 
   {%- liquid
     if product.selected_or_first_available_variant.featured_media
