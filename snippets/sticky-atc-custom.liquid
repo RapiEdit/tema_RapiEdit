@@ -191,47 +191,15 @@
         var stickyAtcVariantInput = document.querySelector('.sticky-atc .product-variant-id');
     
     
-      // Evento de click en el botón sticky de añadir al carrito
-addToCartButton.addEventListener('click', function(event) {
-    // Evitar el comportamiento predeterminado del botón (enviar el formulario)
-    event.preventDefault();
-
-    // Verificar si se ha seleccionado un archivo
-    if (fileInput.files.length > 0) {
-        // Obtener el formulario de Shopify
-        var addToCartForm = document.getElementById('product-form-template--16477474848828__main');
-
-        // Verificar si el formulario existe y está listo para ser enviado
-        if (addToCartForm) {
-            // Crear FormData y agregar el archivo seleccionado
-            var formData = new FormData();
-            formData.append('files[]', fileInput.files[0]);
-
-            // Realizar la solicitud de añadir al carrito a través de Shopify AJAX API
-            fetch('/cart/add', {
-                method: 'POST',
-                body: formData
-            })
-            .then(response => response.json())
-            .then(data => {
-                console.log('Producto añadido al carrito:', data);
-                // Aquí puedes agregar lógica adicional después de añadir al carrito si es necesario
-            })
-            .catch(error => {
-                console.error('Error al añadir producto al carrito:', error);
-            });
-        } else {
-            console.error('No se encontró el formulario de añadir al carrito.');
-        }
-    } else {
-        // Mostrar mensaje al usuario de que debe seleccionar un archivo
-        overlayMessage.textContent = "¡Ups! Has olvidado cargar tu archivo.";
-        overlay.style.display = 'flex';
-        document.body.style.overflow = 'hidden';
-        console.log('Intento de añadir al carrito desde Stiky sin archivo, mostrando overlay.');
-    }
-});
-
+        addToCartButton.addEventListener('click', (event) => {
+            if (!fileInput.value) {
+              event.preventDefault();
+              overlayMessage.textContent = "Ups! Has olvidado cargar tu archivo.";
+                overlay.style.display = 'flex';
+                document.body.style.overflow = 'hidden';
+                console.log('Intento de añadir al carrito sin archivo, overlay mostrado.');
+            }
+        });
 
         
         // Function to handle variant change and update the sticky ATC form
