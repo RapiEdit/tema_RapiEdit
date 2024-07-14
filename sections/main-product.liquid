@@ -750,9 +750,10 @@ document.addEventListener('DOMContentLoaded', function() {
 <script>
   //Script para boton de subir archivos
   document.addEventListener("DOMContentLoaded", () => {
-    const form = document.querySelector("product-form-template--16477474848828__main");
+    const form = document.querySelector("form[novalidate]");
     if (form) {
         form.removeAttribute("novalidate");
+        fileInput.removeAttribute('required');
     }
 
     const fileInput = document.getElementById('fileInput');
@@ -763,9 +764,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const overlay = document.getElementById('overlay');
     const closeOverlay = document.getElementById('closeOverlay');
     const addToCartButton = document.querySelector(".product-form__submit");
- // Remover el atributo 'required'
-    fileInput.removeAttribute('required');
 
+    
     botonSubir.addEventListener('click', () => {
         fileInput.click();
        
