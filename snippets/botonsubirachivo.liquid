@@ -171,8 +171,7 @@ display: none;
         const overlayMessage = document.getElementById('overlayMessage');
         console.log('Mensaje de overlay encontrado:', overlayMessage);
 
-        const addToCartButton = document.querySelectorAll('.subidaarchivos');
-        console.log('Botones de añadir al carrito encontrados:', addToCartButton);
+       
 
         botonSubir.addEventListener('click', () => {
             fileInput.click();
@@ -208,6 +207,9 @@ display: none;
             botonSubir.innerHTML = 'SUBIR ARCHIVO <img src="https://cdn.shopify.com/s/files/1/0622/2161/5164/files/FolderUpIcon.svg?v=1720358303" alt="FolderUpIcon" style="filter: invert(1); width: 30px; height: 30px; vertical-align: middle; margin-left: 5px;">';
             console.log('Archivo removido y previsualización ocultada.');
         });
+
+        const addToCartButton = document.querySelectorAll('.subidaarchivos');
+        console.log('Botones de añadir al carrito encontrados:', addToCartButton);
 
         addToCartButtons.forEach(button => {
     button.addEventListener('click', function(event) { // Añade 'event' como parámetro aquí
