@@ -751,12 +751,13 @@ document.addEventListener('DOMContentLoaded', function() {
   //Script para boton de subir archivos
   document.addEventListener("DOMContentLoaded", () => {
     const form = document.querySelector("form[novalidate]");
+    const fileInput = document.getElementById('fileInput');
+
     if (form) {
         form.removeAttribute("novalidate");
         fileInput.removeAttribute('required');
     }
 
-    const fileInput = document.getElementById('fileInput');
     const botonSubir = document.getElementById('BotonSubir');
     const previewContainer = document.getElementById('previewContainer');
     const filePreview = document.getElementById('filePreview');
