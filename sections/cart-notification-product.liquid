@@ -30,16 +30,27 @@
             {%- assign property_first_char = property.first | slice: 0 -%}
             {%- if property.last != blank and property_first_char != '_' -%}
               <div class="product-option">
-                <dt>{{ property.first }}:</dt>
+                <dt style="display: block;">{{ property.first }}:</dt>
                 <dd>
                   {%- if property.last contains '/uploads/' -%}
-                    <a href="{{ property.last }}" class="link" target="_blank">
-                      {{ property.last | split: '/' | last }}
-                    </a>
+                    {%- assign file_extension = property.last | split: '.' | last -%}
+                    {%- if file_extension == 'png' or file_extension == 'jpg' or file_extension == 'jpeg' -%}
+                      <a href="{{ property.last }}" class="link" target="_blank" aria-describedby="a11y-new-window-message">
+                        <img src="{{ property.last }}" alt="Previsualización de {{ property.first }}" style="max-width: 100px; max-height: 100px; border-radius: 10px;"/>
+                      </a>
+                    {%- else -%}
+                      <a href="{{ property.last }}" class="link" target="_blank" aria-describedby="a11y-new-window-message">
+                        {{ property.last | split: '/' | last }}
+                      </a>
+                    {%- endif -%}
                   {%- else -%}
                     {{ property.last }}
                   {%- endif -%}
                 </dd>
+              </div>
+            {%- endif -%}
+          {%- endfor -%}
+          </dl>
               </div>
             {%- endif -%}
           {%- endfor -%}
