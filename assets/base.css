@@ -3821,10 +3821,22 @@ button.chat-toggle.chat-toggle--text-button {
   left: 0;
   bottom: 0;
   right: 0;
+  height:100%;
+  width:101%;
   background-color: rgba(0, 0, 0, 0.8);
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 1000;
   overflow: hidden !important; /* Impide el scroll */
+  animation: vex-fadein .5s;
+}
+
+@keyframes vex-fadein {
+    opacity: 0;
+}
+100% {
+    opacity: 1;
+} {
+  
 }
