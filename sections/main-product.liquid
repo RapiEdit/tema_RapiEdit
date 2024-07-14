@@ -807,7 +807,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 console.log('Archivo PNG cargado y previsualizado.');
             } else {
                 fileInput.value = "";
-            overlayMessage.textContent = "Formato no permitido <br> por favor suba su logo en formato .PNG";
+            overlayMessage.innerHTML = "Formato no permitido <br> por favor suba su logo en formato .PNG";
             overlay.style.display = 'flex';
             document.body.style.overflow = 'hidden';
                 console.error('Archivo seleccionado no es PNG.');
