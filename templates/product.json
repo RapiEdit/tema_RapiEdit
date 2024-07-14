@@ -44,7 +44,7 @@
         "custom_liquid_PcaPec": {
           "type": "custom_liquid",
           "settings": {
-            "custom_liquid": "<div class=\"pd-form__input\">\n<label class=\"pd-form__label\">File Upload<\/label>\n<input type=\"file\" form=\"{{ 'product-form-' | append: section.id }}\" name=\"properties[File Upload]\" required>\n<\/div>\n<script>\n    document.addEventListener(\"DOMContentLoaded\", () => {\n    const form = document.querySelector(\"form[novalidate]\");\n    form && form.removeAttribute(\"novalidate\");\n});\n    <\/script>"
+            "custom_liquid": "<div class=\"pd-form__input\">\n<label class=\"form__label\">File Upload<\/label>\n<input type=\"file\" form=\"{{ 'product-form-' | append: section.id }}\" name=\"properties[File Upload]\">\n<\/div>"
           }
         },
         "file_uploads_by_uploadkit_app_block_mtm7gw": {
