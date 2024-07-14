@@ -3814,3 +3814,17 @@ button.chat-toggle.chat-toggle--text-button {
 .jdgm-rev__icon {
   border-radius: 30px !important;
 }
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  overflow: hidden; /* Impide el scroll */
+}
