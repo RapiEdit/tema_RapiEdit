@@ -88,7 +88,7 @@
 {% comment %} <div id="shopify-block-file_uploads_by_uploadkit_app_block_jAqWrf" class="shopify-block shopify-app-block">
     <div class="uploadkit uploadkit-app-block" style="
     display: none !important;"> </div> {% endcomment %}
-    <input type="file" id="fileInput" form="{{ 'product-form-' | append: section.id }}" name="properties[LOGO]" accept="image/png" style="display: none;">
+
     
                       {%- form 'product',
                         product,
@@ -148,16 +148,12 @@
 </product-form>
 
 <script>
-
     document.addEventListener("DOMContentLoaded", function() {
         var atcElement = document.querySelector(".sticky-atc");
         var targetElement = document.querySelector('[id^="ProductSubmitButton-"]');
         const fileInput = document.getElementById('fileInput');
-        console.log('Input Stiky encontrado:', fileInput);
-
         const addToCartButton = document.querySelector(".sticky-atc-button");
-        console.log('Botón Stiky de añadir al carrito encontrado:', addToCartButton);
-    
+
         function getAbsoluteTop(element) {
             var top = 0;
             while (element) {
@@ -166,75 +162,72 @@
             }
             return top;
         }
-    
+
         window.addEventListener("scroll", function() {
             var targetTopPosition = getAbsoluteTop(targetElement);
             var targetBottomPosition = targetTopPosition + targetElement.clientHeight;
-    
-            // console.log("Current Scroll Position:", window.scrollY);
-            // console.log("Target Element Bottom Position:", targetBottomPosition);
-    
-            var isTargetElementOutOfView = targetTopPosition < window.scrollY; // Using top position because of sticky menubar
-            //var isTargetElementOutOfView = targetBottomPosition < window.scrollY; //Element is completely out of window
-    
-            // console.log("Is Target Element Out of View:", isTargetElementOutOfView);
-    
+
+            var isTargetElementOutOfView = targetTopPosition < window.scrollY;
+
             if (isTargetElementOutOfView) {
-                atcElement.classList.add('show'); // This will make it slide up
+                atcElement.classList.add('show');
             } else {
-                atcElement.classList.remove('show'); // This will make it slide down
+                atcElement.classList.remove('show');
             }
         });
 
+        // Función para actualizar el valor de fileInput
+        function updateFileInputValue(value) {
+            fileInput.value = value;
+        }
 
-        // Reference to the variant input in the sticky ATC form
-        var stickyAtcVariantInput = document.querySelector('.sticky-atc .product-variant-id');
-    
-    
-        addToCartButton.addEventListener('click', (event) => {
+        // Evento de cambio en el campo de archivo del Sniper
+        fileInput.addEventListener('change', function() {
+            updateFileInputValue(this.value);
+        });
+
+        // Evento de click en el botón sticky de añadir al carrito
+        addToCartButton.addEventListener('click', function(event) {
             if (!fileInput.value) {
-              event.preventDefault();
-              overlayMessage.textContent = "Ups! Has olvidado cargar tu archivo.";
+                event.preventDefault();
+                overlayMessage.textContent = "¡Ups! Has olvidado cargar tu archivo.";
                 overlay.style.display = 'flex';
                 document.body.style.overflow = 'hidden';
-                console.log('Intento de añadir al carrito sin archivo, overlay mostrado.');
+                console.log('Intento de añadir al carrito desde Stiky sin archivo, mostrando overlay.');
+            } else {
+                // Aquí puedes agregar lógica adicional si es necesario
+                // Por ejemplo, enviar el archivo al formulario de Shopify
+                console.log('Añadiendo al carrito desde Stiky con archivo:', fileInput.value);
             }
         });
 
-        // Function to handle variant change and update the sticky ATC form
+        // Función para manejar el cambio en las variantes y actualizar el botón sticky
         function updateStickyATCOption(optionName, optionValue) {
-            // Extract option name if it's in the format options[OptionName]
-            var matches = optionName.match(/options\\[(.+)\\]/);
+            var matches = optionName.match(/options\[(.+)\]/);
             if (matches && matches[1]) {
                 optionName = matches[1];
             }
-            // console.log("Updating option:", optionName, "with value:", optionValue);  // Debug statement
-          
+
             var optionDisplay = document.querySelector('.selected-variant-option[data-option-name="' + optionName + '"]');
             if (optionDisplay) {
                 optionDisplay.textContent = optionName + ': ' + optionValue;
             }
-          
-    
-         
         }
-    
+
+        // Función para manejar el cambio en las variantes del producto
         function handleVariantChange(event) {
             var target = event.target;
             if (target.tagName === 'INPUT' || target.tagName === 'SELECT') {
                 var optionName = target.name;
-                var optionValue = target.tagName === 'INPUT' ? target.value : target.options[target.selectedIndex].textContent;
+                var optionValue = (target.tagName === 'INPUT') ? target.value : target.options[target.selectedIndex].textContent;
                 updateStickyATCOption(optionName, optionValue);
             }
         }
-    
-        document.body.addEventListener('change', handleVariantChange);
-    
-        // The function to update the variant prices is found in the global.js renderProductInfo function
-        // The function to update the variant image is found in the global.js updateMedia function
-    });
 
+        document.body.addEventListener('change', handleVariantChange);
+    });
 </script>
+
 
 
 
