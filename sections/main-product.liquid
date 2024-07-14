@@ -763,6 +763,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const overlay = document.getElementById('overlay');
     const closeOverlay = document.getElementById('closeOverlay');
     const addToCartButton = document.querySelector(".product-form__submit");
+    const StikyButton = document.querySelector(".sticky-atc-button");
 
     botonSubir.addEventListener('click', () => {
         fileInput.click();
@@ -792,6 +793,14 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     addToCartButton.addEventListener('click', (event) => {
+        if (!fileInput.value) {
+            event.preventDefault();
+            overlay.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+    });
+
+    StikyButton.addEventListener('click', (event) => {
         if (!fileInput.value) {
             event.preventDefault();
             overlay.style.display = 'flex';
