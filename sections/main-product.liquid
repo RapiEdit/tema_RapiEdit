@@ -747,78 +747,7 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 
 
-<script>
-  //Script para botón de subir archivos
-  document.addEventListener("DOMContentLoaded", () => {
-    console.log("Script cargado correctamente.");
 
-    const form = document.querySelector("form[novalidate]");
-    if (form) {
-        form.removeAttribute("novalidate");
-        console.log("Atributo 'novalidate' removido del formulario.");
-    }
-
-    const fileInput = document.getElementById('fileInput');
-    const botonSubir = document.getElementById('BotonSubir');
-    const previewContainer = document.getElementById('previewContainer');
-    const filePreview = document.getElementById('filePreview');
-    const removeButton = document.getElementById('removeButton');
-    const overlay = document.getElementById('overlay');
-    const closeOverlay = document.getElementById('closeOverlay');
-    const addToCartButton = document.querySelector(".product-form__submit");
-
-    // Remover el atributo 'required'
-    fileInput.removeAttribute('required');
-    console.log("Atributo 'required' removido del input de archivo.");
-
-    botonSubir.addEventListener('click', () => {
-        fileInput.click();
-        console.log("Click en botón de subir archivo.");
-    });
-
-    fileInput.addEventListener('change', (event) => {
-        const file = event.target.files[0];
-        if (file && file.type === 'image/png') {
-            const reader = new FileReader();
-            reader.onload = function(e) {
-                filePreview.src = e.target.result;
-                previewContainer.style.display = 'block';
-                botonSubir.innerHTML = 'CAMBIAR ARCHIVO <img src="https://cdn.shopify.com/s/files/1/0622/2161/5164/files/FolderUpIcon.svg?v=1720358303" alt="FolderUpIcon" style="filter: invert(1); width: 30px; height: 30px; vertical-align: middle; margin-left: 5px;">';
-                console.log("Archivo PNG cargado y mostrado en la vista previa.");
-            }
-            reader.readAsDataURL(file);
-        } else {
-            fileInput.value = "";
-            alert('Por favor sube un archivo PNG.');
-            console.log("Archivo seleccionado no es un PNG válido.");
-        }
-    });
-
-    removeButton.addEventListener('click', () => {
-        fileInput.value = "";
-        filePreview.src = "";
-        previewContainer.style.display = 'none';
-        botonSubir.innerHTML = 'SUBIR ARCHIVO <img src="https://cdn.shopify.com/s/files/1/0622/2161/5164/files/FolderUpIcon.svg?v=1720358303" alt="FolderUpIcon" style="filter: invert(1); width: 30px; height: 30px; vertical-align: middle; margin-left: 5px;">';
-        console.log("Botón de remover archivo clickeado, vista previa ocultada.");
-    });
-
-    addToCartButton.addEventListener('click', (event) => {
-        if (!fileInput.files.length) {
-            event.preventDefault();
-            overlay.style.display = 'flex';
-            document.body.style.overflow = 'hidden';
-            console.log("Intento de agregar al carrito sin archivo seleccionado.");
-        }
-    });
-
-    closeOverlay.addEventListener('click', () => {
-        overlay.style.display = 'none';
-        document.body.style.overflow = 'auto';
-        console.log("Overlay cerrado.");
-    });
-});
-
-</script>
 
 
   {%- liquid
