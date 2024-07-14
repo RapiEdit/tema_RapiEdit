@@ -123,7 +123,7 @@
                             id="StickyProductSubmitButton-{{ section_id }}"
                             type="submit"
                             name="add"
-                            class="subidaarchivos botonpro product-form__submit button button--full-width button--primary sticky-atc-button"
+                            class="botonpro product-form__submit button button--full-width button--primary sticky-atc-button"
                             {% if product.selected_or_first_available_variant.available == false or quantity_rule_soldout %}
                               disabled
                             {% endif %}
@@ -151,7 +151,7 @@
 
     // Espera a que el DOM esté completamente cargado
     document.addEventListener("DOMContentLoaded", function() {
-        // Obtiene el elemento con la clase "sticky-atc" 
+        // Obtiene el elemento con la clase "sticky-atc"
         var atcElement = document.querySelector(".sticky-atc");
         // Obtiene el primer elemento cuyo ID comienza con "ProductSubmitButton-"
         var targetElement = document.querySelector('[id^="ProductSubmitButton-"]');
