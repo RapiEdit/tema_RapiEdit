@@ -89,6 +89,10 @@
   <div
     class="uploadkit uploadkit-app-block" style="
     display: none !important;">     </div>
+
+
+<div style="display:none;" class="pd-form__input">
+    <input type="file" id="fileInput" form="{{ 'product-form-' | append: section.id }}" name="properties[File Upload]" accept="image/png" required style="display: none;"> </div>
                       {%- form 'product',
                         product,
                         id: product_form_id,
