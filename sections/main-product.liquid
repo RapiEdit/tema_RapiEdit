@@ -763,11 +763,12 @@ document.addEventListener('DOMContentLoaded', function() {
     const overlay = document.getElementById('overlay');
     const closeOverlay = document.getElementById('closeOverlay');
     const addToCartButton = document.querySelector(".product-form__submit");
-
+ // Remover el atributo 'required'
+    fileInput.removeAttribute('required');
+    
     botonSubir.addEventListener('click', () => {
         fileInput.click();
-        // Remover el atributo 'required'
-        fileInput.removeAttribute('required');
+       
     });
 
     fileInput.addEventListener('change', (event) => {
