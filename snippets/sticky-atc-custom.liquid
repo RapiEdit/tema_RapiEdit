@@ -88,63 +88,10 @@
 {% comment %} <div id="shopify-block-file_uploads_by_uploadkit_app_block_jAqWrf" class="shopify-block shopify-app-block">
     <div class="uploadkit uploadkit-app-block" style="
     display: none !important;"> </div> {% endcomment %}
-    
-                      {%- form 'product',
-                        product,
-                        id: product_form_id,
-                        class: 'form',
-                        novalidate: 'novalidate',
-                        data-type: 'add-to-cart-form'
-                      -%}
-                        <input
-                          type="hidden"
-                          name="id"
-                          value="{{ product.selected_or_first_available_variant.id }}"
-                          disabled
-                          class="product-variant-id"
-                        >
-                        {% render 'subirachivo'%}             
-                        {%- if gift_card_recipient_feature_active -%}
-                          {%- render 'gift-card-recipient-form', product: product, form: form, section: section -%}
-                        {%- endif -%}
-                
-                        <div class="product-form__buttons sticky-product-form__buttons">
-                          {%- liquid
-                            assign check_against_inventory = true
-                            if product.selected_or_first_available_variant.inventory_management != 'shopify' or product.selected_or_first_available_variant.inventory_policy == 'continue'
-                              assign check_against_inventory = false
-                            endif
-                            if product.selected_or_first_available_variant.quantity_rule.min > product.selected_or_first_available_variant.inventory_quantity and check_against_inventory
-                              assign quantity_rule_soldout = true
-                            endif
-                          -%}
-                          <button
-                            id="StickyProductSubmitButton-{{ section_id }}"
-                            type="submit"
-                            name="add"
-                            class="botonpro product-form__submit button button--full-width button--primary sticky-atc-button"
-                            {% if product.selected_or_first_available_variant.available == false or quantity_rule_soldout %}
-                              disabled
-                            {% endif %}
-                          >
-                            <span>
-                              {%- if product.selected_or_first_available_variant.available == false or quantity_rule_soldout -%}
-                                {{ 'products.product.sold_out' | t }}
-                              {%- else -%}
-                                {{ 'products.product.add_to_cart' | t }}
-                              {%- endif -%}
-                              <img src="https://cdn.shopify.com/s/files/1/0622/2161/5164/files/CartSaleIcon.svg?v=1720900094" alt="CartSaleIcon" style="filter: invert(1); width: 25px; height: 25px; vertical-align: middle;">
-                            </span>
-							{%- render 'loading-spinner' -%}
-                          </button>
-                        </div>
-                      {%- endform -%}
-                  </div>
-              </div>
+    {% render 'subirachivo'%} 
+    {% render 'buy-buttons'%} 
 
-          </div>
-      </div>
-</product-form>
+                     
 
 <script>
 
