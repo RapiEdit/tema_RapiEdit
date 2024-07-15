@@ -1356,6 +1356,47 @@ class ProductRecommendations extends HTMLElement {
 
 customElements.define('product-recommendations', ProductRecommendations);
 
+document.addEventListener('DOMContentLoaded', function() {
+  var fileInput1 = document.getElementById('fileInput');
+  var fileInput2 = document.getElementById('fileInput2');
+
+  if (fileInput1 && fileInput2) {
+    console.log('Inputs de archivo encontrados.');
+
+    fileInput1.addEventListener('change', function() {
+      console.log('Cambio detectado en fileInput1');
+      syncFileInputs(fileInput1, fileInput2);
+    });
+
+    fileInput2.addEventListener('change', function() {
+      console.log('Cambio detectado en fileInput2');
+      syncFileInputs(fileInput2, fileInput1);
+    });
+  } else {
+    console.log('No se encontraron uno o ambos inputs de archivo.');
+  }
+
+  function syncFileInputs(sourceInput, targetInput) {
+    var fileList = sourceInput.files;
+    var dataTransfer = new DataTransfer();
+
+    console.log('Sincronizando archivos de ' + sourceInput.id + ' a ' + targetInput.id);
+
+    for (var i = 0; i < fileList.length; i++) {
+      dataTransfer.items.add(fileList[i]);
+      console.log('Archivo agregado:', fileList[i].name);
+    }
+
+    targetInput.files = dataTransfer.files;
+    console.log('Archivos sincronizados.');
+
+    // Para eliminar archivos en el input de destino si se eliminan en el input de origen
+    if (fileList.length === 0) {
+      targetInput.value = ""; // Limpia el valor del input destino si no hay archivos en el input origen
+      console.log('Archivos eliminados, sincronizando input destino.');
+    }
+  }
+});
 
 
 
