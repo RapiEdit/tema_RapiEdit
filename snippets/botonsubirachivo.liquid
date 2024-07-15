@@ -201,12 +201,15 @@ display: none;
                 document.body.style.overflow = 'hidden';
                 console.log('Intento de añadir al carrito sin archivo, overlay mostrado.');
             } else {
+                // Obtener todos los formularios de producto y enviar el archivo a cada uno
                 const forms = document.querySelectorAll('form.product-form');
                 forms.forEach(form => {
                     const formData = new FormData(form);
                     formData.append('properties[LOGO]', fileInput.files[0]);
-                    console.log('Formulario enviado con archivo:', formData);
                     // Aquí puedes enviar formData al servidor o procesarlo según necesites
+                    console.log('Formulario enviado con archivo:', formData);
+                    // Simular el envío del formulario (solo para demostración)
+                    // form.submit();
                 });
             }
         });
@@ -218,6 +221,7 @@ display: none;
         console.log('Overlay cerrado.');
     });
 });
+
 
 </script>
 
