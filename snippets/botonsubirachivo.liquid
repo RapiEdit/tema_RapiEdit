@@ -219,11 +219,18 @@ console.log('Formulario encontrado:', form);
             document.body.style.overflow = 'hidden';
             console.log('Intento de añadir al carrito sin archivo, overlay mostrado.');
         } else {
-            const formId = button.closest('form').id;
-            console.log(`Archivo enviado desde el formulario con ID: ${formId}`);
+            const form = button.closest('form');
+            if (form) {
+                const formId = form.id;
+                const formName = form.name;
+                console.log(`Archivo enviado desde el formulario con ID: ${formId} | Nombre: ${formName}`);
+            } else {
+                console.error('No se encontró el formulario padre.');
+            }
         }
     });
 });
+
 
         closeOverlay.addEventListener('click', () => {
             overlay.style.display = 'none';
