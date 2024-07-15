@@ -89,6 +89,7 @@
     <div class="uploadkit uploadkit-app-block" style="
     display: none !important;"> </div> {% endcomment %}
     
+
                       {%- form 'product',
                         product,
                         id: product_form_id,
@@ -104,7 +105,7 @@
                           disabled
                           class="product-variant-id"
                         >                   
-                        <input type="file" id="fileInput2" form="{{ 'product-form-' | append: section.id }}" name="properties[LOGO]" accept="image/png" style="display: block !important;">
+
                         {%- if gift_card_recipient_feature_active -%}
                           {%- render 'gift-card-recipient-form', product: product, form: form, section: section -%}
                         {%- endif -%}
