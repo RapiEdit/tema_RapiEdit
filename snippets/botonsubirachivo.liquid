@@ -136,13 +136,13 @@ display: none;
 <script>
     // Codigo Boton Subir Archivo
     document.addEventListener("DOMContentLoaded", () => {
-const form = document.getElementById('product-form-template--16477474848828__main');
-console.log('Formulario encontrado:', form);
+        const form = document.getElementById('product-form-template--16477474848828__main');
+        console.log('Formulario encontrado:', form);
 
-         if (form) {
-             form.removeAttribute("novalidate");
-             console.log('Atributo "novalidate" eliminado del formulario.');
-         }
+        if (form) {
+            form.removeAttribute("novalidate");
+            console.log('Atributo "novalidate" eliminado del formulario.');
+        }
 
         const fileInput = document.getElementById('fileInput');
         console.log('Input de archivo encontrado:', fileInput);
@@ -172,8 +172,8 @@ console.log('Formulario encontrado:', form);
         const overlayMessage = document.getElementById('overlayMessage');
         console.log('Mensaje de overlay encontrado:', overlayMessage);
 
-        const addToCartButtons = document.querySelectorAll('.product-form__submit');
-        console.log('Botón de añadir al carrito encontrado:', addToCartButtons);
+        const addToCartButton = document.querySelector(".product-form__submit");
+        console.log('Botón de añadir al carrito encontrado:', addToCartButton);
 
         botonSubir.addEventListener('click', () => {
             fileInput.click();
@@ -210,17 +210,15 @@ console.log('Formulario encontrado:', form);
             console.log('Archivo removido y previsualización ocultada.');
         });
 
-    addToCartButtons.forEach(button => {
-    button.addEventListener('click', (event) => {
-        if (!fileInput.value) {
-            event.preventDefault();
-            overlayMessage.textContent = "Ups! Has olvidado cargar tu archivo.";
-            overlay.style.display = 'flex';
-            document.body.style.overflow = 'hidden';
-            console.log('Intento de añadir al carrito sin archivo, overlay mostrado.');
-        }
-    });
-});
+        addToCartButton.addEventListener('click', (event) => {
+            if (!fileInput.value) {
+              event.preventDefault();
+              overlayMessage.textContent = "Ups! Has olvidado cargar tu archivo.";
+                overlay.style.display = 'flex';
+                document.body.style.overflow = 'hidden';
+                console.log('Intento de añadir al carrito sin archivo, overlay mostrado.');
+            }
+        });
 
         closeOverlay.addEventListener('click', () => {
             overlay.style.display = 'none';
