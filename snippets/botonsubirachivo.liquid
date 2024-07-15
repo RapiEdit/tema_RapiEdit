@@ -120,7 +120,7 @@ display: none;
 
 <div class="pd-form__input">
     <label style="display:none;" class="pd-form__label">Subir Archivo</label>
-    <input type="file" id="fileInput" form="product-form.sticky-atc.show-{{ section.id }}" name="properties[LOGO]" accept="image/png" style="display: none;">
+    <input type="file" id="fileInput" form="{{ 'product-form-' | append: section.id }}" name="properties[LOGO]" accept="image/png" style="display: none;">
     <div id="previewContainer">
         <img id="filePreview" class="botonsubir-thumbnails" src="" alt="File Preview" />
         <button type="button" id="removeButton" class="boton-eliminar">
@@ -141,7 +141,6 @@ display: none;
         forms.forEach(form => {
             form.removeAttribute("novalidate");
             console.log('Atributo "novalidate" eliminado del formulario.');
-            
         });
 
         const fileInput = document.getElementById('fileInput');
