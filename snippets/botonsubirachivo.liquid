@@ -210,7 +210,7 @@ console.log('Formulario encontrado:', form);
             console.log('Archivo removido y previsualización ocultada.');
         });
 
-    addToCartButtons.forEach(button => {
+        addToCartButtons.forEach(button => {
     button.addEventListener('click', (event) => {
         if (!fileInput.value) {
             event.preventDefault();
@@ -218,6 +218,9 @@ console.log('Formulario encontrado:', form);
             overlay.style.display = 'flex';
             document.body.style.overflow = 'hidden';
             console.log('Intento de añadir al carrito sin archivo, overlay mostrado.');
+        } else {
+            const formId = button.closest('form').id;
+            console.log(`Archivo enviado desde el formulario con ID: ${formId}`);
         }
     });
 });
