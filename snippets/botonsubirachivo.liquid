@@ -215,7 +215,8 @@ display: none;
             });
 
             if (!response.ok) {
-                throw new Error('Error al agregar al carrito');
+                const errorMessage = await response.text();
+                throw new Error(`Error al agregar al carrito: ${errorMessage}`);
             }
 
             const result = await response.json();
@@ -225,10 +226,11 @@ display: none;
             window.location.href = '/cart'; // Ejemplo de redirección a la página de carrito
         } catch (error) {
             console.error('Error al enviar el formulario:', error);
-            // Manejar el error según tus necesidades
+            // Muestra el mensaje de error al usuario o maneja el error según tus necesidades
         }
     });
 });
+
 
 
         closeOverlay.addEventListener('click', () => {
