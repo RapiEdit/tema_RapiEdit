@@ -137,12 +137,12 @@ display: none;
     // Codigo Boton Subir Archivo
     document.addEventListener("DOMContentLoaded", () => {
 const form = document.querySelectorAll('.product-form');
-console.log('Formulario encontrado:', form);
+console.log('Formularios encontrados:', form);
 
-         if (form) {
-             form.removeAttribute("novalidate");
-             console.log('Atributo "novalidate" eliminado del formulario.');
-         }
+forms.forEach(form => {
+        form.removeAttribute("novalidate");
+        console.log('Atributo "novalidate" eliminado del formulario.');
+    });
 
         const fileInput = document.getElementById('fileInput');
         console.log('Input de archivo encontrado:', fileInput);
