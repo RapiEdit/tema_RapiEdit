@@ -120,8 +120,7 @@ display: none;
 
 <div class="pd-form__input">
     <label style="display:none;" class="pd-form__label">Subir Archivo</label>
-    <!-- Mantenemos el atributo form para especificar el formulario al que pertenece -->
-    <input type="file" id="fileInput" name="properties[LOGO]" accept="image/png" style="display: none;">
+    <input type="file" id="fileInput" form="{{ 'product-form-' | append: section.id }}" name="properties[LOGO]" accept="image/png" style="display: none;">
     <div id="previewContainer">
         <img id="filePreview" class="botonsubir-thumbnails" src="" alt="File Preview" />
         <button type="button" id="removeButton" class="boton-eliminar">
@@ -136,24 +135,42 @@ display: none;
 
 <script>
     document.addEventListener("DOMContentLoaded", () => {
-        const fileInput = document.getElementById('fileInput');
-        const botonSubir = document.getElementById('BotonSubir');
-        const previewContainer = document.getElementById('previewContainer');
-        const filePreview = document.getElementById('filePreview');
-        const removeButton = document.getElementById('removeButton');
-        const overlay = document.getElementById('overlay');
-        const closeOverlay = document.getElementById('closeOverlay');
-        const overlayMessage = document.getElementById('overlayMessage');
-        const addToCartButtons = document.querySelectorAll('.product-form__submit');
+        const forms = document.querySelectorAll('.product-form');
+        console.log('Formularios encontrados:', forms);
 
+        forms.forEach(form => {
+            form.removeAttribute("novalidate");
+            console.log('Atributo "novalidate" eliminado del formulario.');
+        });
+
+        const fileInput = document.getElementById('fileInput');
         console.log('Input de archivo encontrado:', fileInput);
+
+        fileInput.removeAttribute('required');
+        console.log("Atributo 'required' removido del input de archivo.");
+
+        const botonSubir = document.getElementById('BotonSubir');
         console.log('Botón de subir encontrado:', botonSubir);
+
+        const previewContainer = document.getElementById('previewContainer');
         console.log('Contenedor de previsualización encontrado:', previewContainer);
-        console.log('Previsualización de archivo encontrado:', filePreview);
+
+        const filePreview = document.getElementById('filePreview');
+        console.log('Previsualización de archivo encontrada:', filePreview);
+
+        const removeButton = document.getElementById('removeButton');
         console.log('Botón de remover archivo encontrado:', removeButton);
+
+        const overlay = document.getElementById('overlay');
         console.log('Overlay encontrado:', overlay);
+
+        const closeOverlay = document.getElementById('closeOverlay');
         console.log('Botón de cerrar overlay encontrado:', closeOverlay);
+
+        const overlayMessage = document.getElementById('overlayMessage');
         console.log('Mensaje de overlay encontrado:', overlayMessage);
+
+        const addToCartButtons = document.querySelectorAll('.product-form__submit');
         console.log('Botones de añadir al carrito encontrados:', addToCartButtons);
 
         botonSubir.addEventListener('click', () => {
@@ -199,17 +216,6 @@ display: none;
                     overlay.style.display = 'flex';
                     document.body.style.overflow = 'hidden';
                     console.log('Intento de añadir al carrito sin archivo, overlay mostrado.');
-                } else {
-                    // Envío del archivo a todos los formularios relevantes
-                    const forms = document.querySelectorAll('form.product-form');
-                    forms.forEach(form => {
-                        const formData = new FormData(form);
-                        formData.append('properties[LOGO]', fileInput.files[0]);
-                        // Aquí puedes enviar formData al servidor o procesarlo según necesites
-                        console.log('Formulario enviado con archivo:', formData);
-                        // Simular el envío del formulario (solo para demostración)
-                        form.submit();
-                    });
                 }
             });
         });
@@ -220,6 +226,6 @@ display: none;
             console.log('Overlay cerrado.');
         });
     });
-</script>
 
+</script>
 
