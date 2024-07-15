@@ -1356,77 +1356,7 @@ class ProductRecommendations extends HTMLElement {
 
 customElements.define('product-recommendations', ProductRecommendations);
 
-// Espera a que el DOM esté completamente cargado
-document.addEventListener("DOMContentLoaded", function() {
-  // Obtiene el elemento con la clase "sticky-atc"
-  var atcElement = document.querySelector(".sticky-atc");
-  // Obtiene el primer elemento cuyo ID comienza con "ProductSubmitButton-"
-  var targetElement = document.querySelector('[id^="ProductSubmitButton-"]');
 
-  // Función para obtener la posición absoluta superior de un elemento en la página
-  function getAbsoluteTop(element) {
-      var top = 0;
-      // Recorre todos los elementos padres hasta el body
-      while (element) {
-          top += element.offsetTop || 0;
-          element = element.offsetParent;
-      }
-      return top;
-  }
-
-  // Escucha el evento de scroll en la ventana
-  window.addEventListener("scroll", function() {
-      // Obtiene la posición absoluta superior e inferior del elemento targetElement
-      var targetTopPosition = getAbsoluteTop(targetElement);
-      var targetBottomPosition = targetTopPosition + targetElement.clientHeight;
-
-      // Verifica si el elemento targetElement está fuera de la vista
-      var isTargetElementOutOfView = targetTopPosition < window.scrollY;
-
-      // Si está fuera de la vista, añade la clase 'show' al elemento atcElement
-      if (isTargetElementOutOfView) {
-          atcElement.classList.add('show');
-      } else {
-          // Si no está fuera de la vista, remueve la clase 'show'
-          atcElement.classList.remove('show');
-      }
-  });
-
-  // Referencia al input de variante en el formulario sticky-atc
-  var stickyAtcVariantInput = document.querySelector('.sticky-atc .product-variant-id');
-  
-  // Función para manejar el cambio de variante y actualizar el formulario sticky-atc
-  function updateStickyATCOption(optionName, optionValue) {
-      // Extrae el nombre de la opción si está en el formato options[OptionName]
-      var matches = optionName.match(/options\[(.+)\]/);
-      if (matches && matches[1]) {
-          optionName = matches[1];
-      }
-    
-      // Encuentra y actualiza la visualización de la opción seleccionada
-      var optionDisplay = document.querySelector('.selected-variant-option[data-option-name="' + optionName + '"]');
-      if (optionDisplay) {
-          optionDisplay.textContent = optionName + ': ' + optionValue;
-      }
-  }
-
-  // Función para manejar el cambio en las variantes del producto
-  function handleVariantChange(event) {
-      var target = event.target;
-      // Verifica si el cambio ocurre en un input o select
-      if (target.tagName === 'INPUT' || target.tagName === 'SELECT') {
-          var optionName = target.name;
-          var optionValue = target.tagName === 'INPUT' ? target.value : target.options[target.selectedIndex].textContent;
-          // Llama a la función para actualizar la opción del formulario sticky-atc
-          updateStickyATCOption(optionName, optionValue);
-      }
-  }
-
-  // Escucha los cambios en el cuerpo del documento para las variantes del producto
-  document.body.addEventListener('change', handleVariantChange);
-
-  // Las funciones para actualizar los precios y la imagen de la variante se encuentran en otros archivos
-});
 
 
 
