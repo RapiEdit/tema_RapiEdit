@@ -188,7 +188,7 @@
       },
       "7155349627714823297": {
         "type": "shopify:\/\/apps\/file-uploads-by-uploadkit\/blocks\/app-embed-block\/d7b05810-6170-4288-808a-df45248c4d28",
-        "disabled": true,
+        "disabled": false,
         "settings": {
         }
       }
