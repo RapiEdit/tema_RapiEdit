@@ -136,7 +136,7 @@ display: none;
 <script>
     document.addEventListener("DOMContentLoaded", () => {
         // Obtener todos los formularios de productos
-        const forms = document.querySelectorAll('[id^="ProductSubmitButton-"]');
+        const forms = document.querySelectorAll('[id^="product-form"]');
 
         forms.forEach((form, index) => {
             const formId = form.id ? form.id : `Formulario sin ID en el índice ${index}`;
