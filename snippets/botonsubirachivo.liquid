@@ -134,20 +134,18 @@ display: none;
 </div>
 
 <script>
-    // Codigo Boton Subir Archivo
     document.addEventListener("DOMContentLoaded", () => {
-const forms = document.querySelectorAll('.product-form');
-console.log('Formularios encontrados:', forms);
+        const forms = document.querySelectorAll('.product-form');
+        console.log('Formularios encontrados:', forms);
 
-forms.forEach(form => {
-        form.removeAttribute("novalidate");
-        console.log('Atributo "novalidate" eliminado del formulario.');
-    });
+        forms.forEach(form => {
+            form.removeAttribute("novalidate");
+            console.log('Atributo "novalidate" eliminado del formulario.');
+        });
 
         const fileInput = document.getElementById('fileInput');
         console.log('Input de archivo encontrado:', fileInput);
 
- // Remover el atributo 'required'
         fileInput.removeAttribute('required');
         console.log("Atributo 'required' removido del input de archivo.");
 
@@ -173,7 +171,7 @@ forms.forEach(form => {
         console.log('Mensaje de overlay encontrado:', overlayMessage);
 
         const addToCartButtons = document.querySelectorAll('.product-form__submit');
-        console.log('Botón de añadir al carrito encontrado:', addToCartButtons);
+        console.log('Botones de añadir al carrito encontrados:', addToCartButtons);
 
         botonSubir.addEventListener('click', () => {
             fileInput.click();
@@ -195,9 +193,9 @@ forms.forEach(form => {
                 console.log('Archivo PNG cargado y previsualizado.');
             } else {
                 fileInput.value = "";
-            overlayMessage.innerHTML = "Formato no permitido <br> por favor suba su logo en formato .PNG";
-            overlay.style.display = 'flex';
-            document.body.style.overflow = 'hidden';
+                overlayMessage.innerHTML = "Formato no permitido <br> por favor suba su logo en formato .PNG";
+                overlay.style.display = 'flex';
+                document.body.style.overflow = 'hidden';
                 console.error('Archivo seleccionado no es PNG.');
             }
         });
@@ -210,17 +208,17 @@ forms.forEach(form => {
             console.log('Archivo removido y previsualización ocultada.');
         });
 
-    addToCartButtons.forEach(button => {
-    button.addEventListener('click', (event) => {
-        if (!fileInput.value) {
-            event.preventDefault();
-            overlayMessage.textContent = "Ups! Has olvidado cargar tu archivo.";
-            overlay.style.display = 'flex';
-            document.body.style.overflow = 'hidden';
-            console.log('Intento de añadir al carrito sin archivo, overlay mostrado.');
-        }
-    });
-});
+        addToCartButtons.forEach(button => {
+            button.addEventListener('click', (event) => {
+                if (!fileInput.value) {
+                    event.preventDefault();
+                    overlayMessage.textContent = "Ups! Has olvidado cargar tu archivo.";
+                    overlay.style.display = 'flex';
+                    document.body.style.overflow = 'hidden';
+                    console.log('Intento de añadir al carrito sin archivo, overlay mostrado.');
+                }
+            });
+        });
 
         closeOverlay.addEventListener('click', () => {
             overlay.style.display = 'none';
@@ -230,3 +228,4 @@ forms.forEach(form => {
     });
 
 </script>
+
