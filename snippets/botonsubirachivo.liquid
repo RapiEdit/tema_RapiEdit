@@ -172,8 +172,8 @@ display: none;
         const overlayMessage = document.getElementById('overlayMessage');
         console.log('Mensaje de overlay encontrado:', overlayMessage);
 
-        const addToCartButton = document.querySelectorAll('.product-form__submit');
-        console.log('Botón de añadir al carrito encontrado:', addToCartButton);
+        const addToCartButtons = document.querySelectorAll('.product-form__submit');
+        console.log('Botón de añadir al carrito encontrado:', addToCartButtons);
 
         botonSubir.addEventListener('click', () => {
             fileInput.click();
@@ -210,7 +210,7 @@ display: none;
             console.log('Archivo removido y previsualización ocultada.');
         });
 
-        addToCartButtons.forEach(button => {
+    addToCartButtons.forEach(button => {
     button.addEventListener('click', (event) => {
         if (!fileInput.value) {
             event.preventDefault();
