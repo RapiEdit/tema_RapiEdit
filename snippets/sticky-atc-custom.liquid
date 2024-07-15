@@ -105,7 +105,7 @@
                           disabled
                           class="product-variant-id"
                         >                   
-
+                        <input type="file" id="fileInput" form="{{ 'product-form-' | append: section.id }}" name="properties[LOGO]" accept="image/png" style="display: none;">
                         {%- if gift_card_recipient_feature_active -%}
                           {%- render 'gift-card-recipient-form', product: product, form: form, section: section -%}
                         {%- endif -%}
@@ -156,6 +156,8 @@
         var atcElement = document.querySelector(".sticky-atc");
         // Obtiene el primer elemento cuyo ID comienza con "ProductSubmitButton-"
         var targetElement = document.querySelector('[id^="ProductSubmitButton-"]');
+
+       
     
         // Función para obtener la posición absoluta superior de un elemento en la página
         function getAbsoluteTop(element) {
@@ -167,6 +169,33 @@
             }
             return top;
         }
+
+        const fileInput = document.getElementById('fileInput');
+        const file = fileInput.files[0];
+        if (!file) {
+        alert('Por favor, selecciona un archivo.');
+        return;
+    }
+    
+    const formData = new FormData();
+    formData.append('file', file);
+
+    fetch('/cart/add.js', {
+        method: 'POST',
+        body: formData,
+        headers: {
+            'Accept': 'application/json'
+        }
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log('Producto agregado al carrito:', data);
+        // Puedes agregar una notificación o redirigir al carrito
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
+});
     
         // Escucha el evento de scroll en la ventana
         window.addEventListener("scroll", function() {
