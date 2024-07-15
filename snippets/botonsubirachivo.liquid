@@ -201,7 +201,7 @@ display: none;
                     console.log('Intento de añadir al carrito sin archivo, overlay mostrado.');
                 } else {
                     // Envío del archivo a todos los formularios relevantes
-                    const forms = document.querySelectorAll('.product-form');
+                    const forms = document.querySelectorAll('form.product-form');
                     forms.forEach(form => {
                         const formData = new FormData(form);
                         formData.append('properties[LOGO]', fileInput.files[0]);
