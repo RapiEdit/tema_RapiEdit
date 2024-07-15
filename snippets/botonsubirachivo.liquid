@@ -199,30 +199,26 @@ display: none;
         });
 
         addToCartButtons.forEach(button => {
-    button.addEventListener('click', (event) => {
-        // Verificar si se ha seleccionado un archivo antes de permitir el envío del formulario
-        if (!fileInput.value) {
-            event.preventDefault();
-            overlayMessage.textContent = "Ups! Has olvidado cargar tu archivo.";
-            overlay.style.display = 'flex';
-            document.body.style.overflow = 'hidden';
-            console.log('Intento de añadir al carrito sin archivo, overlay mostrado.');
-        } else {
-            // Si hay un archivo seleccionado, asignarlo a todos los formularios antes de enviar
-            const forms = document.querySelectorAll('form.product-form');
-            forms.forEach(form => {
-                if (form instanceof HTMLFormElement) { // Asegurarse de que 'form' sea un HTMLFormElement válido
+        button.addEventListener('click', (event) => {
+            // Verificar si se ha seleccionado un archivo antes de permitir el envío del formulario
+            if (!fileInput.value) {
+                event.preventDefault();
+                overlayMessage.textContent = "Ups! Has olvidado cargar tu archivo.";
+                overlay.style.display = 'flex';
+                document.body.style.overflow = 'hidden';
+            } else {
+                const form = button.closest('form.product-form');
+                if (form instanceof HTMLFormElement) {
                     const formData = new FormData(form);
                     formData.append('properties[LOGO]', fileInput.files[0]);
-                    // Aquí puedes enviar formData al servidor o procesarlo según necesites
                     console.log('Formulario enviado con archivo:', formData);
+                    // Aquí puedes enviar formData al servidor o procesarlo según necesites
                 } else {
-                    console.error('El elemento encontrado no es un formulario HTML válido:', form);
+                    console.error('El botón no está dentro de un formulario válido:', button);
                 }
-            });
-        }
+            }
+        });
     });
-});
 
         closeOverlay.addEventListener('click', () => {
             overlay.style.display = 'none';
