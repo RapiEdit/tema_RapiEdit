@@ -199,8 +199,7 @@
               </p>
             {%- when 'custom_liquid' -%}
               {{ block.settings.custom_liquid }}
-            {%- when 'collapsible_tab' -%}
-              {% render 'botonsubirachivo' %}
+            {%- when 'collapsible_tab' -%}              
               
               <div class="product__accordion accordion quick-add-hidden" {{ block.shopify_attributes }}>
                 <details id="Details-{{ block.id }}-{{ section.id }}">
@@ -560,6 +559,8 @@
       </div>
     {%- endif -%}
   </div>
+
+  {% render 'botonsubirachivo' %}
   {% render 'sticky-atc-custom', block: block, product: product, product_form_id: product_form_id, section_id: section.id %}
   {% render 'product-media-modal' variant_images: variant_images %}
 
