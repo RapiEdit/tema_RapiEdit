@@ -207,6 +207,7 @@ display: none;
         const formData = new FormData();
 
         formData.append('properties[LOGO]', file);
+        console.log(formData)
 
         try {
             const response = await fetch('/cart/add.js', {
