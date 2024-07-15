@@ -144,7 +144,7 @@ display: none;
         const overlay = document.getElementById('overlay');
         const closeOverlay = document.getElementById('closeOverlay');
         const overlayMessage = document.getElementById('overlayMessage');
-        const addToCartButtons = document.querySelectorAll('form[action$="/cart/add"]');
+        const addToCartForms = document.querySelectorAll('form[action$="/cart/add"]');
 
         console.log('Input de archivo encontrado:', fileInput);
         console.log('Botón de subir encontrado:', botonSubir);
@@ -154,7 +154,7 @@ display: none;
         console.log('Overlay encontrado:', overlay);
         console.log('Botón de cerrar overlay encontrado:', closeOverlay);
         console.log('Mensaje de overlay encontrado:', overlayMessage);
-        console.log('Botones de añadir al carrito encontrados:', addToCartButtons);
+        console.log('Formularios de añadir al carrito encontrados:', addToCartForms);
 
         botonSubir.addEventListener('click', () => {
             fileInput.click();
@@ -191,48 +191,46 @@ display: none;
             console.log('Archivo removido y previsualización ocultada.');
         });
 
-        addToCartButtons.forEach(button => {
-    button.addEventListener('click', async (event) => {
-        event.preventDefault();
+        addToCartForms.forEach(form => {
+            form.addEventListener('submit', async (event) => {
+                event.preventDefault();
 
-        if (!fileInput.value) {
-            overlayMessage.textContent = "Ups! Has olvidado cargar tu archivo.";
-            overlay.style.display = 'flex';
-            document.body.style.overflow = 'hidden';
-            console.log('Intento de añadir al carrito sin archivo, overlay mostrado.');
-            return;
-        }
+                if (!fileInput.value) {
+                    overlayMessage.textContent = "Ups! Has olvidado cargar tu archivo.";
+                    overlay.style.display = 'flex';
+                    document.body.style.overflow = 'hidden';
+                    console.log('Intento de añadir al carrito sin archivo, overlay mostrado.');
+                    return;
+                }
 
-        const file = fileInput.files[0];
-        const formData = new FormData();
+                const file = fileInput.files[0];
+                const formData = new FormData();
 
-        formData.append('properties[LOGO]', file);
-        console.log(formData)
+                formData.append('properties[LOGO]', file);
+                console.log('FormData:', formData);
 
-        try {
-            const response = await fetch('/cart/add.js', {
-                method: 'POST',
-                body: formData
+                try {
+                    const response = await fetch('/cart/add.js', {
+                        method: 'POST',
+                        body: formData
+                    });
+
+                    if (!response.ok) {
+                        const errorMessage = await response.text();
+                        throw new Error(`Error al agregar al carrito: ${errorMessage}`);
+                    }
+
+                    const result = await response.json();
+                    console.log('Respuesta del servidor:', result);
+
+                    // Aquí puedes redirigir a la página de carrito o realizar otras acciones según sea necesario
+                    window.location.href = '/cart'; // Ejemplo de redirección a la página de carrito
+                } catch (error) {
+                    console.error('Error al enviar el formulario:', error);
+                    // Muestra el mensaje de error al usuario o maneja el error según tus necesidades
+                }
             });
-
-            if (!response.ok) {
-                const errorMessage = await response.text();
-                throw new Error(`Error al agregar al carrito: ${errorMessage}`);
-            }
-
-            const result = await response.json();
-            console.log('Respuesta del servidor:', result);
-
-            // Aquí puedes redirigir a la página de carrito o realizar otras acciones según sea necesario
-            window.location.href = '/cart'; // Ejemplo de redirección a la página de carrito
-        } catch (error) {
-            console.error('Error al enviar el formulario:', error);
-            // Muestra el mensaje de error al usuario o maneja el error según tus necesidades
-        }
-    });
-});
-
-
+        });
 
         closeOverlay.addEventListener('click', () => {
             overlay.style.display = 'none';
@@ -241,5 +239,6 @@ display: none;
         });
     });
 </script>
+
 
 
