@@ -89,7 +89,7 @@
     <div class="uploadkit uploadkit-app-block" style="
     display: none !important;"> </div> {% endcomment %}
     
-    {% render 'botonsubirachivo' %}
+    
                       {%- form 'product',
                         product,
                         id: product_form_id,
@@ -220,6 +220,25 @@
         document.body.addEventListener('change', handleVariantChange);
     
         // Las funciones para actualizar los precios y la imagen de la variante se encuentran en otros archivos
+
+         // Manejo del campo de input tipo file generado por el bloque Liquid personalizado
+         var fileInput = document.querySelector('#fileInput');
+        
+        if (fileInput) {
+            console.log('File Input found:', fileInput);
+            fileInput.addEventListener('change', function(event) {
+                console.log('File selected:', event.target.files[0]);
+            });
+        } else {
+            console.log('File Input not found');
+        }
+
+        var addToCartForm = document.querySelector('.sticky-atc form');
+        addToCartForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+            console.log('Add to Cart Form Submitted');
+            // Aquí puedes agregar lógica adicional para manejar la adición al carrito
+        });
     });
 
 </script>
