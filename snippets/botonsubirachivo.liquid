@@ -192,27 +192,44 @@ display: none;
         });
 
         addToCartButtons.forEach(button => {
-            button.addEventListener('click', (event) => {
-                if (!fileInput.value) {
-                    event.preventDefault();
-                    overlayMessage.textContent = "Ups! Has olvidado cargar tu archivo.";
-                    overlay.style.display = 'flex';
-                    document.body.style.overflow = 'hidden';
-                    console.log('Intento de añadir al carrito sin archivo, overlay mostrado.');
-                } else {
-                    // Envío del archivo a todos los formularios relevantes
-                    const forms = document.querySelectorAll('form.product-form');
-                    forms.forEach(form => {
-                        const formData = new FormData(form);
-                        formData.append('properties[LOGO]', fileInput.files[0]);
-                        // Aquí puedes enviar formData al servidor o procesarlo según necesites
-                        console.log('Formulario enviado con archivo:', formData);
-                        // Simular el envío del formulario (solo para demostración)
-                        form.submit();
-                    });
-                }
+    button.addEventListener('click', async (event) => {
+        event.preventDefault();
+
+        if (!fileInput.value) {
+            overlayMessage.textContent = "Ups! Has olvidado cargar tu archivo.";
+            overlay.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+            console.log('Intento de añadir al carrito sin archivo, overlay mostrado.');
+            return;
+        }
+
+        const file = fileInput.files[0];
+        const formData = new FormData();
+
+        formData.append('properties[LOGO]', file);
+
+        try {
+            const response = await fetch('/cart/add.js', {
+                method: 'POST',
+                body: formData
             });
-        });
+
+            if (!response.ok) {
+                throw new Error('Error al agregar al carrito');
+            }
+
+            const result = await response.json();
+            console.log('Respuesta del servidor:', result);
+
+            // Aquí puedes redirigir a la página de carrito o realizar otras acciones según sea necesario
+            window.location.href = '/cart'; // Ejemplo de redirección a la página de carrito
+        } catch (error) {
+            console.error('Error al enviar el formulario:', error);
+            // Manejar el error según tus necesidades
+        }
+    });
+});
+
 
         closeOverlay.addEventListener('click', () => {
             overlay.style.display = 'none';
