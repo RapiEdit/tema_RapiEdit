@@ -210,7 +210,7 @@ console.log('Formulario encontrado:', form);
             console.log('Archivo removido y previsualización ocultada.');
         });
 
-        addToCartButtons.forEach(button => {
+    addToCartButtons.forEach(button => {
     button.addEventListener('click', (event) => {
         if (!fileInput.value) {
             event.preventDefault();
@@ -218,19 +218,9 @@ console.log('Formulario encontrado:', form);
             overlay.style.display = 'flex';
             document.body.style.overflow = 'hidden';
             console.log('Intento de añadir al carrito sin archivo, overlay mostrado.');
-        } else {
-            const form = button.closest('form[action^="/cart/add"]');
-            if (form) {
-                const formId = form.id;
-                const formName = form.name;
-                console.log(`Archivo enviado desde el formulario con ID: ${formId} | Nombre: ${formName}`);
-            } else {
-                console.error('No se encontró el formulario padre.');
-            }
         }
     });
 });
-
 
         closeOverlay.addEventListener('click', () => {
             overlay.style.display = 'none';
