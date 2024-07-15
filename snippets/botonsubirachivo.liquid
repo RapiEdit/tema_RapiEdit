@@ -134,7 +134,7 @@ display: none;
 </div>
 
 <script>
-    // Codigo Boton Subir Archivo
+    // Código Botón Subir Archivo
     document.addEventListener("DOMContentLoaded", () => {
         const form = document.getElementById('product-form-template--16477474848828__main');
         console.log('Formulario encontrado:', form);
@@ -144,24 +144,20 @@ display: none;
             console.log('Atributo "novalidate" eliminado del formulario.');
         }
 
-        const fileInput = document.getElementById('fileInput');
-        console.log('Input de archivo encontrado:', fileInput);
+        const fileInputs = document.querySelectorAll('.fileInput');
+        console.log('Inputs de archivo encontrados:', fileInputs);
 
- // Remover el atributo 'required'
-        fileInput.removeAttribute('required');
-        console.log("Atributo 'required' removido del input de archivo.");
+        const botonSubir = document.querySelectorAll('.BotonSubir');
+        console.log('Botones de subir encontrados:', botonSubir);
 
-        const botonSubir = document.getElementById('BotonSubir');
-        console.log('Botón de subir encontrado:', botonSubir);
+        const previewContainers = document.querySelectorAll('.previewContainer');
+        console.log('Contenedores de previsualización encontrados:', previewContainers);
 
-        const previewContainer = document.getElementById('previewContainer');
-        console.log('Contenedor de previsualización encontrado:', previewContainer);
+        const filePreviews = document.querySelectorAll('.filePreview');
+        console.log('Previsualizaciones de archivo encontradas:', filePreviews);
 
-        const filePreview = document.getElementById('filePreview');
-        console.log('Previsualización de archivo encontrada:', filePreview);
-
-        const removeButton = document.getElementById('removeButton');
-        console.log('Botón de remover archivo encontrado:', removeButton);
+        const removeButtons = document.querySelectorAll('.removeButton');
+        console.log('Botones de remover archivo encontrados:', removeButtons);
 
         const overlay = document.getElementById('overlay');
         console.log('Overlay encontrado:', overlay);
@@ -175,45 +171,77 @@ display: none;
         const addToCartButton = document.querySelector(".product-form__submit");
         console.log('Botón de añadir al carrito encontrado:', addToCartButton);
 
-        botonSubir.addEventListener('click', () => {
-            fileInput.click();
-            console.log('Click en botón de subir archivo.');
+        botonSubir.forEach(button => {
+            button.addEventListener('click', (event) => {
+                const targetInput = event.target.closest('div').querySelector('.fileInput');
+                targetInput.click();
+                console.log('Click en botón de subir archivo.');
+            });
         });
 
-        fileInput.addEventListener('change', (event) => {
-            const file = event.target.files[0];
-            console.log('Archivo seleccionado:', file);
+        fileInputs.forEach(fileInput => {
+            fileInput.removeAttribute('required');
+            console.log("Atributo 'required' removido del input de archivo.");
 
-            if (file && file.type === 'image/png') {
-                const reader = new FileReader();
-                reader.onload = function(e) {
-                    filePreview.src = e.target.result;
-                    previewContainer.style.display = 'block';
-                    botonSubir.innerHTML = 'CAMBIAR ARCHIVO <img src="https://cdn.shopify.com/s/files/1/0622/2161/5164/files/FolderUpIcon.svg?v=1720358303" alt="FolderUpIcon" style="filter: invert(1); width: 30px; height: 30px; vertical-align: middle; margin-left: 5px;">';
+            fileInput.addEventListener('change', (event) => {
+                const file = event.target.files[0];
+                console.log('Archivo seleccionado:', file);
+
+                if (file && file.type === 'image/png') {
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        filePreviews.forEach(preview => {
+                            preview.src = e.target.result;
+                        });
+                        previewContainers.forEach(container => {
+                            container.style.display = 'block';
+                        });
+                        botonSubir.forEach(button => {
+                            button.innerHTML = 'CAMBIAR ARCHIVO <img src="https://cdn.shopify.com/s/files/1/0622/2161/5164/files/FolderUpIcon.svg?v=1720358303" alt="FolderUpIcon" style="filter: invert(1); width: 30px; height: 30px; vertical-align: middle; margin-left: 5px;">';
+                        });
+
+                        // Sincroniza los archivos seleccionados en todos los inputs de archivo
+                        fileInputs.forEach(otherInput => {
+                            if (otherInput !== fileInput) {
+                                otherInput.files = event.target.files;
+                            }
+                        });
+                    }
+                    reader.readAsDataURL(file);
+                    console.log('Archivo PNG cargado y previsualizado.');
+                } else {
+                    fileInputs.forEach(input => input.value = "");
+                    overlayMessage.innerHTML = "Formato no permitido <br> por favor suba su logo en formato .PNG";
+                    overlay.style.display = 'flex';
+                    document.body.style.overflow = 'hidden';
+                    console.error('Archivo seleccionado no es PNG.');
                 }
-                reader.readAsDataURL(file);
-                console.log('Archivo PNG cargado y previsualizado.');
-            } else {
-                fileInput.value = "";
-            overlayMessage.innerHTML = "Formato no permitido <br> por favor suba su logo en formato .PNG";
-            overlay.style.display = 'flex';
-            document.body.style.overflow = 'hidden';
-                console.error('Archivo seleccionado no es PNG.');
-            }
+            });
         });
 
-        removeButton.addEventListener('click', () => {
-            fileInput.value = "";
-            filePreview.src = "";
-            previewContainer.style.display = 'none';
-            botonSubir.innerHTML = 'SUBIR ARCHIVO <img src="https://cdn.shopify.com/s/files/1/0622/2161/5164/files/FolderUpIcon.svg?v=1720358303" alt="FolderUpIcon" style="filter: invert(1); width: 30px; height: 30px; vertical-align: middle; margin-left: 5px;">';
-            console.log('Archivo removido y previsualización ocultada.');
+        removeButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                fileInputs.forEach(input => input.value = "");
+                filePreviews.forEach(preview => preview.src = "");
+                previewContainers.forEach(container => container.style.display = 'none');
+                botonSubir.forEach(button => {
+                    button.innerHTML = 'SUBIR ARCHIVO <img src="https://cdn.shopify.com/s/files/1/0622/2161/5164/files/FolderUpIcon.svg?v=1720358303" alt="FolderUpIcon" style="filter: invert(1); width: 30px; height: 30px; vertical-align: middle; margin-left: 5px;">';
+                });
+                console.log('Archivo removido y previsualización ocultada.');
+            });
         });
 
         addToCartButton.addEventListener('click', (event) => {
-            if (!fileInput.value) {
-              event.preventDefault();
-              overlayMessage.textContent = "Ups! Has olvidado cargar tu archivo.";
+            let fileUploaded = false;
+            fileInputs.forEach(input => {
+                if (input.value) {
+                    fileUploaded = true;
+                }
+            });
+
+            if (!fileUploaded) {
+                event.preventDefault();
+                overlayMessage.textContent = "Ups! Has olvidado cargar tu archivo.";
                 overlay.style.display = 'flex';
                 document.body.style.overflow = 'hidden';
                 console.log('Intento de añadir al carrito sin archivo, overlay mostrado.');
@@ -226,5 +254,4 @@ display: none;
             console.log('Overlay cerrado.');
         });
     });
-
 </script>
