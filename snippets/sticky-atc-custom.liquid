@@ -70,6 +70,10 @@
                                   {{ option }}: {{ product.selected_or_first_available_variant.options[forloop.index0] }}
                               </div>
                           {% endfor %}
+                          {%- comment %}
+                            Incorporar el bloque personalizado 'botonsubirachivo' si existe
+                          {%- endcomment %}
+                          {% render 'botonsubirachivo' %}
                       </div>
                       <div class="price-container desktop-price">
                           <span class="compared-price" style="{% unless product.selected_or_first_available_variant.compare_at_price > product.selected_or_first_available_variant.price %}display:none;{% endunless %}">{{ product.selected_or_first_available_variant.compare_at_price | money }}</span>
@@ -85,11 +89,6 @@
             
             
                   <div class="atc-button-container">
-{% comment %} <div id="shopify-block-file_uploads_by_uploadkit_app_block_jAqWrf" class="shopify-block shopify-app-block">
-    <div class="uploadkit uploadkit-app-block" style="
-    display: none !important;"> </div> {% endcomment %}
-    
-
                       {%- form 'product',
                         product,
                         id: product_form_id,
@@ -129,27 +128,18 @@
                               disabled
                             {% endif %}
                           >
-                            <span>
-                              {%- if product.selected_or_first_available_variant.available == false or quantity_rule_soldout -%}
-                                {{ 'products.product.sold_out' | t }}
-                              {%- else -%}
-                                {{ 'products.product.add_to_cart' | t }}
-                              {%- endif -%}
-                              <img src="https://cdn.shopify.com/s/files/1/0622/2161/5164/files/CartSaleIcon.svg?v=1720900094" alt="CartSaleIcon" style="filter: invert(1); width: 25px; height: 25px; vertical-align: middle;">
-                            </span>
-							{%- render 'loading-spinner' -%}
+                            <span class="button__inner">{{ 'Add to Cart' | t }}</span>
                           </button>
                         </div>
-                      {%- endform -%}
+                      </form>
+
                   </div>
               </div>
-
           </div>
       </div>
 </product-form>
 
 <script>
-
     // Espera a que el DOM esté completamente cargado
     document.addEventListener("DOMContentLoaded", function() {
         // Obtiene el elemento con la clase "sticky-atc"
@@ -219,10 +209,24 @@
         // Escucha los cambios en el cuerpo del documento para las variantes del producto
         document.body.addEventListener('change', handleVariantChange);
     
+        // Manejo del bloque Liquid personalizado y su campo input
+        var customField = document.querySelector('.selected-variant-option[data-option-name="custom_field"]');
+        
+        if (customField) {
+            console.log('Custom Field:', customField.textContent.trim());
+        }
+
+        var addToCartForm = document.querySelector('.sticky-atc form');
+        addToCartForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+            console.log('Add to Cart Form Submitted');
+            // Aquí puedes agregar lógica adicional para manejar la adición al carrito
+        });
+
         // Las funciones para actualizar los precios y la imagen de la variante se encuentran en otros archivos
     });
-
 </script>
+
 
 
 
