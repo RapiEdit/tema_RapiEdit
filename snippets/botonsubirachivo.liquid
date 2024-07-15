@@ -209,7 +209,7 @@ display: none;
             console.log('Intento de añadir al carrito sin archivo, overlay mostrado.');
         } else {
             // Si hay un archivo seleccionado, asignarlo a todos los formularios antes de enviar
-            const forms = document.querySelectorAll('.product-form');
+            const forms = document.querySelectorAll('form.product-form');
             forms.forEach(form => {
                 if (form instanceof HTMLFormElement) { // Asegurarse de que 'form' sea un HTMLFormElement válido
                     const formData = new FormData(form);
