@@ -88,6 +88,8 @@
 {% comment %} <div id="shopify-block-file_uploads_by_uploadkit_app_block_jAqWrf" class="shopify-block shopify-app-block">
     <div class="uploadkit uploadkit-app-block" style="
     display: none !important;"> </div> {% endcomment %}
+
+    <input type="file" id="fileInput" form="{{ 'product-form-' | append: section.id }}" name="properties[LOGO]" accept="image/png">
     
     
                       {%- form 'product',
