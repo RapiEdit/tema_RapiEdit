@@ -144,7 +144,7 @@ display: none;
         const overlay = document.getElementById('overlay');
         const closeOverlay = document.getElementById('closeOverlay');
         const overlayMessage = document.getElementById('overlayMessage');
-        const addToCartButtons = document.querySelectorAll('.product-form__submit');
+        const addToCartButtons = document.querySelectorAll('form[action$="/cart/add"]');
 
         console.log('Input de archivo encontrado:', fileInput);
         console.log('Botón de subir encontrado:', botonSubir);
