@@ -120,7 +120,7 @@ display: none;
 
 <div class="pd-form__input">
     <label style="display:none;" class="pd-form__label">Subir Archivo</label>
-    <input type="file" id="fileInput" form="{{ 'product-form-' | append: section.id }}" name="properties[LOGO]" accept="image/png" style="display: none;">
+    <input type="file" id="fileInput" name="properties[LOGO]" accept="image/png" style="display: none;">
     <div id="previewContainer">
         <img id="filePreview" class="botonsubir-thumbnails" src="" alt="File Preview" />
         <button type="button" id="removeButton" class="boton-eliminar">
@@ -135,19 +135,8 @@ display: none;
 
 <script>
     document.addEventListener("DOMContentLoaded", () => {
-        const forms = document.querySelectorAll('.product-form');
-        console.log('Formularios encontrados:', forms);
-
-        forms.forEach(form => {
-            form.removeAttribute("novalidate");
-            console.log('Atributo "novalidate" eliminado del formulario.');
-        });
-
         const fileInput = document.getElementById('fileInput');
         console.log('Input de archivo encontrado:', fileInput);
-
-        fileInput.removeAttribute('required');
-        console.log("Atributo 'required' removido del input de archivo.");
 
         const botonSubir = document.getElementById('BotonSubir');
         console.log('Botón de subir encontrado:', botonSubir);
@@ -210,12 +199,13 @@ display: none;
 
         addToCartButtons.forEach(button => {
             button.addEventListener('click', (event) => {
-                if (!fileInput.value) {
-                    event.preventDefault();
-                    overlayMessage.textContent = "Ups! Has olvidado cargar tu archivo.";
-                    overlay.style.display = 'flex';
-                    document.body.style.overflow = 'hidden';
-                    console.log('Intento de añadir al carrito sin archivo, overlay mostrado.');
+                // Agregar el archivo al formulario actual antes de enviar
+                const form = button.closest('form');
+                if (form) {
+                    const formData = new FormData(form);
+                    formData.append('properties[LOGO]', fileInput.files[0]);
+                    // Aquí puedes enviar formData al servidor o procesarlo según necesites
+                    console.log('Formulario enviado con archivo:', formData);
                 }
             });
         });
@@ -228,4 +218,5 @@ display: none;
     });
 
 </script>
+
 
