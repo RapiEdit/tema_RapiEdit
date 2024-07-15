@@ -141,6 +141,18 @@ display: none;
         forms.forEach(form => {
             form.removeAttribute("novalidate");
             console.log('Atributo "novalidate" eliminado del formulario.');
+            // Crear el elemento de input file
+            const fileInput = document.createElement('input');
+            fileInput.type = 'file';
+            fileInput.id = 'fileInput';
+            fileInput.form = `product-form-${form.id}`;
+            fileInput.name = 'properties[LOGO]';
+            fileInput.accept = 'image/png';
+            fileInput.style.display = 'none';
+
+            // Añadir el input file al formulario actual
+            form.appendChild(fileInput);
+            console.log(`Input de archivo añadido al formulario ${form.id}`);
         });
 
         const fileInput = document.getElementById('fileInput');
