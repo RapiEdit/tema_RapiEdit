@@ -1357,38 +1357,95 @@ class ProductRecommendations extends HTMLElement {
 customElements.define('product-recommendations', ProductRecommendations);
 
 document.addEventListener('DOMContentLoaded', function() {
-  var fileInput1 = document.getElementById('fileInput');
-  var fileInput2 = document.getElementById('fileInput2');
+  const form = document.getElementById('product-form-template--16477474848828__main');
+  console.log('Formulario encontrado:', form);
 
-  if (fileInput1 && fileInput2) {
-    console.log('Inputs de archivo encontrados.');
-
-    fileInput1.addEventListener('change', function() {
-      console.log('Cambio detectado en fileInput1');
-      syncFileInputs(fileInput1, fileInput2);
-    });
-
-    fileInput2.addEventListener('change', function() {
-      console.log('Cambio detectado en fileInput2');
-      syncFileInputs(fileInput2, fileInput1);
-    });
-  } else {
-    console.log('No se encontraron uno o ambos inputs de archivo.');
+  if (form) {
+      form.removeAttribute("novalidate");
+      console.log('Atributo "novalidate" eliminado del formulario.');
   }
 
-  function syncFileInputs(sourceInput, targetInput) {
-    var fileList = sourceInput.files;
-    if (fileList.length > 0) {
-      console.log('Sincronizando archivos de ' + sourceInput.id + ' a ' + targetInput.id);
-      var dataTransfer = new DataTransfer();
-      for (var i = 0; i < fileList.length; i++) {
-        dataTransfer.items.add(fileList[i]);
-        console.log('Archivo agregado:', fileList[i].name);
+  const fileInput = document.getElementById('fileInput');
+  console.log('Input de archivo encontrado:', fileInput);
+
+// Remover el atributo 'required'
+  fileInput.removeAttribute('required');
+  console.log("Atributo 'required' removido del input de archivo.");
+
+  const botonSubir = document.getElementById('BotonSubir');
+  console.log('Botón de subir encontrado:', botonSubir);
+
+  const previewContainer = document.getElementById('previewContainer');
+  console.log('Contenedor de previsualización encontrado:', previewContainer);
+
+  const filePreview = document.getElementById('filePreview');
+  console.log('Previsualización de archivo encontrada:', filePreview);
+
+  const removeButton = document.getElementById('removeButton');
+  console.log('Botón de remover archivo encontrado:', removeButton);
+
+  const overlay = document.getElementById('overlay');
+  console.log('Overlay encontrado:', overlay);
+
+  const closeOverlay = document.getElementById('closeOverlay');
+  console.log('Botón de cerrar overlay encontrado:', closeOverlay);
+
+  const overlayMessage = document.getElementById('overlayMessage');
+  console.log('Mensaje de overlay encontrado:', overlayMessage);
+
+  const addToCartButton = document.querySelector(".product-form__submit");
+  console.log('Botón de añadir al carrito encontrado:', addToCartButton);
+
+  botonSubir.addEventListener('click', () => {
+      fileInput.click();
+      console.log('Click en botón de subir archivo.');
+  });
+
+  fileInput.addEventListener('change', (event) => {
+      const file = event.target.files[0];
+      console.log('Archivo seleccionado:', file);
+
+      if (file && file.type === 'image/png') {
+          const reader = new FileReader();
+          reader.onload = function(e) {
+              filePreview.src = e.target.result;
+              previewContainer.style.display = 'block';
+              botonSubir.innerHTML = 'CAMBIAR ARCHIVO <img src="https://cdn.shopify.com/s/files/1/0622/2161/5164/files/FolderUpIcon.svg?v=1720358303" alt="FolderUpIcon" style="filter: invert(1); width: 30px; height: 30px; vertical-align: middle; margin-left: 5px;">';
+          }
+          reader.readAsDataURL(file);
+          console.log('Archivo PNG cargado y previsualizado.');
+      } else {
+          fileInput.value = "";
+      overlayMessage.innerHTML = "Formato no permitido <br> por favor suba su logo en formato .PNG";
+      overlay.style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+          console.error('Archivo seleccionado no es PNG.');
       }
-      targetInput.files = dataTransfer.files;
-      console.log('Archivos sincronizados.');
-    }
-  }
+  });
+
+  removeButton.addEventListener('click', () => {
+      fileInput.value = "";
+      filePreview.src = "";
+      previewContainer.style.display = 'none';
+      botonSubir.innerHTML = 'SUBIR ARCHIVO <img src="https://cdn.shopify.com/s/files/1/0622/2161/5164/files/FolderUpIcon.svg?v=1720358303" alt="FolderUpIcon" style="filter: invert(1); width: 30px; height: 30px; vertical-align: middle; margin-left: 5px;">';
+      console.log('Archivo removido y previsualización ocultada.');
+  });
+
+  addToCartButton.addEventListener('click', (event) => {
+      if (!fileInput.value) {
+        event.preventDefault();
+        overlayMessage.textContent = "Ups! Has olvidado cargar tu archivo.";
+          overlay.style.display = 'flex';
+          document.body.style.overflow = 'hidden';
+          console.log('Intento de añadir al carrito sin archivo, overlay mostrado.');
+      }
+  });
+
+  closeOverlay.addEventListener('click', () => {
+      overlay.style.display = 'none';
+      document.body.style.overflow = 'auto';
+      console.log('Overlay cerrado.');
+  });
 });
 
 
