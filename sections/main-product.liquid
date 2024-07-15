@@ -558,8 +558,11 @@
       </div>
     {%- endif -%}
   </div>
-  {% render 'sticky-atc-custom', block: block, product: product, product_form_id: product_form_id, section_id: section.id %}
+  {% comment %} {% render 'sticky-atc-custom', block: block, product: product, product_form_id: product_form_id, section_id: section.id %} {% endcomment %}
+
+{% render 'pruebasticky' %}
   {% render 'product-media-modal' variant_images: variant_images %}
+
 
   {% assign popups = section.blocks | where: 'type', 'popup' %}
   {%- for block in popups -%}

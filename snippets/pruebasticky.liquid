@@ -1,0 +1,52 @@
+{% if template contains 'product' %}
+    <style>
+      #meetanshi-addtocart-sticky {
+        position: fixed;
+        bottom: 20px; /* Add margin to the bottom */
+        left: 50%;
+        transform: translateX(-50%); /* Center horizontally */
+        background: #fff;
+        z-index: 9999;
+        text-align: center;
+        padding: 10px;
+        border: 1px solid #e2e2e2; /* Add a border around the entire div */
+        width: auto; /* Adjust the width to fit content */
+      }
+     
+      #meetanshi-addtocart-sticky select,
+      #meetanshi-addtocart-sticky input,
+      #meetanshi-addtocart-sticky button {
+        height: 40px;
+        margin: 0 5px;
+        vertical-align: middle;
+      }
+     
+      #meetanshi-addtocart-sticky input {
+        width: 60px;
+        text-align: center;
+      }
+     
+      #meetanshi-addtocart-sticky button {
+        padding: 0 10px;
+        background-color: #007bff; /* Change the button background color */
+        color: #fff; /* Change the button text color */
+        border: none; /* Remove the button border */
+        cursor: pointer; /* Add a pointer cursor */
+      }
+    </style>
+     
+    <div id="meetanshi-addtocart-sticky">
+      <div>
+        <strong>{{ product.title }}</strong> ({{ product.price | money }}) <!-- Display product name and price -->
+      </div>
+      <form action="/cart/add" method="post">
+        <select name="id">
+          {% for variant in product.variants %}
+          <option value="{{variant.id}}">{{variant.title}}</option>
+          {% endfor %}
+        </select>
+        <input type="number" name="quantity" value="1" min="1">
+        <button type="submit" class="btn btn-small">Add To Cart</button>
+      </form>
+    </div>
+    {% endif %}
