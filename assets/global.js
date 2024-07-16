@@ -1248,32 +1248,56 @@ this.toggleStickyAddButton(
   }
 
   toggleStickyAddButton(disable = true, text, modifyClass = true) {
+    console.log("toggleStickyAddButton llamada con disable:", disable);
+
     const stickyProductForm = document.querySelector('.sticky-atc');
-    
-    if (!stickyProductForm) return;
+    console.log("stickyProductForm encontrado:", stickyProductForm);
+
+    if (!stickyProductForm) {
+        console.log("Error: No se encontró el formulario .sticky-atc");
+        return;
+    }
 
     const stickyAddButton = stickyProductForm.querySelector('[name="add"]');
-    const stickyAddButtonText = stickyAddButton.querySelector('[name="add"] > span');
+    const stickyAddButtonText = stickyAddButton ? stickyAddButton.querySelector('[name="add"] > span') : null;
     const fileInput = document.querySelector('#fileInput'); // Selecciona el input file por su ID
-    
-    if (!stickyAddButton || !fileInput) return;
+    console.log("stickyAddButton encontrado:", stickyAddButton);
+    console.log("stickyAddButtonText encontrado:", stickyAddButtonText);
+    console.log("fileInput encontrado:", fileInput);
+
+    if (!stickyAddButton || !fileInput) {
+        console.log("Error: No se encontró el botón de agregar o el input de archivo (#fileInput)");
+        return;
+    }
 
     if (disable) {
         stickyAddButton.setAttribute('disabled', 'disabled');
-        if (text) stickyAddButtonText.textContent = text;
+        console.log("Botón deshabilitado");
+        if (text) {
+            stickyAddButtonText.textContent = text;
+            console.log("Texto del botón establecido:", text);
+        }
     } else {
         stickyAddButton.removeAttribute('disabled');
         stickyAddButtonText.textContent = window.variantStrings.addToCart;
+        console.log("Botón habilitado y texto establecido como addToCart");
     }
 
     // Asegúrate de que el archivo se haya seleccionado antes de habilitar el botón
     fileInput.addEventListener('change', function() {
+        console.log("Evento change del fileInput detectado");
         if (fileInput.files.length > 0) {
+            console.log("Archivo seleccionado:", fileInput.files[0]);
             stickyAddButton.removeAttribute('disabled');
             stickyAddButtonText.textContent = window.variantStrings.addToCart;
+            console.log("Botón habilitado después de la selección de archivo");
         } else {
             stickyAddButton.setAttribute('disabled', 'disabled');
-            if (text) stickyAddButtonText.textContent = text;
+            console.log("Botón deshabilitado ya que no se seleccionó archivo");
+            if (text) {
+                stickyAddButtonText.textContent = text;
+                console.log("Texto del botón establecido:", text);
+            }
         }
     });
 }
