@@ -1247,24 +1247,42 @@ this.toggleStickyAddButton(
       });
   }
 
-  toggleStickyAddButton(disable = true, text, modifyClass = true) {
+  function toggleStickyAddButton(disable = true, text, modifyClass = true) {
     const stickyProductForm = document.querySelector('.sticky-atc');
-    
+
     if (!stickyProductForm) return;
-  
+
     const stickyAddButton = stickyProductForm.querySelector('[name="add"]');
     const stickyAddButtonText = stickyAddButton.querySelector('[name="add"] > span');
-  
-    if (!stickyAddButton) return;
-  
+    const fileInput = document.querySelector('#fileInput'); // Selecciona el input file por su ID
+
+    if (!stickyAddButton || !fileInput) return;
+
     if (disable) {
-      stickyAddButton.setAttribute('disabled', 'disabled');
-      if (text) stickyAddButtonText.textContent = text;
+        stickyAddButton.setAttribute('disabled', 'disabled');
+        if (text) stickyAddButtonText.textContent = text;
     } else {
-      stickyAddButton.removeAttribute('disabled');
-      stickyAddButtonText.textContent = window.variantStrings.addToCart;
+        stickyAddButton.removeAttribute('disabled');
+        stickyAddButtonText.textContent = window.variantStrings.addToCart;
     }
-  }
+
+    // Asegúrate de que el archivo se haya seleccionado antes de habilitar el botón
+    fileInput.addEventListener('change', function() {
+        if (fileInput.files.length > 0) {
+            stickyAddButton.removeAttribute('disabled');
+            stickyAddButtonText.textContent = window.variantStrings.addToCart;
+        } else {
+            stickyAddButton.setAttribute('disabled', 'disabled');
+            if (text) stickyAddButtonText.textContent = text;
+        }
+    });
+}
+
+// Llama a esta función cuando sea necesario, por ejemplo, al cargar la página
+document.addEventListener('DOMContentLoaded', function() {
+    toggleStickyAddButton(true, window.variantStrings.soldOut);
+});
+
 
   
   toggleAddButton(disable = true, text, modifyClass = true) {
