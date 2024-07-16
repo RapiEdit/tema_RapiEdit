@@ -203,36 +203,62 @@
 
 </script>
 
+
+
+
+
             
 <style>
 
 	.options-container.hide-variant-options {
-	    display: none;
+	    display: block;
 	}
 
     .mobile-title {
         display: flex;
         font-size: 13px;
     }
+
+    .mobile-price {
+        display: flex;
+        margin-top: -50px;
+        justify-content: center !important;
+    align-items: center;
+    }
+
     .desktop-title {
         display: none;
     }
-      
+   
+    .desktop-price {
+        display: none !important;
+    }
+    
     @media (min-width: 750px) {
         .mobile-title {
             display: none;
         }
+
+        .mobile-price {
+        display: none !important;
+    }
         .desktop-title {
             display: flex;
             font-size: 15px;
         } 
+
+        .desktop-price {
+            display: flex !important;
+    }
+
+
     }
     
     
       
     .content-container {
         display: flex;
-        flex-direction: column; /* To stack its children vertically */
+        flex-direction: column; /* To stack its children vertically*/
         flex: 1; /* Allow it to take up the remaining space */
         align-items: stretch; /* Make children take full width */
     }
@@ -244,6 +270,7 @@
         justify-content: space-between;
         align-items: center;
         flex: 1; /* Allow it to take up the remaining space */
+        overflow: hidden;
     }
     
     
@@ -265,13 +292,14 @@
     /* The image container will only take up as much space as it needs */
     .selected-variant-image-container {
         flex-shrink: 0; /* Prevent shrinking */
-        height: 100px; Adjust as per your requirement
+        height: auto; Adjust as per your requirement
         overflow: hidden; 
         margin-left: 0px; /* Add some space between product info and image */
         margin-right: 10px; /* Space between image and right edge of screen */
         display: flex; /* Used to center the image both vertically and horizontally */
         align-items: center; /* Vertically center the image */
         justify-content: center; /* Horizontally center the image */
+        BOX-SHADOW: 0 2px 10px rgb(247 247 247 / 24%);
     }
       
     #selectedVariantImage {
@@ -291,13 +319,26 @@
         z-index: 2;
         width: 100%;
         align-items: center;    
-        background-color: #fff; /* or any desired color */
-        border: 1px solid #e0e0e0; /* optional */
+        box-sizing: border-box !important;
+    border-top: 4px solid transparent !important;
+    background-image: linear-gradient(rgb(16, 16, 16), rgb(16, 16, 16)), linear-gradient(to right, #5a0dff -5%, #ff29b8 31%, #ff581c, #ff29b8, #5a0dff) !important;
+    background-origin: border-box !important;
+    background-clip: padding-box, border-box !important;
+    background-size: 200% 100% !important;
+    animation: gradientAnimation 4s ease-in-out infinite !important;
         border-radius: 4px; /* optional */
         box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* optional for a subtle shadow */
         padding: 10px 10px; /* Optional: for some spacing */
         transition: bottom 0.3s ease-out; /* This adds the smooth slide animation */
     }
+
+    @keyframes gradientAnimation
+0% {
+    background-position: -100% 0;
+}
+100% {
+    background-position: 100% 0;
+}
     
     .sticky-atc.show {
         bottom: 0; /* This will make the sticky ATC box slide up */
@@ -315,6 +356,7 @@
     .selected-variant-option {
         color: #666; /* optional for a subtle color */
         font-size: 12px;
+        display: none;
     }
     
       
@@ -357,9 +399,9 @@
     }
     
     .selection-price {
-        font-size: 13px; /* Adjust font size as needed */
+        font-size: 18px; /* Adjust font size as needed */
         font-weight: bold;
-        color: #d53600; /* Adjust color as needed */
+        color: #ffffff; /* Adjust color as needed */
     }
       
     .compared-price {
@@ -380,15 +422,14 @@
     
         .sticky-atc {
             bottom: auto; /* Reset the bottom property for desktop */
-            top: -200px; /* Start off-screen */
+            bottom: -200px; /* Start off-screen */
             transition: top 0.3s ease-out; /* Transition for desktop */
             padding-top: 5px;
             padding-bottom: 5px;
         }
         
         .sticky-atc.show {
-            bottom: auto; /* Reset the bottom property for desktop */
-            top: 45px; /* Or the height of your sticky menubar if you have one */
+            top: auto; /* Reset the bottom property for desktop */
         }
     
         .product-details-container {
@@ -412,7 +453,7 @@
         }
         .selected-variant-details {
             flex-direction: row;
-            flex: 0 0 70%;  /* 70% of the parent's width */
+            flex: 0 0 65%;  /* 70% of the parent's width */
             justify-content: space-between;
             padding: 0px 10px;
         }
@@ -431,7 +472,7 @@
         }
       
         .atc-button-container {
-            flex: 0 0 30%;  /* 30% of the parent's width */
+            flex: 0 0 35%;  /* 30% of the parent's width */
             max-width: 40rem;
         }
       
@@ -440,10 +481,9 @@
     @media (min-width: 990px) {
     
         .sticky-atc.show {
-            top: 45px; /* Or the height of your sticky menubar if you have one */
+            top: auto; /* Or the height of your sticky menubar if you have one*/
         }
     }
       
   
 </style>
-
