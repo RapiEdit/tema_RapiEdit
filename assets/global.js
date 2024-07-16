@@ -1247,59 +1247,61 @@ this.toggleStickyAddButton(
       });
   }
 
-  function toggleStickyAddButton(disable = true, text, modifyClass = true) {
-    console.log("toggleStickyAddButton called with disable:", disable);
+  document.addEventListener('DOMContentLoaded', function() {
+    console.log("DOM fully loaded and parsed");
 
-    const stickyProductForm = document.querySelector('.sticky-atc');
-    console.log("stickyProductForm:", stickyProductForm);
+    function toggleStickyAddButton(disable = true, text, modifyClass = true) {
+        console.log("toggleStickyAddButton called with disable:", disable);
 
-    if (!stickyProductForm) return;
+        const stickyProductForm = document.querySelector('.sticky-atc');
+        console.log("stickyProductForm:", stickyProductForm);
 
-    const stickyAddButton = stickyProductForm.querySelector('[name="add"]');
-    const stickyAddButtonText = stickyAddButton.querySelector('[name="add"] > span');
-    const fileInput = document.querySelector('#fileInput'); // Selecciona el input file por su ID
-    console.log("stickyAddButton:", stickyAddButton);
-    console.log("fileInput:", fileInput);
+        if (!stickyProductForm) return;
 
-    if (!stickyAddButton || !fileInput) return;
+        const stickyAddButton = stickyProductForm.querySelector('[name="add"]');
+        const stickyAddButtonText = stickyAddButton.querySelector('[name="add"] > span');
+        const fileInput = document.querySelector('#fileInput'); // Selecciona el input file por su ID
+        console.log("stickyAddButton:", stickyAddButton);
+        console.log("fileInput:", fileInput);
 
-    if (disable) {
-        stickyAddButton.setAttribute('disabled', 'disabled');
-        console.log("Button disabled");
-        if (text) {
-            stickyAddButtonText.textContent = text;
-            console.log("Button text set to:", text);
-        }
-    } else {
-        stickyAddButton.removeAttribute('disabled');
-        stickyAddButtonText.textContent = window.variantStrings.addToCart;
-        console.log("Button enabled and text set to addToCart");
-    }
+        if (!stickyAddButton || !fileInput) return;
 
-    // Asegúrate de que el archivo se haya seleccionado antes de habilitar el botón
-    fileInput.addEventListener('change', function() {
-        console.log("fileInput change event triggered");
-        if (fileInput.files.length > 0) {
-            console.log("File selected:", fileInput.files[0]);
-            stickyAddButton.removeAttribute('disabled');
-            stickyAddButtonText.textContent = window.variantStrings.addToCart;
-            console.log("Button enabled after file selection");
-        } else {
+        if (disable) {
             stickyAddButton.setAttribute('disabled', 'disabled');
-            console.log("Button disabled as no file selected");
+            console.log("Button disabled");
             if (text) {
                 stickyAddButtonText.textContent = text;
                 console.log("Button text set to:", text);
             }
+        } else {
+            stickyAddButton.removeAttribute('disabled');
+            stickyAddButtonText.textContent = window.variantStrings.addToCart;
+            console.log("Button enabled and text set to addToCart");
         }
-    });
-}
 
-// Llama a esta función cuando sea necesario, por ejemplo, al cargar la página
-document.addEventListener('DOMContentLoaded', function() {
-    console.log("DOM fully loaded and parsed");
+        // Asegúrate de que el archivo se haya seleccionado antes de habilitar el botón
+        fileInput.addEventListener('change', function() {
+            console.log("fileInput change event triggered");
+            if (fileInput.files.length > 0) {
+                console.log("File selected:", fileInput.files[0]);
+                stickyAddButton.removeAttribute('disabled');
+                stickyAddButtonText.textContent = window.variantStrings.addToCart;
+                console.log("Button enabled after file selection");
+            } else {
+                stickyAddButton.setAttribute('disabled', 'disabled');
+                console.log("Button disabled as no file selected");
+                if (text) {
+                    stickyAddButtonText.textContent = text;
+                    console.log("Button text set to:", text);
+                }
+            }
+        });
+    }
+
+    // Llama a esta función cuando sea necesario, por ejemplo, al cargar la página
     toggleStickyAddButton(true, window.variantStrings.soldOut);
 });
+
 
 
 
