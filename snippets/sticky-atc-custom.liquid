@@ -13,8 +13,8 @@
 {% assign has_variants = true %}
 {% if product.options.size == 1 and product.options.first == 'Title' %}
   {% assign has_variants = false %}
-{% endif %} 
-   
+{% endif %}
+    
 <product-form
   class="product-form sticky-atc"
   data-hide-errors="{{ gift_card_recipient_feature_active }}"
@@ -44,8 +44,8 @@
                     {% if product.selected_or_first_available_variant.image %}
                       <img src="{{ product.selected_or_first_available_variant.image.src | img_url}}" alt="Selected Variant Image" id="selectedVariantImage">
 										{% elsif has_variants == false and product.images.size > 0 %}
-                      <img src="{{ product.images.first.src | img_url }}" alt="Product Image" id="selectedVariantImage">                    
-										{% endif %}
+                      <img src="{{ product.images.first.src | img_url }}" alt="Product Image" id="selectedVariantImage">
+                    {% endif %}
                   </div>
                   <div class="selected-variant-title desktop-title">{{ product.title }}</div> 
               </div>
@@ -118,17 +118,7 @@
                                 {{ 'products.product.add_to_cart' | t }}
                               {%- endif -%}
                             </span>
-                            <div class="loading-overlay__spinner hidden">
-                              <svg
-                                aria-hidden="true"
-                                focusable="false"
-                                class="spinner"
-                                viewBox="0 0 66 66"
-                                xmlns="<http://www.w3.org/2000/svg>"
-                              >
-                                <circle class="path" fill="none" stroke-width="6" cx="33" cy="33" r="30"></circle>
-                              </svg>
-                            </div>
+														{%- render 'loading-spinner' -%}
                           </button>
                         </div>
                       {%- endform -%}
@@ -193,7 +183,7 @@
             }
           
     
-         
+          
         }
     
         function handleVariantChange(event) {
@@ -216,9 +206,9 @@
             
 <style>
 
-		.options-container.hide-variant-options {
-		    display: none;
-		}
+	.options-container.hide-variant-options {
+	    display: none;
+	}
 
     .mobile-title {
         display: flex;
@@ -456,5 +446,6 @@
       
   
 </style>
+
 
 
