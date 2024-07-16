@@ -1296,11 +1296,7 @@ this.toggleStickyAddButton(
     });
 }
 
-// Llama a esta función cuando sea necesario, por ejemplo, al cargar la página
-document.addEventListener('DOMContentLoaded', function() {
-    console.log("DOM fully loaded and parsed");
-    toggleStickyAddButton(true, window.variantStrings.soldOut);
-});
+
 
 
   
