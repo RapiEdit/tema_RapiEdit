@@ -1247,8 +1247,7 @@ this.toggleStickyAddButton(
       });
   }
 
-  document.addEventListener('DOMContentLoaded', function() {
-    console.log("DOM fully loaded and parsed");
+
 
     function toggleStickyAddButton(disable = true, text, modifyClass = true) {
         console.log("toggleStickyAddButton called with disable:", disable);
@@ -1300,7 +1299,7 @@ this.toggleStickyAddButton(
 
     // Llama a esta función cuando sea necesario, por ejemplo, al cargar la página
     toggleStickyAddButton(true, window.variantStrings.soldOut);
-});
+
 
 
 
