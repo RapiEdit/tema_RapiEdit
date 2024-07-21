@@ -243,6 +243,7 @@
         margin-top: -50px;
         justify-content: center !important;
     align-items: center;
+    flex-direction: column;
     }
 
     .desktop-title {
@@ -424,12 +425,27 @@
     }
       
     .compared-price {
-        font-size: 14px; /* Adjust font size as needed */
-        text-decoration: line-through;
-        color: #888; /* A lighter color to indicate it's the old price */
-        margin-right: 10px; /* Space between actual price and compared price */
+    font-size: 14px; /* Ajusta el tamaño de la fuente según sea necesario */
+    text-decoration: line-through; /* Dibuja una línea a través del texto para indicar que está tachado */
+    color: #888; /* Un color más claro para indicar que es el precio antiguo */
+    margin-right: 10px; /* Espacio entre el precio actual y el precio comparado */
+}
+
+/* Ocultar el precio comparado en dispositivos móviles */
+@media (max-width: 768px) { /* Puedes ajustar el valor según tus necesidades */
+    .compared-price {
+        display: none;
     }
+
+    .discount-percentage{
+    MARGIN-TOP: -7PX;
+    color: #0eff00;
+
+}
+}
     
+
+
     .atc-button-container {
         align-items: center !important;
     }
