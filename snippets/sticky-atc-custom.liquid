@@ -56,7 +56,7 @@
                           {%- assign discount_fraction = float_difference | divided_by: product.selected_or_first_available_variant.compare_at_price -%}
                           {%- assign discount_percentage = discount_fraction | times: 100 | round -%}
                           &nbsp;
-                          <span class="selection-price discount-percentage" style="{% unless product.selected_or_first_available_variant.compare_at_price > product.selected_or_first_available_variant.price %}display:none;{% endunless %}">(Save {{ discount_percentage }}%)</span>
+                          <span class="selection-price discount-percentage" style="{% unless product.selected_or_first_available_variant.compare_at_price > product.selected_or_first_available_variant.price %}display:none;{% endunless %}">(Ahorra {{ discount_percentage }}%)</span>
                       </div>
 
                   <div class="selected-variant-title desktop-title">{{ product.title }}</div> 
@@ -79,7 +79,7 @@
                           {%- assign discount_fraction = float_difference | divided_by: product.selected_or_first_available_variant.compare_at_price -%}
                           {%- assign discount_percentage = discount_fraction | times: 100 | round -%}
                           &nbsp;
-                          <span class="selection-price discount-percentage" style="{% unless product.selected_or_first_available_variant.compare_at_price > product.selected_or_first_available_variant.price %}display:none;{% endunless %}">(Save {{ discount_percentage }}%)</span>
+                          <span class="selection-price discount-percentage" style="{% unless product.selected_or_first_available_variant.compare_at_price > product.selected_or_first_available_variant.price %}display:none;{% endunless %}">(Ahorra {{ discount_percentage }}%)</span>
                       </div>
                   </div>
             
