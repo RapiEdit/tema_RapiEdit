@@ -127,24 +127,27 @@
         "judge_me_reviews_BPbc7b",
         "html_content_U6XiC9"
       ],
+      "custom_css": [
+
+      ],
       "settings": {
       }
     },
     "related-products": {
       "type": "related-products",
       "settings": {
-        "heading": "You may also like",
+        "heading": "¡AQUÍ HAY MÁS!",
         "heading_size": "h2",
         "products_to_show": 4,
         "columns_desktop": 4,
         "color_scheme": "scheme-1",
-        "image_ratio": "portrait",
+        "image_ratio": "square",
         "image_shape": "default",
         "show_secondary_image": true,
         "show_vendor": false,
-        "show_rating": false,
+        "show_rating": true,
         "columns_mobile": "2",
-        "padding_top": 0,
+        "padding_top": 60,
         "padding_bottom": 60
       }
     },
