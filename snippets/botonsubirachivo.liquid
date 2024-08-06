@@ -172,10 +172,8 @@ display: none;
         const overlayMessage = document.getElementById('overlayMessage');
         console.log('Mensaje de overlay encontrado:', overlayMessage);
 
-        const addToCartButtons = document.querySelectorAll(".product-form__submit");
-addToCartButtons.forEach(button => {
-    console.log('Botón de añadir al carrito encontrado:', button);
-});
+        const addToCartButton = document.querySelectorAll(".product-form__submit");
+        console.log('Botón de añadir al carrito encontrado:', addToCartButton);
 
         botonSubir.addEventListener('click', () => {
             fileInput.click();
