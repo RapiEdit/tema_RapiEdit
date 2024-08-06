@@ -14,7 +14,7 @@
 {% if product.options.size == 1 and product.options.first == 'Title' %}
   {% assign has_variants = false %}
 {% endif %}
-<div {{ block.shopify_attributes }}>    
+    
 <product-form
   class="product-form sticky-atc"
   data-hide-errors="{{ gift_card_recipient_feature_active }}"
@@ -146,7 +146,7 @@
           </div>
       </div>
 </product-form>
-</div>
+
 <script>
 
     // Espera a que el DOM esté completamente cargado
