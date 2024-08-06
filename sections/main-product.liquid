@@ -67,7 +67,7 @@
 
   {% assign variant_images = product.images | where: 'attached_to_variant?', true | map: 'src' %}
 
-  {% render 'botonsubirarchivo'%} 
+  {% render 'botonsubirachivo' %} 
   {% render 'sticky-atc-custom', block: block, product: product, product_form_id: product_form_id, section_id: section.id %}
 
   <div id="overlay" class="overlay" style="display: none;">
