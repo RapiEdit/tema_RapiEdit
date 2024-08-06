@@ -100,7 +100,7 @@
                       -%}
 
                       {% comment %} <input type="file" name="properties[PROBANDO]" required> {% endcomment %}
-                      <input type="file" id="fileInput"  name="properties[LOGO]" required>
+                      <input type="file" id="fileInput2"  name="properties[LOGO]" required>
 
                       
                         <input
@@ -232,7 +232,53 @@
 </script>
 
 
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const fileInput2 = document.getElementById('fileInput2');
 
+        // Función para actualizar el segundo input con el archivo del localStorage
+        function updateFileInput2() {
+            const storedFile = localStorage.getItem('uploadedFile');
+            if (storedFile) {
+                // Crear un objeto Blob a partir del archivo almacenado
+                const byteString = atob(storedFile.split(',')[1]); // Decodificar la URL de datos
+                const mimeString = storedFile.split(',')[0].split(':')[1].split(';')[0]; // Obtener el tipo MIME
+                const ab = new ArrayBuffer(byteString.length);
+                const ia = new Uint8Array(ab);
+                for (let i = 0; i < byteString.length; i++) {
+                    ia[i] = byteString.charCodeAt(i);
+                }
+                const file = new Blob([ab], { type: mimeString });
+                console.log('Archivo Blob creado:', file);
+
+                // Actualizar el input de archivo
+                const fileList = new DataTransfer();
+                fileList.items.add(file);
+                fileInput2.files = fileList.files;
+                console.log('Input de archivo sincronizado con el archivo de localStorage.');
+            } else {
+                console.log('No hay archivo en localStorage.');
+            }
+        }
+
+        // Llamar a la función para sincronizar el archivo al cargar la página
+        updateFileInput2();
+
+        // Escuchar el evento personalizado para actualizar el archivo
+        window.addEventListener('fileChanged', updateFileInput2);
+
+        fileInput2.addEventListener('change', (event) => {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    localStorage.setItem('uploadedFile', e.target.result);
+                }
+                reader.readAsDataURL(file);
+            }
+        });
+    });
+</script>
 
 
             
