@@ -127,26 +127,20 @@ text-align: center;
     margin-bottom: 0.6rem;
     display: block; /* Asegura que el label se muestre en una línea separada */
     text-align: left; /* Alineación por defecto */
+    width: 100%; /* Asegura que el label ocupe todo el ancho del contenedor */
 }
 
-/* Centrar el label en dispositivos móviles */
-@media (max-width: 768px) {
-    .field.custom {
-        width: 100%; /* Ancho completo en dispositivos móviles */
-    }
-    
-    .custom.form__label {
-        text-align: center; /* Centra el texto del label en móviles */
-        width: 100%; /* Asegura que el label ocupe todo el ancho disponible */
-        display: block; /* Asegura que el label se muestre como un bloque */
-        margin: 0 auto; /* Centra el label en el contenedor */
-    }
+.field-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Alineación por defecto en pantallas grandes */
+    width: 50%; /* Ancho por defecto para pantallas grandes */
+    margin: 0 auto; /* Centra el contenedor en la pantalla */
+}
 
-    .field.custom {
-        display: flex;
-        flex-direction: column;
-        align-items: center; /* Centra el contenido del campo */
-    }
+.field.custom {
+    margin-top: 0;
+    width: 100%; /* Ocupa el 100% del ancho del contenedor */
 }
 
 .custom .field__input {
@@ -156,6 +150,18 @@ text-align: center;
     resize: vertical; /* Permite que el usuario ajuste la altura */
     overflow: hidden; /* Oculta las barras de desplazamiento */
     box-sizing: border-box; /* Asegura que el padding se incluya en el ancho total */
+}
+
+/* Media Query para dispositivos móviles */
+@media (max-width: 768px) {
+    .field-container {
+        width: 100%; /* Ancho completo en dispositivos móviles */
+        align-items: center; /* Centra el contenido del contenedor */
+    }
+    
+    .custom.form__label {
+        text-align: center; /* Centra el texto del label en móviles */
+    }
 }
 
 
@@ -177,10 +183,13 @@ text-align: center;
 </div>
 
 
-<label class="form__label-text custom" for="nota-opcional">Nota (Opcional):</label>
-<div class="field custom">
-    <textarea class="field__input" form="{{ 'product-form-' | append: section.id }}" id="nota-opcional" name="properties[Nota (Opcional):]" placeholder="¿Alguna Sugerencia?"></textarea>
+<div class="field-container">
+    <label class="form__label-text custom" for="nota-opcional">Nota (Opcional):</label>
+    <div class="field custom">
+        <textarea class="field__input" form="{{ 'product-form-' | append: section.id }}" id="nota-opcional" name="properties[Nota (Opcional):]" placeholder="¿Alguna Sugerencia?"></textarea>
+    </div>
 </div>
+
 
 
 <script>
