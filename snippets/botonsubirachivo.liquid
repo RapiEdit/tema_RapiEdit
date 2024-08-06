@@ -225,7 +225,7 @@ display: none;
                     console.log('Intento de añadir al carrito sin archivo, overlay mostrado.');
                 } else {
                     // Envía el formulario si hay archivo cargado
-                    form.submit(); // O usa el método adecuado para enviar el formulario si es necesario
+                    form.requestSubmit(); // Alternativa a form.submit() // O usa el método adecuado para enviar el formulario si es necesario
                 }
             });
         });
