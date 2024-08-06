@@ -120,10 +120,7 @@ display: none;
 
 <div class="product-form__input">
     <label style="display:none;" class="pd-form__label">Subir Archivo</label>
-    <input type="file" id="fileInput" form="{{ 'product-form-' | append: section.id }}" name="properties[LOGO]" accept="image/png" style="display: none;" required>
-    {% comment %} <script>
-        document.addEventListener("DOMContentLoaded", ()=>{document.querySelector("form[novalidate]").removeAttribute("novalidate")})
-        </script> {% endcomment %}
+    <input type="file" id="fileInput" form="{{ 'product-form-' | append: section.id }}" name="properties[LOGO]" accept="image/png" style="display: none;">
     <div id="previewContainer">
         <img id="filePreview" class="botonsubir-thumbnails" src="" alt="File Preview" />
         <button type="button" id="removeButton" class="boton-eliminar">
@@ -139,13 +136,13 @@ display: none;
 <script>
     // Codigo Boton Subir Archivo
     document.addEventListener("DOMContentLoaded", () => {
-        // const form = document.getElementById('product-form-template--16477474848828__main');
-        // console.log('Formulario encontrado:', form);
+        const form = document.getElementById('product-form-template--16477474848828__main');
+        console.log('Formulario encontrado:', form);
 
-        // if (form) {
-        //     form.removeAttribute("novalidate");
-        //     console.log('Atributo "novalidate" eliminado del formulario.');
-        // }
+        if (form) {
+            form.removeAttribute("novalidate");
+            console.log('Atributo "novalidate" eliminado del formulario.');
+        }
 
         const fileInput = document.getElementById('fileInput');
         console.log('Input de archivo encontrado:', fileInput);
@@ -175,7 +172,7 @@ display: none;
         const overlayMessage = document.getElementById('overlayMessage');
         console.log('Mensaje de overlay encontrado:', overlayMessage);
 
-        const addToCartButton = document.querySelector('[id^="StickyProductSubmitButton-"]');
+        const addToCartButton = document.querySelector(".product-form__submit");
         console.log('Botón de añadir al carrito encontrado:', addToCartButton);
 
         botonSubir.addEventListener('click', () => {
