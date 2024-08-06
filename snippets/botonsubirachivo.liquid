@@ -135,18 +135,23 @@ display: none;
 
 <script>
     document.addEventListener("DOMContentLoaded", () => {
+        // Seleccionar todos los inputs de archivo
         const fileInputs = document.querySelectorAll('.fileInput');
         console.log('Inputs de archivo encontrados:', fileInputs);
 
+        // Seleccionar todos los botones de subir
         const botonSubirButtons = document.querySelectorAll('.botonSubir');
         console.log('Botones de subir encontrados:', botonSubirButtons);
 
+        // Seleccionar todos los contenedores de previsualización
         const previewContainers = document.querySelectorAll('.previewContainer');
         console.log('Contenedores de previsualización encontrados:', previewContainers);
 
+        // Seleccionar todos los botones de remover
         const removeButtons = document.querySelectorAll('.removeButton');
         console.log('Botones de remover archivo encontrados:', removeButtons);
 
+        // Verificar si el overlay y su contenido están presentes
         const overlay = document.getElementById('overlay');
         console.log('Overlay encontrado:', overlay);
 
@@ -155,6 +160,14 @@ display: none;
 
         const overlayMessage = document.getElementById('overlayMessage');
         console.log('Mensaje de overlay encontrado:', overlayMessage);
+
+        // Asegurarse de que todos los elementos tengan la misma cantidad
+        if (fileInputs.length !== botonSubirButtons.length ||
+            fileInputs.length !== previewContainers.length ||
+            fileInputs.length !== removeButtons.length) {
+            console.error('Número de elementos no coincide.');
+            return;
+        }
 
         fileInputs.forEach((fileInput, index) => {
             const botonSubir = botonSubirButtons[index];
@@ -201,7 +214,10 @@ display: none;
             });
 
             // Verifica si el archivo está cargado antes de añadir al carrito
-            document.querySelectorAll('form[action="/cart/add"]').forEach(form => {
+            const forms = document.querySelectorAll('form[action="/cart/add"]');
+            console.log('Formularios de añadir al carrito encontrados:', forms);
+
+            forms.forEach(form => {
                 form.addEventListener('submit', (event) => {
                     if (!fileInput.value) {
                         event.preventDefault();
@@ -214,14 +230,19 @@ display: none;
             });
 
             // Cierra el overlay
-            closeOverlay.addEventListener('click', () => {
-                overlay.style.display = 'none';
-                document.body.style.overflow = 'auto';
-                console.log('Overlay cerrado.');
-            });
+            if (closeOverlay) {
+                closeOverlay.addEventListener('click', () => {
+                    overlay.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                    console.log('Overlay cerrado.');
+                });
+            } else {
+                console.error('Botón de cerrar overlay no encontrado.');
+            }
         });
     });
 </script>
+
 
 
 
