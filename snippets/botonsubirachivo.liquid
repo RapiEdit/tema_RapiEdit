@@ -186,9 +186,9 @@ text-align: center;
 </div>
 
 
-<div class="field-container hidden">
+<div class="field-container hidden" id="nota-field">
     <label class="form__label-text custom" for="nota-opcional">Nota (Opcional):</label>
-    <div class="field custom" id="nota-field">
+    <div class="field custom">
         <textarea class="field__input" form="{{ 'product-form-' | append: section.id }}" id="nota-opcional" name="properties[Nota (Opcional):]" placeholder="¿Alguna Sugerencia?"></textarea>
     </div>
 </div>
@@ -252,14 +252,14 @@ text-align: center;
                 reader.onload = function(e) {
                     filePreview.src = e.target.result;
                     previewContainer.style.display = 'block';
-                    botonSubir.innerHTML = 'CAMBIAR ARCHIVO <img src="https://cdn.shopify.com/s/files/1/0622/2161/5164/files/RefreshIcon.svg?v=1720358522" alt="RefreshIcon" style="filter: invert(1); width: 30px; height: 30px; vertical-align: middle; margin-left: 5px;">';                    
-                }
-                reader.readAsDataURL(file);
-                // Mostrar el campo textarea si es un archivo PNG
+                    botonSubir.innerHTML = 'CAMBIAR ARCHIVO <img src="https://cdn.shopify.com/s/files/1/0622/2161/5164/files/RefreshIcon.svg?v=1720358522" alt="RefreshIcon" style="filter: invert(1); width: 30px; height: 30px; vertical-align: middle; margin-left: 5px;">';
+                     // Mostrar el campo textarea si es un archivo PNG
         const notaField = document.getElementById('nota-field');
         if (notaField) {
             notaField.classList.remove('hidden'); // Mostrar el campo
         }
+                }
+                reader.readAsDataURL(file);
                 console.log('Archivo PNG cargado y previsualizado.');
 
             } else {
