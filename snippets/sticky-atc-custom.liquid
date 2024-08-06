@@ -35,6 +35,7 @@
         </svg>
         <span class="product-form__error-message"></span>
       </div>
+
       <div class="content-container">
           <div class="selected-variant-title mobile-title">{{ product.title }}</div>  
           <div class="product-details-container">
@@ -88,8 +89,6 @@
     <div class="uploadkit uploadkit-app-block" style="
     display: none !important;"> </div> </div> {% endcomment %}
 
-   
-
                       {%- form 'product',
                         product,
                         id: product_form_id,
@@ -105,7 +104,7 @@
                           disabled
                           class="product-variant-id"
                         >                   
-
+            
                         {%- if gift_card_recipient_feature_active -%}
                           {%- render 'gift-card-recipient-form', product: product, form: form, section: section -%}
                         {%- endif -%}
@@ -219,7 +218,6 @@
                 updateStickyATCOption(optionName, optionValue);
             }
         }
-        
     
         // Escucha los cambios en el cuerpo del documento para las variantes del producto
         document.body.addEventListener('change', handleVariantChange);
