@@ -153,27 +153,7 @@
       </div>
 </product-form>
 
-<script>
-    window.onload = function() {
-        // Función para sincronizar los inputs
-        function syncFiles(event) {
-            var input1 = document.getElementById('fileInput1');
-            var input2 = document.getElementById('fileInput2');
-            
-            if (event.target === input1) {
-                input2.files = input1.files;
-                console.log('Archivo seleccionado en input 1:', input1.files[0]);
-            } else {
-                input1.files = input2.files;
-                console.log('Archivo seleccionado en input 2:', input2.files[0]);
-            }
-        }
 
-        // Añadir event listeners a los inputs
-        document.getElementById('fileInput1').addEventListener('change', syncFiles);
-        document.getElementById('fileInput2').addEventListener('change', syncFiles);
-    };
-</script>
 
 <script>
 
