@@ -171,7 +171,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
             // Añadir el archivo al FormData
             if (fileInput && fileInput.files.length > 0) {
-                formData.append('custom_file', fileInput.files[0]);
+                formData.append('fileInput', fileInput.files[0]);
             }
 
             // Enviar el FormData al servidor usando fetch
