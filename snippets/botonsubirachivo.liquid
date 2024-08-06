@@ -120,11 +120,32 @@ display: none;
 text-align: center;
 }
 
-.form__label-text .custom{
-    text-align: center;
     }
 
+
+.custom.form__label {
+    margin-bottom: 0.6rem;
+}
+
+.field.custom {
+    margin-top: 0;
+    width: 50%; /* Ancho por defecto para pantallas grandes */
+}
+
+.custom .field__input {
+    padding-top: 0.8rem;
+    width: 100%; /* Ocupa el 100% del ancho del contenedor */
+    height: auto; /* La altura será automática */
+    resize: vertical; /* Permite que el usuario ajuste la altura */
+}
+
+/* Media Query para dispositivos móviles */
+@media (max-width: 768px) {
+    .field.custom {
+        width: 100%; /* Ancho completo en dispositivos móviles */
     }
+}
+
 </style>
 
 <div class="product-form__input">
@@ -143,11 +164,11 @@ text-align: center;
 </div>
 
 
-<style>.custom.form__label{margin-bottom: 0.6rem}.field.custom{margin-top:0; width: 50%}.custom .field__input{padding-top:0.8rem}</style>  
-<label class="form__label-text custom" for="nota-(opcional):">Nota (Opcional):</label>
+<label class="form__label-text custom" for="nota-opcional">Nota (Opcional):</label>
 <div class="field custom">
-    <input class="field__input" form="{{ 'product-form-' | append: section.id }}" type="text" id="nota-(opcional):" name="properties[Nota (Opcional):]" placeholder="¿Alguna Sugerencia?">
+    <textarea class="field__input" form="{{ 'product-form-' | append: section.id }}" id="nota-opcional" name="properties[Nota (Opcional):]" placeholder="¿Alguna Sugerencia?"></textarea>
 </div>
+
 
 <script>
     // Codigo Boton Subir Archivo
