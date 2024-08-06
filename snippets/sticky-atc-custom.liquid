@@ -149,134 +149,112 @@
 </product-form>
 
 <script>
-document.addEventListener("DOMContentLoaded", function() {
-    // Obtiene el elemento con la clase "sticky-atc"
-    var atcElement = document.querySelector(".sticky-atc");
-    console.log('Sticky ATC Element:', atcElement);
-    
-    // Obtiene el primer elemento cuyo ID comienza con "ProductSubmitButton-"
-    var targetElement = document.querySelector('[id^="ProductSubmitButton-"]');
-    console.log('Target Element:', targetElement);
-    
-    // Obtiene el input que contiene el archivo
-    const fileInput = document.getElementById('fileInput');
-    console.log('Sticky Input de archivo encontrado:', fileInput);
 
-    // Obtiene el formulario en el elemento sticky-atc
-    var form = document.querySelector('.sticky-atc .product-form');
-    console.log('Form Element:', form);
+    // Espera a que el DOM esté completamente cargado
+    document.addEventListener("DOMContentLoaded", function() {
+        // Obtiene el elemento con la clase "sticky-atc"
+        var atcElement = document.querySelector(".sticky-atc");
+        // Obtiene el primer elemento cuyo ID comienza con "ProductSubmitButton-"
+        var targetElement = document.querySelector('[id^="ProductSubmitButton-"]');
+        
+        // Obtiene el input que contiene el archivo
+        const fileInput = document.getElementById('fileInput');
+        console.log('Stikcy Input de archivo encontrado:', fileInput);
 
-    if (form) {
         form.addEventListener('submit', function(event) {
-            event.preventDefault(); // Evitar el envío por defecto
-            console.log('Form submit event triggered');
+        event.preventDefault(); // Evitar el envío por defecto
 
-            // Crear un nuevo objeto FormData
-            var formData = new FormData(form);
-            console.log('FormData creado:', formData);
+        // Crear un nuevo objeto FormData
+        var formData = new FormData(form);
 
-            // Añadir el archivo al FormData
-            if (fileInput && fileInput.files.length > 0) {
-                console.log('Añadiendo archivo al FormData:', fileInput.files[0]);
-                formData.append('fileInput', fileInput.files[0]);
-            } else {
-                console.log('No hay archivos en el fileInput');
-            }
+        // Añadir el archivo al FormData
+        if (fileInput && fileInput.files.length > 0) {
+            formData.append('custom_file', fileInput.files[0]);
+        }
 
-            // Enviar el FormData al servidor usando fetch
-            fetch(form.action, {
-                method: 'POST',
-                body: formData
-            }).then(response => {
-                console.log('Respuesta del servidor:', response);
-                return response.json(); // Procesar la respuesta del servidor
-            }).then(data => {
-                console.log('Success:', data);
-                // Manejar la respuesta del servidor
-            }).catch(error => {
-                console.error('Error:', error);
-            });
+        // Enviar el FormData al servidor usando fetch
+        fetch(form.action, {
+            method: 'POST',
+            body: formData
+        }).then(response => {
+            return response.json(); // Procesar la respuesta del servidor
+        }).then(data => {
+            console.log('Success:', data);
+            // Manejar la respuesta del servidor
+        }).catch(error => {
+            console.error('Error:', error);
         });
-    } else {
-        console.log('No se encontró el formulario en sticky-atc');
-    }
-
-    // Función para obtener la posición absoluta superior de un elemento en la página
-    function getAbsoluteTop(element) {
-        var top = 0;
-        // Recorre todos los elementos padres hasta el body
-        while (element) {
-            top += element.offsetTop || 0;
-            element = element.offsetParent;
+    });
+    
+        // Función para obtener la posición absoluta superior de un elemento en la página
+        function getAbsoluteTop(element) {
+            var top = 0;
+            // Recorre todos los elementos padres hasta el body
+            while (element) {
+                top += element.offsetTop || 0;
+                element = element.offsetParent;
+            }
+            return top;
         }
-        return top;
-    }
+    
+        
+        // Escucha el evento de scroll en la ventana
+        window.addEventListener("scroll", function() {
+            // Obtiene la posición absoluta superior e inferior del elemento targetElement
+            var targetTopPosition = getAbsoluteTop(targetElement);
+            var targetBottomPosition = targetTopPosition + targetElement.clientHeight;
+    
+            // Verifica si el elemento targetElement está fuera de la vista
+            var isTargetElementOutOfView = targetTopPosition < window.scrollY;
+    
+            // Si está fuera de la vista, añade la clase 'show' al elemento atcElement
+            if (isTargetElementOutOfView) {
+                atcElement.classList.add('show');
+            } else {
+                // Si no está fuera de la vista, remueve la clase 'show'
+                atcElement.classList.remove('show');
+            }
+        });
 
-    // Escucha el evento de scroll en la ventana
-    window.addEventListener("scroll", function() {
-        // Obtiene la posición absoluta superior e inferior del elemento targetElement
-        var targetTopPosition = getAbsoluteTop(targetElement);
-        var targetBottomPosition = targetTopPosition + targetElement.clientHeight;
-        console.log('Posición superior del targetElement:', targetTopPosition);
-        console.log('Posición inferior del targetElement:', targetBottomPosition);
-
-        // Verifica si el elemento targetElement está fuera de la vista
-        var isTargetElementOutOfView = targetTopPosition < window.scrollY;
-
-        // Si está fuera de la vista, añade la clase 'show' al elemento atcElement
-        if (isTargetElementOutOfView) {
-            atcElement.classList.add('show');
-            console.log('Element está fuera de la vista, se añade la clase show');
-        } else {
-            // Si no está fuera de la vista, remueve la clase 'show'
-            atcElement.classList.remove('show');
-            console.log('Element está dentro de la vista, se remueve la clase show');
+        // Referencia al input de variante en el formulario sticky-atc
+        var stickyAtcVariantInput = document.querySelector('.sticky-atc .product-variant-id');
+        
+        // Función para manejar el cambio de variante y actualizar el formulario sticky-atc
+        function updateStickyATCOption(optionName, optionValue) {
+            // Extrae el nombre de la opción si está en el formato options[OptionName]
+            var matches = optionName.match(/options\[(.+)\]/);
+            if (matches && matches[1]) {
+                optionName = matches[1];
+            }
+          
+            // Encuentra y actualiza la visualización de la opción seleccionada
+            var optionDisplay = document.querySelector('.selected-variant-option[data-option-name="' + optionName + '"]');
+            if (optionDisplay) {
+                optionDisplay.textContent = optionName + ': ' + optionValue;
+            }
         }
+    
+        // Función para manejar el cambio en las variantes del producto
+        function handleVariantChange(event) {
+            var target = event.target;
+            // Verifica si el cambio ocurre en un input o select
+            if (target.tagName === 'INPUT' || target.tagName === 'SELECT') {
+                var optionName = target.name;
+                var optionValue = target.tagName === 'INPUT' ? target.value : target.options[target.selectedIndex].textContent;
+                // Llama a la función para actualizar la opción del formulario sticky-atc
+                updateStickyATCOption(optionName, optionValue);
+            }
+        }
+
+        
+    
+        // Escucha los cambios en el cuerpo del documento para las variantes del producto
+        document.body.addEventListener('change', handleVariantChange);
+    
+        // Las funciones para actualizar los precios y la imagen de la variante se encuentran en otros archivos
     });
 
-    // Referencia al input de variante en el formulario sticky-atc
-    var stickyAtcVariantInput = document.querySelector('.sticky-atc .product-variant-id');
-    console.log('Sticky Variant Input:', stickyAtcVariantInput);
-
-    // Función para manejar el cambio de variante y actualizar el formulario sticky-atc
-    function updateStickyATCOption(optionName, optionValue) {
-        // Extrae el nombre de la opción si está en el formato options[OptionName]
-        var matches = optionName.match(/options\[(.+)\]/);
-        if (matches && matches[1]) {
-            optionName = matches[1];
-        }
-        console.log('Actualizando opción:', optionName, 'con valor:', optionValue);
-
-        // Encuentra y actualiza la visualización de la opción seleccionada
-        var optionDisplay = document.querySelector('.selected-variant-option[data-option-name="' + optionName + '"]');
-        if (optionDisplay) {
-            optionDisplay.textContent = optionName + ': ' + optionValue;
-        } else {
-            console.log('No se encontró la visualización para la opción:', optionName);
-        }
-    }
-
-    // Función para manejar el cambio en las variantes del producto
-    function handleVariantChange(event) {
-        var target = event.target;
-        // Verifica si el cambio ocurre en un input o select
-        if (target.tagName === 'INPUT' || target.tagName === 'SELECT') {
-            var optionName = target.name;
-            var optionValue = target.tagName === 'INPUT' ? target.value : target.options[target.selectedIndex].textContent;
-            console.log('Cambio de variante detectado:', optionName, 'con valor:', optionValue);
-            // Llama a la función para actualizar la opción del formulario sticky-atc
-            updateStickyATCOption(optionName, optionValue);
-        }
-    }
-
-    // Escucha los cambios en el cuerpo del documento para las variantes del producto
-    document.body.addEventListener('change', handleVariantChange);
-
-    // Las funciones para actualizar los precios y la imagen de la variante se encuentran en otros archivos
-});
 </script>
-
-
 
 
 
