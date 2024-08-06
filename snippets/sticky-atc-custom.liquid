@@ -90,12 +90,9 @@
     display: none !important;"> </div> </div> {% endcomment %}
 
     <div class="product-form__input">
-<label class="form__label-file">PROBANDO</label>
-<input type="file" form="{{ 'product-form-' | append: section.id }}" name="properties[PROBANDO]" required>
-    <script>
-    document.addEventListener("DOMContentLoaded", ()=>{document.querySelector("form[novalidate]").removeAttribute("novalidate")})
-    </script>
-</div>
+    <label class="form__label-file">PROBANDO</label>
+    <input type="file" name="properties[PROBANDO]" required>
+  </div>
 
                       {%- form 'product',
                         product,
