@@ -175,7 +175,7 @@ display: none;
         const overlayMessage = document.getElementById('overlayMessage');
         console.log('Mensaje de overlay encontrado:', overlayMessage);
 
-        const addToCartButton = document.querySelector(".product-form__submit");
+        const addToCartButton = document.querySelector('[id^="StickyProductSubmitButton-"]');
         console.log('Botón de añadir al carrito encontrado:', addToCartButton);
 
         botonSubir.addEventListener('click', () => {
