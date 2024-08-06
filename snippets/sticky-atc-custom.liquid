@@ -156,6 +156,7 @@
         var targetElement = document.querySelector('[id^="ProductSubmitButton-"]');
         // Obtiene el input que contiene el archivo
         const fileInput = document.getElementById('fileInput');
+        console.log('Input de archivo encontrado:', fileInput);
     
         // Función para obtener la posición absoluta superior de un elemento en la página
         function getAbsoluteTop(element) {
@@ -168,9 +169,7 @@
             return top;
         }
     
-        const fileInput = document.getElementById('fileInput');
-        console.log('Sticky Input de archivo encontrado:', fileInput);
-
+        
         // Escucha el evento de scroll en la ventana
         window.addEventListener("scroll", function() {
             // Obtiene la posición absoluta superior e inferior del elemento targetElement
