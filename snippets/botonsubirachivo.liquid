@@ -120,18 +120,108 @@ display: none;
 
 <div class="product-form__input">
     <label style="display:none;" class="pd-form__label">Subir Archivo</label>
-    <input type="file" id="fileInput" name="properties[LOGO]" accept="image/png" style="display: none;">
-    <div id="previewContainer">
-        <img id="filePreview" class="botonsubir-thumbnails" src="" alt="File Preview" />
-        <button type="button" id="removeButton" class="boton-eliminar">
+    <input type="file" class="fileInput" name="properties[LOGO]" accept="image/png" style="display: none;">
+    <div class="previewContainer">
+        <img class="filePreview botonsubir-thumbnails" src="" alt="File Preview" />
+        <button type="button" class="removeButton boton-eliminar">
             <img src="https://cdn.shopify.com/s/files/1/0622/2161/5164/files/XIcon.svg?v=1720922730" alt="Remove Icon">
         </button>
     </div>
-    <button type="button" id="BotonSubir" class="Boton-Subir">
+    <button type="button" class="botonSubir Boton-Subir">
        SUBIR ARCHIVO
        <img src="https://cdn.shopify.com/s/files/1/0622/2161/5164/files/FolderUpIcon.svg?v=1720358303" alt="FolderUpIcon" style="filter: invert(1); width: 30px; height: 30px; vertical-align: middle; margin-left: 5px;">
     </button>
 </div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const fileInputs = document.querySelectorAll('.fileInput');
+        console.log('Inputs de archivo encontrados:', fileInputs);
+
+        const botonSubirButtons = document.querySelectorAll('.botonSubir');
+        console.log('Botones de subir encontrados:', botonSubirButtons);
+
+        const previewContainers = document.querySelectorAll('.previewContainer');
+        console.log('Contenedores de previsualización encontrados:', previewContainers);
+
+        const removeButtons = document.querySelectorAll('.removeButton');
+        console.log('Botones de remover archivo encontrados:', removeButtons);
+
+        const overlay = document.getElementById('overlay');
+        console.log('Overlay encontrado:', overlay);
+
+        const closeOverlay = document.getElementById('closeOverlay');
+        console.log('Botón de cerrar overlay encontrado:', closeOverlay);
+
+        const overlayMessage = document.getElementById('overlayMessage');
+        console.log('Mensaje de overlay encontrado:', overlayMessage);
+
+        fileInputs.forEach((fileInput, index) => {
+            const botonSubir = botonSubirButtons[index];
+            const previewContainer = previewContainers[index];
+            const filePreview = previewContainer.querySelector('.filePreview');
+            const removeButton = removeButtons[index];
+
+            // Botón para abrir el selector de archivos
+            botonSubir.addEventListener('click', () => {
+                fileInput.click();
+                console.log('Click en botón de subir archivo.');
+            });
+
+            // Muestra una vista previa del archivo seleccionado
+            fileInput.addEventListener('change', (event) => {
+                const file = event.target.files[0];
+                console.log('Archivo seleccionado:', file);
+
+                if (file && file.type === 'image/png') {
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        filePreview.src = e.target.result;
+                        previewContainer.style.display = 'block';
+                        botonSubir.innerHTML = 'CAMBIAR ARCHIVO <img src="https://cdn.shopify.com/s/files/1/0622/2161/5164/files/RefreshIcon.svg?v=1720358522" alt="RefreshIcon" style="filter: invert(1); width: 30px; height: 30px; vertical-align: middle; margin-left: 5px;">';
+                        console.log('Archivo PNG cargado y previsualizado.');
+                    }
+                    reader.readAsDataURL(file);
+                } else {
+                    fileInput.value = "";
+                    overlayMessage.innerHTML = "Formato no permitido <br> por favor suba su logo en formato .PNG";
+                    overlay.style.display = 'flex';
+                    document.body.style.overflow = 'hidden';
+                    console.error('Archivo seleccionado no es PNG.');
+                }
+            });
+
+            // Remueve el archivo y oculta la vista previa
+            removeButton.addEventListener('click', () => {
+                fileInput.value = "";
+                filePreview.src = "";
+                previewContainer.style.display = 'none';
+                botonSubir.innerHTML = 'SUBIR ARCHIVO <img src="https://cdn.shopify.com/s/files/1/0622/2161/5164/files/FolderUpIcon.svg?v=1720358303" alt="FolderUpIcon" style="filter: invert(1); width: 30px; height: 30px; vertical-align: middle; margin-left: 5px;">';
+                console.log('Archivo removido y previsualización ocultada.');
+            });
+
+            // Verifica si el archivo está cargado antes de añadir al carrito
+            document.querySelectorAll('form[action="/cart/add"]').forEach(form => {
+                form.addEventListener('submit', (event) => {
+                    if (!fileInput.value) {
+                        event.preventDefault();
+                        overlayMessage.textContent = "Ups! Has olvidado cargar tu archivo.";
+                        overlay.style.display = 'flex';
+                        document.body.style.overflow = 'hidden';
+                        console.log('Intento de añadir al carrito sin archivo, overlay mostrado.');
+                    }
+                });
+            });
+
+            // Cierra el overlay
+            closeOverlay.addEventListener('click', () => {
+                overlay.style.display = 'none';
+                document.body.style.overflow = 'auto';
+                console.log('Overlay cerrado.');
+            });
+        });
+    });
+</script>
 
 
 
