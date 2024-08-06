@@ -169,10 +169,13 @@
         }
     
         // Verificar si hay un archivo seleccionado
-        if (window.selectedFile) {
+            if (window.selectedFile) {
                 // Crear un nuevo FormData y agregar el archivo
                 const formData = new FormData(form);
                 formData.append('properties[LOGO]', window.selectedFile);
+
+                // Mostrar un mensaje en la consola cuando se agrega un nuevo archivo
+    console.log('Archivo agregado al FormData:', window.selectedFile);
 
                 // Reenviar el formulario con el archivo adjunto
                 const xhr = new XMLHttpRequest();
@@ -197,7 +200,7 @@
                 document.body.style.overflow = 'hidden';
                 console.log('Intento de enviar formulario sin archivo, overlay mostrado.');
             }
-            
+
         // Escucha el evento de scroll en la ventana
         window.addEventListener("scroll", function() {
             // Obtiene la posición absoluta superior e inferior del elemento targetElement
