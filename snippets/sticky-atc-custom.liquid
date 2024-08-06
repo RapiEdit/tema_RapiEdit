@@ -85,11 +85,6 @@
             
             
                  <div class="atc-button-container">
-{% comment %} <div id="shopify-block-file_uploads_by_uploadkit_app_block_jAqWrf" class="shopify-block shopify-app-block">
-    <div class="uploadkit uploadkit-app-block" style="
-    display: none !important;"> </div> </div> {% endcomment %}
-
-
 
                       {%- form 'product',
                         product,
@@ -100,7 +95,7 @@
                       -%}
                       
                       {% comment %} <input type="file" name="properties[PROBANDO]" required> {% endcomment %}
-                      <input type="file" id="fileInput2"  name="properties[LOGO]" required>
+                      <input type="file" id="fileInput2"  name="properties[LOGO]" style="display: none;">
 
                       
                         <input
