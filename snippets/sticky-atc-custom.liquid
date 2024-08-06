@@ -95,10 +95,13 @@
                         product,
                         id: product_form_id,
                         class: 'form',
-                        novalidate: 'novalidate',
+                        {% comment %} novalidate: 'novalidate', {% endcomment %}
                         data-type: 'add-to-cart-form'
                       -%}
+
                       <input type="file" name="properties[PROBANDO]" required>
+
+
                         <input
                           type="hidden"
                           name="id"
