@@ -748,7 +748,41 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 
+<script>
+ document.addEventListener('DOMContentLoaded', function () {
+    const fileInput1 = document.getElementById('fileInput1');
+    const fileInput2 = document.getElementById('fileInput2');
 
+    function syncFiles(sourceInput, targetInput) {
+        const files = sourceInput.files;
+        const dataTransfer = new DataTransfer();
+
+        if (files.length > 0) {
+            console.log(`Archivos en ${sourceInput.id}:`, files);
+            for (const file of files) {
+                dataTransfer.items.add(file);
+            }
+            targetInput.files = dataTransfer.files;
+            console.log(`Archivos sincronizados a ${targetInput.id}:`, targetInput.files);
+        } else {
+            targetInput.value = '';
+            console.log(`No hay archivos en ${sourceInput.id}.`);
+        }
+    }
+
+    fileInput1.addEventListener('change', function () {
+        console.log(`Cambio detectado en ${fileInput1.id}`);
+        syncFiles(fileInput1, fileInput2);
+    });
+
+    fileInput2.addEventListener('change', function () {
+        console.log(`Cambio detectado en ${fileInput2.id}`);
+        syncFiles(fileInput2, fileInput1);
+    });
+});
+
+
+</script>
 
 
   {%- liquid
