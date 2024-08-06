@@ -121,9 +121,9 @@ display: none;
 <div class="product-form__input">
     <label style="display:none;" class="pd-form__label">Subir Archivo</label>
     <input type="file" id="fileInput" form="{{ 'product-form-' | append: section.id }}" name="properties[LOGO]" accept="image/png" style="display: none;" required>
-    <script>
+    {% comment %} <script>
         document.addEventListener("DOMContentLoaded", ()=>{document.querySelector("form[novalidate]").removeAttribute("novalidate")})
-        </script>
+        </script> {% endcomment %}
     <div id="previewContainer">
         <img id="filePreview" class="botonsubir-thumbnails" src="" alt="File Preview" />
         <button type="button" id="removeButton" class="boton-eliminar">
