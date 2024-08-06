@@ -627,26 +627,45 @@
   </script>
   
   <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        function syncFiles(event) {
+            var input1 = document.getElementById('fileInput1');
+            var input2 = document.getElementById('fileInput2');
 
-document.addEventListener("DOMContentLoaded", function() {
-    // Función para sincronizar los inputs
-    function syncFiles(event) {
-        var input1 = document.getElementById('fileInput1');
-        var input2 = document.getElementById('fileInput2');
-        
-        if (event.target === input1) {
-            input2.files = input1.files;
-            console.log('Archivo seleccionado en input 1:', input1.files[0]);
-        } else {
-            input1.files = input2.files;
-            console.log('Archivo seleccionado en input 2:', input2.files[0]);
+            // Determinar cuál input ha cambiado
+            if (event.target === input1) {
+                var file = input1.files[0];
+                if (file) {
+                    // Leer el archivo y establecerlo en el otro input
+                    var reader = new FileReader();
+                    reader.onload = function(e) {
+                        var newFile = new File([e.target.result], file.name, { type: file.type });
+                        var dataTransfer = new DataTransfer();
+                        dataTransfer.items.add(newFile);
+                        input2.files = dataTransfer.files;
+                        console.log('Archivo sincronizado en input 2:', input2.files[0]);
+                    };
+                    reader.readAsArrayBuffer(file);
+                }
+            } else {
+                var file = input2.files[0];
+                if (file) {
+                    var reader = new FileReader();
+                    reader.onload = function(e) {
+                        var newFile = new File([e.target.result], file.name, { type: file.type });
+                        var dataTransfer = new DataTransfer();
+                        dataTransfer.items.add(newFile);
+                        input1.files = dataTransfer.files;
+                        console.log('Archivo sincronizado en input 1:', input1.files[0]);
+                    };
+                    reader.readAsArrayBuffer(file);
+                }
+            }
         }
-    }
 
-    // Añadir event listeners a los inputs
-    document.getElementById('fileInput1').addEventListener('change', syncFiles);
-    document.getElementById('fileInput2').addEventListener('change', syncFiles);
-
+        // Añadir event listeners a los inputs
+        document.getElementById('fileInput1').addEventListener('change', syncFiles);
+        document.getElementById('fileInput2').addEventListener('change', syncFiles);
     });
 </script>
   
