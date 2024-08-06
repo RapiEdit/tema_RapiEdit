@@ -89,10 +89,7 @@
     <div class="uploadkit uploadkit-app-block" style="
     display: none !important;"> </div> </div> {% endcomment %}
 
-    <div class="product-form__input">
-    <label class="form__label-file">PROBANDO</label>
-    <input type="file" name="properties[PROBANDO]" required>
-  </div>
+
 
                       {%- form 'product',
                         product,
@@ -101,7 +98,7 @@
                         novalidate: 'novalidate',
                         data-type: 'add-to-cart-form'
                       -%}
-
+                      <input type="file" name="properties[PROBANDO]" required>
                         <input
                           type="hidden"
                           name="id"
