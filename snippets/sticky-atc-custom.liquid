@@ -172,15 +172,7 @@
         }
     
         
-        targetElement.addEventListener('click', (event) => {
-            if (!fileInput.value) {
-              event.preventDefault();
-              overlayMessage.textContent = "Ups! Has olvidado cargar tu archivo.";
-                overlay.style.display = 'flex';
-                document.body.style.overflow = 'hidden';
-                console.log('Sticky Intento de añadir al carrito sin archivo, overlay mostrado.');
-            }
-        });
+        
         // Escucha el evento de scroll en la ventana
         window.addEventListener("scroll", function() {
             // Obtiene la posición absoluta superior e inferior del elemento targetElement
@@ -229,6 +221,17 @@
             }
         }
     
+
+        targetElement.addEventListener('click', (event) => {
+            if (!fileInput.value) {
+              event.preventDefault();
+              overlayMessage.textContent = "Ups! Has olvidado cargar tu archivo.";
+                overlay.style.display = 'flex';
+                document.body.style.overflow = 'hidden';
+                console.log('Sticky Intento de añadir al carrito sin archivo, overlay mostrado.');
+            }
+        });
+        
         // Escucha los cambios en el cuerpo del documento para las variantes del producto
         document.body.addEventListener('change', handleVariantChange);
     
