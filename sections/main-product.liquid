@@ -66,10 +66,6 @@
   {%- endif -%}
 
   {% assign variant_images = product.images | where: 'attached_to_variant?', true | map: 'src' %}
-
-  {% render 'botonsubirachivo' %} 
-  {% render 'sticky-atc-custom', block: block, product: product, product_form_id: product_form_id, section_id: section.id %}
-
   <div id="overlay" class="overlay" style="display: none;">
     <div class="avisoarchivo">
         <p id="overlayMessage"> Ups! Has olvidado cargar tu archivo.</p>
@@ -562,7 +558,8 @@
       </div>
     {%- endif -%}
   </div>
-
+  
+  {% render 'sticky-atc-custom', block: block, product: product, product_form_id: product_form_id, section_id: section.id %}
   {% render 'product-media-modal' variant_images: variant_images %}
 
 
