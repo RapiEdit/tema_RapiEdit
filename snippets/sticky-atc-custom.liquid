@@ -155,10 +155,6 @@
         var atcElement = document.querySelector(".sticky-atc");
         // Obtiene el primer elemento cuyo ID comienza con "ProductSubmitButton-"
         var targetElement = document.querySelector('[id^="ProductSubmitButton-"]');
-        console.log('Sticky Botón de añadir al carrito encontrado:', targetElement);
-        // Obtiene el input que contiene el archivo
-        const fileInput = document.getElementById('fileInput');
-        console.log('Stikcy Input de archivo encontrado:', fileInput);
     
         // Función para obtener la posición absoluta superior de un elemento en la página
         function getAbsoluteTop(element) {
@@ -171,7 +167,6 @@
             return top;
         }
     
-        
         
         // Escucha el evento de scroll en la ventana
         window.addEventListener("scroll", function() {
@@ -221,17 +216,6 @@
             }
         }
     
-
-        targetElement.addEventListener('click', (event) => {
-            if (!fileInput.value) {
-              event.preventDefault();
-              overlayMessage.textContent = "Ups! Has olvidado cargar tu archivo.";
-                overlay.style.display = 'flex';
-                document.body.style.overflow = 'hidden';
-                console.log('Sticky Intento de añadir al carrito sin archivo, overlay mostrado.');
-            }
-        });
-        
         // Escucha los cambios en el cuerpo del documento para las variantes del producto
         document.body.addEventListener('change', handleVariantChange);
     
