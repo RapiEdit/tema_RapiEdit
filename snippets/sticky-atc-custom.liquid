@@ -95,13 +95,14 @@
                         product,
                         id: product_form_id,
                         class: 'form',
-                        {% comment %} novalidate: 'novalidate', {% endcomment %}
+                        novalidate: 'novalidate',
                         data-type: 'add-to-cart-form'
                       -%}
 
-                      <input type="file" name="properties[PROBANDO]" required>
+                      {% comment %} <input type="file" name="properties[PROBANDO]" required> {% endcomment %}
+                      <input type="file" id="fileInput" name="properties[LOGO]" accept="image/png" style="display: none;">
 
-
+                      
                         <input
                           type="hidden"
                           name="id"
