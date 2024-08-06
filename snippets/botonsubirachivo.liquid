@@ -128,13 +128,17 @@ display: none;
         </button>
     </div>
     <button type="button" id="BotonSubir" class="Boton-Subir">
-       SUBIR ARCHIVO
-       <img src="https://cdn.shopify.com/s/files/1/0622/2161/5164/files/FolderUpIcon.svg?v=1720358303" alt="FolderUpIcon" style="filter: invert(1); width: 30px; height: 30px; vertical-align: middle; margin-left: 5px;">
+        SUBIR ARCHIVO
+        <img src="https://cdn.shopify.com/s/files/1/0622/2161/5164/files/FolderUpIcon.svg?v=1720358303" alt="FolderUpIcon" style="filter: invert(1); width: 30px; height: 30px; vertical-align: middle; margin-left: 5px;">
     </button>
 </div>
 
+<div id="overlay" style="display:none;">
+    <p id="overlayMessage"></p>
+    <button id="closeOverlay">Cerrar</button>
+</div>
+
 <script>
-    // Codigo Boton Subir Archivo
     document.addEventListener("DOMContentLoaded", () => {
         const form = document.getElementById('product-form-template--16477474848828__main');
         console.log('Formulario encontrado:', form);
@@ -147,7 +151,7 @@ display: none;
         const fileInput = document.getElementById('fileInput');
         console.log('Input de archivo encontrado:', fileInput);
 
- // Remover el atributo 'required'
+        // Remover el atributo 'required'
         fileInput.removeAttribute('required');
         console.log("Atributo 'required' removido del input de archivo.");
 
@@ -173,7 +177,7 @@ display: none;
         console.log('Mensaje de overlay encontrado:', overlayMessage);
 
         const addToCartButtons = document.querySelectorAll('.product-form__submit');
-        console.log('Botón de añadir al carrito encontrado:', addToCartButton);
+        console.log('Botones de añadir al carrito encontrados:', addToCartButtons);
 
         botonSubir.addEventListener('click', () => {
             fileInput.click();
@@ -195,9 +199,9 @@ display: none;
                 console.log('Archivo PNG cargado y previsualizado.');
             } else {
                 fileInput.value = "";
-            overlayMessage.innerHTML = "Formato no permitido <br> por favor suba su logo en formato .PNG";
-            overlay.style.display = 'flex';
-            document.body.style.overflow = 'hidden';
+                overlayMessage.innerHTML = "Formato no permitido <br> por favor suba su logo en formato .PNG";
+                overlay.style.display = 'flex';
+                document.body.style.overflow = 'hidden';
                 console.error('Archivo seleccionado no es PNG.');
             }
         });
@@ -211,19 +215,20 @@ display: none;
         });
 
         addToCartButtons.forEach(button => {
-    button.addEventListener('click', (event) => {
-        if (!fileInput.value) {
-            // Evita el envío del formulario si no hay archivo cargado
-            event.preventDefault();
-            overlayMessage.textContent = "Ups! Has olvidado cargar tu archivo.";
-            overlay.style.display = 'flex';
-            document.body.style.overflow = 'hidden';
-            console.log('Intento de añadir al carrito sin archivo, overlay mostrado.');
-        } else {
-            // Envía el formulario si hay archivo cargado
-            form.submit(); // O usa el método adecuado para enviar el formulario si es necesario
-        }
-    });
+            button.addEventListener('click', (event) => {
+                if (!fileInput.value) {
+                    // Evita el envío del formulario si no hay archivo cargado
+                    event.preventDefault();
+                    overlayMessage.textContent = "Ups! Has olvidado cargar tu archivo.";
+                    overlay.style.display = 'flex';
+                    document.body.style.overflow = 'hidden';
+                    console.log('Intento de añadir al carrito sin archivo, overlay mostrado.');
+                } else {
+                    // Envía el formulario si hay archivo cargado
+                    form.submit(); // O usa el método adecuado para enviar el formulario si es necesario
+                }
+            });
+        });
 
         closeOverlay.addEventListener('click', () => {
             overlay.style.display = 'none';
@@ -231,5 +236,5 @@ display: none;
             console.log('Overlay cerrado.');
         });
     });
-
 </script>
+
