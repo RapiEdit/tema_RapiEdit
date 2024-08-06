@@ -152,8 +152,11 @@
 document.addEventListener("DOMContentLoaded", function() {
     // Obtiene el elemento con la clase "sticky-atc"
     var atcElement = document.querySelector(".sticky-atc");
+    console.log('Sticky ATC Element:', atcElement);
+    
     // Obtiene el primer elemento cuyo ID comienza con "ProductSubmitButton-"
     var targetElement = document.querySelector('[id^="ProductSubmitButton-"]');
+    console.log('Target Element:', targetElement);
     
     // Obtiene el input que contiene el archivo
     const fileInput = document.getElementById('fileInput');
@@ -161,17 +164,23 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Obtiene el formulario en el elemento sticky-atc
     var form = document.querySelector('.sticky-atc .product-form');
+    console.log('Form Element:', form);
 
     if (form) {
         form.addEventListener('submit', function(event) {
             event.preventDefault(); // Evitar el envío por defecto
+            console.log('Form submit event triggered');
 
             // Crear un nuevo objeto FormData
             var formData = new FormData(form);
+            console.log('FormData creado:', formData);
 
             // Añadir el archivo al FormData
             if (fileInput && fileInput.files.length > 0) {
+                console.log('Añadiendo archivo al FormData:', fileInput.files[0]);
                 formData.append('fileInput', fileInput.files[0]);
+            } else {
+                console.log('No hay archivos en el fileInput');
             }
 
             // Enviar el FormData al servidor usando fetch
@@ -179,6 +188,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 method: 'POST',
                 body: formData
             }).then(response => {
+                console.log('Respuesta del servidor:', response);
                 return response.json(); // Procesar la respuesta del servidor
             }).then(data => {
                 console.log('Success:', data);
@@ -187,6 +197,8 @@ document.addEventListener("DOMContentLoaded", function() {
                 console.error('Error:', error);
             });
         });
+    } else {
+        console.log('No se encontró el formulario en sticky-atc');
     }
 
     // Función para obtener la posición absoluta superior de un elemento en la página
@@ -205,6 +217,8 @@ document.addEventListener("DOMContentLoaded", function() {
         // Obtiene la posición absoluta superior e inferior del elemento targetElement
         var targetTopPosition = getAbsoluteTop(targetElement);
         var targetBottomPosition = targetTopPosition + targetElement.clientHeight;
+        console.log('Posición superior del targetElement:', targetTopPosition);
+        console.log('Posición inferior del targetElement:', targetBottomPosition);
 
         // Verifica si el elemento targetElement está fuera de la vista
         var isTargetElementOutOfView = targetTopPosition < window.scrollY;
@@ -212,14 +226,17 @@ document.addEventListener("DOMContentLoaded", function() {
         // Si está fuera de la vista, añade la clase 'show' al elemento atcElement
         if (isTargetElementOutOfView) {
             atcElement.classList.add('show');
+            console.log('Element está fuera de la vista, se añade la clase show');
         } else {
             // Si no está fuera de la vista, remueve la clase 'show'
             atcElement.classList.remove('show');
+            console.log('Element está dentro de la vista, se remueve la clase show');
         }
     });
 
     // Referencia al input de variante en el formulario sticky-atc
     var stickyAtcVariantInput = document.querySelector('.sticky-atc .product-variant-id');
+    console.log('Sticky Variant Input:', stickyAtcVariantInput);
 
     // Función para manejar el cambio de variante y actualizar el formulario sticky-atc
     function updateStickyATCOption(optionName, optionValue) {
@@ -228,11 +245,14 @@ document.addEventListener("DOMContentLoaded", function() {
         if (matches && matches[1]) {
             optionName = matches[1];
         }
-      
+        console.log('Actualizando opción:', optionName, 'con valor:', optionValue);
+
         // Encuentra y actualiza la visualización de la opción seleccionada
         var optionDisplay = document.querySelector('.selected-variant-option[data-option-name="' + optionName + '"]');
         if (optionDisplay) {
             optionDisplay.textContent = optionName + ': ' + optionValue;
+        } else {
+            console.log('No se encontró la visualización para la opción:', optionName);
         }
     }
 
@@ -243,6 +263,7 @@ document.addEventListener("DOMContentLoaded", function() {
         if (target.tagName === 'INPUT' || target.tagName === 'SELECT') {
             var optionName = target.name;
             var optionValue = target.tagName === 'INPUT' ? target.value : target.options[target.selectedIndex].textContent;
+            console.log('Cambio de variante detectado:', optionName, 'con valor:', optionValue);
             // Llama a la función para actualizar la opción del formulario sticky-atc
             updateStickyATCOption(optionName, optionValue);
         }
@@ -254,6 +275,7 @@ document.addEventListener("DOMContentLoaded", function() {
     // Las funciones para actualizar los precios y la imagen de la variante se encuentran en otros archivos
 });
 </script>
+
 
 
 
