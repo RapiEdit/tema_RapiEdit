@@ -120,7 +120,7 @@
                             endif
                           -%}
                           <button
-                            id="ProductSubmitButton-{{ section_id }}"
+                            id="StickyProductSubmitButton-{{ section_id }}"
                             type="submit"
                             name="add"
                             class="botonpro product-form__submit button button--full-width button--primary sticky-atc-button"
@@ -155,6 +155,7 @@
         var atcElement = document.querySelector(".sticky-atc");
         // Obtiene el primer elemento cuyo ID comienza con "ProductSubmitButton-"
         var targetElement = document.querySelector('[id^="ProductSubmitButton-"]');
+        console.log('Sticky Botón de añadir al carrito encontrado:', targetElement);
     
         // Función para obtener la posición absoluta superior de un elemento en la página
         function getAbsoluteTop(element) {
