@@ -156,35 +156,9 @@
         var atcElement = document.querySelector(".sticky-atc");
         // Obtiene el primer elemento cuyo ID comienza con "ProductSubmitButton-"
         var targetElement = document.querySelector('[id^="ProductSubmitButton-"]');
-        
         // Obtiene el input que contiene el archivo
         const fileInput = document.getElementById('fileInput');
         console.log('Stikcy Input de archivo encontrado:', fileInput);
-
-        form.addEventListener('submit', function(event) {
-        event.preventDefault(); // Evitar el envío por defecto
-
-        // Crear un nuevo objeto FormData
-        var formData = new FormData(form);
-
-        // Añadir el archivo al FormData
-        if (fileInput && fileInput.files.length > 0) {
-            formData.append('custom_file', fileInput.files[0]);
-        }
-
-        // Enviar el FormData al servidor usando fetch
-        fetch(form.action, {
-            method: 'POST',
-            body: formData
-        }).then(response => {
-            return response.json(); // Procesar la respuesta del servidor
-        }).then(data => {
-            console.log('Success:', data);
-            // Manejar la respuesta del servidor
-        }).catch(error => {
-            console.error('Error:', error);
-        });
-    });
     
         // Función para obtener la posición absoluta superior de un elemento en la página
         function getAbsoluteTop(element) {
@@ -245,7 +219,6 @@
                 updateStickyATCOption(optionName, optionValue);
             }
         }
-
         
     
         // Escucha los cambios en el cuerpo del documento para las variantes del producto
