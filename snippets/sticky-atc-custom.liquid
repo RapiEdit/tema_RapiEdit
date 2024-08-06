@@ -154,6 +154,7 @@
 </product-form>
 
 <script>
+    window.onload = function() {
         // Función para sincronizar los inputs
         function syncFiles(event) {
             var input1 = document.getElementById('fileInput1');
@@ -171,7 +172,8 @@
         // Añadir event listeners a los inputs
         document.getElementById('fileInput1').addEventListener('change', syncFiles);
         document.getElementById('fileInput2').addEventListener('change', syncFiles);
-    </script>
+    };
+</script>
 
 <script>
 
