@@ -110,10 +110,10 @@
     "brand_headline": "",
     "brand_description": "<p><\/p>",
     "brand_image_width": 100,
-    "social_facebook_link": "facebook.com\/RapiEdti.com",
-    "social_instagram_link": "instagram.com\/rapiedit.com",
+    "social_facebook_link": "https:\/\/www.facebook.com\/Rapiedit.comOficial\/",
+    "social_instagram_link": "",
     "social_youtube_link": "",
-    "social_tiktok_link": "https:\/\/tiktok.com\/@RapiEdit.com",
+    "social_tiktok_link": "https:\/\/www.tiktok.com\/@rapiedit.com",
     "social_twitter_link": "",
     "social_snapchat_link": "",
     "social_pinterest_link": "",
@@ -184,12 +184,6 @@
           "button_horizontal_position": "bottom_right",
           "button_vertical_position": "highest",
           "greeting_message": ""
-        }
-      },
-      "7155349627714823297": {
-        "type": "shopify:\/\/apps\/file-uploads-by-uploadkit\/blocks\/app-embed-block\/d7b05810-6170-4288-808a-df45248c4d28",
-        "disabled": true,
-        "settings": {
         }
       }
     },
