@@ -172,7 +172,7 @@ text-align: center;
     }
 }
 
-          /* Estilo del toggle switch */
+        /* Estilo del toggle switch */
         .switchPro {
             font-size: 17px;
             position: relative;
@@ -194,12 +194,13 @@ text-align: center;
             right: 0;
             bottom: 0;
             background-color: #ccc; /* Fondo gris por defecto */
+            color: #000;
+            font-weight: 600;
             border-radius: 30px;
             display: flex;
             justify-content: space-around;
             align-items: center;
-            transition: background-image 0.4s;
-            overflow: hidden;
+            transition: background-color 0.4s, background-image 0.4s;
         }
 
         .sliderPro span {
@@ -210,16 +211,17 @@ text-align: center;
             justify-content: center;
             font-weight: bold;
             color: #000;
-            transition: transform 0.4s, color 0.4s, background-color 0.4s;
+            transition: transform 0.4s, color 0.4s;
             border-radius: 30px;
+            z-index: 1;
         }
 
         .sliderPro span:first-child {
-            background-color: #fff;
+            background-color: #fff; /* Fondo blanco para "LOGO" */
         }
 
         .sliderPro span:last-child {
-            background-color: #fff;
+            background-color: #fff; /* Fondo blanco para "NOMBRE" */
         }
 
         .switchPro input:checked + .sliderPro {
