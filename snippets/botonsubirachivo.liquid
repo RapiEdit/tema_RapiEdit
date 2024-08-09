@@ -313,239 +313,181 @@ text-align: center;
 
 
 <script>
-    document.addEventListener("DOMContentLoaded", () => {
-        const form = document.getElementById('product-form-template--16477474848828__main');
-        const fileInput = document.getElementById('fileInput');
-        const toggleswitchPro = document.getElementById('toggleSwitch');
-        const nombreField = document.getElementById('nombre');
-        const logoField = document.getElementById('logo-field');
-        const notaField = document.getElementById('nota-field');
-        const notaOpcionalInput = document.getElementById('nota-opcional'); // Nota Opcional
-        const botonSubir = document.getElementById('BotonSubir');
-        const previewContainer = document.getElementById('previewContainer');
-        const filePreview = document.getElementById('filePreview');
-        const removeButton = document.getElementById('removeButton');
-        const overlay = document.getElementById('overlay');
-        const closeOverlay = document.getElementById('closeOverlay');
-        const overlayMessage = document.getElementById('overlayMessage');
-        const addToCartButtons = document.querySelectorAll(".product-form__submit");
-        const nombreInput = document.getElementById('nombrePro');
+   document.addEventListener("DOMContentLoaded", () => {
+    const form = document.getElementById('product-form-template--16477474848828__main');
+    const fileInput = document.getElementById('fileInput');
+    const fileInput2 = document.getElementById('fileInput2');
+    const toggleswitchPro = document.getElementById('toggleSwitch');
+    const nombreField = document.getElementById('nombre');
+    const logoField = document.getElementById('logo-field');
+    const notaField = document.getElementById('nota-field');
+    const notaOpcionalInput = document.getElementById('nota-opcional'); 
+    const notaOpcionalInput2 = document.getElementById('nota-opcional2');
+    const botonSubir = document.getElementById('BotonSubir');
+    const previewContainer = document.getElementById('previewContainer');
+    const filePreview = document.getElementById('filePreview');
+    const removeButton = document.getElementById('removeButton');
+    const overlay = document.getElementById('overlay');
+    const closeOverlay = document.getElementById('closeOverlay');
+    const overlayMessage = document.getElementById('overlayMessage');
+    const addToCartButtons = document.querySelectorAll(".product-form__submit");
+    const nombreInput = document.getElementById('nombrePro');
+    const nombreInput2 = document.getElementById('nombrePro2');
 
-        // Función para actualizar la visibilidad de los campos según el estado del Switch
-        function updateFields() {
-            console.log('updateFields: ', toggleswitchPro.checked);
-            if (toggleswitchPro.checked) {
-                logoField.classList.remove('hidden');
-                nombreField.classList.add('hidden');
-                notaField.classList.add('hidden');
-                fileInput.name = 'properties[LOGO]';
-                fileInput.required = false;
-                console.log('Logo field visible, Name field hidden');
-            } else {
-                logoField.classList.add('hidden');
-                nombreField.classList.remove('hidden');
-                notaField.classList.remove('hidden');
-                fileInput.name = '';
-                fileInput.required = false;
-                console.log('Name field visible, Logo field hidden');
-            }
+    function updateFields() {
+        if (toggleswitchPro.checked) {
+            logoField.classList.remove('hidden');
+            nombreField.classList.add('hidden');
+            notaField.classList.add('hidden');
+            fileInput.name = 'properties[LOGO]';
+            fileInput.required = false;
+        } else {
+            logoField.classList.add('hidden');
+            nombreField.classList.remove('hidden');
+            notaField.classList.remove('hidden');
+            fileInput.name = '';
+            fileInput.required = false;
         }
+    }
 
-           // Función para verificar los campos antes de agregar al carrito
     function checkFields() {
-        console.log('Nombre:', nombreInput.value);
-        console.log('Archivo cargado:', fileInput.files.length);
-        if (!toggleSwitch.checked && !nombreInput.value) {
-            overlayMessage.textContent = "Ups! Has olvidado escribir un nombre.";
-            overlay.style.display = 'flex';
-            document.body.style.overflow = 'hidden';
-            console.log('Error: Nombre no escrito');
+        if (!toggleswitchPro.checked && !nombreInput.value) {
+            showError("Ups! Has olvidado escribir un nombre.");
             return false;
         }
 
-        if (toggleSwitch.checked && !fileInput.files.length) {
-            overlayMessage.textContent = "Ups! Has olvidado cargar tu archivo.";
-            overlay.style.display = 'flex';
-            document.body.style.overflow = 'hidden';
-            console.log('Error: Archivo no cargado');
+        if (toggleswitchPro.checked && !fileInput.files.length) {
+            showError("Ups! Has olvidado cargar tu archivo.");
             return false;
         }
 
         return true;
     }
 
-        // Función para limpiar el archivo cuando se cambia a "Nombre"
-        function handleToggleChange() {
-        if (!toggleSwitch.checked) {
-            // Si el switch está desactivado, limpiar el archivo
-            fileInput.value = "";
-            filePreview.src = "";
-            previewContainer.style.display = 'none'; // Esto limpia el archivo seleccionado
-            notaOpcionalInput.value = ""; // Limpiar la nota opcional
-            console.log('Archivo y nota opcional limpiados debido al cambio en el switch.');
-            console.log('Archivo limpiado debido al cambio en el switch.');
-        }
+    function showError(message) {
+        overlayMessage.textContent = message;
+        overlay.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
     }
 
-        updateFields();
-        toggleswitchPro.addEventListener('change', updateFields);
-
-        botonSubir.addEventListener('click', () => {
-            if (toggleswitchPro.checked) {
-                fileInput.click();
-                console.log('File input clicked');
-            }
-        });
-
-        fileInput.addEventListener('change', (event) => {
-            const file = event.target.files[0];
-            if (file && file.type === 'image/png') {
-                console.log('File selected: ', file.name);
-                const reader = new FileReader();
-                reader.onload = function(e) {
-                    filePreview.src = e.target.result;
-                    previewContainer.style.display = 'block';
-                    botonSubir.innerHTML = 'CAMBIAR ARCHIVO <img src="https://cdn.shopify.com/s/files/1/0622/2161/5164/files/RefreshIcon.svg?v=1720358522" alt="RefreshIcon" style="filter: invert(1); width: 30px; height: 30px; vertical-align: middle; margin-left: 5px;">';
-                    notaField.classList.remove('hidden');
-                    notaOpcionalInput.value = ""; // Limpiar la nota opcional
-                    nombreInput.value = ""; // Limpiar la nota opcional
-                    console.log('File preview updated');
-                }
-                reader.readAsDataURL(file);
-            } else {
-                fileInput.value = "";
-                overlayMessage.innerHTML = "Formato no permitido <br> por favor suba su logo en formato .PNG";
-                overlay.style.display = 'flex';
-                document.body.style.overflow = 'hidden';
-                console.log('Error: Formato de archivo no permitido');
-            }
-        });
-
-        removeButton.addEventListener('click', () => {
+    function handleToggleChange() {
+        if (!toggleswitchPro.checked) {
             fileInput.value = "";
             filePreview.src = "";
             previewContainer.style.display = 'none';
-            botonSubir.innerHTML = 'SUBIR ARCHIVO <img src="https://cdn.shopify.com/s/files/1/0622/2161/5164/files/FolderUpIcon.svg?v=1720358303" alt="FolderUpIcon" style="filter: invert(1); width: 30px; height: 30px; vertical-align: middle; margin-left: 5px;">';
-            console.log('File removed');
-        });
-
-        closeOverlay.addEventListener('click', () => {
-            overlay.style.display = 'none';
-            document.body.style.overflow = 'auto';
-            console.log('Overlay closed');
-        });
-
-        addToCartButtons.forEach(button => {
-            button.addEventListener('click', (event) => {
-                if (!checkFields()) {
-                    event.preventDefault(); // Evita que se agregue al carrito si hay un error
-                    console.log('Add to cart prevented');
-                }
-            });
-        });
-
-         // Añadir event listener al toggle switch para manejar el cambio
-    toggleSwitch.addEventListener('change', handleToggleChange);
-    });
-</script>
-
-
-<script>
-
-    // Sincronizar inputs Files
-  document.addEventListener("DOMContentLoaded", function() {
-      const input1 = document.getElementById('fileInput');
-      const input2 = document.getElementById('fileInput2');
-
-      if (!input1 || !input2) {
-          console.error('No se encontraron los elementos con los IDs especificados.');
-          return;
-      }
-
-      function syncFiles(event) {
-          const fileInput1 = document.getElementById('fileInput');
-          const fileInput2 = document.getElementById('fileInput2');
-
-          if (event.target === fileInput1) {
-              const file = fileInput1.files[0];
-              if (file) {
-                  const reader = new FileReader();
-                  reader.onload = function(e) {
-                      const newFile = new File([e.target.result], file.name, { type: file.type });
-                      const dataTransfer = new DataTransfer();
-                      dataTransfer.items.add(newFile);
-                      fileInput2.files = dataTransfer.files;
-                      console.log('Archivo sincronizado en input 2:', fileInput2.files[0]);
-                  };
-                  reader.readAsArrayBuffer(file);
-              }
-          } else {
-              const file = fileInput2.files[0];
-              if (file) {
-                  const reader = new FileReader();
-                  reader.onload = function(e) {
-                      const newFile = new File([e.target.result], file.name, { type: file.type });
-                      const dataTransfer = new DataTransfer();
-                      dataTransfer.items.add(newFile);
-                      fileInput1.files = dataTransfer.files;
-                      console.log('Archivo sincronizado en input 1:', fileInput1.files[0]);
-                  };
-                  reader.readAsArrayBuffer(file);
-              }
-          }
-      }
-
-      // Añadir event listeners a los inputs
-      input1.addEventListener('change', syncFiles);
-      input2.addEventListener('change', syncFiles);
-  });
-</script>
-
-<script>
-    document.addEventListener("DOMContentLoaded", function() {
-        const textarea1 = document.getElementById('nota-opcional');
-        const textarea2 = document.getElementById('nota-opcional2');
-
-        if (!textarea1 || !textarea2) {
-            console.error('No se encontraron los elementos con los IDs especificados.');
-            return;
+            notaOpcionalInput.value = "";
+            nombreInput.value = "";
         }
+    }
 
-        function syncTextareas(event) {
-            if (event.target === textarea1) {
-                textarea2.value = textarea1.value;
-            } else {
-                textarea1.value = textarea2.value;
+    function handleFileChange(event) {
+        const file = event.target.files[0];
+        if (file && file.type === 'image/png') {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                filePreview.src = e.target.result;
+                previewContainer.style.display = 'block';
+                botonSubir.innerHTML = 'CAMBIAR ARCHIVO <img src="https://cdn.shopify.com/s/files/1/0622/2161/5164/files/RefreshIcon.svg?v=1720358522" alt="RefreshIcon" style="filter: invert(1); width: 30px; height: 30px; vertical-align: middle; margin-left: 5px;">';
+                notaField.classList.remove('hidden');
+                notaOpcionalInput.value = "";
+                nombreInput.value = "";
+            }
+            reader.readAsDataURL(file);
+        } else {
+            fileInput.value = "";
+            showError("Formato no permitido. Por favor suba su logo en formato .PNG");
+        }
+    }
+
+    function handleRemoveButton() {
+        fileInput.value = "";
+        filePreview.src = "";
+        previewContainer.style.display = 'none';
+        botonSubir.innerHTML = 'SUBIR ARCHIVO <img src="https://cdn.shopify.com/s/files/1/0622/2161/5164/files/FolderUpIcon.svg?v=1720358303" alt="FolderUpIcon" style="filter: invert(1); width: 30px; height: 30px; vertical-align: middle; margin-left: 5px;">';
+    }
+
+    function handleCloseOverlay() {
+        overlay.style.display = 'none';
+        document.body.style.overflow = 'auto';
+    }
+
+    function syncFiles(event) {
+        const fileInput1 = fileInput;
+        const fileInput2 = fileInput2;
+
+        if (event.target === fileInput1) {
+            const file = fileInput1.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const newFile = new File([e.target.result], file.name, { type: file.type });
+                    const dataTransfer = new DataTransfer();
+                    dataTransfer.items.add(newFile);
+                    fileInput2.files = dataTransfer.files;
+                };
+                reader.readAsArrayBuffer(file);
+            }
+        } else {
+            const file = fileInput2.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const newFile = new File([e.target.result], file.name, { type: file.type });
+                    const dataTransfer = new DataTransfer();
+                    dataTransfer.items.add(newFile);
+                    fileInput1.files = dataTransfer.files;
+                };
+                reader.readAsArrayBuffer(file);
             }
         }
+    }
 
-        // Añadir event listeners a los textareas
-        textarea1.addEventListener('input', syncTextareas);
-        textarea2.addEventListener('input', syncTextareas);
-    });
-</script>
+    function syncTextareas(event) {
+        const textarea1 = notaOpcionalInput;
+        const textarea2 = notaOpcionalInput2;
 
-
-<script>
-    document.addEventListener("DOMContentLoaded", function() {
-        const nombre1 = document.getElementById('nombrePro');
-        const nombre2 = document.getElementById('nombrePro2');
-
-        if (!nombre1 || !nombre2) {
-            console.error('No se encontraron los elementos con los IDs especificados.');
-            return;
+        if (event.target === textarea1) {
+            textarea2.value = textarea1.value;
+        } else {
+            textarea1.value = textarea2.value;
         }
+    }
 
-        function syncTextareas(event) {
-            if (event.target === nombre1) {
-                nombre2.value = nombre1.value;
-            } else {
-                nombre1.value = nombre2.value;
+    function syncNombre(event) {
+        const nombre1 = nombreInput;
+        const nombre2 = nombreInput2;
+
+        if (event.target === nombre1) {
+            nombre2.value = nombre1.value;
+        } else {
+            nombre1.value = nombre2.value;
+        }
+    }
+
+    // Event Listeners
+    updateFields();
+    toggleswitchPro.addEventListener('change', updateFields);
+    toggleswitchPro.addEventListener('change', handleToggleChange);
+    botonSubir.addEventListener('click', () => {
+        if (toggleswitchPro.checked) {
+            fileInput.click();
+        }
+    });
+    fileInput.addEventListener('change', handleFileChange);
+    fileInput2.addEventListener('change', syncFiles);
+    removeButton.addEventListener('click', handleRemoveButton);
+    closeOverlay.addEventListener('click', handleCloseOverlay);
+    addToCartButtons.forEach(button => {
+        button.addEventListener('click', (event) => {
+            if (!checkFields()) {
+                event.preventDefault();
             }
-        }
-
-        // Añadir event listeners a los textareas
-        nombre1.addEventListener('input', syncTextareas);
-        nombre2.addEventListener('input', syncTextareas);
+        });
     });
+    notaOpcionalInput.addEventListener('input', syncTextareas);
+    notaOpcionalInput2.addEventListener('input', syncTextareas);
+    nombreInput.addEventListener('input', syncNombre);
+    nombreInput2.addEventListener('input', syncNombre);
+});
+
 </script>
