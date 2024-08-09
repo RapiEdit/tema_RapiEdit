@@ -172,82 +172,78 @@ text-align: center;
     }
 }
 
-        /* Estilo del toggle switch */
-        .switchPro {
-            font-size: 17px;
-            position: relative;
-            display: inline-block;
-            width: 200px; /* Ancho suficiente para los textos */
-            height: 2em;
-            user-select: none;
-        }
+       /* From Uiverse.io by Yaya12085 */ 
+/* The switch - the box around the slider */
+.switch {
+  font-size: 17px;
+  position: relative;
+  display: inline-block;
+  width: 100px;
+  height: 2em;
+}
 
-        .switchPro input {
-            display: none;
-        }
 
-        .sliderPro {
-            position: absolute;
-            cursor: pointer;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: #ccc; /* Fondo gris por defecto */
-            color: #000;
-            font-weight: 600;
-            border-radius: 30px;
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            transition: background-color 0.4s, background-image 0.4s;
-        }
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #fff;
+  color: #000;
+  font-weight: 600;
+  border-radius: 30px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  transition: .4s;
+}
 
-        .sliderPro span {
-            height: 100%;
-            width: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            color: #000;
-            transition: transform 0.4s, color 0.4s;
-            border-radius: 30px;
-            z-index: 1;
-        }
+.slider:before {
+  position: absolute;
+  content: "On";
+  height: 90%;
+  width: 48%;
+  left: 2%;
+  border-radius: 20px;
+  background-color: white;
+  color: green;
+  display: grid;
+  align-content: center;
+  justify-content: center;
+  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.2), 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 -1px 0 0 rgba(0, 0, 0, 0.1) inset, 0 -1.31em 1.31em -1.31em rgba(0, 0, 0, 0.3) inset, 0 0 1px 0 rgba(0, 0, 0, 0.1);
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.15);
+  transition: .4s;
+}
 
-        .sliderPro span:first-child {
-            background-color: #fff; /* Fondo blanco para "LOGO" */
-        }
+.slider:after {
+  content: "";
+  position: absolute;
+  top: -7px;
+  left: -7px;
+  right: -7px;
+  bottom: -7px;
+  border-radius: 1.71em;
+  background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.06), rgba(0, 0, 0, 0.1));
+  z-index: -1;
+}
 
-        .sliderPro span:last-child {
-            background-color: #fff; /* Fondo blanco para "NOMBRE" */
-        }
+.switch input:checked + .slider {
+  background-color: #21f3a3;
+  color: #fff;
+}
 
-        .switchPro input:checked + .sliderPro {
-            background-color: #fff;
-            background-image: linear-gradient(to right, #5a0dff -5%, #ff29b8 31%, #ff581c, #ff29b8, #5a0dff);
-        }
+.switch input:checked + .slider:before {
+  content: "Off";
+  transform: translateX(100%);
+  color: red;
+}
 
-        .switchPro input:checked + .sliderPro span:first-child {
-            transform: translateX(100%);
-            color: #fff;
-        }
-
-        .switchPro input:checked + .sliderPro span:last-child {
-            transform: translateX(0);
-            color: #fff;
-        }
-
-        .switchPro input:not(:checked) + .sliderPro span:first-child {
-            transform: translateX(0);
-            color: #000;
-        }
-
-        .switchPro input:not(:checked) + .sliderPro span:last-child {
-            transform: translateX(-100%);
-            color: #000;
-        }
+.switch input {
+  display: none;
+}
 
 </style>
 
@@ -255,14 +251,13 @@ text-align: center;
 <div>
   
 
-    <label class="switchPro">
-        <input type="checkbox" id="toggleSwitchPro" checked>
-        <div class="sliderPro">
-    <span>LOGO</span>
-    <span>NOMBRE</span>
-    
+<label class="switch">
+  <input type="checkbox">
+  <div class="slider">
+    <span>On</span>
+    <span>Off</span>
   </div>
-    </label>
+</label>
    
 </div>
 
