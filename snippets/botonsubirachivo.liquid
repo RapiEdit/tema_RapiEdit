@@ -350,19 +350,28 @@ text-align: center;
             }
         }
 
-        // Función para verificar los campos antes de agregar al carrito
-        function checkFields() {
-            console.log('checkFields: ', nombreInput.value);
-            if (!toggleswitchPro.checked && !nombreInput.value) {
-                overlayMessage.textContent = "Ups! Has olvidado escribir un nombre.";
-                overlay.style.display = 'flex';
-                document.body.style.overflow = 'hidden';
-                console.log('Error: Nombre no escrito');
-                return false;
-            }
-            return true;
+           // Función para verificar los campos antes de agregar al carrito
+    function checkFields() {
+        console.log('Nombre:', nombreInput.value);
+        console.log('Archivo cargado:', fileInput.files.length);
+        if (!toggleSwitch.checked && !nombreInput.value) {
+            overlayMessage.textContent = "Ups! Has olvidado escribir un nombre.";
+            overlay.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+            console.log('Error: Nombre no escrito');
+            return false;
         }
 
+        if (toggleSwitch.checked && !fileInput.files.length) {
+            overlayMessage.textContent = "Ups! Has olvidado cargar tu archivo.";
+            overlay.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+            console.log('Error: Archivo no cargado');
+            return false;
+        }
+
+        return true;
+    }
         updateFields();
         toggleswitchPro.addEventListener('change', updateFields);
 
