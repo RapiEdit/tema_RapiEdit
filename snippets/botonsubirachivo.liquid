@@ -173,8 +173,8 @@ text-align: center;
 }
 
        /* From Uiverse.io by Yaya12085 */ 
-/* The switchPro - the box around the sliderPro */
-.switchPro {
+/* The switchProPro - the box around the sliderPro */
+.switchProPro {
   font-size: 17px;
   position: relative;
   display: inline-block;
@@ -230,29 +230,29 @@ text-align: center;
   z-index: -1;
 }
 
-.switchPro input:checked + .sliderPro {
+.switchProPro input:checked + .sliderPro {
   background-color: #21f3a3;
   color: #fff;
 }
 
-.switchPro input:checked + .sliderPro:before {
+.switchProPro input:checked + .sliderPro:before {
   content: "Off";
   transform: translateX(100%);
   color: red;
 }
 
-.switchPro input {
+.switchProPro input {
   display: none;
 }
 
 </style>
 
-<!-- Toggle switchPro para elegir entre LOGO y Nombre -->
+<!-- Toggle switchProPro para elegir entre LOGO y Nombre -->
 <div>
   
 
-<label class="switchPro">
-  <input type="checkbox" id="toggleSwitchPro">
+<label class="switchProPro">
+  <input type="checkbox">
   <div class="sliderProPro">
     <span>On</span>
     <span>Off</span>
@@ -310,7 +310,7 @@ text-align: center;
         fileInput.removeAttribute('required');
         console.log("Atributo 'required' removido del input de archivo.");
 
-        const toggleswitchPro = document.getElementById('toggleSwitchPro');
+        const toggleswitchProPro = document.getElementById('toggleswitchProPro');
         const nombreField = document.getElementById('nombre');
         const logoField = document.getElementById('logo-field');
         const notaField = document.getElementById('nota-field');
@@ -339,9 +339,9 @@ text-align: center;
         const addToCartButtons = document.querySelectorAll(".product-form__submit");
         console.log('Botones de añadir al carrito encontrados:', addToCartButtons);
 
-         // Función para actualizar la visibilidad de los campos según el toggle switch
+         // Función para actualizar la visibilidad de los campos según el toggle switchPro
          function updateFields() {
-            if (toggleSwitch.checked) {
+            if (toggleswitchPro.checked) {
                 // Mostrar LOGO y ocultar NOMBRE
                 logoField.classList.remove('hidden');
                 nombreField.classList.add('hidden');
@@ -358,15 +358,15 @@ text-align: center;
             }
         }
 
-        // Inicializar campos según el estado del toggle switch
+        // Inicializar campos según el estado del toggle switchPro
         updateFields();
 
-        // Agregar evento al toggle switchPro para actualizar campos
-        toggleSwitch.addEventListener('change', updateFields);
+        // Agregar evento al toggle switchProPro para actualizar campos
+        toggleswitchPro.addEventListener('change', updateFields);
 
         // Código Botón Subir Archivo
         botonSubir.addEventListener('click', () => {
-            if (toggleSwitch.checked) {
+            if (toggleswitchPro.checked) {
                 fileInput.click();
             }
         });
@@ -416,7 +416,7 @@ text-align: center;
          
         addToCartButtons.forEach(button => {
             button.addEventListener('click', (event) => {
-                if (!fileInput.files.length && toggleSwitch.checked) {
+                if (!fileInput.files.length && toggleswitchPro.checked) {
                     event.preventDefault();
                     overlayMessage.textContent = "Ups! Has olvidado cargar tu archivo.";
                     overlay.style.display = 'flex';
