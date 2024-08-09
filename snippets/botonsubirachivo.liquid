@@ -382,10 +382,13 @@ text-align: center;
         console.log('Toggle changed:', !toggleswitchPro.checked);
         if (!toggleswitchPro.checked) {
             fileInput.value = "";
+            fileInput2.value = "";
             filePreview.src = "";
             previewContainer.style.display = 'none';
             notaOpcionalInput.value = "";
+            notaOpcionalInput2.value = "";
             nombreInput.value = "";
+            nombreInput2.value = "";
             console.log('Archivo y nota opcional limpiados debido al cambio en el switch.');
         }
     }
