@@ -172,58 +172,62 @@ text-align: center;
     }
 }
 
-/* Estilo del toggle switch */
-.switchPro {
-        position: relative;
-        display: inline-block;
-        width: 60px;
-        height: 34px;
-    }
+     /* Estilo del toggle switch */
+     .switchPro {
+            position: relative;
+            display: inline-block;
+            width: 120px; /* Ampliar el ancho del toggle para incluir las etiquetas */
+            height: 34px;
+        }
 
-    .switchPro input {
-        opacity: 0;
-        width: 0;
-        height: 0;
-    }
+        .switchPro input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
 
-    .sliderPro {
-        position: absolute;
-        cursor: pointer;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background-color: #ccc;
-        transition: .4s;
-        border-radius: 34px;
-    }
+        .sliderPro {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(90deg, #ff0000 50%, #00ff00 50%);
+            transition: .4s;
+            border-radius: 34px;
+        }
 
-    .sliderPro:before {
-        position: absolute;
-        content: "";
-        height: 26px;
-        width: 26px;
-        border-radius: 50%;
-        left: 4px;
-        bottom: 4px;
-        background-color: white;
-        transition: .4s;
-    }
+        .sliderPro:before {
+            position: absolute;
+            content: "";
+            height: 26px;
+            width: 26px;
+            border-radius: 50%;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: .4s;
+        }
 
-    input:checked + .sliderPro {
-        background-color: #5a0dff;
-    }
+        input:checked + .sliderPro {
+            background: linear-gradient(90deg, #00ff00 50%, #ff0000 50%);
+        }
 
-    input:checked + .sliderPro:before {
-        transform: translateX(26px);
-    }
+        input:checked + .sliderPro:before {
+            transform: translateX(86px); /* Ajustar el valor según el ancho del toggle */
+        }
 
-    /* Estilo de los labels del switch */
-    .switch-label {
-        display: inline-block;
-        margin-right: 10px;
-        font-weight: bold;
-    }
+        /* Estilo de los labels del switch */
+        .switch-label {
+            display: inline-block;
+            font-weight: bold;
+            position: relative;
+            top: 5px;
+            font-size: 16px;
+            width: 60px; /* Ancho para que los labels estén alineados */
+            text-align: center;
+        }
 
 </style>
 
