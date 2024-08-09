@@ -173,20 +173,20 @@ text-align: center;
 }
 
 /* Estilo del toggle switch */
-.switch {
+.switchPro {
         position: relative;
         display: inline-block;
         width: 60px;
         height: 34px;
     }
 
-    .switch input {
+    .switchPro input {
         opacity: 0;
         width: 0;
         height: 0;
     }
 
-    .slider {
+    .sliderPro {
         position: absolute;
         cursor: pointer;
         top: 0;
@@ -198,7 +198,7 @@ text-align: center;
         border-radius: 34px;
     }
 
-    .slider:before {
+    .sliderPro:before {
         position: absolute;
         content: "";
         height: 26px;
@@ -210,11 +210,11 @@ text-align: center;
         transition: .4s;
     }
 
-    input:checked + .slider {
+    input:checked + .sliderPro {
         background-color: #5a0dff;
     }
 
-    input:checked + .slider:before {
+    input:checked + .sliderPro:before {
         transform: translateX(26px);
     }
 
@@ -226,6 +226,16 @@ text-align: center;
     }
 
 </style>
+
+<!-- Toggle Switch para elegir entre LOGO y Nombre -->
+<div>
+    <label class="switch-label">LOGO</label>
+    <label class="switchPro">
+        <input type="checkbox" id="toggleSwitchPro" checked>
+        <span class="sliderPro"></span>
+    </label>
+    <label class="switch-label">Nombre</label>
+</div>
 
 <div class="product-form__input">
     <label style="display:none;" class="pd-form__label">Subir Archivo</label>
