@@ -231,12 +231,12 @@ text-align: center;
   z-index: -1;
 }
 
-input:checked + .slider {
+.switchPro input:checked + .slider {
   background-color: #21f3a3;
   color: #fff;
 }
 
- input:checked + .slider:before {
+.switchPro input:checked + .slider:before {
   content: "Off";
   transform: translateX(100%);
   color: red;
@@ -254,12 +254,17 @@ input:checked + .slider {
 <label class="switchPro">
   <input type="checkbox" id="toggleSwitchPro" checked>
   <div class="sliderPro">
-    <span>On</span>
+    <span>LOGO</span>
     <span>Off</span>
   </div>
 </label>
 
-    
+    {% comment %} <label class="switch-label">LOGO</label>
+    <label class="switchPro">
+        <input type="checkbox" id="toggleSwitchPro" checked>
+        <span class="sliderPro"></span>
+    </label>
+    <label class="switch-label">Nombre</label> {% endcomment %}
 </div>
 
 <div class="product-form__input" id="logo-field">
