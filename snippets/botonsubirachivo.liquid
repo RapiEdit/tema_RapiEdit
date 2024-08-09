@@ -313,7 +313,7 @@ text-align: center;
 
 
 <script>
-   document.addEventListener("DOMContentLoaded", () => {
+  document.addEventListener("DOMContentLoaded", () => {
     const form = document.getElementById('product-form-template--16477474848828__main');
     const fileInput = document.getElementById('fileInput');
     const fileInput2 = document.getElementById('fileInput2');
@@ -335,29 +335,36 @@ text-align: center;
     const nombreInput2 = document.getElementById('nombrePro2');
 
     function updateFields() {
+        console.log('updateFields: ', toggleswitchPro.checked);
         if (toggleswitchPro.checked) {
             logoField.classList.remove('hidden');
             nombreField.classList.add('hidden');
             notaField.classList.add('hidden');
             fileInput.name = 'properties[LOGO]';
             fileInput.required = false;
+            console.log('Logo field visible, Name field hidden');
         } else {
             logoField.classList.add('hidden');
             nombreField.classList.remove('hidden');
             notaField.classList.remove('hidden');
             fileInput.name = '';
             fileInput.required = false;
+            console.log('Name field visible, Logo field hidden');
         }
     }
 
     function checkFields() {
+        console.log('Nombre:', nombreInput.value);
+        console.log('Archivo cargado:', fileInput.files.length);
         if (!toggleswitchPro.checked && !nombreInput.value) {
             showError("Ups! Has olvidado escribir un nombre.");
+            console.log('Error: Nombre no escrito');
             return false;
         }
 
         if (toggleswitchPro.checked && !fileInput.files.length) {
             showError("Ups! Has olvidado cargar tu archivo.");
+            console.log('Error: Archivo no cargado');
             return false;
         }
 
@@ -365,23 +372,27 @@ text-align: center;
     }
 
     function showError(message) {
+        console.log('Showing error message:', message);
         overlayMessage.textContent = message;
         overlay.style.display = 'flex';
         document.body.style.overflow = 'hidden';
     }
 
     function handleToggleChange() {
+        console.log('Toggle changed:', !toggleswitchPro.checked);
         if (!toggleswitchPro.checked) {
             fileInput.value = "";
             filePreview.src = "";
             previewContainer.style.display = 'none';
             notaOpcionalInput.value = "";
             nombreInput.value = "";
+            console.log('Archivo y nota opcional limpiados debido al cambio en el switch.');
         }
     }
 
     function handleFileChange(event) {
         const file = event.target.files[0];
+        console.log('File input change event:', file);
         if (file && file.type === 'image/png') {
             const reader = new FileReader();
             reader.onload = function(e) {
@@ -391,15 +402,18 @@ text-align: center;
                 notaField.classList.remove('hidden');
                 notaOpcionalInput.value = "";
                 nombreInput.value = "";
+                console.log('File preview updated');
             }
             reader.readAsDataURL(file);
         } else {
             fileInput.value = "";
             showError("Formato no permitido. Por favor suba su logo en formato .PNG");
+            console.log('Error: Formato de archivo no permitido');
         }
     }
 
     function handleRemoveButton() {
+        console.log('Remove button clicked');
         fileInput.value = "";
         filePreview.src = "";
         previewContainer.style.display = 'none';
@@ -407,6 +421,7 @@ text-align: center;
     }
 
     function handleCloseOverlay() {
+        console.log('Close overlay clicked');
         overlay.style.display = 'none';
         document.body.style.overflow = 'auto';
     }
@@ -415,8 +430,10 @@ text-align: center;
         const fileInput1 = fileInput;
         const fileInput2 = fileInput2;
 
+        console.log('Syncing files: event target:', event.target.id);
         if (event.target === fileInput1) {
             const file = fileInput1.files[0];
+            console.log('File from input 1:', file);
             if (file) {
                 const reader = new FileReader();
                 reader.onload = function(e) {
@@ -424,11 +441,13 @@ text-align: center;
                     const dataTransfer = new DataTransfer();
                     dataTransfer.items.add(newFile);
                     fileInput2.files = dataTransfer.files;
+                    console.log('Archivo sincronizado en input 2:', fileInput2.files[0]);
                 };
                 reader.readAsArrayBuffer(file);
             }
         } else {
             const file = fileInput2.files[0];
+            console.log('File from input 2:', file);
             if (file) {
                 const reader = new FileReader();
                 reader.onload = function(e) {
@@ -436,6 +455,7 @@ text-align: center;
                     const dataTransfer = new DataTransfer();
                     dataTransfer.items.add(newFile);
                     fileInput1.files = dataTransfer.files;
+                    console.log('Archivo sincronizado en input 1:', fileInput1.files[0]);
                 };
                 reader.readAsArrayBuffer(file);
             }
@@ -443,24 +463,30 @@ text-align: center;
     }
 
     function syncTextareas(event) {
+        console.log('Syncing textareas: event target:', event.target.id);
         const textarea1 = notaOpcionalInput;
         const textarea2 = notaOpcionalInput2;
 
         if (event.target === textarea1) {
             textarea2.value = textarea1.value;
+            console.log('Sync textareas: textarea1 value synced to textarea2');
         } else {
             textarea1.value = textarea2.value;
+            console.log('Sync textareas: textarea2 value synced to textarea1');
         }
     }
 
     function syncNombre(event) {
+        console.log('Syncing nombres: event target:', event.target.id);
         const nombre1 = nombreInput;
         const nombre2 = nombreInput2;
 
         if (event.target === nombre1) {
             nombre2.value = nombre1.value;
+            console.log('Sync nombres: nombre1 value synced to nombre2');
         } else {
             nombre1.value = nombre2.value;
+            console.log('Sync nombres: nombre2 value synced to nombre1');
         }
     }
 
