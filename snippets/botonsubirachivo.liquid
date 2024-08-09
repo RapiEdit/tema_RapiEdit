@@ -172,10 +172,62 @@ text-align: center;
     }
 }
 
+ /* Estilo del toggle switch */
+ .switch {
+        position: relative;
+        display: inline-block;
+        width: 60px;
+        height: 34px;
+    }
+
+    .switch input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+    }
+
+    .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #ccc;
+        transition: .4s;
+        border-radius: 34px;
+    }
+
+    .slider:before {
+        position: absolute;
+        content: "";
+        height: 26px;
+        width: 26px;
+        border-radius: 50%;
+        left: 4px;
+        bottom: 4px;
+        background-color: white;
+        transition: .4s;
+    }
+
+    input:checked + .slider {
+        background-color: #5a0dff;
+    }
+
+    input:checked + .slider:before {
+        transform: translateX(26px);
+    }
+
+    /* Estilo de los labels del switch */
+    .switch-label {
+        display: inline-block;
+        margin-right: 10px;
+        font-weight: bold;
+    }
 
 </style>
 
-<div class="product-form__input">
+<div class="product-form__input" id="logo-field">
     <label style="display:none;" class="pd-form__label">Subir Archivo</label>
     <input type="file" id="fileInput" form="{{ 'product-form-' | append: section.id }}" name="properties[LOGO]" accept="image/png" style="display: none;">
     <div id="previewContainer">
@@ -190,6 +242,15 @@ text-align: center;
     </button>
 </div>
 
+<!-- Toggle Switch para elegir entre LOGO y Nombre -->
+<div>
+    <label class="switch-label">LOGO</label>
+    <label class="switch">
+        <input type="checkbox" id="toggleSwitch" checked>
+        <span class="slider"></span>
+    </label>
+    <label class="switch-label">Nombre</label>
+</div>
 
 <div class="field-container hidden" id="nota-field">
     <label class="form__label-text custom" for="nota-opcional">Nota (Opcional):</label>
@@ -225,6 +286,12 @@ text-align: center;
         fileInput.removeAttribute('required');
         console.log("Atributo 'required' removido del input de archivo.");
 
+        const toggleSwitch = document.getElementById('toggleSwitch');
+        const nombreField = document.getElementById('nombre');
+        const logoField = document.getElementById('logo-field');
+        const notaField = document.getElementById('nota-field');
+        
+
         const botonSubir = document.getElementById('BotonSubir');
         console.log('Botón de subir encontrado:', botonSubir);
 
@@ -249,9 +316,36 @@ text-align: center;
         const addToCartButtons = document.querySelectorAll(".product-form__submit");
         console.log('Botones de añadir al carrito encontrados:', addToCartButtons);
 
+        // Función para actualizar la visibilidad de los campos según el toggle switch
+        function updateFields() {
+            if (toggleSwitch.checked) {
+                // Mostrar LOGO y ocultar NOMBRE
+                logoField.classList.remove('hidden');
+                nombreField.classList.add('hidden');
+                notaField.classList.remove('hidden');
+                fileInput.name = 'properties[LOGO]';
+                fileInput.required = false;
+            } else {
+                // Mostrar NOMBRE y ocultar LOGO
+                logoField.classList.add('hidden');
+                nombreField.classList.remove('hidden');
+                notaField.classList.add('hidden');
+                fileInput.name = '';
+                fileInput.required = false;
+            }
+        }
+
+        // Inicializar campos según el estado del toggle switch
+        updateFields();
+
+        // Agregar evento al toggle switch para actualizar campos
+        toggleSwitch.addEventListener('change', updateFields);
+
+        // Código Botón Subir Archivo
         botonSubir.addEventListener('click', () => {
-            fileInput.click();
-            console.log('Click en botón de subir archivo.');
+            if (toggleSwitch.checked) {
+                fileInput.click();
+            }
         });
 
         fileInput.addEventListener('change', (event) => {
@@ -295,17 +389,18 @@ text-align: center;
         }
         });
 
+        // Validación al agregar al carrito
+        const addToCartButtons = document.querySelectorAll(".product-form__submit");
         addToCartButtons.forEach(button => {
-  button.addEventListener('click', (event) => {
-    if (!fileInput.files.length) { // Verifica si no hay archivos seleccionados
-      event.preventDefault();
-      overlayMessage.textContent = "Ups! Has olvidado cargar tu archivo.";
-      overlay.style.display = 'flex';
-      document.body.style.overflow = 'hidden';
-      console.log('Intento de añadir al carrito sin archivo, overlay mostrado.');
-    } 
-  });
-});
+            button.addEventListener('click', (event) => {
+                if (!fileInput.files.length && toggleSwitch.checked) {
+                    event.preventDefault();
+                    overlayMessage.textContent = "Ups! Has olvidado cargar tu archivo.";
+                    overlay.style.display = 'flex';
+                    document.body.style.overflow = 'hidden';
+                }
+            });
+        });
 
         closeOverlay.addEventListener('click', () => {
             overlay.style.display = 'none';
