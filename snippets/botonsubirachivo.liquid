@@ -377,7 +377,9 @@ text-align: center;
         function handleToggleChange() {
         if (!toggleSwitch.checked) {
             // Si el switch está desactivado, limpiar el archivo
-            fileInput.value = ''; // Esto limpia el archivo seleccionado
+            fileInput.value = '';
+            filePreview.src = "";
+            previewContainer.style.display = 'none'; // Esto limpia el archivo seleccionado
             console.log('Archivo limpiado debido al cambio en el switch.');
         }
     }
