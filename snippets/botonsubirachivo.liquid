@@ -172,8 +172,8 @@ text-align: center;
     }
 }
 
-        /* Estilo del toggle switch */
-        .switchPro {
+                /* Estilo del toggle switch */
+                .switchPro {
             font-size: 17px;
             position: relative;
             display: inline-block;
@@ -186,7 +186,7 @@ text-align: center;
             display: none;
         }
 
-        .sliderPro {
+        .slider {
             position: absolute;
             cursor: pointer;
             top: 0;
@@ -202,7 +202,7 @@ text-align: center;
             overflow: hidden;
         }
 
-        .sliderPro:before, .sliderPro:after {
+        .slider span {
             position: absolute;
             height: 100%;
             width: 50%;
@@ -213,37 +213,35 @@ text-align: center;
             color: #000;
             transition: transform 0.4s, color 0.4s, background-color 0.4s;
             border-radius: 30px;
+            z-index: 1;
         }
 
-        .sliderPro:before {
-            content: "LOGO";
+        .slider span:first-child {
             left: 0;
             background-color: #fff;
-            color: #000;
         }
 
-        .sliderPro:after {
-            content: "NOMBRE";
+        .slider span:last-child {
             right: 0;
             background-color: #fff;
-            color: #000;
         }
 
-        .switchPro input:checked + .sliderPro {
+        .switchPro input:checked + .slider {
             background-color: #fff;
         }
 
-        .switchPro input:checked + .sliderPro:before {
+        .switchPro input:checked + .slider span:first-child {
             transform: translateX(100%);
             color: #fff;
             background-image: linear-gradient(to right, #5a0dff -5%, #ff29b8 31%, #ff581c, #ff29b8, #5a0dff);
         }
 
-        .switchPro input:checked + .sliderPro:after {
+        .switchPro input:checked + .slider span:last-child {
             transform: translateX(-100%);
             color: #fff;
             background-image: linear-gradient(to right, #5a0dff -5%, #ff29b8 31%, #ff581c, #ff29b8, #5a0dff);
         }
+
 </style>
 
 <!-- Toggle Switch para elegir entre LOGO y Nombre -->
@@ -252,7 +250,10 @@ text-align: center;
 
     <label class="switchPro">
         <input type="checkbox" id="toggleSwitchPro" checked>
-        <span class="sliderPro"></span>
+        <div class="slider">
+    <span>LOGO</span>
+    <span>NOMBRE</span>
+  </div>
     </label>
    
 </div>
