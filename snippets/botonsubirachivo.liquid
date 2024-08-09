@@ -172,8 +172,8 @@ text-align: center;
     }
 }
 
-               /* Estilo del toggle switch */
-        .switchPro {
+          /* Estilo del toggle switch */
+          .switchPro {
             font-size: 17px;
             position: relative;
             display: inline-block;
@@ -198,9 +198,8 @@ text-align: center;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            transition: background-image 0.4s;
+            transition: background-color 0.4s;
             overflow: hidden;
-           
         }
 
         .sliderPro span {
@@ -218,27 +217,41 @@ text-align: center;
         }
 
         .sliderPro span:first-child {
-          
+            background-color: #fff;
+            color: #000;
         }
 
         .sliderPro span:last-child {
             background-color: #fff;
+            color: #000;
         }
 
         .switchPro input:checked + .sliderPro {
-            
+            background-color: #ccc;
         }
 
         .switchPro input:checked + .sliderPro span:first-child {
             transform: translateX(100%);
-            color: #595757
-
+            color: #fff;
+            background-color: #5a0dff; /* Fondo del lado no seleccionado */
         }
 
         .switchPro input:checked + .sliderPro span:last-child {
+            transform: translateX(0);
+            background-image: linear-gradient(to right, #5a0dff -5%, #ff29b8 31%, #ff581c, #ff29b8, #5a0dff);
+            color: #fff;
+        }
+
+        .switchPro input:not(:checked) + .sliderPro span:first-child {
+            transform: translateX(0);
+            background-image: linear-gradient(to right, #5a0dff -5%, #ff29b8 31%, #ff581c, #ff29b8, #5a0dff);
+            color: #fff;
+        }
+
+        .switchPro input:not(:checked) + .sliderPro span:last-child {
             transform: translateX(-100%);
             color: #fff;
-            background-image: linear-gradient(to right, #5a0dff -5%, #ff29b8 31%, #ff581c, #ff29b8, #5a0dff);
+            background-color: #5a0dff; /* Fondo del lado no seleccionado */
         }
 
 </style>
