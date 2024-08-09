@@ -97,6 +97,7 @@
                       {% comment %} <input type="file" name="properties[PROBANDO]" required> {% endcomment %}
                       <input type="file" id="fileInput2"  name="properties[LOGO]" style="display: none;">
                       <textarea class="field__input" id="nota-opcional2" name="properties[Nota (Opcional):]" style="display: none;"></textarea>
+                      <input class="field__input" type="text" id="nombrePro2" name="properties[Nombre]" style="display: none;">
 
                       
                         <input
@@ -224,6 +225,30 @@
     });
 </script>
 
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const nombre1 = document.getElementById('nombrePro');
+        const nombre2 = document.getElementById('nombrePro2');
+
+        if (!nombre1 || !nombre2) {
+            console.error('No se encontraron los elementos con los IDs especificados.');
+            return;
+        }
+
+        function syncTextareas(event) {
+            if (event.target === nombre1) {
+                nombre2.value = nombre1.value;
+            } else {
+                nombre1.value = nombre2.value;
+            }
+        }
+
+        // Añadir event listeners a los textareas
+        nombre1.addEventListener('input', syncTextareas);
+        nombre2.addEventListener('input', syncTextareas);
+    });
+</script>
 
 <script>
 
