@@ -172,8 +172,8 @@ text-align: center;
     }
 }
 
-     /* Estilo del toggle switch */
-     .switchPro {
+        /* Estilo del toggle switch */
+        .switchPro {
             font-size: 17px;
             position: relative;
             display: inline-block;
@@ -211,21 +211,22 @@ text-align: center;
             justify-content: center;
             font-weight: bold;
             color: #000;
-            transition: transform 0.4s, color 0.4s;
+            transition: transform 0.4s, color 0.4s, background-color 0.4s;
+            border-radius: 30px;
         }
 
         .sliderPro:before {
             content: "LOGO";
             left: 0;
             background-color: #fff;
-            border-radius: 30px;
+            color: #000;
         }
 
         .sliderPro:after {
             content: "NOMBRE";
             right: 0;
             background-color: #fff;
-            border-radius: 30px;
+            color: #000;
         }
 
         .switchPro input:checked + .sliderPro {
