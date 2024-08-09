@@ -252,11 +252,12 @@ text-align: center;
     </button>
 </div>
 
+<div class="field-container" id="nombre">
 <label class="form__label-text custom" for="nombre">Nombre</label>
 <div class="field nombre">
-    <input class="field__input" form="{{ 'product-form-' | append: section.id }}" type="text" id="nombre" name="properties[Nombre]" placeholder="Escribe tu nombre o el de tu negocio">
+    <input class="field__input" form="{{ 'product-form-' | append: section.id }}" type="text" id="nombrePro" name="properties[Nombre]" placeholder="Escribe tu nombre o el de tu negocio">
 </div>
-
+</div>
 <div class="field-container hidden" id="nota-field">
     <label class="form__label-text custom" for="nota-opcional">Nota (Opcional):</label>
     <div class="field custom">
