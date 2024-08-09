@@ -177,8 +177,9 @@ text-align: center;
             font-size: 17px;
             position: relative;
             display: inline-block;
-            width: 200px; /* Ampliar el ancho para incluir los textos */
+            width: 200px; /* Ancho suficiente para los textos */
             height: 2em;
+            user-select: none;
         }
 
         .switchPro input {
@@ -192,63 +193,55 @@ text-align: center;
             left: 0;
             right: 0;
             bottom: 0;
-            background-color: #fff;
-            color: #000;
-            font-weight: 600;
+            background-color: #ccc; /* Fondo gris por defecto */
             border-radius: 30px;
             display: flex;
-            justify-content: space-around;
+            justify-content: space-between;
             align-items: center;
-            transition: .4s;
-            box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.2), 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 -1px 0 0 rgba(0, 0, 0, 0.1) inset, 0 -1.31em 1.31em -1.31em rgba(0, 0, 0, 0.3) inset, 0 0 1px 0 rgba(0, 0, 0, 0.1);
+            transition: background-image 0.4s, color 0.4s;
+            overflow: hidden;
         }
 
-        .sliderPro:before {
+        .sliderPro:before, .sliderPro:after {
             position: absolute;
-            content: "PRO";
-            height: 90%;
+            height: 100%;
             width: 50%;
-            left: 0;
-            border-radius: 30px;
-            background-color: white;
-            color: #000;
             display: flex;
             align-items: center;
             justify-content: center;
-            text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.15);
-            transition: .4s;
+            font-weight: bold;
+            color: #000;
+            transition: transform 0.4s, color 0.4s;
+        }
+
+        .sliderPro:before {
+            content: "LOGO";
+            left: 0;
+            background-color: #fff;
+            border-radius: 30px;
         }
 
         .sliderPro:after {
             content: "NOMBRE";
-            height: 90%;
-            width: 50%;
             right: 0;
+            background-color: #fff;
             border-radius: 30px;
-            background-color: white;
-            color: #000;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.15);
-            transition: .4s;
         }
 
         .switchPro input:checked + .sliderPro {
-            background-color: #21f3a3;
+            background-image: linear-gradient(to right, #5a0dff -5%, #ff29b8 31%, #ff581c, #ff29b8, #5a0dff);
         }
 
         .switchPro input:checked + .sliderPro:before {
-            content: "NOMBRE";
             transform: translateX(100%);
             color: #fff;
-            background-color: #21f3a3;
+            background-color: #5a0dff;
         }
 
         .switchPro input:checked + .sliderPro:after {
-            content: "LOGO";
             transform: translateX(-100%);
             color: #fff;
+            background-color: #5a0dff;
         }
 </style>
 
