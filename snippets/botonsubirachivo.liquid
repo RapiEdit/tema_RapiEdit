@@ -173,8 +173,8 @@ text-align: center;
 }
 
        /* From Uiverse.io by Yaya12085 */ 
-/* The switch - the box around the slider */
-.switch {
+/* The switchPro - the box around the sliderPro */
+.switchPro {
   font-size: 17px;
   position: relative;
   display: inline-block;
@@ -183,8 +183,8 @@ text-align: center;
 }
 
 
-/* The slider */
-.slider {
+/* The sliderPro */
+.sliderPro {
   position: absolute;
   cursor: pointer;
   top: 0;
@@ -201,7 +201,7 @@ text-align: center;
   transition: .4s;
 }
 
-.slider:before {
+.sliderPro:before {
   position: absolute;
   content: "On";
   height: 90%;
@@ -218,7 +218,7 @@ text-align: center;
   transition: .4s;
 }
 
-.slider:after {
+.sliderPro:after {
   content: "";
   position: absolute;
   top: -7px;
@@ -230,30 +230,30 @@ text-align: center;
   z-index: -1;
 }
 
-.switch input:checked + .slider {
+.switchPro input:checked + .sliderPro {
   background-color: #21f3a3;
   color: #fff;
 }
 
-.switch input:checked + .slider:before {
+.switchPro input:checked + .sliderPro:before {
   content: "Off";
   transform: translateX(100%);
   color: red;
 }
 
-.switch input {
+.switchPro input {
   display: none;
 }
 
 </style>
 
-<!-- Toggle Switch para elegir entre LOGO y Nombre -->
+<!-- Toggle switchPro para elegir entre LOGO y Nombre -->
 <div>
   
 
-<label class="switch">
+<label class="switchPro">
   <input type="checkbox">
-  <div class="slider">
+  <div class="sliderProPro">
     <span>On</span>
     <span>Off</span>
   </div>
@@ -310,7 +310,7 @@ text-align: center;
         fileInput.removeAttribute('required');
         console.log("Atributo 'required' removido del input de archivo.");
 
-        const toggleSwitch = document.getElementById('toggleSwitchPro');
+        const toggleswitchPro = document.getElementById('toggleSwitchPro');
         const nombreField = document.getElementById('nombre');
         const logoField = document.getElementById('logo-field');
         const notaField = document.getElementById('nota-field');
@@ -361,7 +361,7 @@ text-align: center;
         // Inicializar campos según el estado del toggle switch
         updateFields();
 
-        // Agregar evento al toggle switch para actualizar campos
+        // Agregar evento al toggle switchPro para actualizar campos
         toggleSwitch.addEventListener('change', updateFields);
 
         // Código Botón Subir Archivo
