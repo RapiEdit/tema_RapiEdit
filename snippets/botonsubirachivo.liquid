@@ -372,6 +372,16 @@ text-align: center;
 
         return true;
     }
+
+        // Función para limpiar el archivo cuando se cambia a "Nombre"
+        function handleToggleChange() {
+        if (!toggleSwitch.checked) {
+            // Si el switch está desactivado, limpiar el archivo
+            fileInput.value = ''; // Esto limpia el archivo seleccionado
+            console.log('Archivo limpiado debido al cambio en el switch.');
+        }
+    }
+
         updateFields();
         toggleswitchPro.addEventListener('change', updateFields);
 
@@ -426,6 +436,9 @@ text-align: center;
                 }
             });
         });
+
+         // Añadir event listener al toggle switch para manejar el cambio
+    toggleSwitch.addEventListener('change', handleToggleChange);
     });
 </script>
 
