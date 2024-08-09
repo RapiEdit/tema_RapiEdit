@@ -227,15 +227,6 @@ text-align: center;
 
 </style>
 
-<!-- Toggle Switch para elegir entre LOGO y Nombre -->
-<div>
-    <label class="switch-label">LOGO</label>
-    <label class="switch">
-        <input type="checkbox" id="toggleSwitch" checked>
-        <span class="slider"></span>
-    </label>
-    <label class="switch-label">Nombre</label>
-</div>
 <div class="product-form__input" id="logo-field">
     <label style="display:none;" class="pd-form__label">Subir Archivo</label>
     <input type="file" id="fileInput" form="{{ 'product-form-' | append: section.id }}" name="properties[LOGO]" accept="image/png" style="display: none;">
@@ -251,7 +242,15 @@ text-align: center;
     </button>
 </div>
 
-
+<!-- Toggle Switch para elegir entre LOGO y Nombre -->
+<div>
+    <label class="switch-label">LOGO</label>
+    <label class="switch">
+        <input type="checkbox" id="toggleSwitchPro" checked>
+        <span class="slider"></span>
+    </label>
+    <label class="switch-label">Nombre</label>
+</div>
 
 <div class="field-container hidden" id="nota-field">
     <label class="form__label-text custom" for="nota-opcional">Nota (Opcional):</label>
@@ -287,7 +286,7 @@ text-align: center;
         fileInput.removeAttribute('required');
         console.log("Atributo 'required' removido del input de archivo.");
 
-        const toggleSwitch = document.getElementById('toggleSwitch');
+        const toggleSwitch = document.getElementById('toggleSwitchPro');
         const nombreField = document.getElementById('nombre');
         const logoField = document.getElementById('logo-field');
         const notaField = document.getElementById('nota-field');
