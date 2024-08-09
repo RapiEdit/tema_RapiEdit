@@ -426,41 +426,29 @@ text-align: center;
         document.body.style.overflow = 'auto';
     }
 
+    // Función para sincronizar archivos entre dos inputs
     function syncFiles(event) {
-    console.log('Syncing files: event target:', event.target.id);
-    const fileInput1 = fileInput;
-    const fileInput2 = fileInput2;
+        const sourceInput = event.target;
+        const targetInput = sourceInput === fileInput ? fileInput2 : fileInput;
+        const file = sourceInput.files[0];
 
-    if (event.target === fileInput1) {
-        const file = fileInput1.files[0];
-        console.log('File from input 1:', file);
         if (file) {
             const reader = new FileReader();
-            reader.onload = function(e) {
+            reader.onload = (e) => {
                 const newFile = new File([e.target.result], file.name, { type: file.type });
                 const dataTransfer = new DataTransfer();
                 dataTransfer.items.add(newFile);
-                fileInput2.files = dataTransfer.files;
-                console.log('Archivo sincronizado en input 2:', fileInput2.files[0]);
-            };
-            reader.readAsArrayBuffer(file);
-        }
-    } else {
-        const file = fileInput2.files[0];
-        console.log('File from input 2:', file);
-        if (file) {
-            const reader = new FileReader();
-            reader.onload = function(e) {
-                const newFile = new File([e.target.result], file.name, { type: file.type });
-                const dataTransfer = new DataTransfer();
-                dataTransfer.items.add(newFile);
-                fileInput1.files = dataTransfer.files;
-                console.log('Archivo sincronizado en input 1:', fileInput1.files[0]);
+                targetInput.files = dataTransfer.files;
+                console.log(`Archivo sincronizado en ${targetInput.id}:`, targetInput.files[0]);
             };
             reader.readAsArrayBuffer(file);
         }
     }
-}
+
+    // Añadir event listeners a los inputs
+    fileInput.addEventListener('change', syncFiles);
+    fileInput2.addEventListener('change', syncFiles);
+
 
     function syncTextareas(event) {
         console.log('Syncing textareas: event target:', event.target.id);
