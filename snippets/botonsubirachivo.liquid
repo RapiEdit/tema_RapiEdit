@@ -190,6 +190,10 @@ text-align: center;
     </button>
 </div>
 
+<label class="form__label-text custom" for="nombre">Nombre</label>
+<div class="field custom">
+    <input class="field__input" form="{{ 'product-form-' | append: section.id }}" type="text" id="nombre" name="properties[Nombre]">
+</div>
 
 <div class="field-container hidden" id="nota-field">
     <label class="form__label-text custom" for="nota-opcional">Nota (Opcional):</label>
