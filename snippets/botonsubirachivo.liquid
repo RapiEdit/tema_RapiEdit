@@ -172,62 +172,10 @@ text-align: center;
     }
 }
 
- /* Estilo del toggle switch */
- .switch {
-        position: relative;
-        display: inline-block;
-        width: 60px;
-        height: 34px;
-    }
-
-    .switch input {
-        opacity: 0;
-        width: 0;
-        height: 0;
-    }
-
-    .slider {
-        position: absolute;
-        cursor: pointer;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background-color: #ccc;
-        transition: .4s;
-        border-radius: 34px;
-    }
-
-    .slider:before {
-        position: absolute;
-        content: "";
-        height: 26px;
-        width: 26px;
-        border-radius: 50%;
-        left: 4px;
-        bottom: 4px;
-        background-color: white;
-        transition: .4s;
-    }
-
-    input:checked + .slider {
-        background-color: #5a0dff;
-    }
-
-    input:checked + .slider:before {
-        transform: translateX(26px);
-    }
-
-    /* Estilo de los labels del switch */
-    .switch-label {
-        display: inline-block;
-        margin-right: 10px;
-        font-weight: bold;
-    }
 
 </style>
 
-<div class="product-form__input" >
+<div class="product-form__input">
     <label style="display:none;" class="pd-form__label">Subir Archivo</label>
     <input type="file" id="fileInput" form="{{ 'product-form-' | append: section.id }}" name="properties[LOGO]" accept="image/png" style="display: none;">
     <div id="previewContainer">
@@ -241,15 +189,7 @@ text-align: center;
        <img src="https://cdn.shopify.com/s/files/1/0622/2161/5164/files/FolderUpIcon.svg?v=1720358303" alt="FolderUpIcon" style="filter: invert(1); width: 30px; height: 30px; vertical-align: middle; margin-left: 5px;">
     </button>
 </div>
-<!-- Toggle Switch para elegir entre LOGO y Nombre -->
-<div>
-    <label class="switch-label">LOGO</label>
-    <label class="switch">
-        <input type="checkbox" id="toggleSwitch" checked>
-        <span class="slider"></span>
-    </label>
-    <label class="switch-label">Nombre</label>
-</div>
+
 
 <div class="field-container hidden" id="nota-field">
     <label class="form__label-text custom" for="nota-opcional">Nota (Opcional):</label>
