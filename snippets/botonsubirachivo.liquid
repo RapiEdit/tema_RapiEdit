@@ -204,7 +204,7 @@ text-align: center;
 
 .sliderPro:before {
   position: absolute;
-  content: "On";
+  content: "LOGO";
   height: 90%;
   width: 48%;
   left: 2%;
@@ -237,7 +237,7 @@ text-align: center;
 }
 
 .switchPro input:checked + .slider:before {
-  content: "Off";
+  content: "NOMBRE";
   transform: translateX(100%);
   color: red;
 }
@@ -252,12 +252,13 @@ text-align: center;
 <div>
 
 <label class="switchPro">
-  <input type="checkbox">
+  <input type="checkbox"  id="toggleSwitchPro" checked>
   <div class="sliderPro">
     <span>LOGO</span>
     <span>NOMBRE</span>
   </div>
 </label>
+
 
 </div>
 
