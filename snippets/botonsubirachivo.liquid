@@ -195,12 +195,29 @@ text-align: center;
   color: #FFF;
   font-weight: 600;
   border-radius: 30px;
-  border-color: #fff solid 1px;
+  border: solid 1px #fff;
   display: flex;
   justify-content: space-around;
   align-items: center;
   transition: .4s;
+
+  background-size: 200% 100%;
+  animation: gradientAnimation 4s linear infinite;
+
+
+/* Definición de la animación con keyframes */
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 0;
+  }
+  50% {
+    background-position: 100% 0;
+  }
+  100% {
+    background-position: 0% 0;
+  }
 }
+
 
 .sliderPro:before {
   position: absolute;
